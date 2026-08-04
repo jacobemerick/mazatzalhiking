@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mazatzal Hiking — build a route worth walking</title>
-<meta name="description" content="Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked. Loops, lassos, figure-eights, and out-and-backs, with honest trail conditions.">
+<title>Mazatzal Hiking</title>
+<meta name="description" content="Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked.">
 <meta name="theme-color" content="#17150f">
 <meta property="og:title" content="Mazatzal Hiking">
 <meta property="og:description" content="Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked.">
@@ -13,17 +13,9 @@
 <style>
   :root {
     --ink: #17150f;
-    --ink-2: #221f18;
     --sand: #faf6ef;
-    --sand-2: #f1e9dc;
-    --clay: #a8492353;
-    --clay-solid: #a84923;
-    --clay-lite: #c8703f;
-    --sage: #5c7052;
     --gold: #d9a441;
-    --muted: #6d6559;
-    --line: rgba(23, 21, 15, .13);
-    --line-dark: rgba(250, 246, 239, .16);
+    --line: rgba(250, 246, 239, .16);
     --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
     --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -31,50 +23,34 @@
 
   * { box-sizing: border-box; }
 
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html { -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
-    background: var(--sand);
-    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--ink);
+    color: var(--sand);
     font-family: var(--sans);
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; letter-spacing: -.01em; margin: 0; }
-
   a { color: inherit; }
 
-  .wrap { width: min(1080px, 100% - 3rem); margin-inline: auto; }
-
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: .72rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin: 0 0 1.1rem;
-  }
+  .wrap { width: min(820px, 100% - 3rem); margin-inline: auto; }
 
   /* ---------- hero ---------- */
 
-  .hero {
+  main {
     position: relative;
-    background: var(--ink);
-    color: var(--sand);
+    flex: 1;
+    display: flex;
+    align-items: center;
     overflow: hidden;
-    padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(4rem, 9vw, 7.5rem);
-  }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: .55;
+    padding: clamp(3.5rem, 10vw, 7rem) 0;
   }
 
   .topo {
@@ -88,7 +64,7 @@
 
   .topo path { fill: none; stroke: var(--gold); stroke-width: 1.1; }
 
-  .hero .wrap { position: relative; z-index: 1; }
+  .wrap { position: relative; z-index: 1; }
 
   .brand {
     display: flex;
@@ -99,27 +75,120 @@
     letter-spacing: .16em;
     text-transform: uppercase;
     color: rgba(250, 246, 239, .72);
-    margin-bottom: clamp(3rem, 8vw, 5rem);
+    margin-bottom: clamp(2.5rem, 7vw, 4rem);
   }
 
   .brand svg { flex: none; }
 
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 1.1rem;
+  }
+
   h1 {
-    font-size: clamp(2.5rem, 6.6vw, 4.4rem);
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6.5vw, 4rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
     max-width: 15ch;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
   }
 
   h1 em { font-style: normal; color: var(--gold); }
 
   .lede {
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-    max-width: 56ch;
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    max-width: 54ch;
     color: rgba(250, 246, 239, .78);
-    margin: 0 0 2.5rem;
+    margin: 0 0 2.4rem;
   }
 
-  .cta-row { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+  /* ---------- pronunciation guide ---------- */
+
+  .term {
+    position: relative;
+    color: var(--sand);
+    text-decoration: underline dotted rgba(217, 164, 65, .7);
+    text-underline-offset: .28em;
+    cursor: help;
+    border-radius: 3px;
+  }
+
+  .term:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .pron {
+    position: absolute;
+    bottom: calc(100% + .85rem);
+    left: 0;
+    z-index: 5;
+    width: max-content;
+    max-width: min(300px, 78vw);
+    padding: .85rem 1.05rem .95rem;
+    background: var(--sand);
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .45);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+  }
+
+  .pron::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 1.6rem;
+    border: 7px solid transparent;
+    border-top-color: var(--sand);
+  }
+
+  .term:hover .pron,
+  .term:focus .pron,
+  .term:focus-within .pron {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .pron b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+  }
+
+  .pron i {
+    display: block;
+    font-family: var(--serif);
+    font-style: normal;
+    font-size: 1.02rem;
+    color: #7a3f1c;
+    margin-top: .1rem;
+  }
+
+  .pron em {
+    display: block;
+    margin-top: .5rem;
+    padding-top: .5rem;
+    border-top: 1px solid rgba(23, 21, 15, .14);
+    font-style: normal;
+    font-size: .8rem;
+    line-height: 1.45;
+    color: #6d6559;
+  }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 1.4rem; align-items: center; }
 
   .btn {
     display: inline-flex;
@@ -127,20 +196,15 @@
     gap: .5rem;
     padding: .78rem 1.5rem;
     border-radius: 999px;
+    background: var(--gold);
+    color: var(--ink);
     font-size: .95rem;
     font-weight: 600;
     text-decoration: none;
-    border: 1px solid transparent;
-    transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+    transition: transform .15s ease, background-color .15s ease;
   }
 
-  .btn:hover { transform: translateY(-1px); }
-
-  .btn-primary { background: var(--gold); color: var(--ink); }
-  .btn-primary:hover { background: #e6b455; }
-
-  .btn-ghost { border-color: var(--line-dark); color: var(--sand); }
-  .btn-ghost:hover { border-color: var(--gold); }
+  .btn:hover { background: #e6b455; transform: translateY(-1px); }
 
   .status {
     display: inline-flex;
@@ -159,195 +223,38 @@
     box-shadow: 0 0 0 4px rgba(217, 164, 65, .18);
   }
 
-  /* ---------- sections ---------- */
-
-  section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
-
-  .section-head { max-width: 60ch; margin-bottom: 3rem; }
-  .section-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); margin-bottom: .9rem; }
-  .section-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
-
-  .alt { background: var(--sand-2); border-block: 1px solid var(--line); }
-
-  /* ---------- steps ---------- */
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-    gap: 2rem 2.2rem;
-    counter-reset: step;
-  }
-
-  .step { position: relative; padding-top: 1.6rem; border-top: 2px solid var(--line); }
-
-  .step::before {
-    counter-increment: step;
-    content: "0" counter(step);
-    position: absolute;
-    top: -.95rem;
-    left: 0;
-    background: var(--sand);
-    padding-right: .7rem;
-    font-family: var(--mono);
-    font-size: .78rem;
-    letter-spacing: .1em;
-    color: var(--clay-solid);
-  }
-
-  .alt .step::before { background: var(--sand-2); }
-
-  .step h3 { font-size: 1.15rem; margin-bottom: .5rem; }
-  .step p { margin: 0; color: var(--muted); font-size: .95rem; }
-
-  /* ---------- shapes ---------- */
-
-  .shapes { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1.2rem; }
-
-  .shape {
-    background: var(--sand);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 1.4rem 1.4rem 1.5rem;
-    transition: border-color .15s ease, transform .15s ease;
-  }
-
-  .shape:hover { border-color: var(--clay-lite); transform: translateY(-2px); }
-
-  .shape svg { display: block; width: 100%; height: auto; margin-bottom: 1.1rem; }
-  .shape .route { fill: none; stroke: var(--clay-solid); stroke-width: 2.4; stroke-linecap: round; }
-  .shape .th { fill: var(--ink); }
-  .shape .poi { fill: var(--gold); stroke: var(--ink); stroke-width: 1.2; }
-  .shape .ghost { fill: none; stroke: var(--line); stroke-width: 1.4; }
-
-  .shape h3 { font-size: 1.05rem; margin-bottom: .35rem; }
-  .shape p { margin: 0; font-size: .89rem; color: var(--muted); line-height: 1.55; }
-
-  /* ---------- conditions ---------- */
-
-  .cond-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3rem; align-items: start; }
-
-  .cond-copy p { color: var(--muted); }
-  .cond-copy p:first-of-type { color: var(--ink); font-size: 1.08rem; }
-
-  .card {
-    background: var(--ink);
-    color: var(--sand);
-    border-radius: 16px;
-    padding: 1.4rem 1.5rem 1.6rem;
-    font-size: .93rem;
-  }
-
-  .card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: .9rem;
-    margin-bottom: .3rem;
-    border-bottom: 1px solid var(--line-dark);
-    font-family: var(--mono);
-    font-size: .7rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: rgba(250, 246, 239, .5);
-  }
-
-  .note {
-    display: flex;
-    gap: .85rem;
-    padding: .95rem 0;
-    border-bottom: 1px solid var(--line-dark);
-  }
-
-  .note:last-child { border-bottom: 0; padding-bottom: 0; }
-
-  .flag {
-    flex: none;
-    width: 26px; height: 26px;
-    border-radius: 7px;
-    display: grid;
-    place-items: center;
-    font-size: .8rem;
-    margin-top: .1rem;
-  }
-
-  .flag-warn { background: rgba(217, 164, 65, .16); color: var(--gold); }
-  .flag-bad  { background: rgba(200, 112, 63, .18); color: var(--clay-lite); }
-  .flag-ok   { background: rgba(140, 170, 125, .16); color: #9dbd8a; }
-
-  .note strong { display: block; font-weight: 600; margin-bottom: .1rem; }
-  .note span { color: rgba(250, 246, 239, .66); line-height: 1.5; }
-
-  .card-foot {
-    margin-top: 1.1rem;
-    padding-top: .9rem;
-    border-top: 1px solid var(--line-dark);
-    font-family: var(--mono);
-    font-size: .68rem;
-    letter-spacing: .06em;
-    color: rgba(250, 246, 239, .38);
-  }
-
-  /* ---------- trails ---------- */
-
-  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-
-  .chip {
-    padding: .38rem .85rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    font-size: .87rem;
-    background: var(--sand);
-    white-space: nowrap;
-  }
-
-  .chip b { font-family: var(--mono); font-size: .78rem; font-weight: 500; color: var(--clay-solid); }
-
-  .chip-more { border-style: dashed; color: var(--muted); }
-
-  .sub { margin-top: 1.6rem; font-size: .92rem; color: var(--muted); }
-
   /* ---------- footer ---------- */
 
   footer {
-    background: var(--ink);
-    color: rgba(250, 246, 239, .62);
-    padding: 3.5rem 0 2.5rem;
-    font-size: .9rem;
+    position: relative;
+    border-top: 1px solid var(--line);
+    padding: 2rem 0;
+    font-size: .85rem;
+    color: rgba(250, 246, 239, .5);
   }
 
-  .foot-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-start; }
+  .foot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-  .disclaimer { max-width: 46ch; line-height: 1.6; }
-  .disclaimer strong { color: var(--sand); font-weight: 600; }
+  footer a { text-decoration-color: rgba(250, 246, 239, .3); text-underline-offset: .2em; }
+  footer a:hover { color: var(--gold); text-decoration-color: currentColor; }
 
-  .foot-links { display: flex; flex-direction: column; gap: .5rem; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 1.4rem; }
   .foot-links a { text-decoration: none; }
-  .foot-links a:hover { color: var(--gold); }
-
-  .colophon {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line-dark);
-    font-family: var(--mono);
-    font-size: .7rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: rgba(250, 246, 239, .34);
-  }
-
-  @media (max-width: 800px) {
-    .cond-grid { grid-template-columns: 1fr; gap: 2rem; }
-  }
 
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    * { transition: none !important; }
   }
 </style>
 </head>
 <body>
 
-<header class="hero">
+<main>
   <svg class="topo" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <path d="M-50 470 C 180 430 300 500 470 455 C 640 410 760 470 940 425 C 1080 390 1180 420 1260 400"/>
     <path d="M-50 415 C 170 372 310 445 480 396 C 650 348 770 412 950 364 C 1090 327 1180 358 1260 338"/>
@@ -369,229 +276,28 @@
 
     <p class="eyebrow">Tonto National Forest &middot; Central Arizona</p>
 
-    <h1>Build a route<br>through the <em>Mazatzals</em>.</h1>
+    <h1>Build a route<br>through the <em>Mazzies</em>.</h1>
 
     <p class="lede">
-      Stitch together a loop, a lasso, a figure-eight, or a straight out-and-back
-      from GPS tracks that have actually been walked — then export it as GPX or KML
-      and put it on whatever you carry.
+      A route builder for the <span class="term" tabindex="0" aria-describedby="pron">Mazatzal<span class="pron" id="pron" role="tooltip"><b>Ma&middot;zat&middot;zal</b><i>\ mad-as-&#712;ells \</i><em>One of several pronunciations. Try it out. If you don&rsquo;t like it, pronounce it your way.</em></span></span>
+      Wilderness &mdash; put together a hike from GPS tracks that have actually been
+      walked, then export it as GPX or KML and carry it with you.
     </p>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="#how">See how it works</a>
-      <a class="btn btn-ghost" href="https://github.com/jacobemerick/mazatzalhiking">Follow along on GitHub</a>
-    </div>
-
-    <p class="status" style="margin-top:2rem"><span class="dot"></span> In development — route builder coming soon</p>
-  </div>
-</header>
-
-<section id="how">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">How it works</p>
-      <h2>Four decisions, one file.</h2>
-      <p>No route-drawing. No guessing whether that dotted line on the map is still a trail. You pick the pieces; the builder handles the geometry.</p>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <h3>Start somewhere</h3>
-        <p>Pick a trailhead — Barnhardt, Deer Creek, Mount Peeley, City Creek, Sheep Bridge — or drop a point and find what's reachable from it.</p>
-      </div>
-      <div class="step">
-        <h3>Choose your trails</h3>
-        <p>Select the segments you want to walk. Every one is drawn from a recorded track, not digitized off an old Forest Service quad.</p>
-      </div>
-      <div class="step">
-        <h3>Add what's worth seeing</h3>
-        <p>Springs, saddles, camps, peaks, old cabins. Mark the ones you want the route to actually pass through.</p>
-      </div>
-      <div class="step">
-        <h3>Export and go</h3>
-        <p>Get a single GPX or KML with the track, named waypoints, and condition notes baked into the descriptions.</p>
-      </div>
+      <a class="btn" href="https://github.com/jacobemerick/mazatzalhiking">Follow along on GitHub</a>
+      <span class="status"><span class="dot"></span> In development</span>
     </div>
   </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Route shapes</p>
-      <h2>Not every hike is a loop.</h2>
-      <p>The Mazatzals don't always cooperate with a tidy circuit. Pick the shape that fits the trails, the water, and the time you have.</p>
-    </div>
-
-    <div class="shapes">
-      <div class="shape">
-        <svg viewBox="0 0 120 92" role="img" aria-label="Diagram of a loop route">
-          <path class="route" d="M24 74 C 8 44 34 14 64 18 C 96 22 108 54 88 72 C 70 88 40 88 24 74 Z"/>
-          <circle class="poi" cx="64" cy="18" r="4.5"/>
-          <circle class="poi" cx="97" cy="52" r="4.5"/>
-          <circle class="th" cx="24" cy="74" r="5"/>
-        </svg>
-        <h3>Loop</h3>
-        <p>Out one trail, back another. Never repeat a mile.</p>
-      </div>
-
-      <div class="shape">
-        <svg viewBox="0 0 120 92" role="img" aria-label="Diagram of a lasso route">
-          <path class="route" d="M14 80 L 44 60 C 30 34 62 14 88 26 C 110 37 100 70 72 68 C 56 67 48 64 44 60"/>
-          <circle class="poi" cx="88" cy="26" r="4.5"/>
-          <circle class="th" cx="14" cy="80" r="5"/>
-        </svg>
-        <h3>Lasso</h3>
-        <p>A shared stem into a loop and back out. Good when only one trail reaches the high country.</p>
-      </div>
-
-      <div class="shape">
-        <svg viewBox="0 0 120 92" role="img" aria-label="Diagram of a figure-eight route">
-          <path class="route" d="M58 48 C 28 24 8 54 26 70 C 46 86 60 66 58 48 C 56 30 70 12 92 22 C 116 33 106 70 80 64 C 66 61 60 58 58 48 Z"/>
-          <circle class="poi" cx="92" cy="22" r="4.5"/>
-          <circle class="th" cx="26" cy="70" r="5"/>
-        </svg>
-        <h3>Figure-eight</h3>
-        <p>Two loops off one junction. Bail after the first if the weather turns.</p>
-      </div>
-
-      <div class="shape">
-        <svg viewBox="0 0 120 92" role="img" aria-label="Diagram of an out-and-back route">
-          <path class="route" d="M16 78 C 38 72 44 46 62 40 C 80 34 82 22 96 20"/>
-          <path class="ghost" d="M96 20 l 10 -9 10 20 -20 0 z"/>
-          <circle class="poi" cx="96" cy="20" r="4.5"/>
-          <circle class="th" cx="16" cy="78" r="5"/>
-        </svg>
-        <h3>Out-and-back</h3>
-        <p>Straight to the objective and home the same way. Often the only honest option.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="cond-grid">
-      <div class="cond-copy">
-        <p class="eyebrow">Trail conditions</p>
-        <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:1.1rem">A line on the map is not a trail.</h2>
-        <p>
-          The Willow Fire in 2004 and the Bush Fire in 2020 rewrote big parts of this
-          wilderness. Some trails came back. Some are catclaw and deadfall with a cairn
-          every quarter mile if you're lucky.
-        </p>
-        <p>
-          Every segment carries notes about what it's actually like right now — brush,
-          tread, route-finding, water. Build a route and you'll see the warnings before
-          you're standing at the junction at 2pm wondering where the trail went.
-        </p>
-        <p>
-          Those notes travel with the file. Load the GPX and the waypoint descriptions
-          come with you, no signal required.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-head">
-          <span>Route summary</span>
-          <span>example</span>
-        </div>
-
-        <div class="note">
-          <div class="flag flag-ok">&#10003;</div>
-          <div>
-            <strong>Barnhardt Trail #43 &middot; lower</strong>
-            <span>Well travelled and easy to follow up to the falls. Tread is solid.</span>
-          </div>
-        </div>
-
-        <div class="note">
-          <div class="flag flag-warn">!</div>
-          <div>
-            <strong>Y Bar Basin Trail #44</strong>
-            <span>Brushy through the burn scar. Long pants. Junction cairn is easy to walk past heading south.</span>
-          </div>
-        </div>
-
-        <div class="note">
-          <div class="flag flag-bad">&#9888;</div>
-          <div>
-            <strong>Sandy Saddle Trail #231</strong>
-            <span>Rough. Tread washed out in places and route-finding is on you. Not a first trip out here.</span>
-          </div>
-        </div>
-
-        <div class="note">
-          <div class="flag flag-warn">!</div>
-          <div>
-            <strong>Water &middot; Hopi Spring</strong>
-            <span>Seasonal. Do not plan on it. Nearest reliable source is a long way down.</span>
-          </div>
-        </div>
-
-        <p class="card-foot">Illustrative example — not live trail data</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Coverage</p>
-      <h2>The trails, and the country around them.</h2>
-      <p>Roughly 250,000 acres between the Verde River and the Beeline, from Mount Ord north to the Payson country.</p>
-    </div>
-
-    <div class="chips">
-      <span class="chip">Barnhardt <b>#43</b></span>
-      <span class="chip">Mazatzal Divide <b>#23</b></span>
-      <span class="chip">Y Bar Basin <b>#44</b></span>
-      <span class="chip">Half Moon <b>#55</b></span>
-      <span class="chip">Sandy Saddle <b>#231</b></span>
-      <span class="chip">Rock Creek <b>#42</b></span>
-      <span class="chip">Deer Creek <b>#45</b></span>
-      <span class="chip">Cornucopia <b>#86</b></span>
-      <span class="chip">Willow Spring <b>#223</b></span>
-      <span class="chip">Verde River <b>#11</b></span>
-      <span class="chip">Davenport <b>#89</b></span>
-      <span class="chip">City Creek <b>#414</b></span>
-      <span class="chip">North Peak <b>#24</b></span>
-      <span class="chip">Brush <b>#249</b></span>
-      <span class="chip">Red Hills <b>#57</b></span>
-      <span class="chip">Sheep Creek <b>#88</b></span>
-      <span class="chip">Club Cabin <b>#26</b></span>
-      <span class="chip">The Park <b>#96</b></span>
-      <span class="chip chip-more">+ more as they get walked</span>
-    </div>
-
-    <p class="sub">
-      Plus the places in between — Chilson Camp, Windsor Spring, Fisher Saddle,
-      Horse Camp Seep, Mazatzal Peak, North Peak — and the Arizona Trail where it
-      runs the divide.
-    </p>
-  </div>
-</section>
+</main>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <p class="disclaimer">
-        <strong>This is wilderness.</strong> No cell service, seasonal water, and
-        conditions that change with every fire and monsoon. A generated route is a
-        plan, not a promise — carry a real map, a compass you can use, and more water
-        than you think you need.
-      </p>
-
-      <div class="foot-links">
-        <a href="#how">How it works</a>
-        <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a>
-        <a href="https://www.fs.usda.gov/tonto">Tonto National Forest</a>
-        <a href="https://aztrail.org">Arizona Trail Association</a>
-      </div>
+  <div class="wrap foot-grid">
+    <span>Built by <a href="https://jacobemerick.com">Jacob Emerick</a></span>
+    <div class="foot-links">
+      <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a>
+      <a href="https://www.fs.usda.gov/tonto">Tonto National Forest</a>
     </div>
-
-    <p class="colophon">Mazatzal Hiking &middot; built slowly, one track at a time</p>
   </div>
 </footer>
 
