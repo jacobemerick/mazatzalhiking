@@ -31,6 +31,18 @@ push to `main`. To deploy by hand:
 npm run deploy
 ```
 
+## Analytics
+
+Cloudflare Web Analytics (cookieless, no personal data). The beacon is embedded in
+`public/index.html` and `public/404.html`. The site token in those files is a public
+identifier, not a secret — it ships in the page source by design.
+
+Stats live in the Cloudflare dashboard under **Analytics & Logs → Web Analytics**.
+
+Note: because the zone is proxied through Cloudflare, **automatic setup** could inject
+the beacon instead, with no code at all. Don't enable both — the beacon would load
+twice and double-count.
+
 ## Roadmap
 
 - [ ] Trail + POI data model, seeded from recorded tracks
