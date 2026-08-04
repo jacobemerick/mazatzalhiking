@@ -34,17 +34,14 @@ npm run deploy
 ## Analytics
 
 Cloudflare Web Analytics (cookieless, no personal data). The beacon is embedded in
-`public/index.html` and `public/404.html` and needs a site token to work:
+`public/index.html` and `public/404.html`. The site token in those files is a public
+identifier, not a secret — it ships in the page source by design.
 
-1. Cloudflare dashboard → **Analytics & Logs → Web Analytics → Add a site**
-2. Copy the site token from **Manage site**
-3. Replace `PASTE_SITE_TOKEN_HERE` in both HTML files
+Stats live in the Cloudflare dashboard under **Analytics & Logs → Web Analytics**.
 
-The token is a public identifier, not a secret — it ships in the page source either way.
-
-Alternative: because the zone is proxied through Cloudflare, **automatic setup** can
-inject the beacon with no code at all. If you enable that, remove these script tags so
-the beacon isn't loaded twice.
+Note: because the zone is proxied through Cloudflare, **automatic setup** could inject
+the beacon instead, with no code at all. Don't enable both — the beacon would load
+twice and double-count.
 
 ## Roadmap
 
