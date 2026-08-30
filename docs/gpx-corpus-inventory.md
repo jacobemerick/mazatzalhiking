@@ -1,11 +1,11 @@
 # GPX corpus inventory
 
-Closes [#4](https://github.com/jpemeric/mazatzalhiking/issues/4). Sizes the reconciliation
+Closes [#4](https://github.com/jacobemerick/mazatzalhiking/issues/4). Sizes the reconciliation
 work in M2.
 
 Source of record: [`archive/gpx/`](../archive/gpx) (25 files, 5.2 MB), checked in
 alongside this document. That settles the raw-GPX half of
-[#8](https://github.com/jpemeric/mazatzalhiking/issues/8); where full-resolution photos
+[#8](https://github.com/jacobemerick/mazatzalhiking/issues/8); where full-resolution photos
 live is still open there.
 
 Regenerate every number here with:
@@ -53,7 +53,7 @@ ground.** (At a 50 m tolerance it reads 197 mi / 67% repeat, but 50 m starts mer
 genuinely parallel trails, so 25 m is the defensible figure.)
 
 That ~317 mi is the sanity target for the network-mileage check in
-[#16](https://github.com/jpemeric/mazatzalhiking/issues/16).
+[#16](https://github.com/jacobemerick/mazatzalhiking/issues/16).
 
 New ground contributed by each trip, chronologically — the tail is where the corpus
 saturates:
@@ -88,7 +88,7 @@ saturates:
 
 ## How bad the duplication is
 
-Bad enough that [#13](https://github.com/jpemeric/mazatzalhiking/issues/13) needs real
+Bad enough that [#13](https://github.com/jacobemerick/mazatzalhiking/issues/13) needs real
 tooling, not a manual pass. Every trip but Fig Trail overlaps another.
 
 Heaviest shared-ground pairs:
@@ -114,8 +114,8 @@ file, not real GPS divergence.
 **Not answerable from this corpus alone.** Tracks record trips, not trails; nothing in the
 files names a Forest Service trail. Mapping recorded ground onto named trails — and so
 identifying which trails have no coverage — is the junction-and-segment curation in
-[#14](https://github.com/jpemeric/mazatzalhiking/issues/14) and
-[#15](https://github.com/jpemeric/mazatzalhiking/issues/15), and it needs a reference list
+[#14](https://github.com/jacobemerick/mazatzalhiking/issues/14) and
+[#15](https://github.com/jacobemerick/mazatzalhiking/issues/15), and it needs a reference list
 of trails in the wilderness to check against. Flagged as a gap this ticket cannot close.
 
 What is known: ~317 distinct miles walked, and the saturation curve above shows the last
@@ -149,16 +149,16 @@ nearest-neighbour.
   the only copy of those timestamps**
 - **9 trips have no time source at all**
 
-Consequences: [#10](https://github.com/jpemeric/mazatzalhiking/issues/10) must accept
+Consequences: [#10](https://github.com/jacobemerick/mazatzalhiking/issues/10) must accept
 untimed tracks, and EXIF-time photo placement
-([#5](https://github.com/jpemeric/mazatzalhiking/issues/5)) is impossible for those 9
+([#5](https://github.com/jacobemerick/mazatzalhiking/issues/5)) is impossible for those 9
 trips regardless of what the photo library holds.
 
 ## Elevation
 
 Recorded range 533–2,182 m (1,749–7,159 ft), consistent with the Verde River up to the
 Mazatzal crest. Threshold choice dominates the gain figure, which is what
-[#12](https://github.com/jpemeric/mazatzalhiking/issues/12) has to settle:
+[#12](https://github.com/jacobemerick/mazatzalhiking/issues/12) has to settle:
 
 | Method | Corpus gain |
 |---|---:|
@@ -180,7 +180,7 @@ Two fires shape trail conditions across this ground:
 Both predate the entire corpus, so **every recorded track is post-fire** and there is no
 pre/post-fire split in the data. Recency still matters inside the burn scars, where brush
 regrowth and deadfall keep changing — relevant to
-[#17](https://github.com/jpemeric/mazatzalhiking/issues/17)'s requirement that an
+[#17](https://github.com/jacobemerick/mazatzalhiking/issues/17)'s requirement that an
 observation date always travels with the text.
 
 (The 2020 Bush Fire burned the Four Peaks area on the far side of AZ-87 and affected none
