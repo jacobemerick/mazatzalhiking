@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mazatzal junction curation</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font:13px/1.45 ui-sans-serif,-apple-system,"Segoe UI",sans-serif;
+         display:flex; height:100vh; overflow:hidden; color:#1a1a1a; }
+  #map { flex:1; }
+  #side { width:340px; border-left:1px solid #d4d4d4; background:#fafafa;
+          display:flex; flex-direction:column; overflow:hidden; }
+  #side h1 { font-size:13px; margin:0; padding:10px 12px; background:#2c3e34; color:#fff;
+             font-weight:600; letter-spacing:.02em; }
+  .pad { padding:10px 12px; border-bottom:1px solid #e4e4e4; }
+  .mode { display:flex; gap:6px; }
+  .mode button { flex:1; padding:7px 4px; border:1px solid #bbb; background:#fff; cursor:pointer;
+                 border-radius:3px; font:inherit; font-size:12px; }
+  .mode button.on { background:#2c3e34; color:#fff; border-color:#2c3e34; }
+  kbd { background:#eee; border:1px solid #ccc; border-bottom-width:2px; border-radius:3px;
+        padding:0 4px; font:11px ui-monospace,monospace; }
+  #status { font-size:12px; color:#555; min-height:32px; padding:8px 12px; background:#f0efe9;
+            border-bottom:1px solid #e4e4e4; }
+  #status.act { background:#fff6d9; color:#7a5c00; }
+  #status.err { background:#ffe8e8; color:#a11; }
+  #lists { flex:1; overflow-y:auto; }
+  .grp { padding:8px 12px; border-bottom:1px solid #e4e4e4; }
+  .grp h2 { font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#666;
+            margin:0 0 6px; font-weight:600; }
+  .row { display:flex; justify-content:space-between; gap:6px; padding:3px 4px; cursor:pointer;
+         border-radius:3px; align-items:baseline; }
+  .row:hover { background:#e8ece9; }
+  .row code { font:11px ui-monospace,monospace; color:#888; }
+  .row .nm { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .row .mi { color:#777; font-size:11px; font-variant-numeric:tabular-nums; }
+  .empty { color:#999; font-style:italic; font-size:12px; }
+  #form { position:absolute; z-index:1000; background:#fff; border:1px solid #999; padding:12px;
+          border-radius:5px; box-shadow:0 6px 24px rgba(0,0,0,.25); width:290px; display:none; }
+  #form label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.05em;
+                color:#666; margin:8px 0 3px; font-weight:600; }
+  #form input, #form select { width:100%; padding:5px 6px; border:1px solid #bbb; border-radius:3px;
+                              font:inherit; }
+  #form .btns { margin-top:11px; display:flex; gap:6px; }
+  #form button { flex:1; padding:6px; border:1px solid #bbb; background:#fff; border-radius:3px;
+                 cursor:pointer; font:inherit; }
+  #form button.pri { background:#2c3e34; color:#fff; border-color:#2c3e34; }
+  #meta { font-size:11px; color:#666; margin-top:8px; line-height:1.5; }
+  .chk { display:flex; align-items:center; gap:6px; font-size:12px; margin:3px 0; }
+  .trailrow { display:flex; gap:4px; align-items:center; margin:2px 0; font-size:12px; }
+  .trailrow code { color:#888; font:11px ui-monospace,monospace; }
+  .sv { font-size:11px; color:#777; padding:6px 12px; background:#f0efe9; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="side">
+  <h1>Junction curation</h1>
+  <div id="status">Loading corpus…</div>
+  <div class="pad">
+    <div class="mode">
+      <button id="mPan"  class="on">Pan <kbd>Esc</kbd></button>
+      <button id="mNode">Node <kbd>N</kbd></button>
+      <button id="mSeg">Segment <kbd>S</kbd></button>
+    </div>
+    <div style="margin-top:9px">
+      <label class="chk"><input type="checkbox" id="showCorpus" checked> recorded tracks</label>
+      <label class="chk"><input type="checkbox" id="showUncurated"> dim curated stretches</label>
+    </div>
+  </div>
+  <div id="lists">
+    <div class="grp"><h2>Trails</h2><div id="trails"></div>
+      <button id="addTrail" style="margin-top:6px;padding:4px 8px;font:inherit;font-size:12px;
+        border:1px solid #bbb;background:#fff;border-radius:3px;cursor:pointer">+ trail</button></div>
+    <div class="grp"><h2>Nodes <span id="nc"></span></h2><div id="nodes"></div></div>
+    <div class="grp"><h2>Segments <span id="sc"></span></h2><div id="segs"></div></div>
+  </div>
+  <div class="sv" id="saved">—</div>
+</div>
+<div id="form"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+let G = {version:1, trails:[], nodes:[], segments:[], features:[], retired:[]};
+let mode = 'pan', pending = null, history = [];
+const map = L.map('map', {preferCanvas:true}).setView([34.05,-111.55], 11);
+
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+  {maxZoom:17, attribution:'OpenTopoMap'}).addTo(map);
+
+const corpusLayer = L.layerGroup().addTo(map);
+const graphLayer  = L.layerGroup().addTo(map);
+
+const status = (m, cls='') => { const s=$('#status'); s.textContent=m; s.className=cls; };
+
+// ---------------------------------------------------------------- loading --
+async function boot() {
+  const [corpus, graph] = await Promise.all([
+    fetch('/api/corpus').then(r=>r.json()),
+    fetch('/api/graph').then(r=>r.json()),
+  ]);
+  G = Object.assign({trails:[],nodes:[],segments:[],features:[],retired:[]}, graph);
+  L.geoJSON(corpus, {
+    style: {color:'#c0603a', weight:1.6, opacity:.55},
+    onEachFeature: (f,l) => l.bindTooltip(`${f.properties.trip} · ${f.properties.date} · ${f.properties.miles} mi`)
+  }).addTo(corpusLayer);
+  const b = L.geoJSON(corpus).getBounds();
+  if (b.isValid()) map.fitBounds(b, {padding:[20,20]});
+  redraw();
+  status(`${corpus.features.length} tracks loaded. N to place a junction, S to make a segment.`);
+}
+
+// ------------------------------------------------------------------ state --
+function snapshot() { history.push(JSON.stringify(G)); if (history.length>60) history.shift(); }
+function undo() {
+  if (!history.length) return status('nothing to undo');
+  G = JSON.parse(history.pop()); redraw(); save(); status('undone');
+}
+async function save() {
+  await fetch('/api/graph', {method:'POST', headers:{'Content-Type':'application/json'},
+                             body: JSON.stringify(G)});
+  $('#saved').textContent = `saved ${new Date().toLocaleTimeString()} · curation/graph.json`;
+}
+const mint = kind => fetch('/api/mint', {method:'POST', headers:{'Content-Type':'application/json'},
+  body: JSON.stringify({kind})}).then(r=>r.json()).then(d=>d.id);
+
+// ------------------------------------------------------------------- draw --
+function redraw() {
+  graphLayer.clearLayers();
+  const nodeById = Object.fromEntries(G.nodes.map(n=>[n.id,n]));
+
+  for (const s of G.segments) {
+    if (!s._geo) continue;
+    L.polyline(s._geo.map(c=>[c[1],c[0]]), {color:'#1d6fa5', weight:4, opacity:.85})
+      .bindTooltip(`<b>${s.name}</b><br>${s.miles} mi · +${s.gain_ft}/−${s.loss_ft} ft`)
+      .addTo(graphLayer);
+  }
+  for (const n of G.nodes) {
+    const th = n.kind === 'trailhead';
+    L.circleMarker([n.lat,n.lon], {radius: th?7:5.5, color:'#fff', weight:2,
+      fillColor: th?'#c9a227':'#1a7a3c', fillOpacity:1})
+      .bindTooltip(`<b>${n.name}</b><br>${n.kind} · ${n.id}`)
+      .on('click', e => { L.DomEvent.stop(e); pickNode(n); })
+      .addTo(graphLayer);
+  }
+  if (pending && pending.a) {
+    const a = nodeById[pending.a];
+    if (a) L.circleMarker([a.lat,a.lon], {radius:11, color:'#e08a00', weight:3, fill:false})
+      .addTo(graphLayer);
+  }
+
+  $('#nc').textContent = `(${G.nodes.length})`;
+  $('#sc').textContent = `(${G.segments.length})`;
+  const mi = G.segments.reduce((t,s)=>t+(s.miles||0),0);
+  $('#nodes').innerHTML = G.nodes.length ? G.nodes.map(n=>
+    `<div class="row" data-n="${n.id}"><code>${n.id}</code><span class="nm">${esc(n.name)}</span>
+     <span class="mi">${n.kind==='trailhead'?'TH':'jct'}</span></div>`).join('')
+    : '<div class="empty">none yet</div>';
+  $('#segs').innerHTML = G.segments.length ? G.segments.map(s=>
+    `<div class="row" data-s="${s.id}"><code>${s.id}</code><span class="nm">${esc(s.name)}</span>
+     <span class="mi">${s.miles} mi</span></div>`).join('')
+    + `<div class="row" style="border-top:1px solid #ddd;margin-top:4px;padding-top:5px">
+       <span class="nm"><b>total</b></span><span class="mi"><b>${mi.toFixed(1)} mi</b></span></div>`
+    : '<div class="empty">none yet</div>';
+  $('#trails').innerHTML = G.trails.length ? G.trails.map(t=>
+    `<div class="trailrow"><code>${t.id}</code> ${esc(t.name)}
+     ${t.code?`<span style="color:#999">${esc(t.code)}</span>`:''}
+     <span style="color:#aaa">${t.kind}</span></div>`).join('')
+    : '<div class="empty">none yet</div>';
+
+  document.querySelectorAll('[data-n]').forEach(el => el.onclick = () => {
+    const n = G.nodes.find(x=>x.id===el.dataset.n); map.panTo([n.lat,n.lon]);
+  });
+  document.querySelectorAll('[data-s]').forEach(el => el.onclick = () => {
+    const s = G.segments.find(x=>x.id===el.dataset.s);
+    if (s && s._geo) map.fitBounds(L.polyline(s._geo.map(c=>[c[1],c[0]])).getBounds(),{padding:[40,40]});
+  });
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ------------------------------------------------------------------- form --
+function form(html, onOk, at) {
+  const f = $('#form');
+  f.innerHTML = html + `<div class="btns"><button class="pri" id="fOk">Save</button>
+                        <button id="fNo">Cancel</button></div>`;
+  f.style.display = 'block';
+  const pt = at || map.latLngToContainerPoint(map.getCenter());
+  f.style.left = Math.min(pt.x + 14, window.innerWidth - 660) + 'px';
+  f.style.top  = Math.min(pt.y, window.innerHeight - 300) + 'px';
+  const first = f.querySelector('input,select'); if (first) { first.focus(); first.select?.(); }
+  const close = () => { f.style.display='none'; pending=null; redraw(); };
+  $('#fNo').onclick = close;
+  $('#fOk').onclick = async () => { const r = await onOk(); if (r !== false) close(); };
+  f.onkeydown = e => {
+    if (e.key === 'Enter') { e.preventDefault(); $('#fOk').click(); }
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+  };
+}
+
+// ------------------------------------------------------------- placing -----
+map.on('click', async e => {
+  if (mode === 'node') await placeNode(e);
+  else if (mode === 'seg') status('click a junction, not the map — segments run node to node','act');
+});
+
+async function placeNode(e) {
+  status('snapping…');
+  const s = await fetch(`/api/snap?lat=${e.latlng.lat}&lon=${e.latlng.lng}`).then(r=>r.json());
+  if (!s.lat) return status('no track within 60 m — junctions sit on recorded tread','err');
+  status(`snapped ${s.dist.toFixed(0)} m onto ${s.trip}`);
+  const through = await fetch(`/api/through?lat=${s.lat}&lon=${s.lon}`).then(r=>r.json());
+  form(`<label>Junction name</label><input id="q1" placeholder="Sheep Creek Junction">
+        <label>Kind</label><select id="q2"><option value="junction">junction</option>
+        <option value="trailhead">trailhead</option></select>
+        <div id="meta">${through.length} track(s) pass here:<br>${
+          through.slice(0,6).map(t=>`· ${esc(t.trip)} <span style="color:#999">${t.date} · ${t.dist} m</span>`).join('<br>')
+        }${s.ele_ft!=null?`<br>elevation ${s.ele_ft} ft`:''}</div>`,
+    async () => {
+      const name = $('#q1').value.trim();
+      if (!name) { status('a junction needs a name — it is what the builder shows','err'); return false; }
+      snapshot();
+      G.nodes.push({id: await mint('nodes'), name, kind: $('#q2').value,
+                    lat:+s.lat.toFixed(6), lon:+s.lon.toFixed(6), ele_ft:s.ele_ft});
+      redraw(); await save(); status(`placed ${name}`);
+    }, map.latLngToContainerPoint(e.latlng));
+}
+
+async function pickNode(n) {
+  if (mode !== 'seg') { map.panTo([n.lat,n.lon]); return; }
+  if (!pending) { pending = {a:n.id}; redraw(); return status(`from ${n.name} — now click the far end`,'act'); }
+  if (pending.a === n.id) { pending = null; redraw(); return status('cancelled'); }
+  await makeSegment(pending.a, n.id);
+}
+
+async function makeSegment(aId, bId) {
+  const a = G.nodes.find(n=>n.id===aId), b = G.nodes.find(n=>n.id===bId);
+  status('tracing…','act');
+  const [ta, tb] = await Promise.all([
+    fetch(`/api/through?lat=${a.lat}&lon=${a.lon}`).then(r=>r.json()),
+    fetch(`/api/through?lat=${b.lat}&lon=${b.lon}`).then(r=>r.json()),
+  ]);
+  const bByKey = Object.fromEntries(tb.map(t=>[t.key,t]));
+  const shared = ta.filter(t=>bByKey[t.key])
+                   .map(t=>({key:t.key, trip:t.trip, date:t.date, i0:t.index, i1:bByKey[t.key].index,
+                             score:t.dist + bByKey[t.key].dist}))
+                   .sort((x,y)=>x.score-y.score);
+  if (!shared.length) {
+    pending = null; redraw();
+    return status('no single recorded track runs between those two — place an intermediate junction','err');
+  }
+  let choice = 0;
+  const draw = async () => {
+    const c = shared[choice];
+    const tr = await fetch(`/api/trace?key=${encodeURIComponent(c.key)}&i0=${c.i0}&i1=${c.i1}`).then(r=>r.json());
+    if (!tr.coordinates) { status('trace failed','err'); return null; }
+    return tr;
+  };
+  let tr = await draw();
+  if (!tr) { pending=null; redraw(); return; }
+  const trailOpts = G.trails.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('');
+  form(`<label>Segment name</label>
+        <input id="q1" value="${esc(a.name)} to ${esc(b.name)}">
+        <label>Trail${G.trails.length>1?'s (ctrl-click for concurrency)':''}</label>
+        <select id="q2" multiple size="${Math.min(5,Math.max(2,G.trails.length))}">${trailOpts}</select>
+        <label>Traced from</label>
+        <select id="q3">${shared.map((c,i)=>
+          `<option value="${i}">${esc(c.trip)} · ${c.date}</option>`).join('')}</select>
+        <div id="meta">${tr.miles} mi · +${tr.gain_ft} / −${tr.loss_ft} ft</div>`,
+    async () => {
+      const name = $('#q1').value.trim();
+      const trails = [...$('#q2').selectedOptions].map(o=>o.value);
+      if (!name) { status('name it — this is the label the builder shows','err'); return false; }
+      if (!trails.length) { status('assign at least one trail','err'); return false; }
+      const c = shared[+$('#q3').value];
+      const t2 = await fetch(`/api/trace?key=${encodeURIComponent(c.key)}&i0=${c.i0}&i1=${c.i1}`).then(r=>r.json());
+      snapshot();
+      const id = await mint('segments');
+      G.segments.push({id, name, from:aId, to:bId, trails, miles:t2.miles,
+        gain_ft:t2.gain_ft, loss_ft:t2.loss_ft, geometry:`geometry/${id}.json`,
+        sources:[t2.source], _geo:t2.coordinates});
+      pending = null; redraw(); await save(); status(`${name} — ${t2.miles} mi`);
+    }, map.latLngToContainerPoint([b.lat,b.lon]));
+  $('#q3').onchange = async () => { choice = +$('#q3').value; const t = await draw();
+    if (t) { tr = t; $('#meta').textContent = `${t.miles} mi · +${t.gain_ft} / −${t.loss_ft} ft`; } };
+}
+
+// ------------------------------------------------------------------ trails --
+$('#addTrail').onclick = () => form(
+  `<label>Trail name</label><input id="q1" placeholder="Mazatzal Divide Trail">
+   <label>Number</label><input id="q2" placeholder="FS 23 — blank if none">
+   <label>Kind</label><select id="q3"><option value="trail">trail</option><option value="road">road</option></select>`,
+  async () => {
+    const name = $('#q1').value.trim();
+    if (!name) return false;
+    snapshot();
+    G.trails.push({id: await mint('trails'), name, code: $('#q2').value.trim() || null,
+                   kind: $('#q3').value});
+    redraw(); await save(); status(`added ${name}`);
+  });
+
+// ------------------------------------------------------------------ modes --
+const setMode = m => {
+  mode = m; pending = null;
+  for (const [k,el] of [['pan','#mPan'],['node','#mNode'],['seg','#mSeg']])
+    $(el).classList.toggle('on', k===m);
+  map.getContainer().style.cursor = m==='pan' ? '' : 'crosshair';
+  status({pan:'Pan mode.', node:'Click near a track to place a junction.',
+          seg:'Click two junctions to make a segment.'}[m]);
+  redraw();
+};
+$('#mPan').onclick = ()=>setMode('pan');
+$('#mNode').onclick = ()=>setMode('node');
+$('#mSeg').onclick = ()=>setMode('seg');
+$('#showCorpus').onchange = e => e.target.checked ? corpusLayer.addTo(map) : corpusLayer.remove();
+
+document.addEventListener('keydown', e => {
+  if (/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
+  if (e.key === 'n' || e.key === 'N') setMode('node');
+  else if (e.key === 's' || e.key === 'S') setMode('seg');
+  else if (e.key === 'Escape') { $('#form').style.display='none'; setMode('pan'); }
+  else if ((e.metaKey||e.ctrlKey) && e.key === 'z') { e.preventDefault(); undo(); }
+});
+
+boot().catch(err => status('failed to load: ' + err.message, 'err'));
+</script>
+</body>
+</html>
