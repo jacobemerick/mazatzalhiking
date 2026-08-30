@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "observations": [
+    {
+      "target": "4H",
+      "date": "2017-09-01",
+      "category": "brush",
+      "text": "PLACEHOLDER. Illustrative text only — see README.md. Real observation text is written by Jacob and by nobody else."
+    },
+    {
+      "target": "4H",
+      "date": "2016-03-05",
+      "category": "route-finding",
+      "text": "PLACEHOLDER. Illustrative text only. Two observations on one segment, shown newest first, demonstrating that notes accumulate over time rather than being overwritten."
+    },
+    {
+      "target": "8B",
+      "date": "2016-03-05",
+      "category": "route-finding",
+      "text": "PLACEHOLDER. An observation attached to a node rather than a segment — the case a segment-only model cannot express."
+    },
+    {
+      "target": "f2",
+      "date": "2017-09-01",
+      "category": "water",
+      "text": "PLACEHOLDER. An observation attached to a feature. Whether a spring is running is the archetypal dated fact."
+    }
+  ]
+}
