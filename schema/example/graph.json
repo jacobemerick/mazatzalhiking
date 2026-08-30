@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "generated": "2026-08-30",
+
+  "trails": [
+    { "id": "r479", "name": "Forest Road 479",       "code": "FR 479", "kind": "road"  },
+    { "id": "tdav", "name": "Davenport Trail",        "code": null,     "kind": "trail" },
+    { "id": "tdiv", "name": "Mazatzal Divide Trail",  "code": "FS 23",  "kind": "trail" },
+    { "id": "tazt", "name": "Arizona Trail",          "code": null,     "kind": "trail" }
+  ],
+
+  "nodes": [
+    { "id": "7Q", "name": "FR 479 at the dam",     "kind": "trailhead", "lat": 33.9815, "lon": -111.7121, "ele_ft": 1985 },
+    { "id": "7R", "name": "Davenport Trailhead",   "kind": "trailhead", "lat": 33.9902, "lon": -111.7314, "ele_ft": 2140 },
+    { "id": "8B", "name": "Sheep Creek Junction",  "kind": "junction",  "lat": 34.0071, "lon": -111.7502, "ele_ft": 2960 },
+    { "id": "8C", "name": "Deadman Junction",      "kind": "junction",  "lat": 34.0188, "lon": -111.7661, "ele_ft": 3580 },
+    { "id": "8D", "name": "Brody Trail Junction",  "kind": "junction",  "lat": 34.0294, "lon": -111.7808, "ele_ft": 4120 },
+    { "id": "9A", "name": "Chilson Camp",          "kind": "junction",  "lat": 34.0410, "lon": -111.7935, "ele_ft": 5240 },
+    { "id": "9B", "name": "Barnhardt Junction",    "kind": "junction",  "lat": 34.0561, "lon": -111.8042, "ele_ft": 5910 }
+  ],
+
+  "segments": [
+    {
+      "id": "4E",
+      "name": "The dam to Davenport Trailhead",
+      "from": "7Q", "to": "7R",
+      "trails": ["r479"],
+      "miles": 1.8, "gain_ft": 210, "loss_ft": 55,
+      "geometry": "geometry/4E.json",
+      "sources": [{ "file": "35933_Club_Ranch.gpx", "date": "2016-03-05" }]
+    },
+    {
+      "id": "4F",
+      "name": "Davenport Trailhead to Sheep Creek Junction",
+      "from": "7R", "to": "8B",
+      "trails": ["tdav"],
+      "miles": 2.7, "gain_ft": 940, "loss_ft": 120,
+      "geometry": "geometry/4F.json",
+      "sources": [
+        { "file": "35933_Club_Ranch.gpx", "date": "2016-03-05" },
+        { "file": "37747_Club_Ranch.gpx", "date": "2017-09-01" }
+      ]
+    },
+    {
+      "id": "4G",
+      "name": "Sheep Creek Junction to Deadman Junction",
+      "from": "8B", "to": "8C",
+      "trails": ["tdav"],
+      "miles": 1.9, "gain_ft": 720, "loss_ft": 100,
+      "geometry": "geometry/4G.json",
+      "sources": [{ "file": "35933_Club_Ranch.gpx", "date": "2016-03-05" }]
+    },
+    {
+      "id": "4H",
+      "name": "Deadman Junction to Brody Trail Junction",
+      "from": "8C", "to": "8D",
+      "trails": ["tdav"],
+      "miles": 2.3, "gain_ft": 680, "loss_ft": 140,
+      "geometry": "geometry/4H.json",
+      "sources": [
+        { "file": "35933_Club_Ranch.gpx", "date": "2016-03-05" },
+        { "file": "37747_Club_Ranch.gpx", "date": "2017-09-01" }
+      ]
+    },
+    {
+      "id": "5A",
+      "name": "Chilson Camp to Barnhardt Junction",
+      "from": "9A", "to": "9B",
+      "trails": ["tdiv", "tazt"],
+      "miles": 3.4, "gain_ft": 1180, "loss_ft": 460,
+      "geometry": "geometry/5A.json",
+      "sources": [{ "file": "40409_Barnhardt_.gpx", "date": "2018-06-03" }]
+    },
+    {
+      "id": "5B",
+      "name": "Brody Trail Junction to Chilson Camp",
+      "from": "8D", "to": "9A",
+      "trails": ["tdav"],
+      "miles": 2.1, "gain_ft": 1160, "loss_ft": 60,
+      "geometry": "geometry/5B.json",
+      "sources": [{ "file": "35933_Club_Ranch.gpx", "date": "2016-03-05" }]
+    }
+  ],
+
+  "features": [
+    { "id": "f1", "name": "Club Cabin",   "kind": "cabin", "lat": 34.0241, "lon": -111.7729, "ele_ft": 3810, "on": "4H", "at": 0.62 },
+    { "id": "f2", "name": "Sheep Creek",  "kind": "water", "lat": 34.0071, "lon": -111.7502, "ele_ft": 2960, "on": "4G", "at": 0.02 }
+  ],
+
+  "retired": [
+    {
+      "id": "4D",
+      "superseded_by": ["4E", "4F"],
+      "on": "2026-08-30",
+      "reason": "split at the Davenport Trailhead once the road walk was modelled separately"
+    }
+  ]
+}
