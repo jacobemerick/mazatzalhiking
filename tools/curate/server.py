@@ -211,6 +211,14 @@ def write_state(state):
     """Persist atomically. An interrupted save must never truncate a curation sitting."""
     os.makedirs(GEO, exist_ok=True)
     state = json.loads(json.dumps(state))
+    seen = {}
+    for seg in state.get('segments', []):
+        # Refuse to write rather than let one segment's line overwrite another's on a
+        # case-insensitive filesystem. mint() prevents this; this catches hand-edits.
+        if seg['id'].lower() in seen:
+            raise ValueError(f"segment ids {seen[seg['id'].lower()]!r} and {seg['id']!r} "
+                             f"differ only by case and share one geometry file")
+        seen[seg['id'].lower()] = seg['id']
     for seg in state.get('segments', []):
         geo = seg.pop('_geo', None)
         if geo is not None:
@@ -232,14 +240,22 @@ ALPHABET = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 def mint(state, kind):
     """Next free code. Ids are allocated, never derived, and retired ids are never
-    reissued -- see decision 1 in docs/trail-graph-schema.md."""
-    used = {x['id'] for x in state.get(kind, [])}
+    reissued -- see decision 1 in docs/trail-graph-schema.md.
+
+    Ids must also differ by more than case. The schema's alphabet is case-sensitive
+    base62, but a segment's geometry is one file per id, and macOS (APFS) and Windows
+    are case-insensitive: minting `0a` alongside `0A` makes both resolve to the same
+    path, and the second write silently destroys the first. So uniqueness is tested
+    case-folded, which costs the lowercase half of the space (1,296 two-character ids
+    remain, still clear of the ~850 upper bound in the schema doc) and buys back a
+    class of data loss that nothing downstream can detect."""
+    used = {x['id'].lower() for x in state.get(kind, [])}
     if kind == 'segments':
-        used |= {r['id'] for r in state.get('retired', [])}
+        used |= {r['id'].lower() for r in state.get('retired', [])}
     for a in ALPHABET:
         for b in ALPHABET:
             c = a + b
-            if c not in used:
+            if c.lower() not in used:
                 return c
     raise RuntimeError('id space exhausted')
 

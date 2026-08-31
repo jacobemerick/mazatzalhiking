@@ -56,12 +56,22 @@ pipeline order is worse: inserting one junction renumbers everything after it.
 So ids are data, not a function of data. The registry lives in `graph.json` itself; the
 tool reads the highest allocated code and takes the next.
 
-**Format: base62 (`0-9A-Za-z`), case-sensitive, 2 characters minimum.** Two characters
-hold 3,844 values. The corpus suggests somewhere between "many dozens" and a pessimistic
-upper bound of ~850 segments, so two characters cover the network with a wide margin, and
-a 15-leg shared route costs about 45 characters of ids. Each entity type has its own id
-space — a node `4F` and a segment `4F` are unrelated, and the field name always says which
-is meant.
+**Format: base62 (`0-9A-Za-z`), 2 characters minimum — but two ids may never differ only
+by case.** Two characters hold 3,844 values on paper. In practice a segment's geometry is
+one file per id, and both macOS (APFS) and Windows are case-insensitive by default, so
+minting `0a` alongside `0A` makes the two resolve to the same path and the second write
+destroys the first silently — nothing downstream can detect it, and `validate_graph.py`
+never opens the geometry files. So `mint()` tests uniqueness case-folded, which leaves
+**1,296** usable two-character codes. The corpus suggests somewhere between "many dozens"
+and a pessimistic upper bound of ~850 segments, so two characters still cover the network,
+though with less margin than the raw base62 count implies; three characters remain
+available if that bound is ever approached. A 15-leg shared route costs about 45 characters
+of ids. Each entity type has its own id space — a node `4F` and a segment `4F` are
+unrelated, and the field name always says which is meant.
+
+The stored format is unchanged and stays case-sensitive: `^[0-9A-Za-z]{2,4}$` still
+validates, and ids already allocated in both cases remain legal. Only *allocation* is
+constrained.
 
 **Splitting a segment retires its id.** When curation discovers a real junction partway
 along an existing leg, that leg does not keep its id for the longer half — that would
