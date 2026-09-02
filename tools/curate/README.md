@@ -69,10 +69,11 @@ curation/
   geometry/<id>.json  one file per segment
 ```
 
-`curation/` is gitignored while the pass is in progress. Committing the finished graph is
-[#15](https://github.com/jacobemerick/mazatzalhiking/issues/15)'s business, which is also
-where the real judgment happens — what counts as a junction worth modelling. A wash crossing
-is not one; a trail you could actually turn onto is.
+`curation/` is committed as of the first full pass over the range. The real judgment lives
+there rather than in this tool — what counts as a junction worth modelling. A wash crossing
+is not one; a trail you could actually turn onto is. Equally, not every stretch of recorded
+track becomes a segment: off-trail wanders and roads best left off the map are walked ground
+that is deliberately absent.
 
 Check the output at any point with:
 
