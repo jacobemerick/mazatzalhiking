@@ -35,11 +35,23 @@ def check(graph, obs=None):
     # duplicate ids within each space
     for label, items in (('trail', graph.get('trails', [])), ('node', graph.get('nodes', [])),
                          ('segment', graph.get('segments', [])), ('feature', graph.get('features', []))):
-        seen = set()
+        seen, folded = set(), {}
         for it in items:
             if it['id'] in seen:
                 err(f"duplicate {label} id {it['id']!r}")
             seen.add(it['id'])
+            # Ids are case-sensitive, but a segment's geometry lives at geometry/<id>.json
+            # and case-insensitive filesystems collapse 0A and 0a onto one file, silently
+            # destroying the older line. That is a segment-only data loss, but the rule is
+            # enforced on every kind so the id space reads the same way everywhere and a
+            # graph stays portable rather than depending on where it was authored.
+            k = it['id'].lower()
+            if k in folded and folded[k] != it['id']:
+                err(f"{label} ids {folded[k]!r} and {it['id']!r} differ only in case"
+                    + (" — their geometry files collide on a case-insensitive filesystem"
+                       if label == 'segment' else
+                       " — ids must be unique regardless of case"))
+            folded[k] = it['id']
 
     # a retired id must not be back in circulation
     for rid, r in retired.items():
@@ -57,8 +69,14 @@ def check(graph, obs=None):
         for end in ('from', 'to'):
             if s[end] not in nodes:
                 err(f"segment {sid!r} {end} references unknown node {s[end]!r}")
+        # A leg that returns to its own junction is legitimate but rare -- a spur of tread
+        # that loops back rather than dead-ending, where no node belongs partway round
+        # because there is nothing to turn onto. Warn rather than reject, so it gets a
+        # human look without the graph having to lie about the ground.
         if s['from'] == s['to']:
-            err(f"segment {sid!r} starts and ends at the same node {s['from']!r}")
+            warn(f"segment {sid!r} ({s['name']!r}) starts and ends at node {s['from']!r} — "
+                 f"fine for tread that genuinely loops back, wrong if the far endpoint was "
+                 f"meant to be a different node")
         if s['miles'] <= 0:
             err(f"segment {sid!r} has non-positive length {s['miles']}")
         if not s.get('trails'):
@@ -105,12 +123,36 @@ def check(graph, obs=None):
                         seen.add(nb)
                         stack.append(nb)
             components.append(comp)
+        # A split is an error unless it has been declared. Almost every split is a missed
+        # junction; a genuine one — a trailhead reached only by water, say — is real
+        # geography and gets recorded in the graph rather than silencing the check.
+        declared = {frozenset(i['nodes']): i for i in graph.get('islands', [])}
+        matched = set()
         if len(components) > 1:
             components.sort(key=len, reverse=True)
-            err(f"network splits into {len(components)} disconnected components "
-                f"(largest {len(components[0])} nodes); a route cannot cross between them")
+            undeclared = []
             for c in components[1:]:
-                err(f"  stranded: {', '.join(sorted(nodes[n]['name'] for n in c))}")
+                key = frozenset(c)
+                if key in declared:
+                    matched.add(key)
+                    warn(f"island (declared {declared[key]['on']}): "
+                         f"{', '.join(sorted(nodes[n]['name'] for n in c))} — "
+                         f"{declared[key]['reason']}")
+                else:
+                    undeclared.append(c)
+            if undeclared:
+                err(f"network splits into {len(components)} components "
+                    f"(largest {len(components[0])} nodes), {len(undeclared)} of them "
+                    f"undeclared; a route cannot cross between them")
+                for c in undeclared:
+                    err(f"  stranded: {', '.join(sorted(nodes[n]['name'] for n in c))}")
+        for key, i in declared.items():
+            if key not in matched:
+                unknown = [n for n in key if n not in nodes]
+                err(f"islands entry dated {i['on']} does not match any isolated component"
+                    + (f" — unknown node(s) {', '.join(sorted(unknown))}" if unknown else
+                       " — those nodes are connected to the rest of the network, or the "
+                       "component has changed and needs re-reviewing"))
 
     # features
     for fid, f in features.items():

@@ -34,13 +34,25 @@ from the canonical lines once #13 exists.
 
 **Clicks snap to the recorded tread.** A click within 60 m moves onto the nearest recorded
 point; further out it is refused rather than inventing a junction in open country. The form
-then shows which tracks pass through and on what dates, which is usually how you recognise
-what junction you are looking at.
+then shows every pass through the point and on what dates, which is usually how you recognise
+what junction you are looking at. A trip listed twice doubled back through here — worth
+noticing, for the reason below.
 
 **Segments trace along a real recorded track.** Picking two junctions finds the tracks that
 pass through both and follows one between them, so a leg's geometry is ground you actually
-walked rather than a straight line. Where several trips cover the stretch, the form lets you
-choose which one to trace, and the chosen track is recorded in the segment's `sources`.
+walked rather than a straight line. The chosen track is recorded in the segment's `sources`.
+
+**A track can run between two junctions more than one way**, and this is the tool's sharpest
+edge. On a loop or an out-and-back a trip comes through the same junction twice, so the two
+endpoints can land on different visits and the sub-path between them runs most of the way
+round the loop — a two-tenths-of-a-mile hop recorded as thirty miles. So the form enumerates
+every arc, labels each with its length, and defaults to the shortest, which is the leg where
+the alternative is the rest of the loop. Among arcs that are effectively the same leg
+recorded on different trips, the tightest snap wins instead.
+
+**The candidate leg is drawn on the map in orange before you save it**, and pulled into view
+if it does not already fit. A wrong way round is obvious as a line and invisible as a number,
+so look at the line.
 
 Distance and elevation come from the traced points. Gain uses the direction-symmetric
 algorithm the schema prescribes — simplify the profile, then sum — so reversing a segment

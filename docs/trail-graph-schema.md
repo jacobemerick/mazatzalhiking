@@ -60,8 +60,10 @@ tool reads the highest allocated code and takes the next.
 by case.** Two characters hold 3,844 values on paper. In practice a segment's geometry is
 one file per id, and both macOS (APFS) and Windows are case-insensitive by default, so
 minting `0a` alongside `0A` makes the two resolve to the same path and the second write
-destroys the first silently — nothing downstream can detect it, and `validate_graph.py`
-never opens the geometry files. So `mint()` tests uniqueness case-folded, which leaves
+destroys the first silently — the damage itself is undetectable downstream, since
+`validate_graph.py` never opens the geometry files. So `mint()` tests uniqueness
+case-folded, and the validator rejects a colliding *pair of ids* in any graph it is handed,
+whichever filesystem authored it. That leaves
 **1,296** usable two-character codes. The corpus suggests somewhere between "many dozens"
 and a pessimistic upper bound of ~850 segments, so two characters still cover the network,
 though with less margin than the raw base62 count implies; three characters remain
@@ -149,6 +151,55 @@ a note meaningful, so it always travels with the text (#17). The file is authore
 and read by the builder popup, the export descriptions, and any future page, so all three
 surfaces show the same record and cannot drift.
 
+### 5. A road is a segment only when it was walked
+
+**Decision: a road enters the graph on the same terms as a trail — a recorded track, with
+`sources`. A road that merely exists on the map does not, however useful it would be.**
+
+Decision 2 makes roads first-class, and they earn it: FR 201 links three crest trailheads
+in 1.47 mi and collapses a 15.7 mi detour, which is the difference between a loop and a
+car shuttle. The temptation is then to draw in the road you *know* is there — the graded
+roads reaching Fig Trailhead from the Davenport side, say.
+
+Two reasons not to, either sufficient. **Provenance:** every segment carries the file and
+date it came from, and an unwalked road has none, so its geometry would have to be
+invented — which the curation tool refuses to do by design. **Consequence:** anything in
+the graph is clickable, so the builder would hand someone a route down ground nobody has
+checked, rendered identically to ground walked twice. "It is on the Forest Service map" is
+exactly the secondhand claim this project exists not to make.
+
+The corollary is that the connectors worth adding are *findable*: a walked connector is a
+recorded arc between two existing nodes with no third node between them and no segment yet.
+That search is exhaustive over the corpus. What it cannot do is judge — the same search
+surfaces a road that makes a loop work, a road best left off the map, and a thick bushwhack
+down a creek, and nothing in a GPX tells them apart. Generate the candidates mechanically,
+decide them by hand.
+
+### 6. An unreachable component is declared, not silenced
+
+**Decision: `islands` records a component deliberately left unconnected, with the reason.
+An undeclared split stays an error.**
+
+The connectivity check earns its keep — it has caught a missed 0.08 mi connector between
+two trailhead nodes 118 m apart, which nothing else would have. So when a real island turns
+up, the fix is not to downgrade the check to a warning.
+
+And real islands exist. Fig Trailhead is reached by kayak across the Verde; the recorded
+trip shares no ground with any other, and its far bank is 2.08 mi from the nearest node, so
+no walked route reaches it and none ever will without a new trip. That is geography, not a
+curation gap.
+
+The crossing itself is **not** a segment. It is not walkable, so it cannot sit in a network
+whose legs are summed into a route with no way to say "bring a boat" — and it would not
+help anyway, since modelling it only extends the island to the west bank. It belongs in
+`observations.json`, attached to the trailhead node: a dated, first-person note about an
+entry point, which is what it actually is.
+
+So the island is declared in the graph, listing the component's nodes **exactly**. If it
+later grows or shrinks the declaration stops matching and the error returns, which is the
+point — the exception is a reviewed act with a date on it, like retiring an id, not a
+permanent hole in the check.
+
 ## Two constraints the schema has to satisfy
 
 ### A route may end partway along its last leg
@@ -204,6 +255,10 @@ of the project and must survive into the graph).
 
 **feature** — `id`, `name`, `kind` (`water` | `camp` | `cabin` | `viewpoint` | `ruin` |
 `ford`), `lat`, `lon`, and the derived `on` / `at` placing it along a segment.
+
+**island** — `nodes` (every node id in the isolated component, exactly), `on`, `reason`.
+Declares a component no walked route reaches; an undeclared split is an error. See
+decision 6.
 
 Coordinates are the authored truth for nodes and features; `on` and `at` are **derived**
 at build time by projecting onto the segment. Storing the projection as truth would make

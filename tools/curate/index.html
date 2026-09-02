@@ -91,6 +91,7 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
 
 const corpusLayer = L.layerGroup().addTo(map);
 const graphLayer  = L.layerGroup().addTo(map);
+const previewLayer = L.layerGroup().addTo(map);   // the arc a segment would take, before saving
 
 const status = (m, cls='') => { const s=$('#status'); s.textContent=m; s.className=cls; };
 
@@ -189,7 +190,7 @@ function form(html, onOk, at) {
   f.style.left = Math.min(pt.x + 14, window.innerWidth - 660) + 'px';
   f.style.top  = Math.min(pt.y, window.innerHeight - 300) + 'px';
   const first = f.querySelector('input,select'); if (first) { first.focus(); first.select?.(); }
-  const close = () => { f.style.display='none'; pending=null; redraw(); };
+  const close = () => { f.style.display='none'; previewLayer.clearLayers(); pending=null; redraw(); };
   $('#fNo').onclick = close;
   $('#fOk').onclick = async () => { const r = await onOk(); if (r !== false) close(); };
   f.onkeydown = e => {
@@ -213,7 +214,9 @@ async function placeNode(e) {
   form(`<label>Junction name</label><input id="q1" placeholder="Sheep Creek Junction">
         <label>Kind</label><select id="q2"><option value="junction">junction</option>
         <option value="trailhead">trailhead</option></select>
-        <div id="meta">${through.length} track(s) pass here:<br>${
+        <div id="meta">${through.length} recorded pass(es) here${
+          new Set(through.map(t=>t.key)).size < through.length
+            ? ' — a trip listed twice doubled back through this point' : ''}:<br>${
           through.slice(0,6).map(t=>`· ${esc(t.trip)} <span style="color:#999">${t.date} · ${t.dist} m</span>`).join('<br>')
         }${s.ele_ft!=null?`<br>elevation ${s.ele_ft} ft`:''}</div>`,
     async () => {
@@ -236,25 +239,40 @@ async function pickNode(n) {
 async function makeSegment(aId, bId) {
   const a = G.nodes.find(n=>n.id===aId), b = G.nodes.find(n=>n.id===bId);
   status('tracing…','act');
-  const [ta, tb] = await Promise.all([
-    fetch(`/api/through?lat=${a.lat}&lon=${a.lon}`).then(r=>r.json()),
-    fetch(`/api/through?lat=${b.lat}&lon=${b.lon}`).then(r=>r.json()),
-  ]);
-  const bByKey = Object.fromEntries(tb.map(t=>[t.key,t]));
-  const shared = ta.filter(t=>bByKey[t.key])
-                   .map(t=>({key:t.key, trip:t.trip, date:t.date, i0:t.index, i1:bByKey[t.key].index,
-                             score:t.dist + bByKey[t.key].dist}))
-                   .sort((x,y)=>x.score-y.score);
+  // One call, because pairing the two ends is the server's job: either end can fall on
+  // several visits of the same track, and every pairing is a different way round.
+  // Shortest arc first — see arcs() in server.py.
+  const shared = await fetch(
+    `/api/arcs?alat=${a.lat}&alon=${a.lon}&blat=${b.lat}&blon=${b.lon}`).then(r=>r.json());
   if (!shared.length) {
     pending = null; redraw();
     return status('no single recorded track runs between those two — place an intermediate junction','err');
   }
   let choice = 0;
+  // Show the line before it is committed. A leg that runs the wrong way round a loop is
+  // obvious on the map and invisible in a mileage figure, so pull it into view when it
+  // does not already fit — that is the whole tell.
   const draw = async () => {
     const c = shared[choice];
     const tr = await fetch(`/api/trace?key=${encodeURIComponent(c.key)}&i0=${c.i0}&i1=${c.i1}`).then(r=>r.json());
     if (!tr.coordinates) { status('trace failed','err'); return null; }
+    previewLayer.clearLayers();
+    const line = L.polyline(tr.coordinates.map(p=>[p[1],p[0]]),
+                            {color:'#e08a00', weight:6, opacity:.9}).addTo(previewLayer);
+    if (!map.getBounds().contains(line.getBounds())) map.fitBounds(line.getBounds(), {padding:[60,60]});
     return tr;
+  };
+  const mi = n => Number(n).toFixed(2);
+  // Warn only where the same track also runs a substantially longer way between these two
+  // nodes — that is the loop, and the thing worth a second look. A track that merely walked
+  // the leg twice offers two arcs of the same length, which is not worth saying.
+  const metaHtml = tr => {
+    const c = shared[choice];
+    const longer = shared.filter(x => x.key === c.key && x.miles > c.miles * 1.5);
+    return `${mi(tr.miles)} mi · +${tr.gain_ft} / −${tr.loss_ft} ft` + (!longer.length ? '' :
+      `<br><span style="color:#b4530a">${esc(c.trip)} comes through both ends more than once —`
+      + ` it also runs between them the long way, up to ${mi(longer[longer.length-1].miles)} mi.`
+      + ` Check the orange line.</span>`);
   };
   let tr = await draw();
   if (!tr) { pending=null; redraw(); return; }
@@ -262,27 +280,41 @@ async function makeSegment(aId, bId) {
   form(`<label>Segment name</label>
         <input id="q1" value="${esc(a.name)} to ${esc(b.name)}">
         <label>Trail${G.trails.length>1?'s (ctrl-click for concurrency)':''}</label>
-        <select id="q2" multiple size="${Math.min(5,Math.max(2,G.trails.length))}">${trailOpts}</select>
+        ${G.trails.length
+          ? `<select id="q2" multiple size="${Math.min(5,Math.max(2,G.trails.length))}">${trailOpts}</select>`
+          : ''}
+        <input id="q4" style="margin-top:${G.trails.length?'4px':'0'}"
+               placeholder="${G.trails.length ? 'or name a new trail' : 'name the trail — e.g. Davenport Trail'}">
         <label>Traced from</label>
         <select id="q3">${shared.map((c,i)=>
-          `<option value="${i}">${esc(c.trip)} · ${c.date}</option>`).join('')}</select>
-        <div id="meta">${tr.miles} mi · +${tr.gain_ft} / −${tr.loss_ft} ft</div>`,
+          `<option value="${i}">${esc(c.trip)} · ${c.date} · ${mi(c.miles)} mi</option>`).join('')}</select>
+        <div id="meta">${metaHtml(tr)}</div>`,
     async () => {
       const name = $('#q1').value.trim();
-      const trails = [...$('#q2').selectedOptions].map(o=>o.value);
+      const fresh = $('#q4').value.trim();
+      const picked = G.trails.length ? [...$('#q2').selectedOptions].map(o=>o.value) : [];
       if (!name) { status('name it — this is the label the builder shows','err'); return false; }
-      if (!trails.length) { status('assign at least one trail','err'); return false; }
+      if (!picked.length && !fresh) {
+        status('assign a trail, or name a new one','err'); return false;
+      }
       const c = shared[+$('#q3').value];
       const t2 = await fetch(`/api/trace?key=${encodeURIComponent(c.key)}&i0=${c.i0}&i1=${c.i1}`).then(r=>r.json());
       snapshot();
+      const trails = [...picked];
+      if (fresh) {
+        const tid = await mint('trails');
+        G.trails.push({id:tid, name:fresh, code:null, kind:'trail'});
+        trails.push(tid);
+      }
       const id = await mint('segments');
       G.segments.push({id, name, from:aId, to:bId, trails, miles:t2.miles,
         gain_ft:t2.gain_ft, loss_ft:t2.loss_ft, geometry:`geometry/${id}.json`,
         sources:[t2.source], _geo:t2.coordinates});
-      pending = null; redraw(); await save(); status(`${name} — ${t2.miles} mi`);
+      pending = null; redraw(); await save();
+      status(`${name} — ${t2.miles} mi${fresh?` · new trail "${fresh}"`:''}`);
     }, map.latLngToContainerPoint([b.lat,b.lon]));
   $('#q3').onchange = async () => { choice = +$('#q3').value; const t = await draw();
-    if (t) { tr = t; $('#meta').textContent = `${t.miles} mi · +${t.gain_ft} / −${t.loss_ft} ft`; } };
+    if (t) { tr = t; $('#meta').innerHTML = metaHtml(t); } };
 }
 
 // ------------------------------------------------------------------ trails --
