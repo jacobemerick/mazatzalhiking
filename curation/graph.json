@@ -1,0 +1,2982 @@
+{
+  "trails": [
+    {
+      "id": "00",
+      "name": "Barnhardt Trail",
+      "code": "43",
+      "kind": "trail"
+    },
+    {
+      "id": "01",
+      "name": "Y-Bar Trail",
+      "code": "44",
+      "kind": "trail"
+    },
+    {
+      "id": "02",
+      "name": "Half Moon Trail",
+      "code": "288",
+      "kind": "trail"
+    },
+    {
+      "id": "03",
+      "name": "Rock Creek Trail",
+      "code": "42",
+      "kind": "trail"
+    },
+    {
+      "id": "04",
+      "name": "Mazatzal Divide Trail",
+      "code": "23",
+      "kind": "trail"
+    },
+    {
+      "id": "05",
+      "name": "Sandy Saddle Trail",
+      "code": "231",
+      "kind": "trail"
+    },
+    {
+      "id": "06",
+      "name": "Brody Seep Trail",
+      "code": "264",
+      "kind": "trail"
+    },
+    {
+      "id": "07",
+      "name": "Fisher Trail",
+      "code": "230",
+      "kind": "trail"
+    },
+    {
+      "id": "08",
+      "name": "Bear Spring Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "09",
+      "name": "Mount Peeley Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "0A",
+      "name": "Cornucopia Trail",
+      "code": "86",
+      "kind": "trail"
+    },
+    {
+      "id": "0B",
+      "name": "Thicket Spring Trail",
+      "code": "95",
+      "kind": "trail"
+    },
+    {
+      "id": "0C",
+      "name": "Sheep Creek Trail",
+      "code": "88",
+      "kind": "trail"
+    },
+    {
+      "id": "0D",
+      "name": "Davenport Wash Trail",
+      "code": "89",
+      "kind": "trail"
+    },
+    {
+      "id": "0E",
+      "name": "Club Ranch Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "0F",
+      "name": "Horse Camp Seep Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "0G",
+      "name": "Davey Gowan Trail",
+      "code": "48",
+      "kind": "trail"
+    },
+    {
+      "id": "0H",
+      "name": "Deer Creek Trail",
+      "code": "45",
+      "kind": "trail"
+    },
+    {
+      "id": "0I",
+      "name": "South Fork Deer Creek Trail",
+      "code": "46",
+      "kind": "trail"
+    },
+    {
+      "id": "0J",
+      "name": "Gold Ridge Trail",
+      "code": "47",
+      "kind": "trail"
+    },
+    {
+      "id": "0K",
+      "name": "West Fork Trail",
+      "code": "260",
+      "kind": "trail"
+    },
+    {
+      "id": "0L",
+      "name": "Saddle Mountain Trail",
+      "code": "91",
+      "kind": "trail"
+    },
+    {
+      "id": "0M",
+      "name": "Little Saddle Mountain Trail",
+      "code": "244",
+      "kind": "trail"
+    },
+    {
+      "id": "0N",
+      "name": "Black Ridge Trail",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "0O",
+      "name": "Sunflower Trail",
+      "code": "344",
+      "kind": "trail"
+    },
+    {
+      "id": "0P",
+      "name": "Copper Camp Trail",
+      "code": "87",
+      "kind": "trail"
+    },
+    {
+      "id": "0Q",
+      "name": "Fig Trail",
+      "code": "92",
+      "kind": "trail"
+    },
+    {
+      "id": "0R",
+      "name": "Sears Trail",
+      "code": "90",
+      "kind": "trail"
+    },
+    {
+      "id": "0S",
+      "name": "FR 201",
+      "code": "201",
+      "kind": "road"
+    },
+    {
+      "id": "0T",
+      "name": "FR 479",
+      "code": "479",
+      "kind": "road"
+    },
+    {
+      "id": "0U",
+      "name": "FR 477",
+      "code": "477",
+      "kind": "road"
+    },
+    {
+      "id": "0V",
+      "name": "Verde River Trail",
+      "code": "11",
+      "kind": "trail"
+    },
+    {
+      "id": "0W",
+      "name": "Willow Springs Trail",
+      "code": "223",
+      "kind": "trail"
+    },
+    {
+      "id": "0X",
+      "name": "Willow Springs Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "0Y",
+      "name": "Deadman Trail",
+      "code": "25",
+      "kind": "trail"
+    },
+    {
+      "id": "0Z",
+      "name": "Mountain Spring Spur",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "10",
+      "name": "Lost Spring Spur",
+      "code": "279",
+      "kind": "trail"
+    },
+    {
+      "id": "11",
+      "name": "North Peak Trail",
+      "code": "24",
+      "kind": "trail"
+    },
+    {
+      "id": "12",
+      "name": "Pole Hollow Canyon",
+      "code": null,
+      "kind": "trail"
+    },
+    {
+      "id": "13",
+      "name": "Red Hills Trail",
+      "code": "262",
+      "kind": "trail"
+    },
+    {
+      "id": "14",
+      "name": "Midnight Trail",
+      "code": "272",
+      "kind": "trail"
+    },
+    {
+      "id": "15",
+      "name": "Dutchman Grave Trail",
+      "code": "22",
+      "kind": "trail"
+    },
+    {
+      "id": "16",
+      "name": "Wet Bottom Trail",
+      "code": "269",
+      "kind": "trail"
+    },
+    {
+      "id": "17",
+      "name": "Highwater Trail",
+      "code": "20",
+      "kind": "trail"
+    },
+    {
+      "id": "18",
+      "name": "Bull Springs Trail",
+      "code": "34",
+      "kind": "trail"
+    },
+    {
+      "id": "19",
+      "name": "Brush Trail",
+      "code": "249",
+      "kind": "trail"
+    },
+    {
+      "id": "1A",
+      "name": "Saddle Ridge Trail",
+      "code": "14",
+      "kind": "trail"
+    },
+    {
+      "id": "1B",
+      "name": "FR 206",
+      "code": "206",
+      "kind": "road"
+    },
+    {
+      "id": "1C",
+      "name": "Deadman Mesa Trail",
+      "code": "17",
+      "kind": "trail"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "00",
+      "name": "Sandy Saddle / Barnhardt Trail Junction",
+      "kind": "junction",
+      "lat": 34.087855,
+      "lon": -111.458568,
+      "ele_ft": 5899
+    },
+    {
+      "id": "01",
+      "name": "Barnhardt Trailhead",
+      "kind": "trailhead",
+      "lat": 34.09283,
+      "lon": -111.422,
+      "ele_ft": 4196
+    },
+    {
+      "id": "02",
+      "name": "Y-Bar / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.05907,
+      "lon": -111.46883,
+      "ele_ft": 6552
+    },
+    {
+      "id": "03",
+      "name": "Rock Creek Trailhead",
+      "kind": "trailhead",
+      "lat": 34.126299,
+      "lon": -111.444346,
+      "ele_ft": 3930
+    },
+    {
+      "id": "04",
+      "name": "Rock Creek / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.12053,
+      "lon": -111.48701,
+      "ele_ft": 6460
+    },
+    {
+      "id": "05",
+      "name": "Barnhardt / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.08597,
+      "lon": -111.47865,
+      "ele_ft": 6030
+    },
+    {
+      "id": "06",
+      "name": "Sandy Saddle / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.10705,
+      "lon": -111.49045,
+      "ele_ft": 5951
+    },
+    {
+      "id": "07",
+      "name": "Brody Seep / Mazatzal Divide Trail Junction (N)",
+      "kind": "junction",
+      "lat": 34.08676,
+      "lon": -111.49326,
+      "ele_ft": 5709
+    },
+    {
+      "id": "08",
+      "name": "Brody Seep / Mazatzal Divide Trail Junction (S)",
+      "kind": "junction",
+      "lat": 34.07188,
+      "lon": -111.48151,
+      "ele_ft": 6056
+    },
+    {
+      "id": "09",
+      "name": "Chilson Camp",
+      "kind": "junction",
+      "lat": 34.08479,
+      "lon": -111.49259,
+      "ele_ft": 5669
+    },
+    {
+      "id": "0A",
+      "name": "Horse Camp Seep / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.11256,
+      "lon": -111.49136,
+      "ele_ft": 6089
+    },
+    {
+      "id": "0B",
+      "name": "Fisher / Brody Seep Trail Junction",
+      "kind": "junction",
+      "lat": 34.07347,
+      "lon": -111.48533,
+      "ele_ft": 5778
+    },
+    {
+      "id": "0C",
+      "name": "Fisher / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.04178,
+      "lon": -111.47596,
+      "ele_ft": 6558
+    },
+    {
+      "id": "0D",
+      "name": "Bear Spring",
+      "kind": "junction",
+      "lat": 34.03801,
+      "lon": -111.47651,
+      "ele_ft": 6598
+    },
+    {
+      "id": "0E",
+      "name": "Bear Spring / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.04079,
+      "lon": -111.47651,
+      "ele_ft": 6572
+    },
+    {
+      "id": "0F",
+      "name": "Mount Peeley / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.00646,
+      "lon": -111.488064,
+      "ele_ft": 6470
+    },
+    {
+      "id": "0G",
+      "name": "Mount Peeley",
+      "kind": "junction",
+      "lat": 34.002026,
+      "lon": -111.487095,
+      "ele_ft": 6998
+    },
+    {
+      "id": "0H",
+      "name": "Cornucopia / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.002171,
+      "lon": -111.477248,
+      "ele_ft": 5741
+    },
+    {
+      "id": "0I",
+      "name": "Thicket Spring / Cornucopia Trail Junction",
+      "kind": "junction",
+      "lat": 33.99075,
+      "lon": -111.4848,
+      "ele_ft": 5236
+    },
+    {
+      "id": "0J",
+      "name": "Mount Peeley Trailhead",
+      "kind": "trailhead",
+      "lat": 34.00475,
+      "lon": -111.47249,
+      "ele_ft": 5574
+    },
+    {
+      "id": "0K",
+      "name": "West Fork / Cornucopia Trail Junction",
+      "kind": "junction",
+      "lat": 33.97368,
+      "lon": -111.48321,
+      "ele_ft": 4708
+    },
+    {
+      "id": "0L",
+      "name": "Cornucopia Trailhead (FR 25A)",
+      "kind": "trailhead",
+      "lat": 33.96671,
+      "lon": -111.48177,
+      "ele_ft": 4590
+    },
+    {
+      "id": "0M",
+      "name": "West Fork / Thicket Spring Trail Junction",
+      "kind": "junction",
+      "lat": 33.97625,
+      "lon": -111.49304,
+      "ele_ft": 5118
+    },
+    {
+      "id": "0N",
+      "name": "Thicket Spring / Sheep Creek Trail Junction",
+      "kind": "junction",
+      "lat": 33.96906,
+      "lon": -111.50814,
+      "ele_ft": 4908
+    },
+    {
+      "id": "0O",
+      "name": "Copper Camp Flat",
+      "kind": "junction",
+      "lat": 33.9705,
+      "lon": -111.52084,
+      "ele_ft": 5167
+    },
+    {
+      "id": "0P",
+      "name": "Sheep Creek / Saddle Mountain Trail Junction",
+      "kind": "junction",
+      "lat": 33.96334,
+      "lon": -111.50822,
+      "ele_ft": 5262
+    },
+    {
+      "id": "0Q",
+      "name": "Sears / Sheep Creek Trail Junction",
+      "kind": "junction",
+      "lat": 34.00335,
+      "lon": -111.55954,
+      "ele_ft": 4042
+    },
+    {
+      "id": "0R",
+      "name": "Sheep Creek / Davenport Wash Trail Junction",
+      "kind": "junction",
+      "lat": 34.04188,
+      "lon": -111.56379,
+      "ele_ft": 3448
+    },
+    {
+      "id": "0S",
+      "name": "Club Ranch",
+      "kind": "junction",
+      "lat": 34.04528,
+      "lon": -111.53994,
+      "ele_ft": 3898
+    },
+    {
+      "id": "0T",
+      "name": "Club Spring",
+      "kind": "junction",
+      "lat": 34.04474,
+      "lon": -111.53848,
+      "ele_ft": 3983
+    },
+    {
+      "id": "0U",
+      "name": "Deadman / Davenport Wash Trail Junction",
+      "kind": "junction",
+      "lat": 34.04558,
+      "lon": -111.55132,
+      "ele_ft": 3556
+    },
+    {
+      "id": "0V",
+      "name": "Horse Camp Seep",
+      "kind": "junction",
+      "lat": 34.1129,
+      "lon": -111.4921,
+      "ele_ft": 6050
+    },
+    {
+      "id": "0W",
+      "name": "Davey Gowan Camp",
+      "kind": "junction",
+      "lat": 34.01461,
+      "lon": -111.46191,
+      "ele_ft": 4747
+    },
+    {
+      "id": "0X",
+      "name": "Davey Gowan Trailhead",
+      "kind": "trailhead",
+      "lat": 34.00665,
+      "lon": -111.45161,
+      "ele_ft": 6129
+    },
+    {
+      "id": "0Y",
+      "name": "South Fork Deer Creek Trailhead",
+      "kind": "trailhead",
+      "lat": 34.00254,
+      "lon": -111.44721,
+      "ele_ft": 6027
+    },
+    {
+      "id": "0Z",
+      "name": "South Fork Deer Creek / Deer Creek Trail Junction",
+      "kind": "junction",
+      "lat": 34.04051,
+      "lon": -111.37499,
+      "ele_ft": 3399
+    },
+    {
+      "id": "10",
+      "name": "Gold Ridge / Deer Creek Trail Junction",
+      "kind": "junction",
+      "lat": 34.03847,
+      "lon": -111.37244,
+      "ele_ft": 3399
+    },
+    {
+      "id": "11",
+      "name": "Deer Creek Trailhead",
+      "kind": "trailhead",
+      "lat": 34.03702,
+      "lon": -111.36973,
+      "ele_ft": 3301
+    },
+    {
+      "id": "13",
+      "name": "Gold Ridge Trailhead",
+      "kind": "trailhead",
+      "lat": 34.00717,
+      "lon": -111.43764,
+      "ele_ft": 6073
+    },
+    {
+      "id": "12",
+      "name": "Little Saddle Mountain / Saddle Mountain Trail Junction",
+      "kind": "junction",
+      "lat": 33.94017,
+      "lon": -111.50882,
+      "ele_ft": 5039
+    },
+    {
+      "id": "14",
+      "name": "Mormon Trailhead",
+      "kind": "trailhead",
+      "lat": 33.93931,
+      "lon": -111.50537,
+      "ele_ft": 5043
+    },
+    {
+      "id": "15",
+      "name": "Cross F Trailhead",
+      "kind": "trailhead",
+      "lat": 33.90915,
+      "lon": -111.48372,
+      "ele_ft": 3678
+    },
+    {
+      "id": "16",
+      "name": "Sunflower / Little Saddle Mountain Trail Junction",
+      "kind": "junction",
+      "lat": 33.912195,
+      "lon": -111.493204,
+      "ele_ft": 3963
+    },
+    {
+      "id": "17",
+      "name": "Black Ridge / Little Saddle Mountain Trail Junction",
+      "kind": "junction",
+      "lat": 33.928547,
+      "lon": -111.51261,
+      "ele_ft": 4606
+    },
+    {
+      "id": "18",
+      "name": "Black Ridge / Sunflower Trail Junction",
+      "kind": "junction",
+      "lat": 33.90655,
+      "lon": -111.49533,
+      "ele_ft": 3970
+    },
+    {
+      "id": "19",
+      "name": "Bushnell Tanks Trailhead",
+      "kind": "trailhead",
+      "lat": 33.86423,
+      "lon": -111.46399,
+      "ele_ft": 3399
+    },
+    {
+      "id": "1A",
+      "name": "Copper Camp Trailhead",
+      "kind": "trailhead",
+      "lat": 33.9631,
+      "lon": -111.6269,
+      "ele_ft": 2966
+    },
+    {
+      "id": "1B",
+      "name": "Fig Trailhead",
+      "kind": "trailhead",
+      "lat": 33.94513,
+      "lon": -111.67671,
+      "ele_ft": 1909
+    },
+    {
+      "id": "1C",
+      "name": "Fig Cabin",
+      "kind": "junction",
+      "lat": 33.92607,
+      "lon": -111.63283,
+      "ele_ft": 1913
+    },
+    {
+      "id": "1D",
+      "name": "Davenport Trailhead",
+      "kind": "trailhead",
+      "lat": 33.977,
+      "lon": -111.67731,
+      "ele_ft": 1972
+    },
+    {
+      "id": "1E",
+      "name": "Sears Trailhead",
+      "kind": "trailhead",
+      "lat": 33.97987,
+      "lon": -111.66802,
+      "ele_ft": 2034
+    },
+    {
+      "id": "1F",
+      "name": "Horseshoe Dam Trailhead",
+      "kind": "trailhead",
+      "lat": 33.98279,
+      "lon": -111.71135,
+      "ele_ft": 1969
+    },
+    {
+      "id": "1G",
+      "name": "FR 479 / FR 477 Junction",
+      "kind": "junction",
+      "lat": 33.97552,
+      "lon": -111.68107,
+      "ele_ft": 1959
+    },
+    {
+      "id": "1H",
+      "name": "Sheep Bridge Trailhead",
+      "kind": "trailhead",
+      "lat": 34.07794,
+      "lon": -111.70819,
+      "ele_ft": 2087
+    },
+    {
+      "id": "1I",
+      "name": "Willow Springs / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.07622,
+      "lon": -111.70323,
+      "ele_ft": 2096
+    },
+    {
+      "id": "1J",
+      "name": "Dutchman Grave / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.07953,
+      "lon": -111.70368,
+      "ele_ft": 2156
+    },
+    {
+      "id": "1K",
+      "name": "Wet Bottom / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.1632,
+      "lon": -111.71168,
+      "ele_ft": 2359
+    },
+    {
+      "id": "1L",
+      "name": "Red Creek / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.16243,
+      "lon": -111.72269,
+      "ele_ft": 2234
+    },
+    {
+      "id": "1M",
+      "name": "Highwater / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.2291,
+      "lon": -111.69248,
+      "ele_ft": 2569
+    },
+    {
+      "id": "1N",
+      "name": "Highwater / Wet Bottom Trail Junction",
+      "kind": "junction",
+      "lat": 34.17699,
+      "lon": -111.68585,
+      "ele_ft": 2999
+    },
+    {
+      "id": "1O",
+      "name": "Deadman Mesa / Verde River Trail Junction",
+      "kind": "junction",
+      "lat": 34.304,
+      "lon": -111.66194,
+      "ele_ft": 3156
+    },
+    {
+      "id": "1P",
+      "name": "Willow Springs Spur Junction",
+      "kind": "junction",
+      "lat": 34.09326,
+      "lon": -111.60273,
+      "ele_ft": 3871
+    },
+    {
+      "id": "1Q",
+      "name": "Willow Springs",
+      "kind": "junction",
+      "lat": 34.09086,
+      "lon": -111.59851,
+      "ele_ft": 3632
+    },
+    {
+      "id": "1R",
+      "name": "Deadman / Willow Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.10115,
+      "lon": -111.57584,
+      "ele_ft": 4741
+    },
+    {
+      "id": "1S",
+      "name": "Mountain Spring / Willow Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.10186,
+      "lon": -111.57438,
+      "ele_ft": 4820
+    },
+    {
+      "id": "1T",
+      "name": "Mountain Spring",
+      "kind": "junction",
+      "lat": 34.10066,
+      "lon": -111.57401,
+      "ele_ft": 4767
+    },
+    {
+      "id": "1U",
+      "name": "Dutchman Grave / Willow Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.10285,
+      "lon": -111.57459,
+      "ele_ft": 4843
+    },
+    {
+      "id": "1V",
+      "name": "Lost Spring / Willow Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.10887,
+      "lon": -111.55948,
+      "ele_ft": 5079
+    },
+    {
+      "id": "1W",
+      "name": "Lost Spring",
+      "kind": "junction",
+      "lat": 34.10558,
+      "lon": -111.55621,
+      "ele_ft": 5036
+    },
+    {
+      "id": "1X",
+      "name": "Midnight / Willow Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.12205,
+      "lon": -111.55034,
+      "ele_ft": 5325
+    },
+    {
+      "id": "1Y",
+      "name": "Willow Springs / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.14654,
+      "lon": -111.4997,
+      "ele_ft": 5883
+    },
+    {
+      "id": "1Z",
+      "name": "The Park",
+      "kind": "junction",
+      "lat": 34.14995,
+      "lon": -111.49987,
+      "ele_ft": 5928
+    },
+    {
+      "id": "20",
+      "name": "Mineral Creek Trailhead",
+      "kind": "trailhead",
+      "lat": 34.17834,
+      "lon": -111.44821,
+      "ele_ft": 4022
+    },
+    {
+      "id": "21",
+      "name": "Doll Baby Trailhead",
+      "kind": "trailhead",
+      "lat": 34.2169,
+      "lon": -111.46561,
+      "ele_ft": 3448
+    },
+    {
+      "id": "22",
+      "name": "Red Hills / Mazatzal Divide Trail Junction",
+      "kind": "junction",
+      "lat": 34.17864,
+      "lon": -111.50505,
+      "ele_ft": 6083
+    },
+    {
+      "id": "23",
+      "name": "Brush / Red Hills Trail Junction",
+      "kind": "junction",
+      "lat": 34.17232,
+      "lon": -111.53485,
+      "ele_ft": 6083
+    },
+    {
+      "id": "24",
+      "name": "Midnight / Red Hills Trail Junction",
+      "kind": "junction",
+      "lat": 34.14926,
+      "lon": -111.55367,
+      "ele_ft": 5400
+    },
+    {
+      "id": "25",
+      "name": "Red Hills / Dutchman Grave Trail Junction",
+      "kind": "junction",
+      "lat": 34.11635,
+      "lon": -111.64536,
+      "ele_ft": 2907
+    },
+    {
+      "id": "26",
+      "name": "Bull Trap Springs",
+      "kind": "junction",
+      "lat": 34.20866,
+      "lon": -111.59258,
+      "ele_ft": 4518
+    },
+    {
+      "id": "27",
+      "name": "Brush / Bull Springs Trail Junction",
+      "kind": "junction",
+      "lat": 34.2049,
+      "lon": -111.54784,
+      "ele_ft": 5092
+    },
+    {
+      "id": "28",
+      "name": "LF Ranch",
+      "kind": "junction",
+      "lat": 34.22402,
+      "lon": -111.51634,
+      "ele_ft": 3383
+    },
+    {
+      "id": "29",
+      "name": "Twin Buttes Trailhead",
+      "kind": "trailhead",
+      "lat": 34.35907,
+      "lon": -111.5575,
+      "ele_ft": 5843
+    },
+    {
+      "id": "2A",
+      "name": "Whiterock Mesa / Saddle Ridge Trail Junction",
+      "kind": "junction",
+      "lat": 34.30468,
+      "lon": -111.53198,
+      "ele_ft": 4754
+    },
+    {
+      "id": "2B",
+      "name": "Deadman Mesa Trailhead",
+      "kind": "trailhead",
+      "lat": 34.36094,
+      "lon": -111.6468,
+      "ele_ft": 4478
+    }
+  ],
+  "segments": [
+    {
+      "id": "00",
+      "name": "Barnhardt Trail from Barnhardt Trailhead to Sandy Saddle",
+      "from": "01",
+      "to": "00",
+      "trails": [
+        "00"
+      ],
+      "miles": 3.92,
+      "gain_ft": 1785,
+      "loss_ft": 79,
+      "geometry": "geometry/00.json",
+      "sources": [
+        {
+          "file": "RS_SandySaddleTM12_231525.gpx",
+          "date": "2026-05-23"
+        }
+      ]
+    },
+    {
+      "id": "01",
+      "name": "Y-Bar Trail",
+      "from": "01",
+      "to": "02",
+      "trails": [
+        "01"
+      ],
+      "miles": 5.57,
+      "gain_ft": 2822,
+      "loss_ft": 469,
+      "geometry": "geometry/01.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "name": "Half Moon Trail",
+      "from": "01",
+      "to": "03",
+      "trails": [
+        "02"
+      ],
+      "miles": 4.28,
+      "gain_ft": 951,
+      "loss_ft": 1171,
+      "geometry": "geometry/02.json",
+      "sources": [
+        {
+          "file": "33886_Rock_Creek.gpx",
+          "date": "2016-09-23"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "name": "Rock Creek Trail",
+      "from": "03",
+      "to": "04",
+      "trails": [
+        "03"
+      ],
+      "miles": 4.88,
+      "gain_ft": 3593,
+      "loss_ft": 1086,
+      "geometry": "geometry/03.json",
+      "sources": [
+        {
+          "file": "RS_NorthForkFallsofDead_174147.gpx",
+          "date": "2020-03-21"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "name": "Barnhardt Trail from Sandy Saddle to Mazatzal Divide",
+      "from": "00",
+      "to": "05",
+      "trails": [
+        "00"
+      ],
+      "miles": 2.13,
+      "gain_ft": 364,
+      "loss_ft": 253,
+      "geometry": "geometry/04.json",
+      "sources": [
+        {
+          "file": "RS_NorthForkFallsofDead_174147.gpx",
+          "date": "2020-03-21"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "name": "Sandy Saddle Trail",
+      "from": "00",
+      "to": "06",
+      "trails": [
+        "05"
+      ],
+      "miles": 3.05,
+      "gain_ft": 1060,
+      "loss_ft": 1033,
+      "geometry": "geometry/06.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "name": "Mazatzal Divide Trail from Barnhardt to Brody Seep (N)",
+      "from": "05",
+      "to": "07",
+      "trails": [
+        "04"
+      ],
+      "miles": 1.01,
+      "gain_ft": 82,
+      "loss_ft": 407,
+      "geometry": "geometry/07.json",
+      "sources": [
+        {
+          "file": "40409_Barnhardt_.gpx",
+          "date": "2018-06-03"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "name": "Brody Seep Trail from Mazatzal Divide (N) to Chilson Camp",
+      "from": "07",
+      "to": "09",
+      "trails": [
+        "06"
+      ],
+      "miles": 0.14,
+      "gain_ft": 7,
+      "loss_ft": 36,
+      "geometry": "geometry/08.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "name": "Mazatzal Divide Trail from Brody Seep (N) to Sandy Saddle",
+      "from": "07",
+      "to": "06",
+      "trails": [
+        "04"
+      ],
+      "miles": 2.02,
+      "gain_ft": 407,
+      "loss_ft": 167,
+      "geometry": "geometry/09.json",
+      "sources": [
+        {
+          "file": "35935_Mazatzal_P.gpx",
+          "date": "2016-04-02"
+        }
+      ]
+    },
+    {
+      "id": "0A",
+      "name": "Mazatzal Divide Trail from Sandy Saddle to Horse Camp Seep",
+      "from": "06",
+      "to": "0A",
+      "trails": [
+        "04"
+      ],
+      "miles": 0.5,
+      "gain_ft": 154,
+      "loss_ft": 16,
+      "geometry": "geometry/0A.json",
+      "sources": [
+        {
+          "file": "33886_Rock_Creek.gpx",
+          "date": "2016-09-23"
+        }
+      ]
+    },
+    {
+      "id": "0B",
+      "name": "Mazatzal Divide Trail from Horse Camp Seep to Rock Creek",
+      "from": "0A",
+      "to": "04",
+      "trails": [
+        "04"
+      ],
+      "miles": 0.74,
+      "gain_ft": 387,
+      "loss_ft": 23,
+      "geometry": "geometry/0B.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "0C",
+      "name": "Mazatzal Divide Trail from Y-Bar to Brody Seep (S)",
+      "from": "02",
+      "to": "08",
+      "trails": [
+        "04"
+      ],
+      "miles": 1.91,
+      "gain_ft": 253,
+      "loss_ft": 745,
+      "geometry": "geometry/0C.json",
+      "sources": [
+        {
+          "file": "35935_Mazatzal_P.gpx",
+          "date": "2016-04-02"
+        }
+      ]
+    },
+    {
+      "id": "0D",
+      "name": "Mazatzal Divide Trail from Brody Seep (S) to Barnhardt",
+      "from": "08",
+      "to": "05",
+      "trails": [
+        "04"
+      ],
+      "miles": 1.41,
+      "gain_ft": 344,
+      "loss_ft": 374,
+      "geometry": "geometry/0D.json",
+      "sources": [
+        {
+          "file": "35935_Mazatzal_P.gpx",
+          "date": "2016-04-02"
+        }
+      ]
+    },
+    {
+      "id": "0F",
+      "name": "Fisher Trail from Brody Seep to Mazatzal Divide",
+      "from": "0B",
+      "to": "0C",
+      "trails": [
+        "07"
+      ],
+      "miles": 3.7,
+      "gain_ft": 2011,
+      "loss_ft": 1230,
+      "geometry": "geometry/0F.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "0G",
+      "name": "Brody Seep Trail from Chilson Camp to Fisher",
+      "from": "09",
+      "to": "0B",
+      "trails": [
+        "06"
+      ],
+      "miles": 1.64,
+      "gain_ft": 476,
+      "loss_ft": 371,
+      "geometry": "geometry/0G.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "0H",
+      "name": "Brody Seep Trail from Fisher to Mazatzal Divide (S)",
+      "from": "0B",
+      "to": "08",
+      "trails": [
+        "06"
+      ],
+      "miles": 0.34,
+      "gain_ft": 282,
+      "loss_ft": 3,
+      "geometry": "geometry/0H.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "0I",
+      "name": "Bear Spring Spur",
+      "from": "0E",
+      "to": "0D",
+      "trails": [
+        "08"
+      ],
+      "miles": 0.2,
+      "gain_ft": 49,
+      "loss_ft": 20,
+      "geometry": "geometry/0I.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "0J",
+      "name": "Mazatzal Divide Trail from Fisher to Bear Spring",
+      "from": "0C",
+      "to": "0E",
+      "trails": [
+        "04"
+      ],
+      "miles": 0.08,
+      "gain_ft": 30,
+      "loss_ft": 16,
+      "geometry": "geometry/0J.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "0K",
+      "name": "Mazatzal Divide Trail from Fisher to Y-Bar",
+      "from": "0C",
+      "to": "02",
+      "trails": [
+        "04"
+      ],
+      "miles": 1.86,
+      "gain_ft": 308,
+      "loss_ft": 315,
+      "geometry": "geometry/0K.json",
+      "sources": [
+        {
+          "file": "36587_Mazatzal_P.gpx",
+          "date": "2017-05-06"
+        }
+      ]
+    },
+    {
+      "id": "0L",
+      "name": "Mount Peeley Spur",
+      "from": "0F",
+      "to": "0G",
+      "trails": [
+        "09"
+      ],
+      "miles": 0.53,
+      "gain_ft": 545,
+      "loss_ft": 16,
+      "geometry": "geometry/0L.json",
+      "sources": [
+        {
+          "file": "RS_MountPeeleySummit_196419.gpx",
+          "date": "2022-05-12"
+        }
+      ]
+    },
+    {
+      "id": "0M",
+      "name": "Mazatzal Divide Trail from Mount Peeley to Bear Spring",
+      "from": "0F",
+      "to": "0E",
+      "trails": [
+        "04"
+      ],
+      "miles": 6.69,
+      "gain_ft": 1575,
+      "loss_ft": 1535,
+      "geometry": "geometry/0M.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "0N",
+      "name": "Mazatzal Divide Trail from Cornucopia to Mount Peeley",
+      "from": "0H",
+      "to": "0F",
+      "trails": [
+        "04"
+      ],
+      "miles": 1.44,
+      "gain_ft": 807,
+      "loss_ft": 66,
+      "geometry": "geometry/0N.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "0O",
+      "name": "Cornucopia Trail from Mount Peeley Trailhead to Mazatzal Divide",
+      "from": "0J",
+      "to": "0H",
+      "trails": [
+        "0A"
+      ],
+      "miles": 0.44,
+      "gain_ft": 213,
+      "loss_ft": 0,
+      "geometry": "geometry/0O.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "0P",
+      "name": "Cornucopia Trail from Thicket Spring to Mazatzal Divide",
+      "from": "0I",
+      "to": "0H",
+      "trails": [
+        "0A"
+      ],
+      "miles": 1.06,
+      "gain_ft": 568,
+      "loss_ft": 26,
+      "geometry": "geometry/0P.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0Q",
+      "name": "Thicket Spring Trail from West Fork to Cornucopia",
+      "from": "0M",
+      "to": "0I",
+      "trails": [
+        "0B"
+      ],
+      "miles": 1.56,
+      "gain_ft": 709,
+      "loss_ft": 594,
+      "geometry": "geometry/0Q.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0R",
+      "name": "Cornucopia Trail from West Fork to Thicket Spring",
+      "from": "0K",
+      "to": "0I",
+      "trails": [
+        "0A"
+      ],
+      "miles": 1.5,
+      "gain_ft": 617,
+      "loss_ft": 89,
+      "geometry": "geometry/0R.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0S",
+      "name": "Cornucopia Trail from Cornucopia Trailhead (FR 25A) to West Fork",
+      "from": "0L",
+      "to": "0K",
+      "trails": [
+        "0A"
+      ],
+      "miles": 0.59,
+      "gain_ft": 161,
+      "loss_ft": 43,
+      "geometry": "geometry/0S.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0T",
+      "name": "Thicket Spring Trail from Sheep Creek to West Fork",
+      "from": "0N",
+      "to": "0M",
+      "trails": [
+        "0B"
+      ],
+      "miles": 1.18,
+      "gain_ft": 400,
+      "loss_ft": 190,
+      "geometry": "geometry/0T.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0U",
+      "name": "Sheep Creek Trail from Thicket Spring to Copper Camp Flat",
+      "from": "0N",
+      "to": "0O",
+      "trails": [
+        "0C"
+      ],
+      "miles": 0.88,
+      "gain_ft": 302,
+      "loss_ft": 33,
+      "geometry": "geometry/0U.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "0V",
+      "name": "Sheep Creek Trail from Saddle Mountain to Thicket Spring",
+      "from": "0P",
+      "to": "0N",
+      "trails": [
+        "0C"
+      ],
+      "miles": 0.69,
+      "gain_ft": 92,
+      "loss_ft": 446,
+      "geometry": "geometry/0V.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "0W",
+      "name": "Sheep Creek Trail from Copper Camp Flat to Sears",
+      "from": "0O",
+      "to": "0Q",
+      "trails": [
+        "0C"
+      ],
+      "miles": 4.24,
+      "gain_ft": 804,
+      "loss_ft": 1939,
+      "geometry": "geometry/0W.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "0X",
+      "name": "Sheep Creek Trail from Sears to Davenport Wash",
+      "from": "0Q",
+      "to": "0R",
+      "trails": [
+        "0C"
+      ],
+      "miles": 3.37,
+      "gain_ft": 912,
+      "loss_ft": 1506,
+      "geometry": "geometry/0X.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "0Y",
+      "name": "Club Ranch Spur",
+      "from": "0S",
+      "to": "0T",
+      "trails": [
+        "0E"
+      ],
+      "miles": 0.11,
+      "gain_ft": 85,
+      "loss_ft": 20,
+      "geometry": "geometry/0Y.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "0Z",
+      "name": "Davenport Wash Trail from Sheep Creek to Deadman",
+      "from": "0R",
+      "to": "0U",
+      "trails": [
+        "0D"
+      ],
+      "miles": 0.9,
+      "gain_ft": 269,
+      "loss_ft": 161,
+      "geometry": "geometry/0Z.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Davenport Wash Trail from Deadman to Club Ranch",
+      "from": "0U",
+      "to": "0S",
+      "trails": [
+        "0D"
+      ],
+      "miles": 0.97,
+      "gain_ft": 456,
+      "loss_ft": 115,
+      "geometry": "geometry/10.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Davenport Wash Trail from Club Ranch to Chilson Camp",
+      "from": "0S",
+      "to": "09",
+      "trails": [
+        "0D"
+      ],
+      "miles": 5.99,
+      "gain_ft": 3123,
+      "loss_ft": 1355,
+      "geometry": "geometry/11.json",
+      "sources": [
+        {
+          "file": "38408_Sheep_Cree.gpx",
+          "date": "2017-11-17"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Horse Camp Seep Spur",
+      "from": "0A",
+      "to": "0V",
+      "trails": [
+        "0F"
+      ],
+      "miles": 0.1,
+      "gain_ft": 26,
+      "loss_ft": 59,
+      "geometry": "geometry/12.json",
+      "sources": [
+        {
+          "file": "RS_NorthForkFallsofDead_174147.gpx",
+          "date": "2020-03-21"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Davey Gowan Trail",
+      "from": "0X",
+      "to": "0W",
+      "trails": [
+        "0G"
+      ],
+      "miles": 2.09,
+      "gain_ft": 318,
+      "loss_ft": 1699,
+      "geometry": "geometry/13.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Deer Creek Trail from Deer Creek Trailhead to Gold Ridge",
+      "from": "11",
+      "to": "10",
+      "trails": [
+        "0H"
+      ],
+      "miles": 0.29,
+      "gain_ft": 98,
+      "loss_ft": 0,
+      "geometry": "geometry/14.json",
+      "sources": [
+        {
+          "file": "37172_South_Fork.gpx",
+          "date": "2016-07-08"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Deer Creek Trail from Gold Ridge to South Fork Deer Creek",
+      "from": "10",
+      "to": "0Z",
+      "trails": [
+        "0H"
+      ],
+      "miles": 0.2,
+      "gain_ft": 7,
+      "loss_ft": 10,
+      "geometry": "geometry/15.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "South Fork Deer Creek Trail",
+      "from": "0Z",
+      "to": "0Y",
+      "trails": [
+        "0I"
+      ],
+      "miles": 6.11,
+      "gain_ft": 2936,
+      "loss_ft": 308,
+      "geometry": "geometry/16.json",
+      "sources": [
+        {
+          "file": "37172_South_Fork.gpx",
+          "date": "2016-07-08"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Deer Creek Trail from South Fork Deer Creek to Davey Gowan Camp",
+      "from": "0Z",
+      "to": "0W",
+      "trails": [
+        "0H"
+      ],
+      "miles": 7.5,
+      "gain_ft": 2070,
+      "loss_ft": 715,
+      "geometry": "geometry/17.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Deer Creek Trail from Davey Gowan Camp to Mount Peeley Trailhead",
+      "from": "0W",
+      "to": "0J",
+      "trails": [
+        "0H"
+      ],
+      "miles": 1.34,
+      "gain_ft": 935,
+      "loss_ft": 115,
+      "geometry": "geometry/18.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Gold Ridge Trail",
+      "from": "10",
+      "to": "13",
+      "trails": [
+        "0J"
+      ],
+      "miles": 5.47,
+      "gain_ft": 2999,
+      "loss_ft": 325,
+      "geometry": "geometry/19.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "1A",
+      "name": "West Fork Trail",
+      "from": "0M",
+      "to": "0K",
+      "trails": [
+        "0K"
+      ],
+      "miles": 0.92,
+      "gain_ft": 141,
+      "loss_ft": 551,
+      "geometry": "geometry/1A.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1B",
+      "name": "Saddle Mountain Trail from Mormon Trailhead to Little Saddle Mountain",
+      "from": "14",
+      "to": "12",
+      "trails": [
+        "0L"
+      ],
+      "miles": 0.34,
+      "gain_ft": 49,
+      "loss_ft": 59,
+      "geometry": "geometry/1B.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1C",
+      "name": "Saddle Mountain Trail from Little Saddle Mountain to Sheep Creek",
+      "from": "12",
+      "to": "0P",
+      "trails": [
+        "0L"
+      ],
+      "miles": 2.83,
+      "gain_ft": 722,
+      "loss_ft": 489,
+      "geometry": "geometry/1C.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1D",
+      "name": "Little Saddle Mountain Trail from Black Ridge to Saddle Mountain",
+      "from": "17",
+      "to": "12",
+      "trails": [
+        "0M"
+      ],
+      "miles": 1.24,
+      "gain_ft": 433,
+      "loss_ft": 23,
+      "geometry": "geometry/1D.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1E",
+      "name": "Little Saddle Mountain Trail from Sunflower to Black Ridge",
+      "from": "16",
+      "to": "17",
+      "trails": [
+        "0M"
+      ],
+      "miles": 2.06,
+      "gain_ft": 804,
+      "loss_ft": 131,
+      "geometry": "geometry/1E.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1F",
+      "name": "Little Saddle Mountain Trail from Cross F Trailhead to Sunflower",
+      "from": "15",
+      "to": "16",
+      "trails": [
+        "0M"
+      ],
+      "miles": 0.68,
+      "gain_ft": 279,
+      "loss_ft": 0,
+      "geometry": "geometry/1F.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1G",
+      "name": "Black Ridge Trail",
+      "from": "18",
+      "to": "17",
+      "trails": [
+        "0N"
+      ],
+      "miles": 4.11,
+      "gain_ft": 1781,
+      "loss_ft": 1125,
+      "geometry": "geometry/1G.json",
+      "sources": [
+        {
+          "file": "RS_BlackRidgeLoop-Mazat_184205.gpx",
+          "date": "2021-02-27"
+        }
+      ]
+    },
+    {
+      "id": "1H",
+      "name": "Sunflower Trail from Bushnell Tanks Trailhead to Black Ridge",
+      "from": "19",
+      "to": "18",
+      "trails": [
+        "0O"
+      ],
+      "miles": 5.1,
+      "gain_ft": 823,
+      "loss_ft": 253,
+      "geometry": "geometry/1H.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1I",
+      "name": "Sunflower Trail from Black Ridge to Little Saddle Mountain",
+      "from": "18",
+      "to": "16",
+      "trails": [
+        "0O"
+      ],
+      "miles": 0.55,
+      "gain_ft": 89,
+      "loss_ft": 102,
+      "geometry": "geometry/1I.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1J",
+      "name": "Copper Camp Trail from Copper Camp Trailhead to Copper Camp Flat",
+      "from": "1A",
+      "to": "0O",
+      "trails": [
+        "0P"
+      ],
+      "miles": 8.47,
+      "gain_ft": 3845,
+      "loss_ft": 1644,
+      "geometry": "geometry/1J.json",
+      "sources": [
+        {
+          "file": "36135_Copper_Cam.gpx",
+          "date": "2017-04-14"
+        }
+      ]
+    },
+    {
+      "id": "1K",
+      "name": "Fig Trail",
+      "from": "1B",
+      "to": "1C",
+      "trails": [
+        "0Q"
+      ],
+      "miles": 4.31,
+      "gain_ft": 830,
+      "loss_ft": 827,
+      "geometry": "geometry/1K.json",
+      "sources": [
+        {
+          "file": "39258_Fig_Trail_.gpx",
+          "date": "2018-02-11"
+        }
+      ]
+    },
+    {
+      "id": "1L",
+      "name": "Sears Trail",
+      "from": "1E",
+      "to": "0Q",
+      "trails": [
+        "0R"
+      ],
+      "miles": 8.11,
+      "gain_ft": 2913,
+      "loss_ft": 906,
+      "geometry": "geometry/1L.json",
+      "sources": [
+        {
+          "file": "36135_Copper_Cam.gpx",
+          "date": "2017-04-14"
+        }
+      ]
+    },
+    {
+      "id": "1M",
+      "name": "Davenport Wash Trail from Davenport Trailhead to Sheep Creek",
+      "from": "1D",
+      "to": "0R",
+      "trails": [
+        "0D"
+      ],
+      "miles": 9.59,
+      "gain_ft": 2667,
+      "loss_ft": 1198,
+      "geometry": "geometry/1M.json",
+      "sources": [
+        {
+          "file": "35933_Club_Ranch.gpx",
+          "date": "2016-03-05"
+        }
+      ]
+    },
+    {
+      "id": "1N",
+      "name": "FR 201 from Davey Gowan Trailhead to South Fork Deer Creek Trailhead",
+      "from": "0X",
+      "to": "0Y",
+      "trails": [
+        "0S"
+      ],
+      "miles": 0.65,
+      "gain_ft": 62,
+      "loss_ft": 184,
+      "geometry": "geometry/1N.json",
+      "sources": [
+        {
+          "file": "36737_Deer_Creek.gpx",
+          "date": "2017-05-21"
+        }
+      ]
+    },
+    {
+      "id": "1O",
+      "name": "FR 201 from South Fork Deer Creek Trailhead to Gold Ridge Trailhead",
+      "from": "0Y",
+      "to": "13",
+      "trails": [
+        "0S"
+      ],
+      "miles": 0.82,
+      "gain_ft": 217,
+      "loss_ft": 177,
+      "geometry": "geometry/1O.json",
+      "sources": [
+        {
+          "file": "37172_South_Fork.gpx",
+          "date": "2016-07-08"
+        }
+      ]
+    },
+    {
+      "id": "1P",
+      "name": "Saddle Mountain Mine Loop",
+      "from": "0P",
+      "to": "0P",
+      "trails": [
+        "0L"
+      ],
+      "miles": 0.89,
+      "gain_ft": 200,
+      "loss_ft": 210,
+      "geometry": "geometry/1P.json",
+      "sources": [
+        {
+          "file": "36991_S_Mazatzal.gpx",
+          "date": "2017-06-12"
+        }
+      ]
+    },
+    {
+      "id": "1Q",
+      "name": "FR 479",
+      "from": "1F",
+      "to": "1G",
+      "trails": [
+        "0T"
+      ],
+      "miles": 2.87,
+      "gain_ft": 148,
+      "loss_ft": 164,
+      "geometry": "geometry/1Q.json",
+      "sources": [
+        {
+          "file": "36135_Copper_Cam.gpx",
+          "date": "2017-04-14"
+        }
+      ]
+    },
+    {
+      "id": "1R",
+      "name": "FR 477 from FR 479 to Davenport Trailhead",
+      "from": "1G",
+      "to": "1D",
+      "trails": [
+        "0U"
+      ],
+      "miles": 0.24,
+      "gain_ft": 26,
+      "loss_ft": 3,
+      "geometry": "geometry/1R.json",
+      "sources": [
+        {
+          "file": "35933_Club_Ranch.gpx",
+          "date": "2016-03-05"
+        }
+      ]
+    },
+    {
+      "id": "1S",
+      "name": "FR 477 from Sears Trailhead to Copper Camp Trailhead",
+      "from": "1E",
+      "to": "1A",
+      "trails": [
+        "0U"
+      ],
+      "miles": 3.52,
+      "gain_ft": 1339,
+      "loss_ft": 413,
+      "geometry": "geometry/1S.json",
+      "sources": [
+        {
+          "file": "36135_Copper_Cam.gpx",
+          "date": "2017-04-14"
+        }
+      ]
+    },
+    {
+      "id": "1T",
+      "name": "FR 477 from Davenport Trailhead to Sears Trailhead",
+      "from": "1D",
+      "to": "1E",
+      "trails": [
+        "0U"
+      ],
+      "miles": 0.62,
+      "gain_ft": 72,
+      "loss_ft": 0,
+      "geometry": "geometry/1T.json",
+      "sources": [
+        {
+          "file": "36135_Copper_Cam.gpx",
+          "date": "2017-04-14"
+        }
+      ]
+    },
+    {
+      "id": "1U",
+      "name": "Verde River Trail from Sheep Bridge Trailhead to Willow Springs",
+      "from": "1H",
+      "to": "1I",
+      "trails": [
+        "0V"
+      ],
+      "miles": 0.41,
+      "gain_ft": 105,
+      "loss_ft": 95,
+      "geometry": "geometry/1U.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "1V",
+      "name": "Verde River Trail from Willow Springs to Dutchman Grave",
+      "from": "1I",
+      "to": "1J",
+      "trails": [
+        "0V"
+      ],
+      "miles": 0.35,
+      "gain_ft": 121,
+      "loss_ft": 66,
+      "geometry": "geometry/1V.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "1W",
+      "name": "Willow Springs Trail from Verde River to Willow Springs Spur Junction",
+      "from": "1I",
+      "to": "1P",
+      "trails": [
+        "0W"
+      ],
+      "miles": 7.15,
+      "gain_ft": 1893,
+      "loss_ft": 118,
+      "geometry": "geometry/1W.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "1X",
+      "name": "Willow Springs Spur",
+      "from": "1P",
+      "to": "1Q",
+      "trails": [
+        "0X"
+      ],
+      "miles": 0.39,
+      "gain_ft": 20,
+      "loss_ft": 259,
+      "geometry": "geometry/1X.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "1Y",
+      "name": "Willow Springs Trail from Willow Springs Spur Junction to Deadman",
+      "from": "1P",
+      "to": "1R",
+      "trails": [
+        "0W"
+      ],
+      "miles": 2.54,
+      "gain_ft": 1257,
+      "loss_ft": 390,
+      "geometry": "geometry/1Y.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "1Z",
+      "name": "Deadman Trail",
+      "from": "1R",
+      "to": "0U",
+      "trails": [
+        "0Y"
+      ],
+      "miles": 6.37,
+      "gain_ft": 1785,
+      "loss_ft": 2972,
+      "geometry": "geometry/1Z.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Willow Springs Trail from Deadman to Mountain Spring",
+      "from": "1R",
+      "to": "1S",
+      "trails": [
+        "0W"
+      ],
+      "miles": 0.11,
+      "gain_ft": 79,
+      "loss_ft": 0,
+      "geometry": "geometry/20.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Mountain Spring Spur",
+      "from": "1S",
+      "to": "1T",
+      "trails": [
+        "0Z"
+      ],
+      "miles": 0.11,
+      "gain_ft": 0,
+      "loss_ft": 52,
+      "geometry": "geometry/21.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Willow Springs Trail from Mountain Spring to Dutchman Grave",
+      "from": "1S",
+      "to": "1U",
+      "trails": [
+        "0W"
+      ],
+      "miles": 0.07,
+      "gain_ft": 23,
+      "loss_ft": 0,
+      "geometry": "geometry/22.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Willow Springs Trail from Dutchman Grave to Lost Spring",
+      "from": "1U",
+      "to": "1V",
+      "trails": [
+        "0W"
+      ],
+      "miles": 1.16,
+      "gain_ft": 522,
+      "loss_ft": 285,
+      "geometry": "geometry/23.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Lost Spring Spur",
+      "from": "1V",
+      "to": "1W",
+      "trails": [
+        "10"
+      ],
+      "miles": 0.37,
+      "gain_ft": 62,
+      "loss_ft": 105,
+      "geometry": "geometry/24.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Willow Springs Trail from Lost Spring to Midnight",
+      "from": "1V",
+      "to": "1X",
+      "trails": [
+        "0W"
+      ],
+      "miles": 1.38,
+      "gain_ft": 587,
+      "loss_ft": 344,
+      "geometry": "geometry/25.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Willow Springs Trail from Midnight to Mazatzal Divide",
+      "from": "1X",
+      "to": "1Y",
+      "trails": [
+        "0W"
+      ],
+      "miles": 4.95,
+      "gain_ft": 1778,
+      "loss_ft": 1220,
+      "geometry": "geometry/26.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Mazatzal Divide Trail from Willow Springs to Rock Creek",
+      "from": "1Y",
+      "to": "04",
+      "trails": [
+        "04"
+      ],
+      "miles": 3.22,
+      "gain_ft": 1070,
+      "loss_ft": 492,
+      "geometry": "geometry/27.json",
+      "sources": [
+        {
+          "file": "37747_Club_Ranch.gpx",
+          "date": "2017-09-01"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Mazatzal Divide Trail from The Park to Willow Springs",
+      "from": "1Z",
+      "to": "1Y",
+      "trails": [
+        "04"
+      ],
+      "miles": 0.27,
+      "gain_ft": 52,
+      "loss_ft": 102,
+      "geometry": "geometry/28.json",
+      "sources": [
+        {
+          "file": "33886_Rock_Creek.gpx",
+          "date": "2016-09-23"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "name": "North Peak Trail",
+      "from": "20",
+      "to": "1Z",
+      "trails": [
+        "11"
+      ],
+      "miles": 4.73,
+      "gain_ft": 2615,
+      "loss_ft": 709,
+      "geometry": "geometry/29.json",
+      "sources": [
+        {
+          "file": "35761_City_Creek.gpx",
+          "date": "2017-03-26"
+        }
+      ]
+    },
+    {
+      "id": "2A",
+      "name": "Pole Hollow Canyon",
+      "from": "21",
+      "to": "20",
+      "trails": [
+        "12"
+      ],
+      "miles": 3.51,
+      "gain_ft": 719,
+      "loss_ft": 144,
+      "geometry": "geometry/2A.json",
+      "sources": [
+        {
+          "file": "35761_City_Creek.gpx",
+          "date": "2017-03-26"
+        }
+      ]
+    },
+    {
+      "id": "2B",
+      "name": "Mazatzal Divide Trail from The Park to Red Hills",
+      "from": "1Z",
+      "to": "22",
+      "trails": [
+        "04"
+      ],
+      "miles": 3.09,
+      "gain_ft": 771,
+      "loss_ft": 614,
+      "geometry": "geometry/2B.json",
+      "sources": [
+        {
+          "file": "35761_City_Creek.gpx",
+          "date": "2017-03-26"
+        }
+      ]
+    },
+    {
+      "id": "2C",
+      "name": "Mazatzal Divide Trail from Red Hills to Doll Baby Trailhead",
+      "from": "22",
+      "to": "21",
+      "trails": [
+        "04"
+      ],
+      "miles": 5.89,
+      "gain_ft": 440,
+      "loss_ft": 3074,
+      "geometry": "geometry/2C.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2D",
+      "name": "Red Hills Trail from Mazatzal Divide to Brush",
+      "from": "22",
+      "to": "23",
+      "trails": [
+        "13"
+      ],
+      "miles": 2.46,
+      "gain_ft": 469,
+      "loss_ft": 469,
+      "geometry": "geometry/2D.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2E",
+      "name": "Red Hills Trail from Brush to Midnight",
+      "from": "23",
+      "to": "24",
+      "trails": [
+        "13"
+      ],
+      "miles": 2.77,
+      "gain_ft": 322,
+      "loss_ft": 1010,
+      "geometry": "geometry/2E.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2F",
+      "name": "Midnight Trail",
+      "from": "24",
+      "to": "1X",
+      "trails": [
+        "14"
+      ],
+      "miles": 2.66,
+      "gain_ft": 541,
+      "loss_ft": 620,
+      "geometry": "geometry/2F.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "2G",
+      "name": "Red Hills Trail from Midnight to Dutchman Grave",
+      "from": "24",
+      "to": "25",
+      "trails": [
+        "13"
+      ],
+      "miles": 12.93,
+      "gain_ft": 2352,
+      "loss_ft": 4846,
+      "geometry": "geometry/2G.json",
+      "sources": [
+        {
+          "file": "47532_Midnight_M.gpx",
+          "date": "2018-09-03"
+        }
+      ]
+    },
+    {
+      "id": "2H",
+      "name": "Dutchman Grave Trail from Verde River to Red Hills",
+      "from": "1J",
+      "to": "25",
+      "trails": [
+        "15"
+      ],
+      "miles": 5.32,
+      "gain_ft": 1368,
+      "loss_ft": 617,
+      "geometry": "geometry/2H.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "2I",
+      "name": "Dutchman Grave Trail from Red Hills to Willow Springs",
+      "from": "25",
+      "to": "1U",
+      "trails": [
+        "15"
+      ],
+      "miles": 6.48,
+      "gain_ft": 2674,
+      "loss_ft": 738,
+      "geometry": "geometry/2I.json",
+      "sources": [
+        {
+          "file": "40522_Sheep_Brid.gpx",
+          "date": "2019-06-09"
+        }
+      ]
+    },
+    {
+      "id": "2J",
+      "name": "Verde River Trail from Dutchman Grave to Wet Bottom",
+      "from": "1J",
+      "to": "1K",
+      "trails": [
+        "0V"
+      ],
+      "miles": 7.35,
+      "gain_ft": 1132,
+      "loss_ft": 928,
+      "geometry": "geometry/2J.json",
+      "sources": [
+        {
+          "file": "38315_Verde_Rive.gpx",
+          "date": "2017-11-05"
+        }
+      ]
+    },
+    {
+      "id": "2K",
+      "name": "Verde River Trail from Wet Bottom to Red Creek",
+      "from": "1K",
+      "to": "1L",
+      "trails": [
+        "0V"
+      ],
+      "miles": 1.09,
+      "gain_ft": 154,
+      "loss_ft": 282,
+      "geometry": "geometry/2K.json",
+      "sources": [
+        {
+          "file": "48135_Red_Crk___.gpx",
+          "date": "2018-11-11"
+        }
+      ]
+    },
+    {
+      "id": "2L",
+      "name": "Wet Bottom Trail from Verde River to Highwater",
+      "from": "1K",
+      "to": "1N",
+      "trails": [
+        "16"
+      ],
+      "miles": 2.14,
+      "gain_ft": 741,
+      "loss_ft": 102,
+      "geometry": "geometry/2L.json",
+      "sources": [
+        {
+          "file": "48135_Red_Crk___.gpx",
+          "date": "2018-11-11"
+        }
+      ]
+    },
+    {
+      "id": "2M",
+      "name": "Wet Bottom Trail from Highwater to Bull Trap Springs",
+      "from": "1N",
+      "to": "26",
+      "trails": [
+        "16"
+      ],
+      "miles": 9.73,
+      "gain_ft": 2736,
+      "loss_ft": 1217,
+      "geometry": "geometry/2M.json",
+      "sources": [
+        {
+          "file": "48331_Upper_Maza.gpx",
+          "date": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "2N",
+      "name": "Verde River Trail from Red Creek to Highwater",
+      "from": "1L",
+      "to": "1M",
+      "trails": [
+        "0V"
+      ],
+      "miles": 7.75,
+      "gain_ft": 1217,
+      "loss_ft": 883,
+      "geometry": "geometry/2N.json",
+      "sources": [
+        {
+          "file": "48135_Red_Crk___.gpx",
+          "date": "2018-11-11"
+        }
+      ]
+    },
+    {
+      "id": "2O",
+      "name": "Highwater Trail",
+      "from": "1N",
+      "to": "1M",
+      "trails": [
+        "17"
+      ],
+      "miles": 4.48,
+      "gain_ft": 591,
+      "loss_ft": 1020,
+      "geometry": "geometry/2O.json",
+      "sources": [
+        {
+          "file": "48135_Red_Crk___.gpx",
+          "date": "2018-11-11"
+        }
+      ]
+    },
+    {
+      "id": "2P",
+      "name": "Verde River Trail from Deadman Mesa to Highwater",
+      "from": "1O",
+      "to": "1M",
+      "trails": [
+        "0V"
+      ],
+      "miles": 7.63,
+      "gain_ft": 1175,
+      "loss_ft": 1768,
+      "geometry": "geometry/2P.json",
+      "sources": [
+        {
+          "file": "48331_Upper_Maza.gpx",
+          "date": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "2Q",
+      "name": "Bull Springs Trail from Brush to Bull Trap Springs",
+      "from": "27",
+      "to": "26",
+      "trails": [
+        "18"
+      ],
+      "miles": 4.22,
+      "gain_ft": 712,
+      "loss_ft": 1286,
+      "geometry": "geometry/2Q.json",
+      "sources": [
+        {
+          "file": "48331_Upper_Maza.gpx",
+          "date": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "2R",
+      "name": "Brush Trail",
+      "from": "27",
+      "to": "23",
+      "trails": [
+        "19"
+      ],
+      "miles": 4.51,
+      "gain_ft": 1867,
+      "loss_ft": 876,
+      "geometry": "geometry/2R.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2S",
+      "name": "Bull Springs Trail from LF Ranch to Brush",
+      "from": "28",
+      "to": "27",
+      "trails": [
+        "18"
+      ],
+      "miles": 3.36,
+      "gain_ft": 2037,
+      "loss_ft": 328,
+      "geometry": "geometry/2S.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2T",
+      "name": "FR 206 from Doll Baby Trailhead to LF Ranch",
+      "from": "21",
+      "to": "28",
+      "trails": [
+        "1B"
+      ],
+      "miles": 4.86,
+      "gain_ft": 827,
+      "loss_ft": 896,
+      "geometry": "geometry/2T.json",
+      "sources": [
+        {
+          "file": "38742_Fuller_See.gpx",
+          "date": "2017-12-29"
+        }
+      ]
+    },
+    {
+      "id": "2U",
+      "name": "Saddle Ridge Trail from Whiterock Mesa to LF Ranch",
+      "from": "2A",
+      "to": "28",
+      "trails": [
+        "1A"
+      ],
+      "miles": 7.56,
+      "gain_ft": 331,
+      "loss_ft": 1703,
+      "geometry": "geometry/2U.json",
+      "sources": [
+        {
+          "file": "48331_Upper_Maza.gpx",
+          "date": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "2V",
+      "name": "Saddle Ridge Trail from Twin Buttes Trailhead to Whiterock Mesa",
+      "from": "29",
+      "to": "2A",
+      "trails": [
+        "1A"
+      ],
+      "miles": 4.62,
+      "gain_ft": 30,
+      "loss_ft": 1119,
+      "geometry": "geometry/2V.json",
+      "sources": [
+        {
+          "file": "48331_Upper_Maza.gpx",
+          "date": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "2W",
+      "name": "Verde River Trail from Twin Buttes Trailhead to Deadman Mesa",
+      "from": "29",
+      "to": "1O",
+      "trails": [
+        "0V"
+      ],
+      "miles": 10.19,
+      "gain_ft": 433,
+      "loss_ft": 3120,
+      "geometry": "geometry/2W.json",
+      "sources": [
+        {
+          "file": "37074_Verde_Rive.gpx",
+          "date": "2017-06-24"
+        }
+      ]
+    },
+    {
+      "id": "2X",
+      "name": "Deadman Mesa Trail",
+      "from": "2B",
+      "to": "1O",
+      "trails": [
+        "1C"
+      ],
+      "miles": 7.18,
+      "gain_ft": 1073,
+      "loss_ft": 2395,
+      "geometry": "geometry/2X.json",
+      "sources": [
+        {
+          "file": "37074_Verde_Rive.gpx",
+          "date": "2017-06-24"
+        }
+      ]
+    }
+  ],
+  "features": [],
+  "retired": [
+    {
+      "id": "05",
+      "superseded_by": [
+        "0C",
+        "0D"
+      ],
+      "on": "2026-08-30",
+      "reason": "split at Brody / Mazatzal Divide Trail Junction, a real junction found mid-leg"
+    },
+    {
+      "id": "0E",
+      "superseded_by": [
+        "0G",
+        "0H"
+      ],
+      "on": "2026-08-31",
+      "reason": "split at Fisher / Brody Seep Trail Junction, a real junction found mid-leg"
+    }
+  ],
+  "version": 1,
+  "islands": [
+    {
+      "nodes": [
+        "1B",
+        "1C"
+      ],
+      "on": "2026-09-02",
+      "reason": "Fig Trailhead is reached by kayak across the Verde; no walked route connects it. Forest roads reach it from the Davenport side but have not been walked."
+    }
+  ]
+}
