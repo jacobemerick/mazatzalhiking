@@ -106,19 +106,78 @@ def snap(lat, lon, limit=60.0):
     return None
 
 
+def passes_through(t, lat, lon, tol=40.0):
+    """Every distinct approach of one track to a point, not just its closest.
+
+    A loop or an out-and-back comes near the same junction more than once, and
+    each visit is a separate place the tread could be cut. Collapsing them to the
+    single nearest one is what let a segment silently trace the long way round:
+    two endpoints landed on different visits and the sub-path between them ran
+    most of the way round the loop. Consecutive points inside tol are one visit,
+    represented by the nearest of them."""
+    ds = [hav((lat, lon), p[:2]) for p in t['pts']]
+    out, i, n = [], 0, len(ds)
+    while i < n:
+        if ds[i] > tol:
+            i += 1
+            continue
+        j = i
+        while j < n and ds[j] <= tol:
+            j += 1
+        k = min(range(i, j), key=lambda x: ds[x])
+        out.append((k, ds[k]))
+        i = j
+    return out
+
+
 def tracks_through(lat, lon, tol=40.0):
-    """Which recorded tracks pass within tol of this point, and where."""
+    """Which recorded tracks pass within tol of this point, and where. One entry
+    per visit, so a track that doubles back through a junction is listed twice --
+    which is itself the tell that the junction sits on a loop or an out-and-back."""
     out = []
     for t in TRACKS:
-        best_i, best_d = None, 1e9
-        for i, p in enumerate(t['pts']):
-            d = hav((lat, lon), p[:2])
-            if d < best_d:
-                best_d, best_i = d, i
-        if best_d <= tol:
-            out.append(dict(key=t['key'], index=best_i, dist=round(best_d, 1),
+        for i, d in passes_through(t, lat, lon, tol):
+            out.append(dict(key=t['key'], index=i, dist=round(d, 1),
                             trip=t['trip'], date=t['date']))
     return sorted(out, key=lambda x: x['dist'])
+
+
+MIN_ARC_M = 10.0
+
+
+def arcs(alat, alon, blat, blon, tol=40.0, limit=12):
+    """Every sub-path of a single recorded track running between two points.
+
+    Either endpoint can fall on more than one visit, so pairing them is a cross
+    product rather than a lookup, and each pair is a genuinely different way
+    round. Shortest first: where one track offers two arcs between the same pair,
+    the short one is the leg and the long one is the rest of the loop.
+
+    Arcs within a short way of the shortest are all the same leg recorded on
+    different trips, where length says nothing -- so inside that band the
+    tightest snap wins, which is the older behaviour and still the right one.
+    The caller gets the whole list either way, because the point is to make the
+    choice visible rather than to guess well silently."""
+    out = []
+    for t in TRACKS:
+        pa = passes_through(t, alat, alon, tol)
+        if not pa:
+            continue
+        pb = passes_through(t, blat, blon, tol)
+        for ia, da in pa:
+            for ib, db in pb:
+                metres = abs(t['cum'][ib] - t['cum'][ia])
+                if metres < MIN_ARC_M:
+                    continue
+                out.append(dict(key=t['key'], trip=t['trip'], date=t['date'],
+                                i0=ia, i1=ib, miles=round(metres * M2MI, 2),
+                                off_m=round(da + db)))
+    out.sort(key=lambda x: (x['miles'], x['off_m']))
+    if out:
+        band = out[0]['miles'] + max(0.05, out[0]['miles'] * 0.1)
+        same = sorted((x for x in out if x['miles'] <= band), key=lambda x: (x['off_m'], x['miles']))
+        out = same + [x for x in out if x['miles'] > band]
+    return out[:limit]
 
 
 def profile_gain_loss(eles, threshold_m=5.0):
@@ -292,6 +351,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self._send(snap(float(q['lat'][0]), float(q['lon'][0])) or {})
         elif u.path == '/api/through':
             self._send(tracks_through(float(q['lat'][0]), float(q['lon'][0])))
+        elif u.path == '/api/arcs':
+            self._send(arcs(float(q['alat'][0]), float(q['alon'][0]),
+                            float(q['blat'][0]), float(q['blon'][0])))
         elif u.path == '/api/trace':
             r = trace(q['key'][0], int(q['i0'][0]), int(q['i1'][0]))
             self._send(r or {}, 200 if r else 404)

@@ -17,11 +17,16 @@
       "description": "Tombstones for ids withdrawn from use, so already-shared route URLs can be repaired rather than silently changing meaning. Never reissue a retired id.",
       "type": "array",
       "items": { "$ref": "#/$defs/retired" }
+    },
+    "islands": {
+      "description": "Components deliberately left unconnected, each with the reason no walked route reaches them. An undeclared split is an error.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/island" }
     }
   },
   "$defs": {
     "id": {
-      "description": "Assigned once by the curation tool from the next free code; never derived from geometry or ordering. Each entity type has its own id space.",
+      "description": "Assigned once by the curation tool from the next free code; never derived from geometry or ordering. Each entity type has its own id space. Ids in a space must be unique case-insensitively: segment geometry lives at geometry/<id>.json, and case-insensitive filesystems collapse 0A and 0a onto one file, destroying the older segment's line. See decision 1.",
       "type": "string",
       "pattern": "^[0-9A-Za-z]{2,4}$"
     },
@@ -136,6 +141,26 @@
         },
         "on": { "type": "string", "format": "date" },
         "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "island": {
+      "description": "A component of the network deliberately not reachable on foot from the rest of it. Declaring one is a reviewed act, like retiring an id: the validator treats an undeclared split as an error, because it is almost always a missed junction rather than real geography.",
+      "type": "object",
+      "required": ["nodes", "on", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "description": "Every node in the isolated component, exactly. If the component later grows or shrinks the declaration stops matching and must be re-reviewed.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "on": { "type": "string", "format": "date" },
+        "reason": {
+          "description": "Why no walked route reaches it — surfaced by the builder when someone lands on this component.",
+          "type": "string",
+          "minLength": 1
+        }
       }
     }
   }
