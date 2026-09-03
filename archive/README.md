@@ -31,6 +31,20 @@ for 11 trips** whose per-trip GPSBabel exports were stripped. Those times interp
 onto the good geometry by nearest-neighbour (median deviation 7-11 m). Deleting this file
 loses them permanently.
 
+## `dem-3dep.json`
+
+Elevation sampled from USGS 3DEP, keyed by `"lon,lat"` to six decimal places, in metres.
+Not recorded by anyone here — it is an external reference surface — but it belongs in this
+directory for the same reason the tracks do: it is an immutable build input, it is never
+served, and regenerating it from scratch costs a long run against a public service.
+
+Every point of the committed network resolves at **1 m lidar** resolution. Committing the
+samples is what lets `tools/build_geometry.py` rebuild the whole graph with no network
+access; only coordinates that have never been asked for cost a request.
+
+Why the published gain comes from here and not from the recorded altimeter channel:
+[`docs/elevation.md`](../docs/elevation.md).
+
 ---
 
 Findings and full numbers: [`docs/gpx-corpus-inventory.md`](../docs/gpx-corpus-inventory.md).

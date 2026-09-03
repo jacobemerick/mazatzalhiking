@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mazatzalhiking.com/schema/geometry.schema.json",
+  "title": "Mazatzal segment geometry",
+  "description": "One segment's full-resolution line, at curation/geometry/<segment id>.json. Written by tools/build_geometry.py and regenerated wholesale on every run -- nothing here is authored. Valid GeoJSON: cum_m and derived are foreign members, which RFC 7946 permits, so any GeoJSON reader can draw the line while this project's own tools get the extras.",
+  "type": "object",
+  "required": ["type", "coordinates", "cum_m", "derived"],
+  "additionalProperties": false,
+  "properties": {
+    "type": { "const": "LineString" },
+    "coordinates": {
+      "description": "Positions in GeoJSON order: longitude, latitude, elevation in metres. Elevation is resampled from the DEM (see docs/elevation.md), not the recorded value, and is null only where the DEM has no coverage. Longitude and latitude are rounded to 6 decimal places (~0.1 m) and every derived figure is computed from these rounded values, so the file reproduces its own numbers exactly.",
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "prefixItems": [
+          { "type": "number", "minimum": -180, "maximum": 180 },
+          { "type": "number", "minimum": -90, "maximum": 90 },
+          { "type": ["number", "null"] }
+        ]
+      }
+    },
+    "cum_m": {
+      "description": "Cumulative distance in metres from the start of the line, one value per position, first always 0. This is what makes a segment addressable by fractional position, so a split at 0.62 is exact and needs no re-measuring (schema decision: partial legs). The last value times the metres-to-miles factor is the segment's miles in graph.json.",
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "number", "minimum": 0 }
+    },
+    "derived": {
+      "type": "object",
+      "required": ["arc", "source", "elevation", "gain_threshold_m", "cleaning"],
+      "additionalProperties": false,
+      "properties": {
+        "arc": {
+          "description": "Which stretch of which recorded track this line came from. Endpoint indices are into the immutable archive file, so the line can be rebuilt without re-guessing the arc -- a track can run between the same two junctions more than one way, and picking the right one was a human decision made in the curation tool.",
+          "type": "object",
+          "required": ["track", "from", "to", "reversed"],
+          "additionalProperties": false,
+          "properties": {
+            "track": {
+              "description": "Archive filename and track index within it, as '<file>#<n>'.",
+              "type": "string"
+            },
+            "from": { "type": "integer", "minimum": 0 },
+            "to": { "type": "integer", "minimum": 0 },
+            "reversed": {
+              "description": "True when the segment's from -> to direction runs against the recorded direction of travel.",
+              "type": "boolean"
+            }
+          }
+        },
+        "source": {
+          "description": "The recorded trip this leg was traced from. Mirrors segments[].sources[0] in graph.json.",
+          "type": "object",
+          "required": ["file", "date"],
+          "properties": {
+            "file": { "type": "string" },
+            "date": { "type": "string", "format": "date" }
+          }
+        },
+        "elevation": {
+          "description": "Human-readable note on where the elevation channel came from.",
+          "type": "string"
+        },
+        "gain_threshold_m": {
+          "description": "Threshold used for the gain_ft / loss_ft in graph.json. Recorded here because the figure is meaningless without it.",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "cleaning": {
+          "description": "The tools/clean.py settings that produced this line, so any output traces back to the parameters that made it.",
+          "type": "object",
+          "required": ["spike_perp_m", "simplify_m"],
+          "properties": {
+            "spike_perp_m": { "type": "number", "exclusiveMinimum": 0 },
+            "simplify_m": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      }
+    }
+  }
+}
