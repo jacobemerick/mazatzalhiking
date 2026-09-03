@@ -138,8 +138,10 @@ values, picked by how each leg is traversed. No re-derivation at runtime.
 
 ### 4. Conditions attach to any id, in their own file
 
-**Decision: an observation names a `target` — a segment, node, or feature id — plus a
-date and Jacob's text.**
+**Decision: an observation names a `target` — a segment, node, or feature — plus a
+date and Jacob's text.** The full contract is
+[`docs/condition-observations.md`](condition-observations.md) (#17); this section
+records only why observations are a separate file.
 
 Segments carry most of it ("the tread above the saddle is brushy"). But conditions are not
 always leg-shaped: a junction can be unsigned and easy to miss, and a spring can be dry.
@@ -271,8 +273,10 @@ at build time by projecting onto the segment. Storing the projection as truth wo
 it wrong the moment geometry is refined, whereas "Club Cabin is at this coordinate" stays
 true forever.
 
-**observation** (separate file) — `target` (any id), `date`, `text`, `category`
-(`brush` | `tread` | `route-finding` | `water` | `access`).
+**observation** (separate file) — `target` (`<kind>:<id>`, since id spaces overlap),
+`date`, `category`, `text`, optional `source` and `photos`. Contract in
+[`schema/observations.schema.json`](../schema/observations.schema.json), decisions in
+[`docs/condition-observations.md`](condition-observations.md).
 
 ## What this does not decide
 
