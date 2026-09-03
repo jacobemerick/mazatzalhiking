@@ -219,6 +219,9 @@ cumulative distance along the line, so a cut at `0.62` is exact and needs no re-
 Nothing in v1 has to *use* this — the builder ships without the button — but the data
 model cannot preclude it.
 
+That is now delivered: geometry files carry a `cum_m` array alongside the coordinates.
+See [`schema/geometry.schema.json`](../schema/geometry.schema.json) for the contract.
+
 ### The client must not download the whole range
 
 [#16](https://github.com/jacobemerick/mazatzalhiking/issues/16) flags this, and it shapes
@@ -229,6 +232,9 @@ where geometry lives. Segments hold a *reference* to their geometry, not the poi
 | `graph.json` | trails, nodes, segments with stats, features. No point data. | always, once |
 | `geometry/display.json` | all segments, simplified for map drawing | on map load |
 | `geometry/<id>.json` | one segment, full resolution | only when exporting |
+
+`geometry/display.json` does not exist yet; it belongs to
+[#16](https://github.com/jacobemerick/mazatzalhiking/issues/16).
 
 Topology is what the builder actually needs to work — which segments touch which nodes,
 how long each is, how much it climbs — and that is small. Full-resolution geometry is

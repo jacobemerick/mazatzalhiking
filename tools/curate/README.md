@@ -12,16 +12,24 @@ Python stdlib plus Leaflet from a CDN. No install step, no build.
 
 ## Why this runs before the pipeline is finished
 
-#14 asks for "cleaned canonical lines," which #10, #11 and #13 have not produced yet. It
-does not have to wait, because of how the schema splits authored truth from derived data:
+#14 asks for "cleaned canonical lines," which #10, #11 and #13 had not produced yet. It
+did not have to wait, because of how the schema splits authored truth from derived data:
 **node coordinates are authored, segment geometry is derived.** A junction placed against a
 raw recorded track stays in exactly the right place when cleaning and traversal-merging
 later change the lines underneath — only the derived geometry is recomputed.
 
 So the durable output of curation is node positions, which nodes connect to which, and
-what the legs are called. None of that is invalidated by the pipeline landing afterwards.
-The distances and elevation figures written today *are* provisional, and will be recomputed
-from the canonical lines once #13 exists.
+what the legs are called. None of that was invalidated by the pipeline landing afterwards.
+
+**This has now happened, and the bet held.** #11 and #12 landed, and
+`tools/build_geometry.py` recomputed every line, distance and elevation figure from the
+archive. Not one node moved. The distances and gains this tool wrote were provisional and
+have been replaced — the network went from 317.9 mi / 90,513 ft to 311.7 mi / 85,420 ft,
+with the geometry cleaned and elevation resampled from a 1 m DEM.
+
+One consequence for anyone using this tool now: **the numbers it writes for a newly drawn
+segment are still provisional in the same way.** Run `./tools/build_geometry.py` afterwards
+to put them on the same footing as everything else.
 
 ## Using it
 

@@ -22,6 +22,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from inventory import load, hav, M2MI, M2FT
+from elevation import profile_gain_loss
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -178,48 +179,6 @@ def arcs(alat, alon, blat, blon, tol=40.0, limit=12):
         same = sorted((x for x in out if x['miles'] <= band), key=lambda x: (x['off_m'], x['miles']))
         out = same + [x for x in out if x['miles'] > band]
     return out[:limit]
-
-
-def profile_gain_loss(eles, threshold_m=5.0):
-    """Gain and loss with the direction-symmetric algorithm the schema prescribes:
-    simplify the elevation profile first, then sum. Reversing the input swaps the
-    two results exactly, which is what lets a segment store one pair of numbers."""
-    e = [x for x in eles if x is not None]
-    if len(e) < 2:
-        return 0.0, 0.0
-    ext = [e[0]]
-    for v in e[1:]:
-        if len(ext) < 2:
-            if v != ext[-1]:
-                ext.append(v)
-            continue
-        up_prev = ext[-1] > ext[-2]
-        up_now = v > ext[-1]
-        if v == ext[-1]:
-            continue
-        if up_now == up_prev:
-            ext[-1] = v            # extend the run
-        else:
-            ext.append(v)          # direction changed
-    while len(ext) > 2:
-        runs = [(abs(ext[i+1] - ext[i]), i) for i in range(len(ext) - 1)]
-        interior = [(m, i) for m, i in runs if 0 < i < len(ext) - 2]
-        if not interior:
-            break
-        m, i = min(interior)
-        if m >= threshold_m:
-            break
-        del ext[i:i+2]             # drop the reversal, neighbours merge
-        merged = [ext[0]]
-        for v in ext[1:]:
-            if len(merged) >= 2 and (v > merged[-1]) == (merged[-1] > merged[-2]):
-                merged[-1] = v
-            elif v != merged[-1]:
-                merged.append(v)
-        ext = merged
-    gain = sum(max(0.0, ext[i+1] - ext[i]) for i in range(len(ext) - 1))
-    loss = sum(max(0.0, ext[i] - ext[i+1]) for i in range(len(ext) - 1))
-    return gain, loss
 
 
 def trace(key, i0, i1):

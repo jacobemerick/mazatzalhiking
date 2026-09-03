@@ -978,9 +978,9 @@
       "trails": [
         "00"
       ],
-      "miles": 3.92,
-      "gain_ft": 1785,
-      "loss_ft": 79,
+      "miles": 3.85,
+      "gain_ft": 1761,
+      "loss_ft": 51,
       "geometry": "geometry/00.json",
       "sources": [
         {
@@ -997,9 +997,9 @@
       "trails": [
         "01"
       ],
-      "miles": 5.57,
-      "gain_ft": 2822,
-      "loss_ft": 469,
+      "miles": 5.51,
+      "gain_ft": 2676,
+      "loss_ft": 322,
       "geometry": "geometry/01.json",
       "sources": [
         {
@@ -1016,9 +1016,9 @@
       "trails": [
         "02"
       ],
-      "miles": 4.28,
-      "gain_ft": 951,
-      "loss_ft": 1171,
+      "miles": 4.23,
+      "gain_ft": 647,
+      "loss_ft": 879,
       "geometry": "geometry/02.json",
       "sources": [
         {
@@ -1035,9 +1035,9 @@
       "trails": [
         "03"
       ],
-      "miles": 4.88,
-      "gain_ft": 3593,
-      "loss_ft": 1086,
+      "miles": 4.73,
+      "gain_ft": 3384,
+      "loss_ft": 872,
       "geometry": "geometry/03.json",
       "sources": [
         {
@@ -1054,9 +1054,9 @@
       "trails": [
         "00"
       ],
-      "miles": 2.13,
-      "gain_ft": 364,
-      "loss_ft": 253,
+      "miles": 2.1,
+      "gain_ft": 326,
+      "loss_ft": 196,
       "geometry": "geometry/04.json",
       "sources": [
         {
@@ -1073,9 +1073,9 @@
       "trails": [
         "05"
       ],
-      "miles": 3.05,
-      "gain_ft": 1060,
-      "loss_ft": 1033,
+      "miles": 2.94,
+      "gain_ft": 1029,
+      "loss_ft": 994,
       "geometry": "geometry/06.json",
       "sources": [
         {
@@ -1092,9 +1092,9 @@
       "trails": [
         "04"
       ],
-      "miles": 1.01,
-      "gain_ft": 82,
-      "loss_ft": 407,
+      "miles": 1.0,
+      "gain_ft": 61,
+      "loss_ft": 385,
       "geometry": "geometry/07.json",
       "sources": [
         {
@@ -1112,8 +1112,8 @@
         "06"
       ],
       "miles": 0.14,
-      "gain_ft": 7,
-      "loss_ft": 36,
+      "gain_ft": 0,
+      "loss_ft": 45,
       "geometry": "geometry/08.json",
       "sources": [
         {
@@ -1130,9 +1130,9 @@
       "trails": [
         "04"
       ],
-      "miles": 2.02,
-      "gain_ft": 407,
-      "loss_ft": 167,
+      "miles": 2.01,
+      "gain_ft": 415,
+      "loss_ft": 184,
       "geometry": "geometry/09.json",
       "sources": [
         {
@@ -1149,9 +1149,9 @@
       "trails": [
         "04"
       ],
-      "miles": 0.5,
-      "gain_ft": 154,
-      "loss_ft": 16,
+      "miles": 0.49,
+      "gain_ft": 159,
+      "loss_ft": 0,
       "geometry": "geometry/0A.json",
       "sources": [
         {
@@ -1168,9 +1168,9 @@
       "trails": [
         "04"
       ],
-      "miles": 0.74,
-      "gain_ft": 387,
-      "loss_ft": 23,
+      "miles": 0.72,
+      "gain_ft": 355,
+      "loss_ft": 0,
       "geometry": "geometry/0B.json",
       "sources": [
         {
@@ -1187,9 +1187,9 @@
       "trails": [
         "04"
       ],
-      "miles": 1.91,
-      "gain_ft": 253,
-      "loss_ft": 745,
+      "miles": 1.9,
+      "gain_ft": 237,
+      "loss_ft": 729,
       "geometry": "geometry/0C.json",
       "sources": [
         {
@@ -1206,9 +1206,9 @@
       "trails": [
         "04"
       ],
-      "miles": 1.41,
-      "gain_ft": 344,
-      "loss_ft": 374,
+      "miles": 1.39,
+      "gain_ft": 122,
+      "loss_ft": 151,
       "geometry": "geometry/0D.json",
       "sources": [
         {
@@ -1225,9 +1225,9 @@
       "trails": [
         "07"
       ],
-      "miles": 3.7,
+      "miles": 3.61,
       "gain_ft": 2011,
-      "loss_ft": 1230,
+      "loss_ft": 1227,
       "geometry": "geometry/0F.json",
       "sources": [
         {
@@ -1244,9 +1244,9 @@
       "trails": [
         "06"
       ],
-      "miles": 1.64,
-      "gain_ft": 476,
-      "loss_ft": 371,
+      "miles": 1.61,
+      "gain_ft": 586,
+      "loss_ft": 477,
       "geometry": "geometry/0G.json",
       "sources": [
         {
@@ -1263,9 +1263,9 @@
       "trails": [
         "06"
       ],
-      "miles": 0.34,
-      "gain_ft": 282,
-      "loss_ft": 3,
+      "miles": 0.33,
+      "gain_ft": 284,
+      "loss_ft": 8,
       "geometry": "geometry/0H.json",
       "sources": [
         {
@@ -1283,8 +1283,8 @@
         "08"
       ],
       "miles": 0.2,
-      "gain_ft": 49,
-      "loss_ft": 20,
+      "gain_ft": 28,
+      "loss_ft": 18,
       "geometry": "geometry/0I.json",
       "sources": [
         {
@@ -1302,8 +1302,8 @@
         "04"
       ],
       "miles": 0.08,
-      "gain_ft": 30,
-      "loss_ft": 16,
+      "gain_ft": 34,
+      "loss_ft": 0,
       "geometry": "geometry/0J.json",
       "sources": [
         {
@@ -1320,9 +1320,9 @@
       "trails": [
         "04"
       ],
-      "miles": 1.86,
-      "gain_ft": 308,
-      "loss_ft": 315,
+      "miles": 1.85,
+      "gain_ft": 254,
+      "loss_ft": 256,
       "geometry": "geometry/0K.json",
       "sources": [
         {
@@ -1339,9 +1339,9 @@
       "trails": [
         "09"
       ],
-      "miles": 0.53,
-      "gain_ft": 545,
-      "loss_ft": 16,
+      "miles": 0.51,
+      "gain_ft": 513,
+      "loss_ft": 2,
       "geometry": "geometry/0L.json",
       "sources": [
         {
@@ -1358,9 +1358,9 @@
       "trails": [
         "04"
       ],
-      "miles": 6.69,
-      "gain_ft": 1575,
-      "loss_ft": 1535,
+      "miles": 6.64,
+      "gain_ft": 1192,
+      "loss_ft": 1124,
       "geometry": "geometry/0M.json",
       "sources": [
         {
@@ -1377,9 +1377,9 @@
       "trails": [
         "04"
       ],
-      "miles": 1.44,
-      "gain_ft": 807,
-      "loss_ft": 66,
+      "miles": 1.42,
+      "gain_ft": 727,
+      "loss_ft": 0,
       "geometry": "geometry/0N.json",
       "sources": [
         {
@@ -1397,8 +1397,8 @@
         "0A"
       ],
       "miles": 0.44,
-      "gain_ft": 213,
-      "loss_ft": 0,
+      "gain_ft": 198,
+      "loss_ft": 14,
       "geometry": "geometry/0O.json",
       "sources": [
         {
@@ -1416,7 +1416,7 @@
         "0A"
       ],
       "miles": 1.06,
-      "gain_ft": 568,
+      "gain_ft": 550,
       "loss_ft": 26,
       "geometry": "geometry/0P.json",
       "sources": [
@@ -1434,9 +1434,9 @@
       "trails": [
         "0B"
       ],
-      "miles": 1.56,
-      "gain_ft": 709,
-      "loss_ft": 594,
+      "miles": 1.54,
+      "gain_ft": 678,
+      "loss_ft": 561,
       "geometry": "geometry/0Q.json",
       "sources": [
         {
@@ -1453,9 +1453,9 @@
       "trails": [
         "0A"
       ],
-      "miles": 1.5,
-      "gain_ft": 617,
-      "loss_ft": 89,
+      "miles": 1.49,
+      "gain_ft": 646,
+      "loss_ft": 120,
       "geometry": "geometry/0R.json",
       "sources": [
         {
@@ -1473,8 +1473,8 @@
         "0A"
       ],
       "miles": 0.59,
-      "gain_ft": 161,
-      "loss_ft": 43,
+      "gain_ft": 153,
+      "loss_ft": 22,
       "geometry": "geometry/0S.json",
       "sources": [
         {
@@ -1491,9 +1491,9 @@
       "trails": [
         "0B"
       ],
-      "miles": 1.18,
-      "gain_ft": 400,
-      "loss_ft": 190,
+      "miles": 1.17,
+      "gain_ft": 412,
+      "loss_ft": 202,
       "geometry": "geometry/0T.json",
       "sources": [
         {
@@ -1510,9 +1510,9 @@
       "trails": [
         "0C"
       ],
-      "miles": 0.88,
-      "gain_ft": 302,
-      "loss_ft": 33,
+      "miles": 0.87,
+      "gain_ft": 249,
+      "loss_ft": 12,
       "geometry": "geometry/0U.json",
       "sources": [
         {
@@ -1529,9 +1529,9 @@
       "trails": [
         "0C"
       ],
-      "miles": 0.69,
-      "gain_ft": 92,
-      "loss_ft": 446,
+      "miles": 0.68,
+      "gain_ft": 40,
+      "loss_ft": 407,
       "geometry": "geometry/0V.json",
       "sources": [
         {
@@ -1548,9 +1548,9 @@
       "trails": [
         "0C"
       ],
-      "miles": 4.24,
-      "gain_ft": 804,
-      "loss_ft": 1939,
+      "miles": 4.18,
+      "gain_ft": 795,
+      "loss_ft": 1911,
       "geometry": "geometry/0W.json",
       "sources": [
         {
@@ -1567,9 +1567,9 @@
       "trails": [
         "0C"
       ],
-      "miles": 3.37,
-      "gain_ft": 912,
-      "loss_ft": 1506,
+      "miles": 3.32,
+      "gain_ft": 891,
+      "loss_ft": 1473,
       "geometry": "geometry/0X.json",
       "sources": [
         {
@@ -1587,8 +1587,8 @@
         "0E"
       ],
       "miles": 0.11,
-      "gain_ft": 85,
-      "loss_ft": 20,
+      "gain_ft": 74,
+      "loss_ft": 14,
       "geometry": "geometry/0Y.json",
       "sources": [
         {
@@ -1605,9 +1605,9 @@
       "trails": [
         "0D"
       ],
-      "miles": 0.9,
-      "gain_ft": 269,
-      "loss_ft": 161,
+      "miles": 0.89,
+      "gain_ft": 234,
+      "loss_ft": 144,
       "geometry": "geometry/0Z.json",
       "sources": [
         {
@@ -1624,9 +1624,9 @@
       "trails": [
         "0D"
       ],
-      "miles": 0.97,
-      "gain_ft": 456,
-      "loss_ft": 115,
+      "miles": 0.96,
+      "gain_ft": 458,
+      "loss_ft": 119,
       "geometry": "geometry/10.json",
       "sources": [
         {
@@ -1643,9 +1643,9 @@
       "trails": [
         "0D"
       ],
-      "miles": 5.99,
-      "gain_ft": 3123,
-      "loss_ft": 1355,
+      "miles": 5.88,
+      "gain_ft": 3054,
+      "loss_ft": 1276,
       "geometry": "geometry/11.json",
       "sources": [
         {
@@ -1662,9 +1662,9 @@
       "trails": [
         "0F"
       ],
-      "miles": 0.1,
-      "gain_ft": 26,
-      "loss_ft": 59,
+      "miles": 0.09,
+      "gain_ft": 0,
+      "loss_ft": 40,
       "geometry": "geometry/12.json",
       "sources": [
         {
@@ -1681,9 +1681,9 @@
       "trails": [
         "0G"
       ],
-      "miles": 2.09,
-      "gain_ft": 318,
-      "loss_ft": 1699,
+      "miles": 2.04,
+      "gain_ft": 92,
+      "loss_ft": 1478,
       "geometry": "geometry/13.json",
       "sources": [
         {
@@ -1700,9 +1700,9 @@
       "trails": [
         "0H"
       ],
-      "miles": 0.29,
-      "gain_ft": 98,
-      "loss_ft": 0,
+      "miles": 0.28,
+      "gain_ft": 89,
+      "loss_ft": 1,
       "geometry": "geometry/14.json",
       "sources": [
         {
@@ -1720,8 +1720,8 @@
         "0H"
       ],
       "miles": 0.2,
-      "gain_ft": 7,
-      "loss_ft": 10,
+      "gain_ft": 20,
+      "loss_ft": 17,
       "geometry": "geometry/15.json",
       "sources": [
         {
@@ -1738,9 +1738,9 @@
       "trails": [
         "0I"
       ],
-      "miles": 6.11,
-      "gain_ft": 2936,
-      "loss_ft": 308,
+      "miles": 6.03,
+      "gain_ft": 3127,
+      "loss_ft": 476,
       "geometry": "geometry/16.json",
       "sources": [
         {
@@ -1757,9 +1757,9 @@
       "trails": [
         "0H"
       ],
-      "miles": 7.5,
-      "gain_ft": 2070,
-      "loss_ft": 715,
+      "miles": 7.46,
+      "gain_ft": 2006,
+      "loss_ft": 650,
       "geometry": "geometry/17.json",
       "sources": [
         {
@@ -1776,9 +1776,9 @@
       "trails": [
         "0H"
       ],
-      "miles": 1.34,
-      "gain_ft": 935,
-      "loss_ft": 115,
+      "miles": 1.33,
+      "gain_ft": 915,
+      "loss_ft": 56,
       "geometry": "geometry/18.json",
       "sources": [
         {
@@ -1795,9 +1795,9 @@
       "trails": [
         "0J"
       ],
-      "miles": 5.47,
-      "gain_ft": 2999,
-      "loss_ft": 325,
+      "miles": 5.45,
+      "gain_ft": 2921,
+      "loss_ft": 232,
       "geometry": "geometry/19.json",
       "sources": [
         {
@@ -1814,9 +1814,9 @@
       "trails": [
         "0K"
       ],
-      "miles": 0.92,
-      "gain_ft": 141,
-      "loss_ft": 551,
+      "miles": 0.91,
+      "gain_ft": 67,
+      "loss_ft": 471,
       "geometry": "geometry/1A.json",
       "sources": [
         {
@@ -1834,8 +1834,8 @@
         "0L"
       ],
       "miles": 0.34,
-      "gain_ft": 49,
-      "loss_ft": 59,
+      "gain_ft": 41,
+      "loss_ft": 45,
       "geometry": "geometry/1B.json",
       "sources": [
         {
@@ -1852,9 +1852,9 @@
       "trails": [
         "0L"
       ],
-      "miles": 2.83,
-      "gain_ft": 722,
-      "loss_ft": 489,
+      "miles": 2.75,
+      "gain_ft": 505,
+      "loss_ft": 276,
       "geometry": "geometry/1C.json",
       "sources": [
         {
@@ -1871,9 +1871,9 @@
       "trails": [
         "0M"
       ],
-      "miles": 1.24,
-      "gain_ft": 433,
-      "loss_ft": 23,
+      "miles": 1.23,
+      "gain_ft": 464,
+      "loss_ft": 45,
       "geometry": "geometry/1D.json",
       "sources": [
         {
@@ -1890,9 +1890,9 @@
       "trails": [
         "0M"
       ],
-      "miles": 2.06,
-      "gain_ft": 804,
-      "loss_ft": 131,
+      "miles": 2.04,
+      "gain_ft": 815,
+      "loss_ft": 135,
       "geometry": "geometry/1E.json",
       "sources": [
         {
@@ -1910,8 +1910,8 @@
         "0M"
       ],
       "miles": 0.68,
-      "gain_ft": 279,
-      "loss_ft": 0,
+      "gain_ft": 294,
+      "loss_ft": 23,
       "geometry": "geometry/1F.json",
       "sources": [
         {
@@ -1928,9 +1928,9 @@
       "trails": [
         "0N"
       ],
-      "miles": 4.11,
-      "gain_ft": 1781,
-      "loss_ft": 1125,
+      "miles": 3.99,
+      "gain_ft": 1520,
+      "loss_ft": 866,
       "geometry": "geometry/1G.json",
       "sources": [
         {
@@ -1947,9 +1947,9 @@
       "trails": [
         "0O"
       ],
-      "miles": 5.1,
-      "gain_ft": 823,
-      "loss_ft": 253,
+      "miles": 5.04,
+      "gain_ft": 851,
+      "loss_ft": 289,
       "geometry": "geometry/1H.json",
       "sources": [
         {
@@ -1967,8 +1967,8 @@
         "0O"
       ],
       "miles": 0.55,
-      "gain_ft": 89,
-      "loss_ft": 102,
+      "gain_ft": 92,
+      "loss_ft": 114,
       "geometry": "geometry/1I.json",
       "sources": [
         {
@@ -1985,9 +1985,9 @@
       "trails": [
         "0P"
       ],
-      "miles": 8.47,
-      "gain_ft": 3845,
-      "loss_ft": 1644,
+      "miles": 8.0,
+      "gain_ft": 3656,
+      "loss_ft": 1480,
       "geometry": "geometry/1J.json",
       "sources": [
         {
@@ -2004,8 +2004,8 @@
       "trails": [
         "0Q"
       ],
-      "miles": 4.31,
-      "gain_ft": 830,
+      "miles": 4.24,
+      "gain_ft": 852,
       "loss_ft": 827,
       "geometry": "geometry/1K.json",
       "sources": [
@@ -2023,9 +2023,9 @@
       "trails": [
         "0R"
       ],
-      "miles": 8.11,
-      "gain_ft": 2913,
-      "loss_ft": 906,
+      "miles": 7.84,
+      "gain_ft": 2815,
+      "loss_ft": 807,
       "geometry": "geometry/1L.json",
       "sources": [
         {
@@ -2042,9 +2042,9 @@
       "trails": [
         "0D"
       ],
-      "miles": 9.59,
-      "gain_ft": 2667,
-      "loss_ft": 1198,
+      "miles": 9.52,
+      "gain_ft": 2569,
+      "loss_ft": 1094,
       "geometry": "geometry/1M.json",
       "sources": [
         {
@@ -2062,8 +2062,8 @@
         "0S"
       ],
       "miles": 0.65,
-      "gain_ft": 62,
-      "loss_ft": 184,
+      "gain_ft": 34,
+      "loss_ft": 133,
       "geometry": "geometry/1N.json",
       "sources": [
         {
@@ -2080,9 +2080,9 @@
       "trails": [
         "0S"
       ],
-      "miles": 0.82,
-      "gain_ft": 217,
-      "loss_ft": 177,
+      "miles": 0.81,
+      "gain_ft": 172,
+      "loss_ft": 150,
       "geometry": "geometry/1O.json",
       "sources": [
         {
@@ -2099,9 +2099,9 @@
       "trails": [
         "0L"
       ],
-      "miles": 0.89,
-      "gain_ft": 200,
-      "loss_ft": 210,
+      "miles": 0.87,
+      "gain_ft": 172,
+      "loss_ft": 174,
       "geometry": "geometry/1P.json",
       "sources": [
         {
@@ -2118,9 +2118,9 @@
       "trails": [
         "0T"
       ],
-      "miles": 2.87,
-      "gain_ft": 148,
-      "loss_ft": 164,
+      "miles": 2.79,
+      "gain_ft": 131,
+      "loss_ft": 163,
       "geometry": "geometry/1Q.json",
       "sources": [
         {
@@ -2138,8 +2138,8 @@
         "0U"
       ],
       "miles": 0.24,
-      "gain_ft": 26,
-      "loss_ft": 3,
+      "gain_ft": 19,
+      "loss_ft": 0,
       "geometry": "geometry/1R.json",
       "sources": [
         {
@@ -2156,9 +2156,9 @@
       "trails": [
         "0U"
       ],
-      "miles": 3.52,
-      "gain_ft": 1339,
-      "loss_ft": 413,
+      "miles": 3.39,
+      "gain_ft": 1285,
+      "loss_ft": 357,
       "geometry": "geometry/1S.json",
       "sources": [
         {
@@ -2176,7 +2176,7 @@
         "0U"
       ],
       "miles": 0.62,
-      "gain_ft": 72,
+      "gain_ft": 56,
       "loss_ft": 0,
       "geometry": "geometry/1T.json",
       "sources": [
@@ -2195,8 +2195,8 @@
         "0V"
       ],
       "miles": 0.41,
-      "gain_ft": 105,
-      "loss_ft": 95,
+      "gain_ft": 91,
+      "loss_ft": 84,
       "geometry": "geometry/1U.json",
       "sources": [
         {
@@ -2213,9 +2213,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 0.35,
-      "gain_ft": 121,
-      "loss_ft": 66,
+      "miles": 0.34,
+      "gain_ft": 91,
+      "loss_ft": 42,
       "geometry": "geometry/1V.json",
       "sources": [
         {
@@ -2232,9 +2232,9 @@
       "trails": [
         "0W"
       ],
-      "miles": 7.15,
-      "gain_ft": 1893,
-      "loss_ft": 118,
+      "miles": 7.07,
+      "gain_ft": 1885,
+      "loss_ft": 129,
       "geometry": "geometry/1W.json",
       "sources": [
         {
@@ -2251,9 +2251,9 @@
       "trails": [
         "0X"
       ],
-      "miles": 0.39,
-      "gain_ft": 20,
-      "loss_ft": 259,
+      "miles": 0.38,
+      "gain_ft": 16,
+      "loss_ft": 247,
       "geometry": "geometry/1X.json",
       "sources": [
         {
@@ -2270,9 +2270,9 @@
       "trails": [
         "0W"
       ],
-      "miles": 2.54,
-      "gain_ft": 1257,
-      "loss_ft": 390,
+      "miles": 2.48,
+      "gain_ft": 1234,
+      "loss_ft": 349,
       "geometry": "geometry/1Y.json",
       "sources": [
         {
@@ -2289,9 +2289,9 @@
       "trails": [
         "0Y"
       ],
-      "miles": 6.37,
-      "gain_ft": 1785,
-      "loss_ft": 2972,
+      "miles": 6.1,
+      "gain_ft": 1797,
+      "loss_ft": 3002,
       "geometry": "geometry/1Z.json",
       "sources": [
         {
@@ -2309,7 +2309,7 @@
         "0W"
       ],
       "miles": 0.11,
-      "gain_ft": 79,
+      "gain_ft": 70,
       "loss_ft": 0,
       "geometry": "geometry/20.json",
       "sources": [
@@ -2328,8 +2328,8 @@
         "0Z"
       ],
       "miles": 0.11,
-      "gain_ft": 0,
-      "loss_ft": 52,
+      "gain_ft": 1,
+      "loss_ft": 31,
       "geometry": "geometry/21.json",
       "sources": [
         {
@@ -2347,7 +2347,7 @@
         "0W"
       ],
       "miles": 0.07,
-      "gain_ft": 23,
+      "gain_ft": 26,
       "loss_ft": 0,
       "geometry": "geometry/22.json",
       "sources": [
@@ -2365,9 +2365,9 @@
       "trails": [
         "0W"
       ],
-      "miles": 1.16,
-      "gain_ft": 522,
-      "loss_ft": 285,
+      "miles": 1.09,
+      "gain_ft": 515,
+      "loss_ft": 276,
       "geometry": "geometry/23.json",
       "sources": [
         {
@@ -2384,9 +2384,9 @@
       "trails": [
         "10"
       ],
-      "miles": 0.37,
-      "gain_ft": 62,
-      "loss_ft": 105,
+      "miles": 0.36,
+      "gain_ft": 23,
+      "loss_ft": 61,
       "geometry": "geometry/24.json",
       "sources": [
         {
@@ -2403,9 +2403,9 @@
       "trails": [
         "0W"
       ],
-      "miles": 1.38,
-      "gain_ft": 587,
-      "loss_ft": 344,
+      "miles": 1.35,
+      "gain_ft": 499,
+      "loss_ft": 256,
       "geometry": "geometry/25.json",
       "sources": [
         {
@@ -2422,9 +2422,9 @@
       "trails": [
         "0W"
       ],
-      "miles": 4.95,
-      "gain_ft": 1778,
-      "loss_ft": 1220,
+      "miles": 4.72,
+      "gain_ft": 1625,
+      "loss_ft": 1068,
       "geometry": "geometry/26.json",
       "sources": [
         {
@@ -2441,9 +2441,9 @@
       "trails": [
         "04"
       ],
-      "miles": 3.22,
-      "gain_ft": 1070,
-      "loss_ft": 492,
+      "miles": 2.91,
+      "gain_ft": 983,
+      "loss_ft": 398,
       "geometry": "geometry/27.json",
       "sources": [
         {
@@ -2461,8 +2461,8 @@
         "04"
       ],
       "miles": 0.27,
-      "gain_ft": 52,
-      "loss_ft": 102,
+      "gain_ft": 21,
+      "loss_ft": 62,
       "geometry": "geometry/28.json",
       "sources": [
         {
@@ -2479,9 +2479,9 @@
       "trails": [
         "11"
       ],
-      "miles": 4.73,
-      "gain_ft": 2615,
-      "loss_ft": 709,
+      "miles": 4.64,
+      "gain_ft": 2485,
+      "loss_ft": 595,
       "geometry": "geometry/29.json",
       "sources": [
         {
@@ -2498,9 +2498,9 @@
       "trails": [
         "12"
       ],
-      "miles": 3.51,
-      "gain_ft": 719,
-      "loss_ft": 144,
+      "miles": 3.47,
+      "gain_ft": 641,
+      "loss_ft": 71,
       "geometry": "geometry/2A.json",
       "sources": [
         {
@@ -2517,9 +2517,9 @@
       "trails": [
         "04"
       ],
-      "miles": 3.09,
-      "gain_ft": 771,
-      "loss_ft": 614,
+      "miles": 3.06,
+      "gain_ft": 728,
+      "loss_ft": 564,
       "geometry": "geometry/2B.json",
       "sources": [
         {
@@ -2536,9 +2536,9 @@
       "trails": [
         "04"
       ],
-      "miles": 5.89,
-      "gain_ft": 440,
-      "loss_ft": 3074,
+      "miles": 5.83,
+      "gain_ft": 56,
+      "loss_ft": 2681,
       "geometry": "geometry/2C.json",
       "sources": [
         {
@@ -2555,9 +2555,9 @@
       "trails": [
         "13"
       ],
-      "miles": 2.46,
-      "gain_ft": 469,
-      "loss_ft": 469,
+      "miles": 2.44,
+      "gain_ft": 511,
+      "loss_ft": 508,
       "geometry": "geometry/2D.json",
       "sources": [
         {
@@ -2574,9 +2574,9 @@
       "trails": [
         "13"
       ],
-      "miles": 2.77,
-      "gain_ft": 322,
-      "loss_ft": 1010,
+      "miles": 2.72,
+      "gain_ft": 296,
+      "loss_ft": 987,
       "geometry": "geometry/2E.json",
       "sources": [
         {
@@ -2593,9 +2593,9 @@
       "trails": [
         "14"
       ],
-      "miles": 2.66,
-      "gain_ft": 541,
-      "loss_ft": 620,
+      "miles": 2.6,
+      "gain_ft": 519,
+      "loss_ft": 601,
       "geometry": "geometry/2F.json",
       "sources": [
         {
@@ -2612,9 +2612,9 @@
       "trails": [
         "13"
       ],
-      "miles": 12.93,
-      "gain_ft": 2352,
-      "loss_ft": 4846,
+      "miles": 12.59,
+      "gain_ft": 2239,
+      "loss_ft": 4732,
       "geometry": "geometry/2G.json",
       "sources": [
         {
@@ -2631,9 +2631,9 @@
       "trails": [
         "15"
       ],
-      "miles": 5.32,
-      "gain_ft": 1368,
-      "loss_ft": 617,
+      "miles": 5.25,
+      "gain_ft": 1284,
+      "loss_ft": 525,
       "geometry": "geometry/2H.json",
       "sources": [
         {
@@ -2650,9 +2650,9 @@
       "trails": [
         "15"
       ],
-      "miles": 6.48,
-      "gain_ft": 2674,
-      "loss_ft": 738,
+      "miles": 6.38,
+      "gain_ft": 2638,
+      "loss_ft": 709,
       "geometry": "geometry/2I.json",
       "sources": [
         {
@@ -2669,9 +2669,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 7.35,
-      "gain_ft": 1132,
-      "loss_ft": 928,
+      "miles": 7.28,
+      "gain_ft": 1235,
+      "loss_ft": 1021,
       "geometry": "geometry/2J.json",
       "sources": [
         {
@@ -2688,9 +2688,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 1.09,
-      "gain_ft": 154,
-      "loss_ft": 282,
+      "miles": 0.99,
+      "gain_ft": 149,
+      "loss_ft": 302,
       "geometry": "geometry/2K.json",
       "sources": [
         {
@@ -2707,9 +2707,9 @@
       "trails": [
         "16"
       ],
-      "miles": 2.14,
-      "gain_ft": 741,
-      "loss_ft": 102,
+      "miles": 2.11,
+      "gain_ft": 729,
+      "loss_ft": 95,
       "geometry": "geometry/2L.json",
       "sources": [
         {
@@ -2726,9 +2726,9 @@
       "trails": [
         "16"
       ],
-      "miles": 9.73,
-      "gain_ft": 2736,
-      "loss_ft": 1217,
+      "miles": 9.45,
+      "gain_ft": 2733,
+      "loss_ft": 1215,
       "geometry": "geometry/2M.json",
       "sources": [
         {
@@ -2745,9 +2745,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 7.75,
-      "gain_ft": 1217,
-      "loss_ft": 883,
+      "miles": 7.53,
+      "gain_ft": 1186,
+      "loss_ft": 847,
       "geometry": "geometry/2N.json",
       "sources": [
         {
@@ -2764,9 +2764,9 @@
       "trails": [
         "17"
       ],
-      "miles": 4.48,
-      "gain_ft": 591,
-      "loss_ft": 1020,
+      "miles": 4.39,
+      "gain_ft": 603,
+      "loss_ft": 1037,
       "geometry": "geometry/2O.json",
       "sources": [
         {
@@ -2783,9 +2783,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 7.63,
-      "gain_ft": 1175,
-      "loss_ft": 1768,
+      "miles": 7.47,
+      "gain_ft": 978,
+      "loss_ft": 1579,
       "geometry": "geometry/2P.json",
       "sources": [
         {
@@ -2802,9 +2802,9 @@
       "trails": [
         "18"
       ],
-      "miles": 4.22,
-      "gain_ft": 712,
-      "loss_ft": 1286,
+      "miles": 4.15,
+      "gain_ft": 661,
+      "loss_ft": 1239,
       "geometry": "geometry/2Q.json",
       "sources": [
         {
@@ -2821,9 +2821,9 @@
       "trails": [
         "19"
       ],
-      "miles": 4.51,
-      "gain_ft": 1867,
-      "loss_ft": 876,
+      "miles": 4.46,
+      "gain_ft": 1663,
+      "loss_ft": 665,
       "geometry": "geometry/2R.json",
       "sources": [
         {
@@ -2840,9 +2840,9 @@
       "trails": [
         "18"
       ],
-      "miles": 3.36,
-      "gain_ft": 2037,
-      "loss_ft": 328,
+      "miles": 3.33,
+      "gain_ft": 1928,
+      "loss_ft": 215,
       "geometry": "geometry/2S.json",
       "sources": [
         {
@@ -2859,9 +2859,9 @@
       "trails": [
         "1B"
       ],
-      "miles": 4.86,
-      "gain_ft": 827,
-      "loss_ft": 896,
+      "miles": 4.82,
+      "gain_ft": 785,
+      "loss_ft": 866,
       "geometry": "geometry/2T.json",
       "sources": [
         {
@@ -2878,9 +2878,9 @@
       "trails": [
         "1A"
       ],
-      "miles": 7.56,
-      "gain_ft": 331,
-      "loss_ft": 1703,
+      "miles": 7.46,
+      "gain_ft": 333,
+      "loss_ft": 1708,
       "geometry": "geometry/2U.json",
       "sources": [
         {
@@ -2897,9 +2897,9 @@
       "trails": [
         "1A"
       ],
-      "miles": 4.62,
-      "gain_ft": 30,
-      "loss_ft": 1119,
+      "miles": 4.56,
+      "gain_ft": 43,
+      "loss_ft": 1134,
       "geometry": "geometry/2V.json",
       "sources": [
         {
@@ -2916,9 +2916,9 @@
       "trails": [
         "0V"
       ],
-      "miles": 10.19,
-      "gain_ft": 433,
-      "loss_ft": 3120,
+      "miles": 10.14,
+      "gain_ft": 413,
+      "loss_ft": 3094,
       "geometry": "geometry/2W.json",
       "sources": [
         {
@@ -2935,9 +2935,9 @@
       "trails": [
         "1C"
       ],
-      "miles": 7.18,
-      "gain_ft": 1073,
-      "loss_ft": 2395,
+      "miles": 6.98,
+      "gain_ft": 894,
+      "loss_ft": 2204,
       "geometry": "geometry/2X.json",
       "sources": [
         {
