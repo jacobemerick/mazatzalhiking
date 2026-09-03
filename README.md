@@ -4,16 +4,37 @@ Route builder for the [Mazatzal Wilderness](https://www.fs.usda.gov/tonto) — s
 trusted GPS tracks into loops, lassos, figure-eights, and out-and-backs, then export
 GPX/KML with waypoints and trail-condition notes.
 
-Right now this is just the landing page.
+The route builder exists at `/build/` but is not linked or indexed yet: the track
+smoothing is still being verified and no condition observations have been written.
+Public trail pages are in progress.
 
 ## Stack
 
-Static assets served by a Cloudflare Worker. No build step, no framework — `public/`
-is deployed as-is.
+Static assets served by a Cloudflare Worker. No build step in the deploy, no framework —
+`public/` is deployed as-is. Data under `public/data/` is generated locally by
+`tools/build_site.py` and committed.
 
 - `wrangler.jsonc` — Worker config (assets-only, no `main` script)
 - `public/index.html` — landing page
+- `public/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
+- `public/js/conditions.js` — the one renderer for condition observations
+- `public/data/` — graph, display lines, per-segment geometry, observations
 - `public/404.html` — not-found page
+- `archive/` — immutable recorded GPX
+- `curation/` — the authored trail graph and observations (`docs/trail-graph-schema.md`,
+  `docs/condition-observations.md`)
+- `tools/` — curation, geometry, validation and site build tooling
+
+## Data changes
+
+After editing anything under `curation/`:
+
+```bash
+./tools/build_geometry.py   # only if segments were drawn or redrawn
+./tools/build_site.py       # validates, then rewrites public/data/
+```
+
+`build_site.py` refuses to write if the graph fails validation.
 
 ## Local development
 
@@ -45,8 +66,7 @@ twice and double-count.
 
 ## Roadmap
 
-- [ ] Trail + POI data model, seeded from recorded tracks
-- [ ] Route builder UI (pick trailhead → segments → POIs → shape)
-- [ ] Graph routing for loop / lasso / figure-eight / out-and-back generation
-- [ ] Condition notes per segment, surfaced in the builder and in exports
-- [ ] GPX + KML export with named waypoints and descriptions
+Tracked as GitHub milestones. Done: the trail graph from recorded tracks, the condition
+observation schema, the route builder with GPX/KML export. Next: authoring condition
+observations, public trail pages, builder conveniences (out-and-back mirror, lasso
+close, elevation profile).
