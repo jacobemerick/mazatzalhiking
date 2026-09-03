@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mazatzalhiking.com/schema/observations.schema.json",
+  "title": "Mazatzal condition observations",
+  "description": "Dated, first-person notes about the state of a segment, junction, or feature, at curation/observations.json. Hand-authored by Jacob and never regenerated: this file is published advice about a real wilderness, and every word in it was written by someone who walked that ground on the date given. See docs/condition-observations.md.",
+  "type": "object",
+  "required": ["version", "observations"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "observations": {
+      "description": "Storage order is not display order. Consumers sort newest first per target; the file may be appended to in any order.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/observation" }
+    }
+  },
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "required": ["target", "date", "category", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "description": "What the note is about, as '<kind>:<id>' where kind is segment, node, or feature and id is that entity's id in graph.json. The kind prefix is required because each entity type has its own id space and they overlap almost completely (82 of 84 node ids are also segment ids), so a bare id does not identify anything. Trails are not a valid target: a trail-wide condition is written against the legs it applies to.",
+          "type": "string",
+          "pattern": "^(segment|node|feature):[0-9A-Za-z]{2,4}$"
+        },
+        "date": {
+          "description": "The day the condition was seen, as YYYY-MM-DD. A full date, always: every observation comes from a walk, and every walk has a date (tools/trips.csv). The date is what makes the note meaningful and is always shown alongside the text.",
+          "type": "string",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+        },
+        "category": {
+          "description": "One per observation, so surfaces can summarise and pick an icon. A note that covers two things is two observations. brush: overgrowth narrowing or hiding the tread. deadfall: downed timber across it, the burn-scar problem. tread: the surface itself, washed out, sloughed, or rebuilt. route-finding: where the way is hard to follow, including missing signs and cairns. water: whether a source is running. access: how you get to the ground at all, roads, gates, crossings, closures.",
+          "enum": ["brush", "deadfall", "tread", "route-finding", "water", "access"]
+        },
+        "text": {
+          "description": "The observation, in the author's words, as plain text. Paragraphs are separated by a blank line; no markup, because the same text is rendered into HTML on pages and popups and into a GPX description that has neither. Never generated, never inferred, never summarised from someone else's report.",
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "description": "The recorded trip the note comes from, as its archive filename, matching segments[].sources[].file in graph.json. Optional, because a note can predate the corpus, but worth recording when it exists: it is the same walked-it-myself provenance the geometry carries.",
+          "type": "string",
+          "minLength": 1
+        },
+        "photos": {
+          "description": "Photos that show this condition, taken on this walk. A photo exists on the site only through an observation; there is no gallery and no photo without a dated note to sit under. Omit rather than leave empty.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["file"],
+            "additionalProperties": false,
+            "properties": {
+              "file": {
+                "description": "Basename only, no directory. Where photo files live and how they are served is the page generator's decision, not this schema's; the reference has to stay valid if that decision changes.",
+                "type": "string",
+                "pattern": "^[^/\\\\]+\\.(jpe?g|png|webp)$"
+              },
+              "caption": {
+                "description": "What the photo shows, if the observation text does not already say. Plain text.",
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

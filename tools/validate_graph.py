@@ -3,6 +3,8 @@
 
     ./tools/validate_graph.py schema/example/graph.json [observations.json]
 
+The observations file defaults to the sibling observations.json when one exists.
+
 Checks the invariants that matter for correctness rather than mere shape: that
 references resolve, that the network is actually connected, and that retired ids
 stay retired. Exits non-zero on any error, so a build can gate on it.
@@ -11,7 +13,8 @@ This is the seed of the validation #16 asks for, not its completion — #16 stil
 to check total network mileage against the corpus inventory and wire this into the
 build. Written against the stdlib so it runs anywhere with no install step.
 """
-import json, sys, os
+import json, sys, os, re, pathlib
+from datetime import date
 from collections import defaultdict
 
 errors, warnings = [], []
@@ -25,7 +28,7 @@ def warn(m):
     warnings.append(m)
 
 
-def check(graph, obs=None):
+def check(graph, obs=None, obs_path=None):
     trails = {t['id']: t for t in graph.get('trails', [])}
     nodes = {n['id']: n for n in graph.get('nodes', [])}
     segments = {s['id']: s for s in graph.get('segments', [])}
@@ -164,34 +167,94 @@ def check(graph, obs=None):
 
     # observations
     if obs is not None:
-        valid = set(segments) | set(nodes) | set(features)
-        for o in obs.get('observations', []):
-            if o['target'] not in valid:
-                err(f"observation dated {o.get('date')} targets unknown id {o['target']!r}"
-                    + (f" — that id is retired ({retired[o['target']]['reason']})"
-                       if o['target'] in retired else ""))
-            if not o.get('date'):
-                err(f"observation on {o['target']!r} has no date — the date is what makes "
-                    f"the note meaningful and must always travel with the text")
+        check_observations(obs, segments, nodes, features, retired, obs_path)
 
     return dict(trails=len(trails), nodes=len(nodes), segments=len(segments),
                 features=len(features), retired=len(retired),
+                observations=len(obs.get('observations', [])) if obs is not None else None,
                 miles=round(sum(s['miles'] for s in segments.values()), 1))
+
+
+OBS_CATEGORIES = ('brush', 'deadfall', 'tread', 'route-finding', 'water', 'access')
+OBS_TARGET = re.compile(r'^(segment|node|feature):([0-9A-Za-z]{2,4})$')
+OBS_DATE = re.compile(r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$')
+OBS_PHOTO = re.compile(r'^[^/\\\\]+\.(jpe?g|png|webp)$')
+
+
+def check_observations(obs, segments, nodes, features, retired, obs_path=None):
+    """The rules in schema/observations.schema.json, re-checked here because this
+    tool is stdlib-only and does not run a JSON Schema validator. The ones that
+    need the graph -- does the target exist, in the right id space -- can only
+    live here anyway."""
+    spaces = {'segment': segments, 'node': nodes, 'feature': features}
+    # Placeholder text is fine in schema/example, which exists to be invented. In a
+    # real instance it is fabricated trail advice under Jacob's name, so refuse it.
+    example = obs_path is not None and 'example' in pathlib.Path(obs_path).parts
+    photos_seen = {}
+    for i, o in enumerate(obs.get('observations', [])):
+        where = f"observation #{i} ({o.get('target')!r}, {o.get('date')!r})"
+        m = OBS_TARGET.match(str(o.get('target', '')))
+        if not m:
+            err(f"{where}: target must be '<kind>:<id>' with kind segment, node or "
+                f"feature -- a bare id is ambiguous because node and segment ids overlap, "
+                f"and a trail is not a target: write the note against its legs")
+        else:
+            kind, tid = m.groups()
+            if tid not in spaces[kind]:
+                err(f"{where}: no {kind} with id {tid!r}"
+                    + (f" -- that id is retired ({retired[tid]['reason']}); re-target the "
+                       f"note onto {', '.join(retired[tid].get('superseded_by', [])) or 'its successor'}"
+                       if kind == 'segment' and tid in retired else ""))
+        d = o.get('date')
+        if not d or not OBS_DATE.match(str(d)):
+            err(f"{where}: date must be a full YYYY-MM-DD -- the date is what makes the "
+                f"note meaningful and must always travel with the text")
+        elif str(d) > date.today().isoformat():
+            err(f"{where}: date is in the future")
+        if o.get('category') not in OBS_CATEGORIES:
+            err(f"{where}: category {o.get('category')!r} is not one of "
+                f"{', '.join(OBS_CATEGORIES)}")
+        text = o.get('text')
+        if not isinstance(text, str) or not text.strip():
+            err(f"{where}: empty text -- an observation with nothing to say should not exist")
+        elif 'PLACEHOLDER' in text and not example:
+            err(f"{where}: placeholder text in a real instance -- every word here is "
+                f"published as trail advice and must be Jacob's")
+        for k in o:
+            if k not in ('target', 'date', 'category', 'text', 'source', 'photos'):
+                err(f"{where}: unknown field {k!r}")
+        photos = o.get('photos')
+        if photos is not None:
+            if not isinstance(photos, list) or not photos:
+                err(f"{where}: photos must be a non-empty list, or omitted")
+            else:
+                for ph in photos:
+                    f = ph.get('file', '') if isinstance(ph, dict) else ''
+                    if not OBS_PHOTO.match(str(f)):
+                        err(f"{where}: photo file {f!r} must be a bare basename ending "
+                            f"in .jpg, .jpeg, .png or .webp")
+                    elif f in photos_seen:
+                        warn(f"{where}: photo {f!r} is also attached to "
+                             f"{photos_seen[f]} -- one photo shows one dated condition")
+                    else:
+                        photos_seen[f] = where
 
 
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     graph = json.load(open(sys.argv[1]))
-    obs = json.load(open(sys.argv[2])) if len(sys.argv) > 2 else None
-    if obs is None:
+    obs_path = sys.argv[2] if len(sys.argv) > 2 else None
+    if obs_path is None:
         sibling = os.path.join(os.path.dirname(sys.argv[1]), 'observations.json')
         if os.path.exists(sibling):
-            obs = json.load(open(sibling))
+            obs_path = sibling
+    obs = json.load(open(obs_path)) if obs_path else None
 
-    stats = check(graph, obs)
+    stats = check(graph, obs, obs_path)
     print(f"{stats['trails']} trails  {stats['nodes']} nodes  {stats['segments']} segments  "
-          f"{stats['features']} features  {stats['retired']} retired  {stats['miles']} mi")
+          f"{stats['features']} features  {stats['retired']} retired  {stats['miles']} mi"
+          + (f"  {stats['observations']} observations" if obs is not None else ""))
 
     for w in warnings:
         print(f"  warn  {w}")
