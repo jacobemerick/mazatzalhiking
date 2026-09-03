@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Route builder — Mazatzal Hiking</title>
+<meta name="description" content="Click connecting trail segments in the Mazatzal Wilderness to build a route, then download it as GPX or KML with dated trail-condition notes.">
+<link rel="canonical" href="https://mazatzalhiking.com/build/">
+<meta name="theme-color" content="#17150f">
+<meta property="og:title" content="Route builder — Mazatzal Hiking">
+<meta property="og:description" content="Click connecting trail segments to build a route, then download GPX or KML with dated trail-condition notes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2317150f'/%3E%3Cpath d='M4 24l7-11 4 6 3-5 10 10z' fill='%23d9a441'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="builder.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="panel" id="panel">
+    <header class="panel-head">
+      <a class="brand" href="/">
+        <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26l8-13 4.5 7L18 14l12 12z" fill="#d9a441"/></svg>
+        Mazatzal Hiking
+      </a>
+      <h1>Route builder</h1>
+    </header>
+
+    <section class="stats" aria-live="polite">
+      <div class="stat"><b id="st-miles">0.0</b><span>miles</span></div>
+      <div class="stat"><b id="st-gain">0</b><span>ft gain</span></div>
+      <div class="stat"><b id="st-loss">0</b><span>ft loss</span></div>
+      <div class="stat"><b id="st-legs">0</b><span>legs</span></div>
+    </section>
+
+    <p class="hint" id="hint">Loading the trail network&hellip;</p>
+    <p class="notice" id="notice" hidden></p>
+
+    <ol class="legs" id="legs"></ol>
+
+    <div class="actions-wrap">
+    <div class="actions">
+      <button type="button" id="undo" disabled>Undo last leg</button>
+      <button type="button" id="clear" disabled>Clear</button>
+      <button type="button" id="link" disabled>Copy link</button>
+    </div>
+    <div class="actions actions-export">
+      <button type="button" class="primary" id="gpx" disabled>Download GPX</button>
+      <button type="button" class="primary" id="kml" disabled>Download KML</button>
+    </div>
+    </div>
+
+    <footer class="panel-foot">
+      <p>Every line on this map is a GPS track that was walked and recorded. Condition notes carry the date they were observed. Where a leg shows no observation, nothing is known, not that the trail is clear.</p>
+      <p><a href="/">Home</a> &middot; <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a></p>
+    </footer>
+  </aside>
+
+  <div class="map" id="map" role="application" aria-label="Trail map"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/conditions.js"></script>
+<script src="builder.js"></script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5b79bb3f6d16425f920c429acb8d4a59"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
