@@ -4,8 +4,9 @@ Route builder for the [Mazatzal Wilderness](https://www.fs.usda.gov/tonto) — s
 trusted GPS tracks into loops, lassos, figure-eights, and out-and-backs, then export
 GPX/KML with waypoints and trail-condition notes.
 
-The route builder is live at [`/build/`](https://mazatzalhiking.com/build/). Public
-trail pages and condition observations are in progress.
+The route builder exists at `/build/` but is not linked or indexed yet: the track
+smoothing is still being verified and no condition observations have been written.
+Public trail pages are in progress.
 
 ## Stack
 
