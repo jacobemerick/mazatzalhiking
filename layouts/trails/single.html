@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{- $t := index site.Data.trails .Params.trail }}
+{{- $nodes := site.Data.nodes }}
+{{- $raw := .RawContent }}
+{{- $intro := index (split $raw "\n## ") 0 }}
+{{- if hasPrefix $raw "## " }}{{ $intro = "" }}{{ end }}
+<article class="trail">
+  <p class="eyebrow">{{ if eq $t.kind "road" }}Forest road{{ else }}Trail{{ end }}{{ with $t.code }} {{ . }}{{ end }} &middot; Tonto National Forest</p>
+  <h1>{{ .Title }}</h1>
+  <p class="trail-route">{{ $t.first }} to {{ $t.last }}</p>
+  <dl class="stats">
+    <div><dt>Distance</dt><dd>{{ printf "%.1f" $t.miles }} mi</dd></div>
+    <div><dt>Gain</dt><dd>{{ lang.FormatNumber 0 $t.gain_ft }} ft</dd></div>
+    <div><dt>Loss</dt><dd>{{ lang.FormatNumber 0 $t.loss_ft }} ft</dd></div>
+    <div><dt>Legs</dt><dd>{{ len $t.legs }}</dd></div>
+  </dl>
+  <p class="actions"><a class="btn" href="/build/?r={{ $t.route }}">Open in the route builder</a></p>
+  {{- with trim $intro "\n" }}
+  <div class="trail-intro">{{ . | markdownify }}</div>
+  {{- end }}
+  <p class="provenance">Every leg below is a GPS track that was walked and {{ $t.recorded }}. Distance is measured along the recorded line; elevation comes from USGS 3DEP lidar sampled along it. Condition notes carry the date they were observed. A leg with no note is a leg with nothing recorded — not a clear trail.</p>
+  <ol class="legs">
+  {{- range $t.legs }}
+    <li class="leg" id="{{ .id }}">
+      <h2>{{ .name }}</h2>
+      <p class="leg-meta">
+        <span>{{ .from }} &rarr; {{ .to }}{{ if .loop }} (loop){{ end }}</span>
+        <span>{{ printf "%.2f" .miles }} mi</span>
+        <span>+{{ lang.FormatNumber 0 .gain_ft }} ft / &minus;{{ lang.FormatNumber 0 .loss_ft }} ft</span>
+      </p>
+      {{ partial "observations.html" (index site.Data.conditions (printf "segment:%s" .id)) }}
+    </li>
+  {{- end }}
+  </ol>
+  {{- $sections := findRE `\{#node:[0-9A-Za-z]+\}` $raw }}
+  {{- if $sections }}
+  <section class="places">
+    <h2 class="places-head">Along the way</h2>
+    {{- range $sections }}
+    {{- $id := replaceRE `\{#node:([0-9A-Za-z]+)\}` "$1" . }}
+    {{- $n := index $nodes $id }}
+    <div class="place" id="node-{{ $id }}">
+      <h3>{{ $n.name }}</h3>
+      {{ partial "observations.html" (index site.Data.conditions (printf "node:%s" $id)) }}
+    </div>
+    {{- end }}
+  </section>
+  {{- end }}
+</article>
+{{ end }}

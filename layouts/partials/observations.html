@@ -1,0 +1,15 @@
+{{- /*
+  The HTML twin of public/js/conditions.js render(). Same elements, same classes,
+  same wording, same date format, same rules: newest first, date always visible,
+  the empty state says nothing is recorded. tools/check_renderers.mjs fails the
+  build if the two ever disagree on the same input. Input: a list already sorted
+  newest-first by tools/build_site.py, or nil.
+*/ -}}
+{{- $labels := dict "brush" "Brush" "deadfall" "Deadfall" "tread" "Tread" "route-finding" "Route finding" "water" "Water" "access" "Access" -}}
+<div class="obs-list">
+{{- if not . }}<p class="obs-empty">No recorded observation for this leg.</p>{{ else }}
+{{- range . }}<article class="obs obs-{{ .category }}"><header class="obs-head"><span class="obs-cat">{{ index $labels .category | default .category }}</span><time class="obs-date" datetime="{{ .date }}">{{ (time.AsTime .date).Format "Jan 2, 2006" }}</time></header>
+{{- range split .text "\n\n" }}{{ with trim . " \n" }}<p class="obs-text">{{ . }}</p>{{ end }}{{ end }}
+{{- with .photos }}<ul class="obs-photos">{{ range . }}<li data-file="{{ .file }}">{{ or .caption .file }}</li>{{ end }}</ul>{{ end }}</article>
+{{- end }}
+{{- end }}</div>

@@ -4,8 +4,9 @@
   "private": true,
   "description": "Route builder for the Mazatzal Wilderness",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "build": "tools/build.sh",
+    "dev": "tools/build.sh && wrangler dev",
+    "deploy": "tools/build.sh && wrangler deploy"
   },
   "devDependencies": {
     "wrangler": "^4.118.0"

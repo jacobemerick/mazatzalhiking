@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{- $rows := slice }}
+{{- range .Pages.ByTitle }}
+  {{- $t := index site.Data.trails .Params.trail }}
+  {{- $rows = $rows | append (dict "page" . "t" $t) }}
+{{- end }}
+{{- $total := 0.0 }}{{ range $rows }}{{ $total = add $total .t.miles }}{{ end }}
+<p class="eyebrow">Mazatzal Wilderness &middot; Tonto National Forest</p>
+<h1>Trails</h1>
+<p class="lede">{{ len $rows }} trails and roads, {{ printf "%.0f" $total }} miles, every one of them a GPS track that was walked and recorded. Each page lists the trail leg by leg with dated condition notes where they exist.</p>
+{{- range $kind := slice (dict "k" "trail" "h" "Trails" "n" "Listed alphabetically.") (dict "k" "road" "h" "Forest roads" "n" "Roads that were walked as part of a route. They are in the network because a hike used them, not because they exist.") }}
+{{- $items := where $rows "t.kind" $kind.k }}
+{{- if $items }}
+<section>
+  <h2>{{ $kind.h }}</h2>
+  <p class="note">{{ $kind.n }}</p>
+  <ul class="trail-list">
+  {{- range $items }}
+    <li><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a>
+      <span class="meta">{{ printf "%.1f" .t.miles }} mi &middot; {{ len .t.legs }} leg{{ if ne (len .t.legs) 1 }}s{{ end }}</span></li>
+  {{- end }}
+  </ul>
+</section>
+{{- end }}
+{{- end }}
+{{ end }}

@@ -4,28 +4,41 @@ Route builder for the [Mazatzal Wilderness](https://www.fs.usda.gov/tonto) — s
 trusted GPS tracks into loops, lassos, figure-eights, and out-and-backs, then export
 GPX/KML with waypoints and trail-condition notes.
 
-The route builder exists at `/build/` but is not linked or indexed yet: no condition
-observations have been written. The trail pages are generated and live at `/trails/`.
+The route builder exists at `/build/` but is not linked or indexed yet. The trail pages
+live at `/trails/`.
 
 ## Stack
 
-Static assets served by a Cloudflare Worker. No build step in the deploy, no framework —
-`public/` is deployed as-is. Data under `public/data/` and the pages under
-`public/trails/` are generated locally and committed.
+Hugo renders the site; Cloudflare Workers Builds runs `tools/build.sh` on every push and
+deploys `public/` as an assets-only Worker. Nothing generated is committed. The condition
+notes are markdown under `content/trails/` — that is the file to open after a hike.
 
 - `wrangler.jsonc` — Worker config (assets-only, no `main` script)
-- `public/index.html` — landing page
-- `public/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
-- `public/trails/` — generated trail list and trail pages (see `docs/site-pages.md`)
-- `public/about/` — hand-written about page
-- `public/css/site.css` — shared styles for the content pages
-- `public/js/conditions.js` — the one renderer for condition observations
-- `public/data/` — graph, display lines, per-segment geometry, observations
-- `public/404.html` — not-found page
+- `hugo.toml`, `layouts/` — the site's templates; `layouts/index.html` and `404.html`
+  are the landing and not-found pages verbatim
+- `content/trails/<slug>.md` — **the condition notes**, one file per trail
+  (`docs/condition-observations.md` has the format); `content/about.md`
+- `static/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
+- `static/js/conditions.js` — the builder's observation renderer;
+  `layouts/partials/observations.html` is its twin for the pages, and
+  `tools/check_renderers.mjs` fails the build if they disagree
+- `static/css/site.css` — shared styles for the content pages
+- `static/data/`, `data/`, `public/` — built, never committed
 - `archive/` — immutable recorded GPX
 - `curation/` — the authored trail graph and observations (`docs/trail-graph-schema.md`,
   `docs/condition-observations.md`)
 - `tools/` — curation, geometry, validation and site build tooling
+
+## Writing a condition note
+
+Open `content/trails/<slug>.md`, find the leg's `## … {#id}` section, and add:
+
+```
+### 2026-09-21 water
+The seep was running again after the monsoon.
+```
+
+One sentence per line. Then `./tools/build.sh` to check it parses and see it rendered.
 
 ## Data changes
 
@@ -33,25 +46,25 @@ After editing anything under `curation/`:
 
 ```bash
 ./tools/build_geometry.py   # only if segments were drawn or redrawn
-./tools/build_site.py       # validates, then rewrites public/data/
-./tools/build_pages.py      # validates, then rewrites public/trails/ and sitemap.xml
+./tools/sync_trails.py      # adds a markdown section for any new leg; --fix renames headings
+./tools/build.sh            # validate, build data, hugo, check renderers
 ```
 
-Both build tools refuse to write if the graph fails validation, and both take
-`--check` to report drift without writing. `build_pages.py` needs Node (it runs
-`public/js/conditions.js` to render observations).
+`build.sh` is what Cloudflare runs. Needs Hugo (`brew install hugo`), Python 3 and Node.
 
 ## Local development
 
 ```bash
 npm install
-npm run dev      # wrangler dev — serves public/ at localhost:8787
+npm run dev      # tools/build.sh, then wrangler dev serving public/ at localhost:8787
+hugo server      # or just the pages, with live reload (run build_site.py first for data/)
 ```
 
 ## Deploy
 
-Cloudflare Workers Builds is wired to this repo and runs `npx wrangler deploy` on
-push to `main`. Every other branch is uploaded as a preview version, and
+Cloudflare Workers Builds is wired to this repo with build command `tools/build.sh`
+and build variable `HUGO_VERSION=0.157.0`; it runs `npx wrangler deploy` on push to
+`main`. Every other branch is uploaded as a preview version, and
 `.github/workflows/preview-url.yml` comments its URL on the pull request. For a
 stable per-branch URL as well, the dashboard's *non-production branch deploy
 command* is:

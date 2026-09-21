@@ -1,0 +1,46 @@
+# mazatzalhiking.com — Hugo builds the pages; Cloudflare serves them as static assets.
+# Decisions in docs/site-pages.md.
+baseURL = "https://mazatzalhiking.com/"
+languageCode = "en"
+title = "Mazatzal Hiking"
+timeZone = "America/Phoenix"
+
+# Match the Workers Builds HUGO_VERSION variable and the local install.
+[module]
+  [module.hugoVersion]
+    min = "0.157.0"
+
+# Six page types and nothing else (#20): no taxonomies, no RSS, no section pages
+# beyond /trails/. An empty taxonomies table switches off Hugo's built-in
+# tags/categories, which would otherwise publish term pages nobody decided to have.
+[taxonomies]
+
+disableKinds = ["taxonomy", "term", "rss"]
+
+[outputs]
+  home = ["html"]
+  section = ["html"]
+  page = ["html"]
+
+# The sitemap is the generator's job because Hugo is the one thing that knows every
+# URL. The builder is a static file under static/build/ and carries noindex, so it is
+# not a content page and never appears here.
+[sitemap]
+  changefreq = ""
+  priority = -1
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      title = true
+
+[permalinks]
+  [permalinks.page]
+    trails = "/trails/:slug/"
+
+[params]
+  description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked."
+  analyticsToken = "5b79bb3f6d16425f920c429acb8d4a59"
