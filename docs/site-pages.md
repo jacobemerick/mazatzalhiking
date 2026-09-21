@@ -4,28 +4,53 @@ Decision record for [#30](https://github.com/jacobemerick/mazatzalhiking/issues/
 covering the trail list ([#32](https://github.com/jacobemerick/mazatzalhiking/issues/32)),
 the trail pages ([#31](https://github.com/jacobemerick/mazatzalhiking/issues/31)) and the
 builder deep link ([#34](https://github.com/jacobemerick/mazatzalhiking/issues/34)).
-Implementation in [`tools/build_pages.py`](../tools/build_pages.py). The public surface
-itself was decided under #20: six page types and nothing else.
+The public surface itself was decided under #20: six page types and nothing else.
 
-## Generated output is committed
+Implementation: Hugo, with the layouts under [`layouts/`](../layouts), the authored
+pages under [`content/`](../content), and the data the templates read produced by
+[`tools/build_site.py`](../tools/build_site.py). The whole build is
+[`tools/build.sh`](../tools/build.sh).
 
-**Decision: `tools/build_pages.py` writes `public/trails/` and `public/sitemap.xml`, and
-the result is committed, not built on push.**
+## Pages are built on deploy, and the site is written in markdown
 
-The ticket left this open between committing the HTML and building it in Workers
-Builds. Committing wins for the same reasons `public/data/` is committed:
+**Decision (2026-09-21, superseding the first cut): the pages are Hugo output, built by
+Cloudflare Workers Builds on every push. Nothing generated is committed. The condition
+notes are authored in markdown, one file per trail, and the JSON the builder reads is
+derived from them.**
 
-- The deployed artifact stays an assets-only Worker with no build step. `wrangler
-  deploy` ships what is in the repo; there is nothing that can succeed locally and fail
-  in CI.
-- The diff is the review. A change to the graph shows up as a change to the pages it
-  affects, and a change to the template shows up on every page, which is exactly the
-  blast radius a reviewer wants to see.
-- `--check` mode makes drift detectable: it regenerates in memory, compares, and exits
-  non-zero if the committed output is stale. That belongs in a pre-push check.
+The first version of #30 did the opposite: a Python generator wrote the HTML and the
+output was committed so the diff could be the review. That was the right call while the
+notes lived in JSON, and it stopped being right the moment there were notes to review.
+Jacob's requirement, stated when the first 246 notes arrived: *"as I visit this
+wilderness in the future I only want to edit the markdown."* A condition note is a
+sentence written after a walk; the file it lives in has to be one a person opens and
+types into, and its diff has to read as prose. Markdown with one sentence per line is
+that, JSON is not.
 
-The cost is 50 generated files in the repo. They are small and they change only when
-the data does.
+So the authoring layer moved and the build moved with it:
+
+- `content/trails/<slug>.md` is authored. Its `##` sections are the trail's legs, its
+  `###` entries are the dated notes, and the text above the first `##` is an optional
+  introduction. The format is documented in
+  [`condition-observations.md`](condition-observations.md).
+- `tools/build_site.py` parses those files into the observation document the schema
+  describes, validates it against the graph, and writes it for the builder
+  (`static/data/observations.json`) and for the templates (`data/conditions.json`,
+  grouped by target and sorted newest first). It also precomputes each trail's legs in
+  walking order with figures for that direction (`data/trails.json`), so the templates
+  never chain legs or swap gain and loss themselves.
+- `hugo` renders. `public/`, `data/` and `static/data/` are gitignored.
+- Workers Builds runs `tools/build.sh` as its build command and deploys `public/`. The
+  deployed artifact is still an assets-only Worker; the build step exists in Cloudflare's
+  pipeline, not in the Worker.
+
+What is given up: the committed-output diff. What replaces it: the markdown diff, which
+is the thing that was actually wanted, and a CI build on every pull request so a note
+that does not parse is red before it is merged.
+
+**Hugo version:** pinned at the minimum in `hugo.toml` and set explicitly with the
+`HUGO_VERSION` build variable in the Workers Builds settings, so Cloudflare builds with
+the version the layouts were written against rather than the image default.
 
 ## URLs
 
@@ -69,13 +94,17 @@ the pages cannot show them differently. The generator is Python and the componen
 `public/js/conditions.js`; the obvious move is a Python port, and a port is a second
 implementation that will drift.
 
-**Decision: the generator runs the real `conditions.js` under Node.**
-[`tools/render_conditions.mjs`](../tools/render_conditions.mjs) provides a DOM just
-large enough for it — five members — and serialises what it builds. The rules the
-component enforces (newest first, date always visible, the empty state says nothing is
-recorded rather than implying the trail is clear, blank lines are the only markup) hold
-on the pages because it is the same code. Node is already a dependency of the repo
-through wrangler.
+**Decision: two implementations, one test.** The pages render notes through
+[`layouts/partials/observations.html`](../layouts/partials/observations.html), a Go
+template written as the twin of `conditions.js`: same elements, classes, wording,
+ordering and date format. Hugo cannot call the JavaScript, so the rule is enforced
+after the build instead of by construction:
+[`tools/check_renderers.mjs`](../tools/check_renderers.mjs) runs the real
+`conditions.js` under a DOM just large enough for it, renders every target's notes,
+and compares with what Hugo wrote into every built page. A difference in structure,
+wording, ordering or date format fails the build. (The first cut ran `conditions.js`
+itself at generation time and pasted the result in; that option went away with the
+Python generator.)
 
 ## The builder deep link
 
@@ -94,8 +123,8 @@ point of the pages.
   provenance is the argument for trusting the page.
 - A leg with no observation shows the component's empty state. Nothing is invented to
   fill it.
-- There is no per-trail prose. #31 allows a short written introduction; none exists
-  yet, and the generator has no hook for one until there is something to hook in.
+- Per-trail prose is the text above the first `##` in the trail's markdown file. #31
+  allows a short introduction; none has been written yet, and the hook costs nothing.
 
 ## Not included
 

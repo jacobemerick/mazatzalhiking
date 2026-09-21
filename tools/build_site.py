@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
-"""Emit the static data artifacts the site serves (#16).
+"""Emit the data the site is built from (#16, #18, #30).
 
-    ./tools/build_site.py           # validate, then write public/data/
-    ./tools/build_site.py --check   # validate and compare, write nothing
+    ./tools/build_site.py           # validate, then write static/data/ and data/
+    ./tools/build_site.py --check   # validate only, write nothing
 
-Reads the authored graph and observations under `curation/` and writes what the
-browser fetches under `public/data/`. Nothing is served from `curation/` directly,
-and nothing here is authored: every file under `public/data/` is regenerated
-wholesale on every run, and the run is idempotent.
+Reads the authored graph under `curation/` and the authored condition notes under
+`content/trails/`, and writes two derived sets, both gitignored and rebuilt on every
+deploy by tools/build.sh:
+
+    static/data/   what the browser fetches -- the builder's graph, display lines,
+                   per-segment geometry and observations (Hugo copies it to public/data/)
+    data/          what the Hugo templates read -- trails with their legs in walking
+                   order and figures for that direction, nodes by id, and observations
+                   grouped by target, newest first
+
+Nothing here is authored, and nothing is served from `curation/` or `content/`
+directly.
 
 ## What gets emitted, and why it is split this way
 
@@ -27,8 +35,8 @@ leg only when writing a GPX. Geometry files are copied whole, `derived` included
 
 ## What is checked before anything is written
 
-`validate_graph.py` runs first and any error aborts the build, so a broken graph
-cannot ship quietly. On top of the topology checks it already does, this tool opens
+`validate_graph.py` runs first and any error aborts the build, so a broken graph or
+a malformed note cannot ship quietly. On top of the topology checks it already does, this tool opens
 every geometry file and checks the things only the line can tell you: that it has
 points, that its `cum_m` is monotone and starts at zero, and that the segment's
 stored `miles` is the line's own length. That closes the gap #16 recorded: a green
@@ -42,10 +50,15 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(HERE, 'curate'))
 
 import validate_graph as V
+import observations as O
 from inventory import M2MI
+from trails import order_legs, leg_figures
+from datetime import date
 
 CURATION = os.path.join(ROOT, 'curation')
-OUT = os.path.join(ROOT, 'public', 'data')
+OUT = os.path.join(ROOT, 'static', 'data')
+DATA = os.path.join(ROOT, 'data')
+CONTENT = os.path.join(ROOT, 'content', 'trails')
 DISPLAY_EPS_DEG = 0.00008   # ~9 m; below the width of a rendered line at every zoom used
 CHECK = '--check' in sys.argv
 
@@ -97,6 +110,60 @@ def check_geometry(graph):
                   f"-- run tools/build_geometry.py")
 
 
+def fmt_date(iso):
+    d = date.fromisoformat(iso)
+    return f"{d.strftime('%b')} {d.day}, {d.year}"
+
+
+def load_observations():
+    """Every note in content/trails/, plus the trail each file belongs to."""
+    obs = []
+    slugs = {}
+    for slug, (intro, notes) in O.load_dir(CONTENT).items():
+        obs.extend(notes)
+        slugs[slug] = intro
+    return {'version': 1, 'observations': obs}, slugs
+
+
+def trails_data(graph, nodes):
+    """Per-trail: legs in walking order with figures for that direction, totals, the
+    builder route string, endpoints, and the recorded-date sentence."""
+    out = {}
+    for t in graph['trails']:
+        legs = order_legs(t['id'], graph['segments'], nodes)
+        if not legs:
+            V.warn(f"trail {t['id']!r} ({t['name']!r}) has no legs")
+            continue
+        rows = []
+        for s, rev in legs:
+            a, b, gain, loss = leg_figures(s, rev)
+            rows.append(dict(id=s['id'], name=s['name'], from_=nodes[a]['name'], to=nodes[b]['name'],
+                             miles=s['miles'], gain_ft=gain, loss_ft=loss, loop=s['from'] == s['to']))
+        # Hugo templates can't read a key called `from_`; name it plainly.
+        for r in rows:
+            r['from'] = r.pop('from_')
+        dates = sorted({src['date'] for s, _ in legs for src in s['sources']})
+        recorded = (f"recorded on {fmt_date(dates[0])}" if len(dates) == 1 else
+                    f"recorded on {len(dates)} trips between {fmt_date(dates[0])} and {fmt_date(dates[-1])}")
+        out[t['id']] = dict(
+            id=t['id'], name=t['name'], slug=t['slug'], kind=t['kind'], code=t.get('code'),
+            legs=rows, miles=sum(r['miles'] for r in rows),
+            gain_ft=sum(r['gain_ft'] for r in rows), loss_ft=sum(r['loss_ft'] for r in rows),
+            first=rows[0]['from'], last=rows[-1]['to'],
+            route='.'.join(('-' if r else '') + s['id'] for s, r in legs),
+            recorded=recorded)
+    return out
+
+
+def conditions_data(obs):
+    """observations grouped by target, newest first, ties in file order -- the same
+    ordering conditions.js index() applies."""
+    by = {}
+    for i, o in enumerate(obs['observations']):
+        by.setdefault(o['target'], []).append((o['date'], -i, o))
+    return {k: [o for _, _, o in sorted(v, key=lambda x: (x[0], x[1]), reverse=True)] for k, v in by.items()}
+
+
 def emit(graph, obs):
     display = {'version': 1, 'segments': {}}
     total_in = total_out = 0
@@ -107,41 +174,53 @@ def emit(graph, obs):
         total_in += len(pts); total_out += len(simp)
         display['segments'][s['id']] = [[la, lo] for la, lo in simp]
 
+    nodes = {n['id']: n for n in graph['nodes']}
     files = {
-        'graph.json': json.dumps(graph, indent=1, ensure_ascii=False) + '\n',
-        'display.json': json.dumps(display, separators=(',', ':')) + '\n',
-        'observations.json': json.dumps(obs, indent=1, ensure_ascii=False) + '\n',
+        os.path.join(OUT, 'graph.json'): json.dumps(graph, indent=1, ensure_ascii=False) + '\n',
+        os.path.join(OUT, 'display.json'): json.dumps(display, separators=(',', ':')) + '\n',
+        os.path.join(OUT, 'observations.json'): json.dumps(obs, indent=1, ensure_ascii=False) + '\n',
+        os.path.join(DATA, 'trails.json'): json.dumps(trails_data(graph, nodes), indent=1, ensure_ascii=False) + '\n',
+        os.path.join(DATA, 'nodes.json'): json.dumps(nodes, indent=1, ensure_ascii=False) + '\n',
+        os.path.join(DATA, 'conditions.json'): json.dumps(conditions_data(obs), indent=1, ensure_ascii=False) + '\n',
     }
     for s in graph['segments']:
-        files[s['geometry']] = open(os.path.join(CURATION, s['geometry'])).read()
+        files[os.path.join(OUT, s['geometry'])] = open(os.path.join(CURATION, s['geometry'])).read()
 
     changed = []
-    for rel, body in files.items():
-        dst = os.path.join(OUT, rel)
+    for dst, body in files.items():
         old = open(dst).read() if os.path.exists(dst) else None
         if old != body:
-            changed.append(rel)
+            changed.append(os.path.relpath(dst, ROOT))
             if not CHECK:
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
                 open(dst, 'w').write(body)
-    # anything under public/data not produced this run is stale
     stale = []
-    for dp, _, fns in os.walk(OUT):
-        for fn in fns:
-            rel = os.path.relpath(os.path.join(dp, fn), OUT)
-            if rel not in files:
-                stale.append(rel)
-                if not CHECK:
-                    os.remove(os.path.join(dp, fn))
+    for base in (OUT, DATA):
+        for dp, _, fns in os.walk(base):
+            for fn in fns:
+                full = os.path.join(dp, fn)
+                if full not in files:
+                    stale.append(os.path.relpath(full, ROOT))
+                    if not CHECK:
+                        os.remove(full)
     return changed, stale, total_in, total_out, sum(len(b) for b in files.values())
 
 
 def main():
     graph = json.load(open(os.path.join(CURATION, 'graph.json')))
-    obs_path = os.path.join(CURATION, 'observations.json')
-    obs = json.load(open(obs_path))
-    stats = V.check(graph, obs, obs_path)
+    try:
+        obs, _ = load_observations()
+    except O.ParseError as e:
+        sys.exit(f"  ERROR {e}")
+    stats = V.check(graph, obs, os.path.join(CONTENT, 'observations'))
     check_geometry(graph)
+    # every trail file must belong to a trail, and every trail must have a file
+    slugs = {t['slug'] for t in graph['trails']}
+    have = {fn[:-3] for fn in os.listdir(CONTENT) if fn.endswith('.md') and not fn.startswith('_')}
+    for s in sorted(have - slugs):
+        V.err(f"content/trails/{s}.md is not a trail in the graph")
+    for s in sorted(slugs - have):
+        V.err(f"trail {s!r} has no content/trails/{s}.md -- run tools/sync_trails.py")
     for w in V.warnings:
         print(f"  warn  {w}")
     for e in V.errors:
@@ -153,7 +232,7 @@ def main():
     print(f"{stats['segments']} segments {stats['miles']} mi, {stats['observations']} observations; "
           f"display {n_in:,} -> {n_out:,} points; {nbytes/1024:.0f} KB total")
     print(f"{verb} {len(changed)} file(s), removed {len(stale)} stale" if changed or stale
-          else "public/data is up to date")
+          else "static/data and data are up to date")
     if CHECK and (changed or stale):
         sys.exit(1)
 

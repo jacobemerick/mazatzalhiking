@@ -1,5 +1,47 @@
 # Condition observations
 
+**Authored form (since 2026-09-21): markdown, one file per trail, under
+`content/trails/`.** The JSON this document describes is what
+[`tools/build_site.py`](../tools/build_site.py) derives from those files on every
+build; nobody edits it. The schema still holds — it is what the builder, the validator
+and the templates consume — but the thing a person writes is the markdown below.
+
+## Writing a note
+
+```
+## Barnhardt Trailhead to Sandy Saddle {#00}
+
+### 2026-06-30 water {source="haz/triplog/2026-06-30.md"}
+I even heard some water trickling down Barnhardt Canyon on the hike up.
+
+### 2026-05-15 brush
+The trail maintenance along Barnhardt was appreciated.
+The manzanita above the falls has been pushed back nicely.
+
+![Big Kahuna, dry](2026-05-15-big-kahuna.jpg)
+
+## Club Spring {#node:0T}
+
+### 2017-11-18 water
+Drank 2 liters here, pulled another 2.
+```
+
+- A `##` heading with an id attribute is a target: `{#00}` is segment 00, `{#node:0T}`
+  is node 0T. The heading text is for people; `tools/sync_trails.py` keeps it matching
+  the graph and adds a section for any new leg. It never touches a note.
+- A `###` heading is a note: the date, a space, the category, and optionally
+  `{source="…"}` naming the archive path it was drawn from.
+- The text follows. Blank line = paragraph break. Single line breaks inside a
+  paragraph are joined with a space, so **one sentence per line** is the house style
+  and shows up nowhere in the output.
+- A line that is only `![caption](file.jpg)` is a photo attached to that note.
+- Text above the first `##` is the trail's introduction, not a note.
+- Newest first is the display order; the file order does not matter, but writing
+  newest first keeps the file readable.
+
+Everything below is the schema of the derived document, written before the markdown
+form existed and still accurate for what it describes.
+
 Closes [#17](https://github.com/jacobemerick/mazatzalhiking/issues/17). Populated by
 [#18](https://github.com/jacobemerick/mazatzalhiking/issues/18); rendered by
 [#19](https://github.com/jacobemerick/mazatzalhiking/issues/19).
@@ -141,7 +183,12 @@ but usually a copy-paste, and one photo shows one dated condition.
 
 ### 6. Provenance is recorded when it exists
 
-**Decision: optional `source`, the archive filename of the trip the note comes from.**
+**Decision: optional `source`, the archive path the note comes from.**
+
+Widened 2026-09-21: the first real observations were drawn from the HikeArizona trip
+reports in `archive/haz/triplog/`, so `source` is that report's path
+(`haz/triplog/<date>.md`) rather than a GPX filename. The report is the actual origin of
+the words; `curation/triplogs.json` links the report to its track where one exists.
 
 Segments carry the tracks they were traced from because walked-it-myself provenance is
 the point of the project. An observation drawn from a recorded trip can carry the same

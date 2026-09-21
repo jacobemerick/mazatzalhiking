@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }} — Mazatzal Hiking</title>
+{{- with or .Description site.Params.description }}
+<meta name="description" content="{{ . }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="theme-color" content="#17150f">
+<meta property="og:title" content="{{ .Title }} — Mazatzal Hiking">
+{{- with or .Description site.Params.description }}
+<meta property="og:description" content="{{ . }}">
+{{- end }}
+<meta property="og:type" content="website">
+<link rel="icon" href="{{ partial "favicon.txt" . }}">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26l8-13 4.5 7L18 14l12 12z" fill="#d9a441"/></svg>
+      Mazatzal Hiking
+    </a>
+    <nav class="site-nav"><a href="/trails/">Trails</a><a href="/about/">About</a></nav>
+  </div>
+</header>
+<main class="wrap{{ with .Params.prose }} prose{{ end }}">
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>Built by <a href="https://jacobemerick.com">Jacob Emerick</a></span>
+    <div class="foot-links">
+      <a href="/trails/">Trails</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a>
+      <a href="https://www.fs.usda.gov/tonto">Tonto National Forest</a>
+    </div>
+  </div>
+</footer>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.Params.analyticsToken }}"}'></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+  <h1>{{ or .Params.heading .Title }}</h1>
+  {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+  {{ .Content }}
+{{ end }}

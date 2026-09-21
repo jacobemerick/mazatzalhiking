@@ -8,3 +8,10 @@ __pycache__/
 
 # editor swap files
 *.swp
+
+# built by tools/build.sh; never committed
+public/
+data/
+static/data/
+resources/
+.hugo_build.lock
