@@ -4,19 +4,21 @@ Route builder for the [Mazatzal Wilderness](https://www.fs.usda.gov/tonto) — s
 trusted GPS tracks into loops, lassos, figure-eights, and out-and-backs, then export
 GPX/KML with waypoints and trail-condition notes.
 
-The route builder exists at `/build/` but is not linked or indexed yet: the track
-smoothing is still being verified and no condition observations have been written.
-Public trail pages are in progress.
+The route builder exists at `/build/` but is not linked or indexed yet: no condition
+observations have been written. The trail pages are generated and live at `/trails/`.
 
 ## Stack
 
 Static assets served by a Cloudflare Worker. No build step in the deploy, no framework —
-`public/` is deployed as-is. Data under `public/data/` is generated locally by
-`tools/build_site.py` and committed.
+`public/` is deployed as-is. Data under `public/data/` and the pages under
+`public/trails/` are generated locally and committed.
 
 - `wrangler.jsonc` — Worker config (assets-only, no `main` script)
 - `public/index.html` — landing page
 - `public/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
+- `public/trails/` — generated trail list and trail pages (see `docs/site-pages.md`)
+- `public/about/` — hand-written about page
+- `public/css/site.css` — shared styles for the content pages
 - `public/js/conditions.js` — the one renderer for condition observations
 - `public/data/` — graph, display lines, per-segment geometry, observations
 - `public/404.html` — not-found page
@@ -32,9 +34,12 @@ After editing anything under `curation/`:
 ```bash
 ./tools/build_geometry.py   # only if segments were drawn or redrawn
 ./tools/build_site.py       # validates, then rewrites public/data/
+./tools/build_pages.py      # validates, then rewrites public/trails/ and sitemap.xml
 ```
 
-`build_site.py` refuses to write if the graph fails validation.
+Both build tools refuse to write if the graph fails validation, and both take
+`--check` to report drift without writing. `build_pages.py` needs Node (it runs
+`public/js/conditions.js` to render observations).
 
 ## Local development
 

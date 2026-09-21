@@ -32,11 +32,16 @@
     },
     "trail": {
       "type": "object",
-      "required": ["id", "name", "kind"],
+      "required": ["id", "name", "kind", "slug"],
       "additionalProperties": false,
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1 },
+        "slug": {
+          "description": "The trail page lives at /trails/<slug>/. Authored, not derived from the name: search indexes and shared links hold these URLs, so a rename must never move a page. Assigned once from the name at the time; unique across trails.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
         "code": {
           "description": "Forest Service trail number or road number, where one exists.",
           "type": ["string", "null"]
