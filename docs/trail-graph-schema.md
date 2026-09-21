@@ -249,8 +249,10 @@ assets-only Worker with no runtime dependency (#8).
 See [`schema/graph.schema.json`](../schema/graph.schema.json) for the authoritative
 contract. Summary:
 
-**trail** — `id`, `name`, `code` (Forest Service or road number, nullable), `kind`
-(`trail` | `road`).
+**trail** — `id`, `name`, `slug` (the page URL, `/trails/<slug>/`; authored once from
+the name and never recomputed, so a rename cannot move a page — see
+[`site-pages.md`](site-pages.md)), `code` (Forest Service or road number, nullable),
+`kind` (`trail` | `road`).
 
 **node** — `id`, `name`, `kind` (`junction` | `trailhead`), `lat`, `lon`, `ele_ft`.
 Nodes are the connectivity structure; only nodes split segments.

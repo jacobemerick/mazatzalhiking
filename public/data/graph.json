@@ -4,295 +4,344 @@
    "id": "00",
    "name": "Barnhardt Trail",
    "code": "43",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "barnhardt-trail"
   },
   {
    "id": "01",
    "name": "Y-Bar Trail",
    "code": "44",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "y-bar-trail"
   },
   {
    "id": "02",
    "name": "Half Moon Trail",
    "code": "288",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "half-moon-trail"
   },
   {
    "id": "03",
    "name": "Rock Creek Trail",
    "code": "42",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "rock-creek-trail"
   },
   {
    "id": "04",
    "name": "Mazatzal Divide Trail",
    "code": "23",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "mazatzal-divide-trail"
   },
   {
    "id": "05",
    "name": "Sandy Saddle Trail",
    "code": "231",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "sandy-saddle-trail"
   },
   {
    "id": "06",
    "name": "Brody Seep Trail",
    "code": "264",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "brody-seep-trail"
   },
   {
    "id": "07",
    "name": "Fisher Trail",
    "code": "230",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "fisher-trail"
   },
   {
    "id": "08",
    "name": "Bear Spring Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "bear-spring-spur"
   },
   {
    "id": "09",
    "name": "Mount Peeley Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "mount-peeley-spur"
   },
   {
    "id": "0A",
    "name": "Cornucopia Trail",
    "code": "86",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "cornucopia-trail"
   },
   {
    "id": "0B",
    "name": "Thicket Spring Trail",
    "code": "95",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "thicket-spring-trail"
   },
   {
    "id": "0C",
    "name": "Sheep Creek Trail",
    "code": "88",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "sheep-creek-trail"
   },
   {
    "id": "0D",
    "name": "Davenport Wash Trail",
    "code": "89",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "davenport-wash-trail"
   },
   {
    "id": "0E",
    "name": "Club Ranch Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "club-ranch-spur"
   },
   {
    "id": "0F",
    "name": "Horse Camp Seep Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "horse-camp-seep-spur"
   },
   {
    "id": "0G",
    "name": "Davey Gowan Trail",
    "code": "48",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "davey-gowan-trail"
   },
   {
    "id": "0H",
    "name": "Deer Creek Trail",
    "code": "45",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "deer-creek-trail"
   },
   {
    "id": "0I",
    "name": "South Fork Deer Creek Trail",
    "code": "46",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "south-fork-deer-creek-trail"
   },
   {
    "id": "0J",
    "name": "Gold Ridge Trail",
    "code": "47",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "gold-ridge-trail"
   },
   {
    "id": "0K",
    "name": "West Fork Trail",
    "code": "260",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "west-fork-trail"
   },
   {
    "id": "0L",
    "name": "Saddle Mountain Trail",
    "code": "91",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "saddle-mountain-trail"
   },
   {
    "id": "0M",
    "name": "Little Saddle Mountain Trail",
    "code": "244",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "little-saddle-mountain-trail"
   },
   {
    "id": "0N",
    "name": "Black Ridge Trail",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "black-ridge-trail"
   },
   {
    "id": "0O",
    "name": "Sunflower Trail",
    "code": "344",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "sunflower-trail"
   },
   {
    "id": "0P",
    "name": "Copper Camp Trail",
    "code": "87",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "copper-camp-trail"
   },
   {
    "id": "0Q",
    "name": "Fig Trail",
    "code": "92",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "fig-trail"
   },
   {
    "id": "0R",
    "name": "Sears Trail",
    "code": "90",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "sears-trail"
   },
   {
    "id": "0S",
    "name": "FR 201",
    "code": "201",
-   "kind": "road"
+   "kind": "road",
+   "slug": "fr-201"
   },
   {
    "id": "0T",
    "name": "FR 479",
    "code": "479",
-   "kind": "road"
+   "kind": "road",
+   "slug": "fr-479"
   },
   {
    "id": "0U",
    "name": "FR 477",
    "code": "477",
-   "kind": "road"
+   "kind": "road",
+   "slug": "fr-477"
   },
   {
    "id": "0V",
    "name": "Verde River Trail",
    "code": "11",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "verde-river-trail"
   },
   {
    "id": "0W",
    "name": "Willow Springs Trail",
    "code": "223",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "willow-springs-trail"
   },
   {
    "id": "0X",
    "name": "Willow Springs Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "willow-springs-spur"
   },
   {
    "id": "0Y",
    "name": "Deadman Trail",
    "code": "25",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "deadman-trail"
   },
   {
    "id": "0Z",
    "name": "Mountain Spring Spur",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "mountain-spring-spur"
   },
   {
    "id": "10",
    "name": "Lost Spring Spur",
    "code": "279",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "lost-spring-spur"
   },
   {
    "id": "11",
    "name": "North Peak Trail",
    "code": "24",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "north-peak-trail"
   },
   {
    "id": "12",
    "name": "Pole Hollow Canyon",
    "code": null,
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "pole-hollow-canyon"
   },
   {
    "id": "13",
    "name": "Red Hills Trail",
    "code": "262",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "red-hills-trail"
   },
   {
    "id": "14",
    "name": "Midnight Trail",
    "code": "272",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "midnight-trail"
   },
   {
    "id": "15",
    "name": "Dutchman Grave Trail",
    "code": "22",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "dutchman-grave-trail"
   },
   {
    "id": "16",
    "name": "Wet Bottom Trail",
    "code": "269",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "wet-bottom-trail"
   },
   {
    "id": "17",
    "name": "Highwater Trail",
    "code": "20",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "highwater-trail"
   },
   {
    "id": "18",
    "name": "Bull Springs Trail",
    "code": "34",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "bull-springs-trail"
   },
   {
    "id": "19",
    "name": "Brush Trail",
    "code": "249",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "brush-trail"
   },
   {
    "id": "1A",
    "name": "Saddle Ridge Trail",
    "code": "14",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "saddle-ridge-trail"
   },
   {
    "id": "1B",
    "name": "FR 206",
    "code": "206",
-   "kind": "road"
+   "kind": "road",
+   "slug": "fr-206"
   },
   {
    "id": "1C",
    "name": "Deadman Mesa Trail",
    "code": "17",
-   "kind": "trail"
+   "kind": "trail",
+   "slug": "deadman-mesa-trail"
   }
  ],
  "nodes": [

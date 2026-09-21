@@ -56,6 +56,16 @@ def check(graph, obs=None, obs_path=None):
                        " — ids must be unique regardless of case"))
             folded[k] = it['id']
 
+    # a trail's slug is its URL; two trails on one URL is a collision, not a tie
+    slugs = {}
+    for t in graph.get('trails', []):
+        slug = t.get('slug')
+        if not slug or not re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', slug):
+            err(f"trail {t['id']!r} ({t.get('name')!r}) has no valid slug — it needs one to have a page")
+        elif slug in slugs:
+            err(f"trails {slugs[slug]!r} and {t['id']!r} share the slug {slug!r}")
+        slugs[slug] = t['id']
+
     # a retired id must not be back in circulation
     for rid, r in retired.items():
         if rid in segments:
