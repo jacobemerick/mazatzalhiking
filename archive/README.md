@@ -59,7 +59,15 @@ site is written fresh, so nothing here is copied onto a page.
   breaks its Hike into stretches uses `###` for them. Body text is as written. The only
   edits on import were the headings and collapsing the double spaces left behind where
   an inline link carried an icon.
-- `triplog/` — trip reports, dated.
+- `triplog/<date>.md` — one per trip report, named by the date walked. Per-trail
+  sections as Jacob wrote them become `##` headings (a `### ` layer where a report had
+  a "Long Version"). Which graph legs each report covers is recorded in
+  `curation/triplogs.json`, computed from the recorded track where one exists and read
+  from the prose where not.
+
+The triplog date is the day the trip started, and where it disagreed with
+`tools/trips.csv` the triplog was right (recorded timestamps agree with it); the
+manifest was corrected to match on 2026-09-21.
 
 ---
 
