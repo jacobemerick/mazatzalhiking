@@ -3,7 +3,11 @@
 Decision record for [#11](https://github.com/jacobemerick/mazatzalhiking/issues/11).
 Implementation in [`tools/clean.py`](../tools/clean.py).
 
-**Decision: reject spikes geometrically, then simplify at 3.3 m. No moving average.**
+**Decision: reject spikes geometrically, trim dead ends, average across every recorded
+pass within 10 m, then simplify at 3.3 m. No moving average.**
+
+The consensus step was added 2026-09-21, after the graph was curated; it is the surviving
+half of [#13](https://github.com/jacobemerick/mazatzalhiking/issues/13).
 
 ## What the corpus actually contains
 
@@ -87,6 +91,63 @@ recorded track a random walk around the true line, and a random walk is always l
 The gain change is mostly *not* cleaning — it is the switch to DEM elevation
 ([#12](https://github.com/jacobemerick/mazatzalhiking/issues/12)).
 
-**Still outstanding:** the ticket also asks that the result be spot-checked by eye on a
-map before the settings are locked in. That has not been done — the numbers above are the
-statistical half of the verification only.
+## Consensus across passes
+
+A single GPS track is one noisy sample of where the trail is. Where the same ground was
+walked more than once, the passes are independent samples and their mean is a better
+line than any one of them — error falls with the square root of the count. The corpus
+inventory found 27% of the ground walked twice; measured against the curated legs, **32%
+of the network has another recorded pass within 10 m** (25% within 5 m), so a third of
+the network can be improved this way and two-thirds cannot.
+
+The rule, per leg: densify the traced line to 5 m spacing, and at every point find the
+nearest point on each other pass within 10 m. The leg votes with weight 1; each other
+pass votes with weight 1 out to 5 m, tapering to 0 at 10 m. The point moves along its
+local normal to the weighted mean. A track's return leg on an out-and-back counts as a
+separate pass; the leg's own arc is excluded so it cannot vote for itself. Both ends are
+pinned, because they are node positions and nodes are authored.
+
+Three details that matter:
+
+- **Densify, never resample.** The first cut replaced the vertices with a fresh 5 m
+  resample and clipped every corner: legs the consensus never touched lost 1–2% of their
+  length. Keeping every original vertex and inserting between them costs nothing on
+  untouched legs (worst case −0.5%, most under 0.1%).
+- **The taper is what keeps the line smooth.** With a hard 10 m gate, a pass entering the
+  band moves the mean by up to 5 m in one step. Tapering the weight to zero at the edge
+  makes the entry continuous.
+- **The cut-off is what keeps detours out.** A side trip to a seep leaves the band and
+  stops voting; it cannot drag the tread toward it. This is the same finding as before —
+  smoothing cannot remove excursions, and does not try to — expressed as a limit on what
+  may vote rather than as a window size.
+
+Measured: 63 legs have votes on more than 5% of their points, the mean shift on a voted
+leg is 1–2 m, the largest single shift anywhere is 4.7 m, and network distance falls a
+further 0.30% (311.7 → 310.8 mi) — jitter that survived simplification because it was
+consistent along one track but not between tracks. Checked by eye over aerial imagery
+on the upper Barnhardt Trail (8 passes), Deer Creek, Rock Creek, and the spurs below:
+the consensus line sits inside the bundle of passes and on the visible tread.
+
+## Dead ends
+
+A leg that ends where nothing else joins — a spring, a summit, a trailhead — is traced
+from a track that did not stop on arrival. It milled about at the water, looped the
+summit, walked back to the car. The Club Ranch Spur ended in six points zigzagging in a
+15 m box at Club Spring; the Mount Peeley Spur carried 100 m of summit wandering.
+
+The rule: walking toward the dead end, cut at the first point within 10 m of the
+track's *closest approach* to the node, and end the leg on the node itself. Closest
+approach plus a margin rather than a plain radius, because the node is authored and the
+track need not reach it — at Club Spring and Horse Camp Seep every recorded pass stops
+~18 m short of the water, and a plain 10 m radius would keep the whole tangle. Sixteen
+legs are trimmed, most by 0–2 points; the dead-end legs now all end exactly on their node.
+
+This is applied only at degree-1 nodes. At a through junction the arc endpoint is the
+snapped point, and wandering there would show in both adjoining legs; none has been seen.
+
+## Spot check
+
+The ticket asks that the result be checked by eye on a map before the settings are
+locked in. Done 2026-09-21 for the consensus and dead-end steps, over aerial imagery,
+on the legs named above. The spike and simplification settings have still only been
+verified statistically.
