@@ -40,7 +40,7 @@
           "minLength": 1
         },
         "source": {
-          "description": "The recorded trip the note comes from, as its archive filename, matching segments[].sources[].file in graph.json. Optional, because a note can predate the corpus, but worth recording when it exists: it is the same walked-it-myself provenance the geometry carries.",
+          "description": "Where the note comes from, as a path under archive/: the recorded trip's GPX filename (matching segments[].sources[].file in graph.json) or the trip report it was drawn from (haz/triplog/<date>.md). Optional, because a note can predate the corpus, but worth recording when it exists: it is the same walked-it-myself provenance the geometry carries.",
           "type": "string",
           "minLength": 1
         },
