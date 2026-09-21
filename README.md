@@ -51,7 +51,19 @@ npm run dev      # wrangler dev — serves public/ at localhost:8787
 ## Deploy
 
 Cloudflare Workers Builds is wired to this repo and runs `npx wrangler deploy` on
-push to `main`. To deploy by hand:
+push to `main`. Every other branch is uploaded as a preview version, and
+`.github/workflows/preview-url.yml` comments its URL on the pull request. For a
+stable per-branch URL as well, the dashboard's *non-production branch deploy
+command* is:
+
+```
+npx wrangler versions upload --preview-alias "$(printf '%s' "$WORKERS_CI_BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//; s/^([^a-z])/b-\1/' | cut -c1-40)"
+```
+
+which serves the branch at `<alias>-mazatzalhiking.jpemeric.workers.dev`. The
+workflow derives the alias the same way and includes it once it answers.
+
+To deploy by hand:
 
 ```bash
 npm run deploy

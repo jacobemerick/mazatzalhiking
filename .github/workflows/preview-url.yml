@@ -1,0 +1,86 @@
+name: Preview URL
+
+# Puts the Cloudflare preview link on the pull request.
+#
+# Deploys happen in Cloudflare Workers Builds, not here: every push to a branch
+# uploads a new Worker *version*, and Workers Builds reports it back as a check run
+# whose summary carries the Version ID. That version is reachable at
+#   https://<first 8 of version id>-mazatzalhiking.jpemeric.workers.dev
+# but the only way to find it is to open the check. This workflow waits for that
+# check on the PR's head commit, reads the id, and keeps one comment on the PR
+# pointing at the current preview. No Cloudflare credentials are involved.
+#
+# If the non-production deploy command in the Cloudflare dashboard also passes
+# `--preview-alias` derived from WORKERS_CI_BRANCH (see README, "Deploy"), the
+# branch has a stable URL too, <alias>-mazatzalhiking.jpemeric.workers.dev. The
+# alias is computed here the same way and included when it answers.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  checks: read
+  pull-requests: write
+
+concurrency:
+  group: preview-url-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for the Workers Builds check and read the version id
+        id: version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          for i in $(seq 1 40); do
+            run=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${SHA}/check-runs" \
+                  --jq '.check_runs[] | select(.name | startswith("Workers Builds")) | {status, conclusion, summary: .output.summary}' \
+                  | head -c 4000)
+            status=$(printf '%s' "$run" | jq -r '.status // empty' 2>/dev/null | head -1)
+            if [ "$status" = "completed" ]; then
+              conclusion=$(printf '%s' "$run" | jq -r '.conclusion' | head -1)
+              vid=$(printf '%s' "$run" | jq -r '.summary' | grep -oE 'Version ID: [0-9a-f-]{36}' | head -1 | cut -d' ' -f3)
+              echo "conclusion=$conclusion" >> "$GITHUB_OUTPUT"
+              echo "version=${vid:0:8}" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "conclusion=timeout" >> "$GITHUB_OUTPUT"
+
+      - name: Upsert the preview comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          CONCLUSION: ${{ steps.version.outputs.conclusion }}
+          VERSION: ${{ steps.version.outputs.version }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          marker='<!-- workers-preview-url -->'
+          short=${SHA:0:7}
+          # Same derivation as the dashboard's deploy command, so the two agree.
+          alias=$(printf '%s' "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//; s/^([^a-z])/b-\1/' | cut -c1-40)
+          alias_url="https://${alias}-mazatzalhiking.jpemeric.workers.dev"
+          if [ "$CONCLUSION" = "success" ] && [ -n "$VERSION" ]; then
+            url="https://${VERSION}-mazatzalhiking.jpemeric.workers.dev"
+            if [ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$alias_url/")" = "200" ]; then
+              body=$(printf '%s\n**Preview:** %s\n\nThis push: %s (version `%s`, from %s). The first link follows the branch; the second is pinned to this build.' "$marker" "$alias_url" "$url" "$VERSION" "$short")
+            else
+              body=$(printf '%s\n**Preview:** %s\n\nVersion `%s`, built from %s. Updated on every push.' "$marker" "$url" "$VERSION" "$short")
+            fi
+          else
+            body=$(printf '%s\n**Preview:** not available for %s (Workers Builds: %s).' "$marker" "$short" "$CONCLUSION")
+          fi
+          existing=$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" --paginate \
+                     --jq ".[] | select(.body | startswith(\"$marker\")) | .id" | head -1)
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${existing}" -f body="$body" >/dev/null
+          else
+            gh api "repos/${GITHUB_REPOSITORY}/issues/${PR}/comments" -f body="$body" >/dev/null
+          fi
