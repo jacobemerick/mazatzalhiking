@@ -1624,9 +1624,9 @@
    "trails": [
     "0D"
    ],
-   "miles": 0.94,
-   "gain_ft": 448,
-   "loss_ft": 110,
+   "miles": 0.72,
+   "gain_ft": 368,
+   "loss_ft": 27,
    "geometry": "geometry/10.json",
    "sources": [
     {
