@@ -76,8 +76,33 @@
           "required": ["spike_perp_m", "simplify_m"],
           "properties": {
             "spike_perp_m": { "type": "number", "exclusiveMinimum": 0 },
+            "arrive_m": { "type": "number", "exclusiveMinimum": 0 },
+            "consensus_near_m": { "type": "number", "exclusiveMinimum": 0 },
+            "consensus_far_m": { "type": "number", "exclusiveMinimum": 0 },
+            "consensus_step_m": { "type": "number", "exclusiveMinimum": 0 },
             "simplify_m": { "type": "number", "exclusiveMinimum": 0 }
           }
+        },
+        "consensus": {
+          "description": "What the consensus step did to this line: which other recorded passes voted, and how far the line moved. A leg nobody else has walked has no passes and a zero shift.",
+          "type": "object",
+          "required": ["passes", "voted_fraction", "mean_shift_m", "max_shift_m"],
+          "additionalProperties": false,
+          "properties": {
+            "passes": {
+              "description": "Track keys ('<file>#<n>') of every other pass that voted somewhere along the leg.",
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "voted_fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+            "mean_shift_m": { "type": "number", "minimum": 0 },
+            "max_shift_m": { "type": "number", "minimum": 0 }
+          }
+        },
+        "trimmed_points": {
+          "description": "Recorded points cut from the end of the leg at each dead-end node, keyed by node id. Empty when neither end is a dead end.",
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
         }
       }
     }

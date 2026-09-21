@@ -978,9 +978,9 @@
    "trails": [
     "00"
    ],
-   "miles": 3.85,
-   "gain_ft": 1761,
-   "loss_ft": 51,
+   "miles": 3.81,
+   "gain_ft": 1731,
+   "loss_ft": 20,
    "geometry": "geometry/00.json",
    "sources": [
     {
@@ -998,8 +998,8 @@
     "01"
    ],
    "miles": 5.51,
-   "gain_ft": 2676,
-   "loss_ft": 322,
+   "gain_ft": 2666,
+   "loss_ft": 312,
    "geometry": "geometry/01.json",
    "sources": [
     {
@@ -1016,9 +1016,9 @@
    "trails": [
     "02"
    ],
-   "miles": 4.23,
-   "gain_ft": 647,
-   "loss_ft": 879,
+   "miles": 4.2,
+   "gain_ft": 645,
+   "loss_ft": 877,
    "geometry": "geometry/02.json",
    "sources": [
     {
@@ -1035,9 +1035,9 @@
    "trails": [
     "03"
    ],
-   "miles": 4.73,
-   "gain_ft": 3384,
-   "loss_ft": 872,
+   "miles": 4.63,
+   "gain_ft": 3363,
+   "loss_ft": 851,
    "geometry": "geometry/03.json",
    "sources": [
     {
@@ -1054,9 +1054,9 @@
    "trails": [
     "00"
    ],
-   "miles": 2.1,
-   "gain_ft": 326,
-   "loss_ft": 196,
+   "miles": 2.05,
+   "gain_ft": 307,
+   "loss_ft": 177,
    "geometry": "geometry/04.json",
    "sources": [
     {
@@ -1073,9 +1073,9 @@
    "trails": [
     "05"
    ],
-   "miles": 2.94,
-   "gain_ft": 1029,
-   "loss_ft": 994,
+   "miles": 2.93,
+   "gain_ft": 1009,
+   "loss_ft": 974,
    "geometry": "geometry/06.json",
    "sources": [
     {
@@ -1092,7 +1092,7 @@
    "trails": [
     "04"
    ],
-   "miles": 1.0,
+   "miles": 0.99,
    "gain_ft": 61,
    "loss_ft": 385,
    "geometry": "geometry/07.json",
@@ -1112,8 +1112,8 @@
     "06"
    ],
    "miles": 0.14,
-   "gain_ft": 0,
-   "loss_ft": 45,
+   "gain_ft": 2,
+   "loss_ft": 47,
    "geometry": "geometry/08.json",
    "sources": [
     {
@@ -1130,9 +1130,9 @@
    "trails": [
     "04"
    ],
-   "miles": 2.01,
-   "gain_ft": 415,
-   "loss_ft": 184,
+   "miles": 2.0,
+   "gain_ft": 376,
+   "loss_ft": 145,
    "geometry": "geometry/09.json",
    "sources": [
     {
@@ -1206,7 +1206,7 @@
    "trails": [
     "04"
    ],
-   "miles": 1.39,
+   "miles": 1.4,
    "gain_ft": 122,
    "loss_ft": 151,
    "geometry": "geometry/0D.json",
@@ -1225,7 +1225,7 @@
    "trails": [
     "07"
    ],
-   "miles": 3.61,
+   "miles": 3.62,
    "gain_ft": 2011,
    "loss_ft": 1227,
    "geometry": "geometry/0F.json",
@@ -1283,8 +1283,8 @@
     "08"
    ],
    "miles": 0.2,
-   "gain_ft": 28,
-   "loss_ft": 18,
+   "gain_ft": 25,
+   "loss_ft": 16,
    "geometry": "geometry/0I.json",
    "sources": [
     {
@@ -1302,8 +1302,8 @@
     "04"
    ],
    "miles": 0.08,
-   "gain_ft": 34,
-   "loss_ft": 0,
+   "gain_ft": 38,
+   "loss_ft": 4,
    "geometry": "geometry/0J.json",
    "sources": [
     {
@@ -1339,9 +1339,9 @@
    "trails": [
     "09"
    ],
-   "miles": 0.51,
-   "gain_ft": 513,
-   "loss_ft": 2,
+   "miles": 0.45,
+   "gain_ft": 511,
+   "loss_ft": 0,
    "geometry": "geometry/0L.json",
    "sources": [
     {
@@ -1398,7 +1398,7 @@
    ],
    "miles": 0.44,
    "gain_ft": 198,
-   "loss_ft": 14,
+   "loss_ft": 15,
    "geometry": "geometry/0O.json",
    "sources": [
     {
@@ -1416,8 +1416,8 @@
     "0A"
    ],
    "miles": 1.06,
-   "gain_ft": 550,
-   "loss_ft": 26,
+   "gain_ft": 547,
+   "loss_ft": 24,
    "geometry": "geometry/0P.json",
    "sources": [
     {
@@ -1454,7 +1454,7 @@
     "0A"
    ],
    "miles": 1.49,
-   "gain_ft": 646,
+   "gain_ft": 645,
    "loss_ft": 120,
    "geometry": "geometry/0R.json",
    "sources": [
@@ -1473,8 +1473,8 @@
     "0A"
    ],
    "miles": 0.59,
-   "gain_ft": 153,
-   "loss_ft": 22,
+   "gain_ft": 154,
+   "loss_ft": 23,
    "geometry": "geometry/0S.json",
    "sources": [
     {
@@ -1511,8 +1511,8 @@
     "0C"
    ],
    "miles": 0.87,
-   "gain_ft": 249,
-   "loss_ft": 12,
+   "gain_ft": 257,
+   "loss_ft": 20,
    "geometry": "geometry/0U.json",
    "sources": [
     {
@@ -1529,9 +1529,9 @@
    "trails": [
     "0C"
    ],
-   "miles": 0.68,
-   "gain_ft": 40,
-   "loss_ft": 407,
+   "miles": 0.69,
+   "gain_ft": 47,
+   "loss_ft": 415,
    "geometry": "geometry/0V.json",
    "sources": [
     {
@@ -1549,8 +1549,8 @@
     "0C"
    ],
    "miles": 4.18,
-   "gain_ft": 795,
-   "loss_ft": 1911,
+   "gain_ft": 814,
+   "loss_ft": 1929,
    "geometry": "geometry/0W.json",
    "sources": [
     {
@@ -1586,9 +1586,9 @@
    "trails": [
     "0E"
    ],
-   "miles": 0.11,
+   "miles": 0.09,
    "gain_ft": 74,
-   "loss_ft": 14,
+   "loss_ft": 0,
    "geometry": "geometry/0Y.json",
    "sources": [
     {
@@ -1606,8 +1606,8 @@
     "0D"
    ],
    "miles": 0.89,
-   "gain_ft": 234,
-   "loss_ft": 144,
+   "gain_ft": 225,
+   "loss_ft": 134,
    "geometry": "geometry/0Z.json",
    "sources": [
     {
@@ -1624,9 +1624,9 @@
    "trails": [
     "0D"
    ],
-   "miles": 0.96,
-   "gain_ft": 458,
-   "loss_ft": 119,
+   "miles": 0.72,
+   "gain_ft": 368,
+   "loss_ft": 27,
    "geometry": "geometry/10.json",
    "sources": [
     {
@@ -1643,7 +1643,7 @@
    "trails": [
     "0D"
    ],
-   "miles": 5.88,
+   "miles": 5.89,
    "gain_ft": 3054,
    "loss_ft": 1276,
    "geometry": "geometry/11.json",
@@ -1662,9 +1662,9 @@
    "trails": [
     "0F"
    ],
-   "miles": 0.09,
+   "miles": 0.1,
    "gain_ft": 0,
-   "loss_ft": 40,
+   "loss_ft": 52,
    "geometry": "geometry/12.json",
    "sources": [
     {
@@ -1719,9 +1719,9 @@
    "trails": [
     "0H"
    ],
-   "miles": 0.2,
-   "gain_ft": 20,
-   "loss_ft": 17,
+   "miles": 0.19,
+   "gain_ft": 21,
+   "loss_ft": 18,
    "geometry": "geometry/15.json",
    "sources": [
     {
@@ -1739,8 +1739,8 @@
     "0I"
    ],
    "miles": 6.03,
-   "gain_ft": 3127,
-   "loss_ft": 476,
+   "gain_ft": 3122,
+   "loss_ft": 471,
    "geometry": "geometry/16.json",
    "sources": [
     {
@@ -1776,7 +1776,7 @@
    "trails": [
     "0H"
    ],
-   "miles": 1.33,
+   "miles": 1.34,
    "gain_ft": 915,
    "loss_ft": 56,
    "geometry": "geometry/18.json",
@@ -1795,9 +1795,9 @@
    "trails": [
     "0J"
    ],
-   "miles": 5.45,
-   "gain_ft": 2921,
-   "loss_ft": 232,
+   "miles": 5.46,
+   "gain_ft": 2919,
+   "loss_ft": 230,
    "geometry": "geometry/19.json",
    "sources": [
     {
@@ -1814,8 +1814,8 @@
    "trails": [
     "0K"
    ],
-   "miles": 0.91,
-   "gain_ft": 67,
+   "miles": 0.9,
+   "gain_ft": 66,
    "loss_ft": 471,
    "geometry": "geometry/1A.json",
    "sources": [
@@ -1833,8 +1833,8 @@
    "trails": [
     "0L"
    ],
-   "miles": 0.34,
-   "gain_ft": 41,
+   "miles": 0.35,
+   "gain_ft": 44,
    "loss_ft": 45,
    "geometry": "geometry/1B.json",
    "sources": [
@@ -1852,9 +1852,9 @@
    "trails": [
     "0L"
    ],
-   "miles": 2.75,
-   "gain_ft": 505,
-   "loss_ft": 276,
+   "miles": 2.77,
+   "gain_ft": 516,
+   "loss_ft": 287,
    "geometry": "geometry/1C.json",
    "sources": [
     {
@@ -1890,9 +1890,9 @@
    "trails": [
     "0M"
    ],
-   "miles": 2.04,
-   "gain_ft": 815,
-   "loss_ft": 135,
+   "miles": 2.02,
+   "gain_ft": 799,
+   "loss_ft": 119,
    "geometry": "geometry/1E.json",
    "sources": [
     {
@@ -1909,9 +1909,9 @@
    "trails": [
     "0M"
    ],
-   "miles": 0.68,
-   "gain_ft": 294,
-   "loss_ft": 23,
+   "miles": 0.67,
+   "gain_ft": 293,
+   "loss_ft": 22,
    "geometry": "geometry/1F.json",
    "sources": [
     {
@@ -1967,7 +1967,7 @@
     "0O"
    ],
    "miles": 0.55,
-   "gain_ft": 92,
+   "gain_ft": 91,
    "loss_ft": 114,
    "geometry": "geometry/1I.json",
    "sources": [
@@ -1985,9 +1985,9 @@
    "trails": [
     "0P"
    ],
-   "miles": 8.0,
-   "gain_ft": 3656,
-   "loss_ft": 1480,
+   "miles": 7.99,
+   "gain_ft": 3655,
+   "loss_ft": 1479,
    "geometry": "geometry/1J.json",
    "sources": [
     {
@@ -2042,9 +2042,9 @@
    "trails": [
     "0D"
    ],
-   "miles": 9.52,
-   "gain_ft": 2569,
-   "loss_ft": 1094,
+   "miles": 9.45,
+   "gain_ft": 2562,
+   "loss_ft": 1086,
    "geometry": "geometry/1M.json",
    "sources": [
     {
@@ -2062,8 +2062,8 @@
     "0S"
    ],
    "miles": 0.65,
-   "gain_ft": 34,
-   "loss_ft": 133,
+   "gain_ft": 24,
+   "loss_ft": 122,
    "geometry": "geometry/1N.json",
    "sources": [
     {
@@ -2081,8 +2081,8 @@
     "0S"
    ],
    "miles": 0.81,
-   "gain_ft": 172,
-   "loss_ft": 150,
+   "gain_ft": 160,
+   "loss_ft": 138,
    "geometry": "geometry/1O.json",
    "sources": [
     {
@@ -2119,7 +2119,7 @@
     "0T"
    ],
    "miles": 2.79,
-   "gain_ft": 131,
+   "gain_ft": 130,
    "loss_ft": 163,
    "geometry": "geometry/1Q.json",
    "sources": [
@@ -2138,8 +2138,8 @@
     "0U"
    ],
    "miles": 0.24,
-   "gain_ft": 19,
-   "loss_ft": 0,
+   "gain_ft": 30,
+   "loss_ft": 11,
    "geometry": "geometry/1R.json",
    "sources": [
     {
@@ -2194,9 +2194,9 @@
    "trails": [
     "0V"
    ],
-   "miles": 0.41,
-   "gain_ft": 91,
-   "loss_ft": 84,
+   "miles": 0.4,
+   "gain_ft": 63,
+   "loss_ft": 56,
    "geometry": "geometry/1U.json",
    "sources": [
     {
@@ -2214,8 +2214,8 @@
     "0V"
    ],
    "miles": 0.34,
-   "gain_ft": 91,
-   "loss_ft": 42,
+   "gain_ft": 93,
+   "loss_ft": 44,
    "geometry": "geometry/1V.json",
    "sources": [
     {
@@ -2232,9 +2232,9 @@
    "trails": [
     "0W"
    ],
-   "miles": 7.07,
-   "gain_ft": 1885,
-   "loss_ft": 129,
+   "miles": 7.01,
+   "gain_ft": 1857,
+   "loss_ft": 101,
    "geometry": "geometry/1W.json",
    "sources": [
     {
@@ -2270,9 +2270,9 @@
    "trails": [
     "0W"
    ],
-   "miles": 2.48,
-   "gain_ft": 1234,
-   "loss_ft": 349,
+   "miles": 2.44,
+   "gain_ft": 1223,
+   "loss_ft": 338,
    "geometry": "geometry/1Y.json",
    "sources": [
     {
@@ -2308,7 +2308,7 @@
    "trails": [
     "0W"
    ],
-   "miles": 0.11,
+   "miles": 0.1,
    "gain_ft": 70,
    "loss_ft": 0,
    "geometry": "geometry/20.json",
@@ -2327,8 +2327,8 @@
    "trails": [
     "0Z"
    ],
-   "miles": 0.11,
-   "gain_ft": 1,
+   "miles": 0.1,
+   "gain_ft": 0,
    "loss_ft": 31,
    "geometry": "geometry/21.json",
    "sources": [
@@ -2365,9 +2365,9 @@
    "trails": [
     "0W"
    ],
-   "miles": 1.09,
-   "gain_ft": 515,
-   "loss_ft": 276,
+   "miles": 1.08,
+   "gain_ft": 516,
+   "loss_ft": 277,
    "geometry": "geometry/23.json",
    "sources": [
     {
@@ -2385,8 +2385,8 @@
     "10"
    ],
    "miles": 0.36,
-   "gain_ft": 23,
-   "loss_ft": 61,
+   "gain_ft": 21,
+   "loss_ft": 58,
    "geometry": "geometry/24.json",
    "sources": [
     {
@@ -2403,9 +2403,9 @@
    "trails": [
     "0W"
    ],
-   "miles": 1.35,
-   "gain_ft": 499,
-   "loss_ft": 256,
+   "miles": 1.34,
+   "gain_ft": 498,
+   "loss_ft": 254,
    "geometry": "geometry/25.json",
    "sources": [
     {
@@ -2441,9 +2441,9 @@
    "trails": [
     "04"
    ],
-   "miles": 2.91,
-   "gain_ft": 983,
-   "loss_ft": 398,
+   "miles": 2.9,
+   "gain_ft": 1003,
+   "loss_ft": 419,
    "geometry": "geometry/27.json",
    "sources": [
     {
@@ -2460,9 +2460,9 @@
    "trails": [
     "04"
    ],
-   "miles": 0.27,
-   "gain_ft": 21,
-   "loss_ft": 62,
+   "miles": 0.26,
+   "gain_ft": 20,
+   "loss_ft": 61,
    "geometry": "geometry/28.json",
    "sources": [
     {
@@ -2536,9 +2536,9 @@
    "trails": [
     "04"
    ],
-   "miles": 5.83,
-   "gain_ft": 56,
-   "loss_ft": 2681,
+   "miles": 5.76,
+   "gain_ft": 64,
+   "loss_ft": 2689,
    "geometry": "geometry/2C.json",
    "sources": [
     {
@@ -2555,7 +2555,7 @@
    "trails": [
     "13"
    ],
-   "miles": 2.44,
+   "miles": 2.43,
    "gain_ft": 511,
    "loss_ft": 508,
    "geometry": "geometry/2D.json",
@@ -2574,9 +2574,9 @@
    "trails": [
     "13"
    ],
-   "miles": 2.72,
-   "gain_ft": 296,
-   "loss_ft": 987,
+   "miles": 2.66,
+   "gain_ft": 277,
+   "loss_ft": 969,
    "geometry": "geometry/2E.json",
    "sources": [
     {
@@ -2612,7 +2612,7 @@
    "trails": [
     "13"
    ],
-   "miles": 12.59,
+   "miles": 12.56,
    "gain_ft": 2239,
    "loss_ft": 4732,
    "geometry": "geometry/2G.json",
@@ -2631,9 +2631,9 @@
    "trails": [
     "15"
    ],
-   "miles": 5.25,
-   "gain_ft": 1284,
-   "loss_ft": 525,
+   "miles": 5.24,
+   "gain_ft": 1282,
+   "loss_ft": 523,
    "geometry": "geometry/2H.json",
    "sources": [
     {
@@ -2689,8 +2689,8 @@
     "0V"
    ],
    "miles": 0.99,
-   "gain_ft": 149,
-   "loss_ft": 302,
+   "gain_ft": 154,
+   "loss_ft": 307,
    "geometry": "geometry/2K.json",
    "sources": [
     {
@@ -2707,7 +2707,7 @@
    "trails": [
     "16"
    ],
-   "miles": 2.11,
+   "miles": 2.1,
    "gain_ft": 729,
    "loss_ft": 95,
    "geometry": "geometry/2L.json",
@@ -2764,9 +2764,9 @@
    "trails": [
     "17"
    ],
-   "miles": 4.39,
-   "gain_ft": 603,
-   "loss_ft": 1037,
+   "miles": 4.31,
+   "gain_ft": 559,
+   "loss_ft": 993,
    "geometry": "geometry/2O.json",
    "sources": [
     {
@@ -2840,9 +2840,9 @@
    "trails": [
     "18"
    ],
-   "miles": 3.33,
-   "gain_ft": 1928,
-   "loss_ft": 215,
+   "miles": 3.26,
+   "gain_ft": 1926,
+   "loss_ft": 213,
    "geometry": "geometry/2S.json",
    "sources": [
     {
@@ -2860,8 +2860,8 @@
     "1B"
    ],
    "miles": 4.82,
-   "gain_ft": 785,
-   "loss_ft": 866,
+   "gain_ft": 775,
+   "loss_ft": 856,
    "geometry": "geometry/2T.json",
    "sources": [
     {
@@ -2916,9 +2916,9 @@
    "trails": [
     "0V"
    ],
-   "miles": 10.14,
-   "gain_ft": 413,
-   "loss_ft": 3094,
+   "miles": 10.11,
+   "gain_ft": 403,
+   "loss_ft": 3084,
    "geometry": "geometry/2W.json",
    "sources": [
     {
@@ -2936,8 +2936,8 @@
     "1C"
    ],
    "miles": 6.98,
-   "gain_ft": 894,
-   "loss_ft": 2204,
+   "gain_ft": 893,
+   "loss_ft": 2203,
    "geometry": "geometry/2X.json",
    "sources": [
     {

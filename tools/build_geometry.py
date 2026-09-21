@@ -141,6 +141,14 @@ def main():
         despiked[t['key']] = kept
         remap[t['key']] = ({old: new for new, old in enumerate(idx)}, idx)
 
+    # The consensus step wants every other recorded pass beside a leg, so it is
+    # indexed once over the despiked corpus. A leg's own arc is excluded per query.
+    index = C.PassIndex([dict(key=k, pts=v) for k, v in despiked.items()], cfg['consensus_far_m'])
+    degree = {}
+    for seg in graph['segments']:
+        for nid in (seg['from'], seg['to']):
+            degree[nid] = degree.get(nid, 0) + 1
+
     for seg in graph['segments']:
         arc = arcs.get(seg['id'])
         if arc is None:
@@ -153,11 +161,26 @@ def main():
         pts = despiked[arc['track']][a:b + 1]
         if arc['reversed']:
             pts = pts[::-1]
+
+        # A leg into a dead end is cut where it arrives, and ends on the node.
+        trimmed = {}
+        for nid, rev in ((seg['to'], False), (seg['from'], True)):
+            if degree.get(nid) != 1:
+                continue
+            n = nodes[nid]
+            run = pts[::-1] if rev else pts
+            run, last = C.trim_dead_end(run, (n['lat'], n['lon']), cfg['arrive_m'])
+            trimmed[nid] = len(pts) - 1 - last
+            pts = run[::-1] if rev else run
+
+        pts, votes = C.consensus(pts, index, (arc['track'], a, b),
+                                 cfg['consensus_near_m'], cfg['consensus_far_m'],
+                                 cfg['consensus_step_m'])
         pts, _ = C.simplify(pts, cfg['simplify_m'])     # endpoints always retained
-        lines[seg['id']] = (seg, arc, pts)
+        lines[seg['id']] = (seg, arc, pts, votes, trimmed)
 
     # One batched pass over the DEM for every point in the rebuild.
-    allpts = [(round(p[1], 6), round(p[0], 6)) for _, _, pts in lines.values() for p in pts]
+    allpts = [(round(p[1], 6), round(p[0], 6)) for _, _, pts, _, _ in lines.values() for p in pts]
     need = len({E.key(x, y) for x, y in allpts} - set(cache))
     if need:
         print(f'sampling {need:,} new points from 3DEP...')
@@ -165,7 +188,7 @@ def main():
                         progress=lambda d, n: print(f'  {d:,}/{n:,}', flush=True))
 
     missing = 0
-    for sid, (seg, arc, pts) in lines.items():
+    for sid, (seg, arc, pts, votes, trimmed) in lines.items():
         # Everything below is derived from the rounded values that actually get
         # written, never from the full-precision ones. Deriving from the latter
         # produces an artifact that cannot reproduce its own numbers -- which is
@@ -205,6 +228,8 @@ def main():
                 'elevation': 'USGS 3DEP, bilinear (see tools/elevation.py)',
                 'gain_threshold_m': E.THRESHOLD_M,
                 'cleaning': cfg,
+                'consensus': votes,
+                'trimmed_points': trimmed,
             },
         }
         if not DRY:
