@@ -1,4 +1,1727 @@
 {
-  "version": 1,
-  "observations": []
+ "version": 1,
+ "observations": [
+  {
+   "target": "node:1F",
+   "date": "2016-03-05",
+   "category": "access",
+   "text": "Parked near the overlook and crossed under the dam, then it was mundane dirt road walking to the trailhead. Three miles later and I found Sears Trailhead, where a horse trailer was already parked in the wash. They must have driven over the dam's walkway (which is locked, btw).",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "segment:1M",
+   "date": "2016-03-05",
+   "category": "route-finding",
+   "text": "First few miles beyond the wash is a winding two-track that goes through palo verde/saguaro flats, climbs up a little ridge, and then follows the open grassy ridge. Things get a little rocky again near the wilderness boundary and pauses at an old horse corral. This is where the two-track ends and it took a while for me to pick up where the footpath continues on the far side. From here on out I had to depend more on the fresh horse tracks and occasional cairn than defined trail. Got thoroughly separated from the trail twice and had some fun hacking through brush.",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "segment:1M",
+   "date": "2016-03-05",
+   "category": "water",
+   "text": "I had seen no water along the way from Sears Trailhead to the Sheep Creek junction.",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "node:0T",
+   "date": "2016-03-05",
+   "category": "water",
+   "text": "Watered up at the spring, which was barely trickling.",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "segment:1M",
+   "date": "2016-03-06",
+   "category": "water",
+   "text": "Made one brief stop looking for water near an unnamed spring E of Dog Spring and found a little pool too small/muddy for the MSR to handle.",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "segment:1M",
+   "date": "2016-03-06",
+   "category": "route-finding",
+   "text": "Rolled downhill, only losing the trail once this time.",
+   "source": "haz/triplog/2016-03-05.md"
+  },
+  {
+   "target": "segment:01",
+   "date": "2016-04-02",
+   "category": "deadfall",
+   "text": "Trail was in good shape, only a few deadfall to step over.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:01",
+   "date": "2016-04-02",
+   "category": "water",
+   "text": "Watered up at an unnamed spring above Y-Bar Tanks.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:07",
+   "date": "2016-04-02",
+   "category": "water",
+   "text": "Watered up at some tanks before Chilson.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "node:09",
+   "date": "2016-04-02",
+   "category": "water",
+   "text": "Went up to check on Chilson Spring and came away disappointed.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2016-04-02",
+   "category": "brush",
+   "text": "Made a half-attempt at finding the eastern end of Davenport from Chilson. Half because the brush was thick. After wandering right into a giant anthill I called it.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:09",
+   "date": "2016-04-02",
+   "category": "brush",
+   "text": "Some portions were clear, some portions stabbed at my shins.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:09",
+   "date": "2016-04-02",
+   "category": "water",
+   "text": "A few of the Deadman tributaries had stale pools of water with bees circling around them.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "node:0V",
+   "date": "2016-04-02",
+   "category": "water",
+   "text": "Plopped down next to the tanks and enjoyed a long lunch and lots of water.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "node:00",
+   "date": "2016-04-03",
+   "category": "route-finding",
+   "text": "Was tempted to check out Sandy Saddle and then wasn't when I saw the 'junction'.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:04",
+   "date": "2016-04-03",
+   "category": "brush",
+   "text": "It was somewhat overgrown, not as bad as I expected.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2016-04-03",
+   "category": "brush",
+   "text": "It was somewhat overgrown, not as bad as I expected.",
+   "source": "haz/triplog/2016-04-02.md"
+  },
+  {
+   "target": "segment:02",
+   "date": "2016-09-23",
+   "category": "route-finding",
+   "text": "Excellent shape. Had to check the GPS a few times, mostly through the open sections when I didn't spot the next cairn right away. The wash crossings were boulders, and the only tricky section was on the northern end before the ridge. Trail split, maybe? Not sure. Once I got up on the ridge it was pretty simple again.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:02",
+   "date": "2016-09-23",
+   "category": "water",
+   "text": "None of the washes were flowing, didn't check the upstream springs.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2016-09-23",
+   "category": "tread",
+   "text": "The trail maintenance is on point. There were sections, especially through the never-ending-hill-climb, that looked better than the AZT. And once you get up to rocky land the designers really start showing off.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2016-09-23",
+   "category": "water",
+   "text": "Was cramping while filtering from the rock pools.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2016-09-23",
+   "category": "route-finding",
+   "text": "The last thousand feet, and the descent beyond, was torturous, especially as the trail started to fade in and out. And yeah, the descent down to Hopi Springs is nonexistent.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2016-09-23",
+   "category": "brush",
+   "text": "Manzanitas chewed up my shins something fierce all the way to Mazatzal Divide.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:27",
+   "date": "2016-09-23",
+   "category": "tread",
+   "text": "The trail has seen better days. The climb up to the last Deadman Crossing is pretty loose and crumbly.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:27",
+   "date": "2016-09-23",
+   "category": "brush",
+   "text": "The climb down to the Park was very overgrown. Lot of sidewise walking.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "node:1Z",
+   "date": "2016-09-23",
+   "category": "water",
+   "text": "The water sitting in Wet Bottom was gnarly.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:09",
+   "date": "2016-09-24",
+   "category": "brush",
+   "text": "The trail from Horse Camp to Chilson was a mixed bag - some sections that were close to five feet wide cleared and some encroaching.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:07",
+   "date": "2016-09-24",
+   "category": "water",
+   "text": "Stopped at the tanks halfway between Chilson and Barnhardt Junction to pull a liter (I think there was water there only because of the rain a few days ago).",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:04",
+   "date": "2016-09-24",
+   "category": "brush",
+   "text": "Is under active maintenance. Passed a few crews along the way, sounds like they are clearing a wider path up to Chilson to set up a base camp for more work on the AZT. The trail is looking good where they've gone and is quite stabby where they haven't.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2016-09-24",
+   "category": "brush",
+   "text": "Is under active maintenance. Passed a few crews along the way, sounds like they are clearing a wider path up to Chilson to set up a base camp for more work on the AZT. The trail is looking good where they've gone and is quite stabby where they haven't.",
+   "source": "haz/triplog/2016-09-23.md"
+  },
+  {
+   "target": "segment:2A",
+   "date": "2017-03-26",
+   "category": "deadfall",
+   "text": "An old two-track runs along the length of the wash, so there's always the choice between walking the sandy/gravel creekbed or overgrown road. There is plenty of deadfall so I switched between the two frequently. Not sure how much foot traffic this gets, as I didn't see any recent tracks yet there were a few paths trod around some of the deadfall.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:2A",
+   "date": "2017-03-26",
+   "category": "water",
+   "text": "Water was flowing from the spring. Once I passed that things dried up.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:29",
+   "date": "2017-03-26",
+   "category": "brush",
+   "text": "Above the climb has been recently trimmed, sometime in the last year or so, and I didn't have any difficulty until the camp on 6178. Manzanita and deadfall took over the path.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:29",
+   "date": "2017-03-26",
+   "category": "route-finding",
+   "text": "At the camp on 6178 manzanita and deadfall took over the path, and while someone had tied pretty pink markers along the path and even knocked down a few bushes, I still lost it and wandered aimlessly in the wash for a bit. Had to use GPS to get back and make it to The Park.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:2B",
+   "date": "2017-03-26",
+   "category": "water",
+   "text": "Every creek crossing was flowing.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:2C",
+   "date": "2017-03-26",
+   "category": "water",
+   "text": "Every creek crossing was flowing.",
+   "source": "haz/triplog/2017-03-26.md"
+  },
+  {
+   "target": "segment:1R",
+   "date": "2017-04-14",
+   "category": "route-finding",
+   "text": "Start of 477 was difficult to track through the wash, then a rocky, hilly ride to wilderness boundary.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1J",
+   "date": "2017-04-14",
+   "category": "route-finding",
+   "text": "Trail starts humble enough - no formal trail sign, horse gate is overgrown w/ prickly pear, sporadic tread, and few cairns for the first mile.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1J",
+   "date": "2017-04-14",
+   "category": "tread",
+   "text": "The final drop into the creek is badly washed out.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1J",
+   "date": "2017-04-14",
+   "category": "brush",
+   "text": "Along the creek the trail criss-crosses repeatedly, and it definitely pays to look for the cairns. Creek was very overgrown and forced me to a crawl repeatedly. Path will climb up along the sides of the valley and is in shockingly good shape for the most part, only a few bad overgrown patches and washouts.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1J",
+   "date": "2017-04-14",
+   "category": "water",
+   "text": "Water flowed in several sections, including the loading corral.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1J",
+   "date": "2017-04-14",
+   "category": "route-finding",
+   "text": "Cairns help a lot on the climb up Squaw Flat, as the trail can be difficult to trace over the grassy/rocky slope. Once it crests near 5400' it ventures through lovely pines, and then deadfall and route-finding after you enter the burn area.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "node:0O",
+   "date": "2017-04-14",
+   "category": "water",
+   "text": "A surprise seep at the junction of Sheep Creek Trail was very appreciated.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:0U",
+   "date": "2017-04-14",
+   "category": "water",
+   "text": "I pushed on to Squaw Flat Spring expecting to find more water there and didn't.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:0W",
+   "date": "2017-04-15",
+   "category": "tread",
+   "text": "Quickly climbed out of the burn area with none of the deadfall or route-finding issues that the end of #87 had. Most of the trail was broad and easy to roll down. Last few hundred feet of descent began to get a bit choked up.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:0W",
+   "date": "2017-04-15",
+   "category": "route-finding",
+   "text": "Creek section was fantastic, and the trail criss-crossed a few times and was well-defined. Beyond the end of Cypress Ridge the desert took over from the trees and the banks became thorny and nasty. Trail seemed harder to follow so I began switching between hopping along the rocks in the wash, connecting game trails, and hunting for cairns. Then the old fence line led right to Sheep Creek proper.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "node:0Q",
+   "date": "2017-04-15",
+   "category": "route-finding",
+   "text": "Checked out Round Spring and then promptly lost the trail on the way up to the corral. Took some hunting to find the trail sign, assumed it was the junction of Sears.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1L",
+   "date": "2017-04-15",
+   "category": "route-finding",
+   "text": "The first few miles from the Sheep Creek end was taxing. Trail and I played a game that I kept losing. Cairns helped, as did some glimpses of the tread, but there were no prints to speak of.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1L",
+   "date": "2017-04-15",
+   "category": "water",
+   "text": "Near the fulstrum I decided to check out Lizard Spring. Bit of a path leading down but it involved a whole lot of sliding. Found plenty of water.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1L",
+   "date": "2017-04-15",
+   "category": "route-finding",
+   "text": "Had an easy time dropping down into the unnamed wash. Trail was clearly marked the whole way, and then the wash was easy enough to trot along. I followed some cairns where my GPS told me to exit the wash and had a very bad time. Eventually found the trail after spilling a whole lot of blood and it was stupid wide and easy, looking more like an old two-track than trail.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:1L",
+   "date": "2017-04-15",
+   "category": "route-finding",
+   "text": "Cairns took a sharp left turn at the bottom of chalk cliffs and, vaguely remembering a discussion about a Sears Trail re-route, I decided to follow it instead of the road. Instead of what looks to be a straight half mile of road in the wash I was on a zig-zagging route with plenty of little climbs up and down washes. Followed cairns instead of the road in hopes of finding an actual trailhead sign for Sears. Never did.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "node:1E",
+   "date": "2017-04-15",
+   "category": "water",
+   "text": "Met a rattler at Sears TH Spring. Oh, and that spring looks toxic.",
+   "source": "haz/triplog/2017-04-14.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2017-05-06",
+   "category": "tread",
+   "text": "Trail maintenance from last year is holding up.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "node:00",
+   "date": "2017-05-06",
+   "category": "route-finding",
+   "text": "Sandy Saddle junction is well cairned and the trail down to Castersen looks reasonable.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0G",
+   "date": "2017-05-06",
+   "category": "route-finding",
+   "text": "Started easy enough, a huge cairn marking a rocky slide down to and over the wash below. Trail was reasonably easy to pick out, tread holding up well and a few cairns scattered about.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0G",
+   "date": "2017-05-06",
+   "category": "brush",
+   "text": "Some overgrowth will force minor detours.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0G",
+   "date": "2017-05-06",
+   "category": "water",
+   "text": "Brody Seep was difficult to reach but well worth it.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0G",
+   "date": "2017-05-06",
+   "category": "tread",
+   "text": "Above the seep it looks like there were two slides that knocked out a section of trail years and years ago and I ended up bushwhacking for a few hundred terrible yards.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0H",
+   "date": "2017-05-06",
+   "category": "tread",
+   "text": "Final leg up to Mazatzal Divide Trail was short and painless, even found some old log steps (somewhat charred) along the route.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0F",
+   "date": "2017-05-06",
+   "category": "route-finding",
+   "text": "Junction w/ Brody was difficult to pin down but the tread picks up in a few dozen yards and is easy to follow down to the wash. I tried briefly to pick up the path on the banks and then just followed the wash. Eventually hacked across and found a single lonely cairn in the middle of the next wash, first cairn sighting on Fisher. Did not find the exact junction with Mazatzal Divide, though I'd guess my path was close to it.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0F",
+   "date": "2017-05-06",
+   "category": "brush",
+   "text": "This wash makes a sudden, scenic drop and forces the trail to head up a manzanita-and-deadfall choked slope towards crumbling cliffs. Tread can be picked up a few times, but it's easiest just to hack up where possible. Below the cliffs there are some rock slides that seemed to knock out the trail. Picked it up again on the other side and more-or-less followed it along the steep slope until the next wash. Again stuck to the wash, as the banks had manzanita well over my head. Then it was a 500' climb through manzanita and deadfall, with a faint tread weaving back and forth in tight switchbacks to a saddle.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0F",
+   "date": "2017-05-06",
+   "category": "deadfall",
+   "text": "Quick drop and then a 1000' climb up a steep tributary of South Fork Deadman. Didn't even try to find the trail at this point, not with all the pine deadfall, just stuck to the creek and balanced from one log to the next.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:0F",
+   "date": "2017-05-06",
+   "category": "water",
+   "text": "Found water and a steep waterfall near the fork, no water at Fisher Spring.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:01",
+   "date": "2017-05-06",
+   "category": "brush",
+   "text": "Was a bit overgrown compared to the last year. Plus there were some thorny bits, and the loose rock on the downhill was not pleasant.",
+   "source": "haz/triplog/2017-05-06.md"
+  },
+  {
+   "target": "segment:17",
+   "date": "2017-05-20",
+   "category": "route-finding",
+   "text": "The first four miles of this is a breeze. Everything is well trimmed and easy to follow, and even the gravesite has also been cleaned up. Things start to get hairy after 4.5 miles. The trail begins to criss-cross the creek, with massive cairns to mark the crossings, though the actual paths on the banks are not always easy to pick up. Ivy and deadfall complicate things. It's not terrible, just something to be aware of.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "node:0W",
+   "date": "2017-05-20",
+   "category": "water",
+   "text": "Gowan Camp is pleasant and there were a few stagnant ponds in the creek to pull from.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:18",
+   "date": "2017-05-20",
+   "category": "tread",
+   "text": "The last section from the camp up to Peeley trailhead is much easier.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:0M",
+   "date": "2017-05-20",
+   "category": "brush",
+   "text": "As usual, the AZT was easy to follow and a cruise to hike. Recent maintenance has been done around the Bear Springs area (and it looks great!).",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:13",
+   "date": "2017-05-21",
+   "category": "route-finding",
+   "text": "Finding the start from Deer Creek Trail is easy thanks to a few blazes and the tread is still very defined, if a bit narrow.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:13",
+   "date": "2017-05-21",
+   "category": "deadfall",
+   "text": "First half mile is beautiful, then the burn area takes over and there is deadfall, washouts, and rampant brush to deal with. Not the worst Mazzie trail - the tread sticks around, even if you have to crawl around to find it.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:19",
+   "date": "2017-05-21",
+   "category": "brush",
+   "text": "Manzanita was beat back to a respectable distance and the views were great.",
+   "source": "haz/triplog/2017-05-20.md"
+  },
+  {
+   "target": "segment:1E",
+   "date": "2017-06-11",
+   "category": "brush",
+   "text": "Along the creek things got a little overgrown and it was hard to navigate in low light.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:1C",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "This trail is legit. Big views, well maintained, and minimal elevation gain.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:1P",
+   "date": "2017-06-11",
+   "category": "brush",
+   "text": "As soon as the path leaves the AZT it is quickly swallowed up by catclaw. And I didn't even find the mine.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0V",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "Beautiful drop into McFarland. Bit steep, could see the south direction being painful.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0U",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "Headed to Squaw Flat Spring to complete this segment of the trail and was surprised at how easy the way was. Few deadfall, some overgrowth, clear tread.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0U",
+   "date": "2017-06-11",
+   "category": "water",
+   "text": "Still no water at the spring so I filtered up at a murky pool on the way back.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0T",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "Pleasant jaunt along McFarland and then a sudden twist and climb up a dry wash.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:1A",
+   "date": "2017-06-11",
+   "category": "water",
+   "text": "Filtered some water at the bottom for a late lunch break.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0R",
+   "date": "2017-06-11",
+   "category": "water",
+   "text": "Hot climb up a trickling creek.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0P",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "After the junction w/ Thicket Spring the trail got mean fast. Steady uphill over rolling rocks in full exposure to the sun.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0Q",
+   "date": "2017-06-11",
+   "category": "route-finding",
+   "text": "Lost the trail on the second (shorter) climb and meandered around until I could pick it back up.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:0Q",
+   "date": "2017-06-11",
+   "category": "brush",
+   "text": "This trail is definitely getting thick, probably because the AZT skips past it now.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:1H",
+   "date": "2017-06-11",
+   "category": "tread",
+   "text": "Turning onto Sunflower meant a quick drop and climb, going under some powerlines, and then miles of rocky two-track. Closer to Sunflower the path breaks off on its own and swings towards Diamond Mountain before going under N Beeline. Another half mile of AZT, a quick crossing of the Sycamore, and then a dusty haul up to Bushnell.",
+   "source": "haz/triplog/2017-06-11.md"
+  },
+  {
+   "target": "segment:2W",
+   "date": "2017-06-24",
+   "category": "tread",
+   "text": "As others have stated, this trail is rocky. Rocks that rock, rocks that roll. There are some genuinely good sections, where the rolly rocks ease up and you can gaze around without watching your step.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:2W",
+   "date": "2017-06-24",
+   "category": "route-finding",
+   "text": "Only had to check GPS once or twice on some faint sections, otherwise this was a breeze to travel.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "node:1O",
+   "date": "2017-06-24",
+   "category": "route-finding",
+   "text": "Trail sign appears to be gone. Few big cairns marked the junction and a few charred pieces of wood were strewn around, that's it.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:2X",
+   "date": "2017-06-24",
+   "category": "route-finding",
+   "text": "The cairns marking the start of Deadman Mesa were tiny and obscured by the foxtails - if it wasn't for recent foot traffic pressing some of the vegetation down it would have been annoying to stay on track. Cairns and tracks seemed to give up about 50' above Fossil Creek so I just picked a descent that looked the most painful and rolled down.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:2X",
+   "date": "2017-06-24",
+   "category": "route-finding",
+   "text": "Along Fossil Creek I only crossed when I was forced to, making slow and tedious time. Ended up doing six total, might have gotten away w/ only four but the brush got ridiculous. I only found cairns once where the trail avoided a large swing in the creek - otherwise this section is all bushwhacking. It took me almost five hours to walk those two miles.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:2X",
+   "date": "2017-06-24",
+   "category": "brush",
+   "text": "The banks of Fossil Creek were painful and thorny and had recent flood damage.",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:2X",
+   "date": "2017-06-25",
+   "category": "tread",
+   "text": "Found where the trail starts the climb up the mesa (someone tagged a few tiny cairns and branches to help with the first hundred feet). Trail was well-marked and easy to follow, though I suspect downhill would be a bit crumbly and tedious. Plenty of cairns and good tread, especially for being this remote. Route-finding on the mesa was only slightly tougher with thicker vegetation, but a two-track showed up after a mile. Next mile was on-and-off the two-track, then the trail 'ended' (I think, again there were no signs).",
+   "source": "haz/triplog/2017-06-24.md"
+  },
+  {
+   "target": "segment:19",
+   "date": "2017-07-08",
+   "category": "tread",
+   "text": "Great trail for a predawn hike, with wide tread and steep sections.",
+   "source": "haz/triplog/2017-07-08.md"
+  },
+  {
+   "target": "segment:16",
+   "date": "2017-07-08",
+   "category": "route-finding",
+   "text": "Easy to follow, easy to hike. Only needed to check the GPS twice, once at Pigeon Spring because I thought the route went right past it (it doesn't, trail stays a few dozen yards to the west) and once about two miles down when the bank gets a bit thick.",
+   "source": "haz/triplog/2017-07-08.md"
+  },
+  {
+   "target": "segment:16",
+   "date": "2017-07-08",
+   "category": "tread",
+   "text": "Well-cairned, wide tread, and relatively low amounts of overgrowth / deadfall for this wilderness. It does climb up along the banks frequently, almost as if it's scared to stay in the creek bed for more than a few yards, which I imagine would get annoying if you hike up it. Hiking down was a dream.",
+   "source": "haz/triplog/2017-07-08.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2017-09-01",
+   "category": "brush",
+   "text": "Starting to get a bit overgrown in sections, all friendly green stuff that never hurt nobody.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2017-09-01",
+   "category": "brush",
+   "text": "Good grief. Even getting to Castersen Seep involved trekking-poles-above-head wading through the manzanita. There are sections of defined tread and clear track, they are just few and far between.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2017-09-01",
+   "category": "water",
+   "text": "Castersen was okay, few tanks w/ skunky water.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2017-09-01",
+   "category": "route-finding",
+   "text": "Had a hard time tracking trail over to the next wash, and that last climb doesn't believe in switchbacks. Didn't even try to look for tread coming down the west side, just dropped in the drainage and followed it down. The wash was easy enough to navigate and I made it to Divide Trail.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "node:06",
+   "date": "2017-09-01",
+   "category": "water",
+   "text": "The saddle proper would make a decent camp, plus there were tanks few hundred yards to the west for water. Unsure of how dependable they are.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:27",
+   "date": "2017-09-02",
+   "category": "tread",
+   "text": "Trail is in great shape.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:26",
+   "date": "2017-09-02",
+   "category": "brush",
+   "text": "That first mile is turrible. Deadfall wasn't really a problem, more the manzanita and loose rocks underfoot. Found no cairn or tread along the way. Things got better on the ridge, with old tread and game trails providing an easier way forward through the shorter brush.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:26",
+   "date": "2017-09-02",
+   "category": "route-finding",
+   "text": "The dance along the side of 6351' was annoying, with the trail fading in and out of existence and too few cairns to connect the dots, and a pretty steep hillside to work along. Short section of good trail on the drop until it faded out again and I ended up taking a rocky drainage down to wash below. Things gradually got easier along the ridge and, by the time I bumped into the Midnight Mesa Junction, the trail was straightforward to pick out.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:26",
+   "date": "2017-09-02",
+   "category": "water",
+   "text": "Found a decent tank in the sandy wash below 6351' (though I suspect it was only there from last night's rain) and filtered up.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:25",
+   "date": "2017-09-02",
+   "category": "tread",
+   "text": "Dancing along the side of Midnight Mesa was downright fun, and the rest of the hike to Mountain Spring was enjoyable as well.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "node:1T",
+   "date": "2017-09-02",
+   "category": "water",
+   "text": "Reached the spring with two hours of daylight for camp chores and treated myself to a quick trough-side rinse-off.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:1Z",
+   "date": "2017-09-03",
+   "category": "route-finding",
+   "text": "Getting to the junction is easy to follow, and there is a good path w/ cairns that lead down to Horse Creek. And then it disappears. Tried going up and down the banks a few time to find where it climbs and eventually just hacked up the hill. It's frustrating, because there are two old barbed fences to cross, and one would think that there'd be a gate or cairn or something to mark where you're supposed to pass through them - nothing. Tread shows up at the next drainage crossing and is easy to follow for the next mile, then gets faint on the long drop to Deadman Creek.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:1Z",
+   "date": "2017-09-03",
+   "category": "water",
+   "text": "Deadman Creek seems to be dependable here, with lots of friendly trees and some reeds growing around the trickling waters.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:1Z",
+   "date": "2017-09-03",
+   "category": "route-finding",
+   "text": "Trail was hard to track on the other side of Deadman Creek - I crossed, got to the corral, and then followed the fence east, and then lost it. Think I should have gone further east. Hacked my own way up some turrible brush and then picked a route up the hill. Found a few cairns but the tread wasn't trackable for too long.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:1M",
+   "date": "2017-09-04",
+   "category": "route-finding",
+   "text": "The path was easy to track - think I only lost it twice, and was able to quickly backtrack and get back on it.",
+   "source": "haz/triplog/2017-09-01.md"
+  },
+  {
+   "target": "segment:2J",
+   "date": "2017-11-05",
+   "category": "route-finding",
+   "text": "Tons of prints and wide trail to Sycamore Creek, and then nothing. As expected, this (and almost every other) wash meant hunting for a trail on the other bank, because the Mazzies don't believe in straightforward crossings. Trail got faint in Dry Wash, ended up just aiming for the bluffs and picking it back up there. Then things just kinda rolled on until Wet Bottom Creek.",
+   "source": "haz/triplog/2017-11-05.md"
+  },
+  {
+   "target": "segment:2J",
+   "date": "2017-11-05",
+   "category": "water",
+   "text": "Wet Bottom Creek was pretty yet quite dry.",
+   "source": "haz/triplog/2017-11-05.md"
+  },
+  {
+   "target": "segment:2K",
+   "date": "2017-11-05",
+   "category": "route-finding",
+   "text": "From the Wet Bottom Trail junction it was time to head down to the river. Trail gives up there so I rock-hopped to Red Creek Rapids.",
+   "source": "haz/triplog/2017-11-05.md"
+  },
+  {
+   "target": "node:1L",
+   "date": "2017-11-05",
+   "category": "access",
+   "text": "Hung my boots around my neck and crossed the Verde in thigh-deep current. It was surprisingly strong.",
+   "source": "haz/triplog/2017-11-05.md"
+  },
+  {
+   "target": "segment:2C",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "Trail is in great shape, as expected. The grade is constant and easy to maintain a decent pace going either up or down hill.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2D",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "The first two miles were breathtaking. This spared forest is beautiful and beats The Park hands down.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2E",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "Trail conditions continued to be great even after leaving the AZT on the far side, where footprints faded and horse tracks took over. Another stand of mostly-untouched pines lurk right before the drop off. That drop is ridiculously steep. Path was easy to follow all the way to the old corral, and the trail on to Midnight junction is easy.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2E",
+   "date": "2017-12-29",
+   "category": "water",
+   "text": "There was barely anything trickling through Fuller Seep.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2017-12-29",
+   "category": "route-finding",
+   "text": "500 yards west of the Midnight junction (at the saddle) is where things started to get dicey, and it did so slowly. First it got overgrown with some deadfall, though the tread and cairns were still easy to pick out. Then it got more dicey. A thousand yards to Wet Bottom Creek, while dancing along the ridge, is when elk tracks and two sets of cairns all diverged.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2017-12-29",
+   "category": "water",
+   "text": "Found the anticipated majestic pool of awesome at Wet Bottom Creek all but dried up.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2R",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "First mile was beautiful and gave me a few good views north, then the second mile got a bit steep and rocky and I had to slow down. All in all this trail was easy to follow, and with the exception of that one steep rocky section during the first half, downright enjoyable.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2S",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "Had braced myself for a tough downhill on this trail and was pleasantly surprised to find it sandy, gradual, and easy on the knees. Last mile got a bit rocky and hard to track by headlamp, especially the little hop over Copper Mountain.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:2T",
+   "date": "2017-12-29",
+   "category": "tread",
+   "text": "Did not like. Those rocky sections were worse than anything on the last two trails, and the repeated little climbs after so many miles was just mean.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "node:21",
+   "date": "2017-12-29",
+   "category": "access",
+   "text": "The road between City Creek and Doll Baby was impeccable compared to City Creek and the pavement - if you're willing to drive your vehicle of choice to the humble City Creek trailhead, the extra mile to the much more established Doll Baby is nothing.",
+   "source": "haz/triplog/2017-12-29.md"
+  },
+  {
+   "target": "segment:1K",
+   "date": "2018-02-11",
+   "category": "route-finding",
+   "text": "Found the twisted stump marking the beginning and followed a shockingly well-defined tread east. We'd follow the tread few a few hundred yards, get slightly confused and/or make stupid decisions, and then pick it back up a short time later. Along the way I built a few cairns.",
+   "source": "haz/triplog/2018-02-11.md"
+  },
+  {
+   "target": "segment:1K",
+   "date": "2018-02-11",
+   "category": "tread",
+   "text": "The old road that the trail follows is washed out at the second wash crossing and we had to find our own terrible way up the other bank, and then we re-discovered the trail on the other side of the next hill.",
+   "source": "haz/triplog/2018-02-11.md"
+  },
+  {
+   "target": "node:1C",
+   "date": "2018-02-11",
+   "category": "water",
+   "text": "Sheep Creek below the cabin was flowing great.",
+   "source": "haz/triplog/2018-02-11.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2018-06-03",
+   "category": "tread",
+   "text": "Trail is in good shape.",
+   "source": "haz/triplog/2018-06-03.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2018-06-03",
+   "category": "water",
+   "text": "Waterfalls are dry.",
+   "source": "haz/triplog/2018-06-03.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2018-06-03",
+   "category": "route-finding",
+   "text": "Tried to be more conscious of following the old tread this time, confident that I had it all the way to Castersen. Few switchbacks at the beginning that I didn't notice on my last hike. Overall it can be tracked with a careful eye, a GPS definitely helps, and it will make you bleed.",
+   "source": "haz/triplog/2018-06-03.md"
+  },
+  {
+   "target": "segment:09",
+   "date": "2018-06-03",
+   "category": "tread",
+   "text": "Last time I hiked the section of this from Sandy Saddle to Chilson was in 2016, before some intense trail maintenance, and it is gold now. Huge views, lovely tread, just a lot of fun. There are a few prickly pears to step over, that's about it.",
+   "source": "haz/triplog/2018-06-03.md"
+  },
+  {
+   "target": "node:09",
+   "date": "2018-06-03",
+   "category": "water",
+   "text": "Swung up to Chilson Spring while in the area, which is clean and full.",
+   "source": "haz/triplog/2018-06-03.md"
+  },
+  {
+   "target": "segment:2H",
+   "date": "2018-06-09",
+   "category": "route-finding",
+   "text": "It's well-cairned and the tread is easy to follow. Spent a little bit of time hunting around by the HK Ranch turn-off. There's a yuge cairn marking the 'junction' and nothing else, no tread or cairns heading down to Sycamore Creek.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "node:25",
+   "date": "2018-06-09",
+   "category": "water",
+   "text": "Dutchman Grave Spring area is beautiful. Both springs had (some) water, the campsites were tempting, and the trees were large and shade-y.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:2I",
+   "date": "2018-06-09",
+   "category": "route-finding",
+   "text": "After a well-marked climb the trail dances along the side of 4165' and dozens of game trails start to confuse the route. There aren't a lot of cairns on this section, either. It clears up near the 3811' saddle.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:2I",
+   "date": "2018-06-09",
+   "category": "tread",
+   "text": "Tread was great and cairns were large. The last climb was tough, mostly because of the heat. The switchbacked grade was reasonable.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:1Y",
+   "date": "2018-06-09",
+   "category": "tread",
+   "text": "Easy going until the trail zips up the side of 5163'. Trail was easy enough to follow, red rock steps and cairns. The trail drops sharp on the other side, switchbacks and ridges.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:1X",
+   "date": "2018-06-09",
+   "category": "route-finding",
+   "text": "There are at least a dozen trails leading down to the spring, only one w/ a few cairns.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "node:1Q",
+   "date": "2018-06-09",
+   "category": "water",
+   "text": "Spring itself is beautiful, much cleaner water than Mountain Spring.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:1W",
+   "date": "2018-06-09",
+   "category": "route-finding",
+   "text": "Trail felt slightly harder to track in the flatland, tread fading away and brush hiding the cairns, and all the little hills ahead blended together.",
+   "source": "haz/triplog/2018-06-09.md"
+  },
+  {
+   "target": "segment:1W",
+   "date": "2018-09-03",
+   "category": "route-finding",
+   "text": "Going was annoyingly tough for the first two miles, fresh grass was covering the tread and cairns, once the sky began to lighten things were easier.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "node:1T",
+   "date": "2018-09-03",
+   "category": "water",
+   "text": "Watered up at the very murky Mountain Spring.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:24",
+   "date": "2018-09-03",
+   "category": "brush",
+   "text": "There is a decent tread for a few hundred yards that devolves into brush and deadfall. A few game tracks swing below the thick nasty so I followed them.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "node:1W",
+   "date": "2018-09-03",
+   "category": "water",
+   "text": "Reached the spring and startled a huge elk less than twenty feet away. He was busy fouling the spring.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:25",
+   "date": "2018-09-03",
+   "category": "route-finding",
+   "text": "Trail was harder to follow along the side of the mesa than I remembered.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2F",
+   "date": "2018-09-03",
+   "category": "deadfall",
+   "text": "The few cairns did little to ease the pain of deadfall, rolling rocks, and thick brush. Once the trail enters unburnt forest things do get easier.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2F",
+   "date": "2018-09-03",
+   "category": "water",
+   "text": "Each drainage, including Wet Bottom Creek, had fresh water running.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2F",
+   "date": "2018-09-03",
+   "category": "tread",
+   "text": "Trail changed dramatically on the north side, with wide tread and large cairns.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2018-09-03",
+   "category": "route-finding",
+   "text": "Drop to Wet Bottom Creek is getting downright easy. Was able to track tread and cairns the entire way down. Cairns and tread were well-defined for half the climb out, then deadfall and manzanita hide any trace of a trail above the 'throne'.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2018-09-03",
+   "category": "water",
+   "text": "Reached Wet Bottom Creek and it was magnificent, tons of water.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2018-09-03",
+   "category": "route-finding",
+   "text": "Trail was shockingly well-defined alongside the summit of 5601'. Things got a little sketchy in the drainage on the far side and I focused on speed instead of hunting cairns, hopping in the drainage. Did see a few stretches of tread on the banks, found them to be mostly overgrown and not worth the effort. Trail got much easier to track once it climbed up the saddle and left the drainage for good. Cairns got harder to find in the waning light, especially since some of the rock piles were marking old mines instead of route.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2G",
+   "date": "2018-09-04",
+   "category": "route-finding",
+   "text": "Initial drop from the ridge was sudden and rocky, then more mines and tailings show up to make for an easy descent on the north bank of the drainage. Quick rock-hop and a tread picks up on the south bank and makes for a very easy walk. I had some trouble following the tread after it swings south, likely due to the recent rains smoothing out the dirt, so I spent more time cairn-hunting than I wanted to. A few overgrown sections and then this trail was done.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2H",
+   "date": "2018-09-04",
+   "category": "water",
+   "text": "Paused at the lower spring for water.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "segment:2H",
+   "date": "2018-09-04",
+   "category": "brush",
+   "text": "The spikey trees are just as spikey as my last visit and each little climb felt harder than it should have.",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "node:1H",
+   "date": "2018-09-04",
+   "category": "access",
+   "text": "FR 269 has some deep ruts that require extra care, and the storm on 9/3 did some noticeable damage to the rockier sections (they're more rocky now).",
+   "source": "haz/triplog/2018-09-03.md"
+  },
+  {
+   "target": "node:1L",
+   "date": "2018-11-11",
+   "category": "access",
+   "text": "Crossed the Verde at Red Creek Rapids, water was about thigh deep.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2K",
+   "date": "2018-11-11",
+   "category": "route-finding",
+   "text": "Awkward shuffle to find the start of the trail along the bank, steep climb up loose rocks, and then the sign for the start of Wet Bottom. It was a quick half mile.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2L",
+   "date": "2018-11-11",
+   "category": "tread",
+   "text": "Loose rolling rocks faded into solid tread and huge cairns. Lush green growth along the way made it all the better, even when it tried to hide the route.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2O",
+   "date": "2018-11-11",
+   "category": "route-finding",
+   "text": "Tread was initially difficult to find, and the cairns, while big, had a tendency to shyly duck behind prickly pear and brush. Once it dropped off the mesa things got better. In fact, the trail was overall well-defined and in good shape (that drop into Canyon Creek was a work of art), although every wash was your typical Mazzie route-finding challenge.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2O",
+   "date": "2018-11-11",
+   "category": "brush",
+   "text": "Pete's Cabin Mesa was some of the most verdant green I've seen in the lowlands and, as the trail entered this area, I was walled in by vegetation that felt more like an immature Midwest forest than usual open desert.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2N",
+   "date": "2018-11-11",
+   "category": "route-finding",
+   "text": "Tread was almost invisible, cairns were tiny and easy to miss, and everything was wildly overgrown. Compared to Wet Bottom and Highwater this was by far the hardest to track. Following it south offered good views of the river below and was mentally exhausting. As soon as the route dropped below the upper banks of the river I was left trail-less so I ambled in the general direction of the rapids. Thick reeds masked the way forward.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "node:1L",
+   "date": "2018-11-11",
+   "category": "access",
+   "text": "Confirmed the island was still there and that the upriver side would be easier to wade around than downriver. Water was deeper and slower this time. Got to the other side, walked a hundred feet just to bump into another channel and the realization that there were two parallel islands here and I had to do the whole ritual again. All told it took me 90 minutes to finally get to the western bank.",
+   "source": "haz/triplog/2018-11-11.md"
+  },
+  {
+   "target": "segment:2V",
+   "date": "2018-12-05",
+   "category": "tread",
+   "text": "Once my eyes adjusted from the two-track to a single track it was pretty easy going. Cairns are big and tread is (usually) easy to make out, a dark line in the light grass. Smooth sailing, easy going over the pleasant trail.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2U",
+   "date": "2018-12-05",
+   "category": "water",
+   "text": "Watered up at Whiterock Spring, which is heckin' beautiful.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2U",
+   "date": "2018-12-05",
+   "category": "tread",
+   "text": "Only annoying section is that drop off of Polles Mesa, that got a little painful. That half mile of trail on the south side of the East Verde dragged.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2U",
+   "date": "2018-12-05",
+   "category": "access",
+   "text": "Crossed the East Verde with little fanfare.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2S",
+   "date": "2018-12-05",
+   "category": "tread",
+   "text": "The haul up and over Copper Mountain is better defined than I remembered. The tread on this trail is smooth and easy enough to let the eyes wander, a rare treat in the Mazzies.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2Q",
+   "date": "2018-12-05",
+   "category": "route-finding",
+   "text": "Trail began to fade immediately after the AZT junction, which is to be expected, though it was never hard to track through the waist-high brush, even without a cairn in sight. Beyond the pass there are two minor drainages to swing through, the first of which has an old mining exploration and trailside tank to check out, before the drop into the valley of Bull Spring(s). Struggled a bit to find a steady tread in the area.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2Q",
+   "date": "2018-12-05",
+   "category": "water",
+   "text": "Took a break at Bull Spring to pull up to full capacity.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2M",
+   "date": "2018-12-05",
+   "category": "route-finding",
+   "text": "No sign at the junction by the cabin, just a curve in the trail. As soon as it crosses the drainage a steady line of cairns show up and a wide, rocky tread marches up the hillside. After the climb there was a second little drainage and valley to walk through.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2M",
+   "date": "2018-12-05",
+   "category": "water",
+   "text": "There were some good rock tanks in the second drainage past the cabin, so I took the time to guzzle one of my bladders and refill it.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2M",
+   "date": "2018-12-05",
+   "category": "tread",
+   "text": "On the mesa west of that valley the cairns were large and the tread, even when it was covered by low branches, was well-defined. I did lose it a few times, either due to impatience or grassy sections.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2M",
+   "date": "2018-12-05",
+   "category": "route-finding",
+   "text": "When the trail began to drop is when it got harder and harder to follow. There were a few obvious re-routes done in more recent years that deviated from my track and, sometimes, didn't even make sense to me. One particularly memorable example was where the route dropped steadily down a drainage with small, humble cairns, only to suddenly be re-routed 300 yards for a mild switchback using huge, chest-high cairns, and then revert back to the little rock piles and original tread. And then, below contour 4400', the trail hugs the north side of a ridge and all bets are off, with game trails, thick growth, and loose ground all conspiring to cause mayhem. I fought this for almost an hour and made a mile of progress.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2M",
+   "date": "2018-12-06",
+   "category": "route-finding",
+   "text": "The final four miles of trail passed by quickly, becoming steadily better defined the closer I got to the Highwater junction. The only nasty bit was a valley (more like a mesquite maze surrounded by a moat of catclaw) that I eventually did find a way, but not the right way, through. Took a while to pick up the trail on the far side.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2O",
+   "date": "2018-12-06",
+   "category": "water",
+   "text": "Watered up at Canyon Creek.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "node:1M",
+   "date": "2018-12-06",
+   "category": "route-finding",
+   "text": "Followed the trail all the way to the proper junction w/ Verde and found a lonely pole, no sign, to mark it.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2P",
+   "date": "2018-12-06",
+   "category": "tread",
+   "text": "It was impeccable. Seriously. It is in at least, if not better, as good of condition as Highwater. Shortly after the junction it cuts right down to the river with a series of rocky switchbacks and then, complete with good cairns, marches along the sandy banks with a few jumps to avoid different obstacles. The first two miles has a lot of bovine traffic, and they stuck to the tread. There were also long stretches of straight path through creosote.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2P",
+   "date": "2018-12-06",
+   "category": "tread",
+   "text": "Initial climb from the East Verde to Deadman Mesa Trail was steep and rocky and simple to follow.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:2W",
+   "date": "2018-12-06",
+   "category": "tread",
+   "text": "Everyone complains about the rocks on this trail, yet the mud is so much worse. Even a 20' section of mud would add pounds of clay to each boot, weighing me down and throwing my balance off. Thankfully the trail is easy to follow.",
+   "source": "haz/triplog/2018-12-05.md"
+  },
+  {
+   "target": "segment:02",
+   "date": "2020-03-21",
+   "category": "tread",
+   "text": "Great shape. Some sections have been cleaned up since my last visit a few years ago.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:02",
+   "date": "2020-03-21",
+   "category": "water",
+   "text": "Every creek and drainage was overflowing, Barnhardt and Rock required using deadfall to get across dry.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:02",
+   "date": "2020-03-21",
+   "category": "route-finding",
+   "text": "A recent redirect at the end, within sight of Rock Creek TH, that was confusing, but it eventually looped back down.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2020-03-21",
+   "category": "brush",
+   "text": "There were a few sections of new overgrowth on the climb up to the creek crossing, nothing worth fretting about.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2020-03-21",
+   "category": "water",
+   "text": "Yeah the falls were flowing.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2020-03-21",
+   "category": "tread",
+   "text": "Snow became a minor issue after 6000', hiding tread and adding a few slips.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:03",
+   "date": "2020-03-21",
+   "category": "route-finding",
+   "text": "Descent to Hopi is 95% defined with a narrow break in the manzanita and a few cairns.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "node:04",
+   "date": "2020-03-21",
+   "category": "water",
+   "text": "Hopi Spring looks amazing.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "node:0V",
+   "date": "2020-03-21",
+   "category": "water",
+   "text": "Puttered down to check out the falls from the north bank. They are amazing. Photos don't do them justice.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:09",
+   "date": "2020-03-21",
+   "category": "tread",
+   "text": "Is more of a waterway than a trail. Sloppy going.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2020-03-21",
+   "category": "tread",
+   "text": "Quite muddy. Suspect that there had been a lot of traffic in-and-out today, churning up the path.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2020-03-21",
+   "category": "water",
+   "text": "Those falls were flowing too.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2020-03-21",
+   "category": "brush",
+   "text": "A few sections are starting to get shade from taller willows/manzanita, which would be heckin' awesome.",
+   "source": "haz/triplog/2020-03-21.md"
+  },
+  {
+   "target": "segment:1G",
+   "date": "2021-02-27",
+   "category": "route-finding",
+   "text": "Trail is well-defined going up that ridge. Plenty of forks to choose from on top, had to check gps a few times.",
+   "source": "haz/triplog/2021-02-27.md"
+  },
+  {
+   "target": "segment:1G",
+   "date": "2021-02-27",
+   "category": "water",
+   "text": "Upper sheep spring was a bust.",
+   "source": "haz/triplog/2021-02-27.md"
+  },
+  {
+   "target": "segment:1E",
+   "date": "2021-02-27",
+   "category": "water",
+   "text": "Kids were straight up giddy with the trickling water and little waterfalls.",
+   "source": "haz/triplog/2021-02-27.md"
+  },
+  {
+   "target": "segment:1E",
+   "date": "2021-02-27",
+   "category": "tread",
+   "text": "Kids perked up when they saw the trail quality change on LSM.",
+   "source": "haz/triplog/2021-02-27.md"
+  },
+  {
+   "target": "node:15",
+   "date": "2021-02-27",
+   "category": "access",
+   "text": "New TH looks fantastic.",
+   "source": "haz/triplog/2021-02-27.md"
+  },
+  {
+   "target": "segment:0O",
+   "date": "2022-05-12",
+   "category": "tread",
+   "text": "Trail was in great shape.",
+   "source": "haz/triplog/2022-05-12.md"
+  },
+  {
+   "target": "segment:0N",
+   "date": "2022-05-12",
+   "category": "tread",
+   "text": "Trail was in great shape.",
+   "source": "haz/triplog/2022-05-12.md"
+  },
+  {
+   "target": "segment:0L",
+   "date": "2022-05-12",
+   "category": "route-finding",
+   "text": "Off-trail section is well-traveled to a fault - there are a few options to choose from and too many competing cairns.",
+   "source": "haz/triplog/2022-05-12.md"
+  },
+  {
+   "target": "node:0J",
+   "date": "2022-05-12",
+   "category": "access",
+   "text": "Road is in great shape, no issues.",
+   "source": "haz/triplog/2022-05-12.md"
+  },
+  {
+   "target": "node:0J",
+   "date": "2016-07-16",
+   "category": "access",
+   "text": "FR 201 is loooooong and buuuuuuuuumpy.",
+   "source": "haz/triplog/2016-07-16.md"
+  },
+  {
+   "target": "segment:0L",
+   "date": "2016-07-16",
+   "category": "route-finding",
+   "text": "Found the large cairn and spur trail up to the summit a few dozen yards past the Mazatzal Wilderness sign. Couple of options for the last climb up, we all chose different ones.",
+   "source": "haz/triplog/2016-07-16.md"
+  },
+  {
+   "target": "segment:0O",
+   "date": "2016-07-16",
+   "category": "brush",
+   "text": "The trails were beautiful. A+ maintenance.",
+   "source": "haz/triplog/2016-07-16.md"
+  },
+  {
+   "target": "segment:0N",
+   "date": "2016-07-16",
+   "category": "brush",
+   "text": "The trails were beautiful. A+ maintenance.",
+   "source": "haz/triplog/2016-07-16.md"
+  },
+  {
+   "target": "segment:1C",
+   "date": "2017-11-18",
+   "category": "tread",
+   "text": "Still in fantastic shape. Was a piece of cake to walk in the dark, even when a few overgrown branches cast scary shadows over the last mile or so.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "node:0P",
+   "date": "2017-11-18",
+   "category": "water",
+   "text": "Paused at MacFarland to pull a fresh liter.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0U",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Getting to Squaw Flat Spring was easy, though I still haven't found a track I like from there to the Copper Camp junction.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0W",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "The final climb was quick and easy. Drop was easier this time around, though the trail was a bit hard to track along the creek with the fall leaves.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0W",
+   "date": "2017-11-18",
+   "category": "water",
+   "text": "Few pools along the way that dried up before the seep proper. Reached the cabin area to find a dry Round Spring and creek.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "node:0Q",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Hauled up to Sears Junction and the saddle above but couldn't pick up a path until I started dropping down the other side.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0X",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Sheep Creek Trail from Sears to Davenport is a bit easier to track than the eastern part of Sears Trail, with small cairns and faint tread to track, but it was easy to lose near the washes. I did find it interesting how small most of the cairns are, as if someone recently did some revival work, there's just not enough traffic out this way to sustain it. Sheep Creek is 90% tiny cairn tracking and sorting through game trails.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0X",
+   "date": "2017-11-18",
+   "category": "tread",
+   "text": "That last drop down the ridge after the Sears Junction is terrible, all rolling rocks that really know how to tweak knees.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:0Z",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Section from Sheep Creek to Club Cabin felt a bit harder to follow today, or else I was just in a rush for water. Davenport Wash is like 90% packed footpath with a few cairns.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "node:0T",
+   "date": "2017-11-18",
+   "category": "water",
+   "text": "Drank 2 liters here, pulled another 2, figuring that would be enough to last until Deadman Creek.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2017-11-18",
+   "category": "brush",
+   "text": "Getting to Red Rock Spring area was simple, good trail that was being overtaken by various spiky things with well-worn alternative routes.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Climbing out of Red Rock was a solid gut-punch of elevation and I accidentally ended up on a game trail about forty feet above the actual path but kept to it. We met back up in time to tackle two miles of manzanita / catclaw / holly? mess that left me dripping blood from a dozen cuts.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2017-11-18",
+   "category": "water",
+   "text": "Upper Deadman was dry.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2017-11-18",
+   "category": "route-finding",
+   "text": "Climbing out of Upper Deadman I chose a bad route initially and had to do sketchy scrambling before finding the real way, and then haul up the grassy hill that never ends. Hauled up the rest of the way to round the cliff by 5400' and find a lonely cairn marking the turn. Which was nice, because there hadn't been dependable cairns for much of the climb from the creek.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:11",
+   "date": "2017-11-18",
+   "category": "tread",
+   "text": "Past the turn by 5400' the terrain got real rocky real fast, huge red boulders that were anything but stable, though there was a packed path hidden in the manzanita that slowly got better as I traveled east. In fact, even after the sun set, I was able to move pretty quick as obvious maintenance made the last mile to Chilson painless.",
+   "source": "haz/triplog/2017-11-18.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-04-25",
+   "category": "brush",
+   "text": "Reached the Sandy Saddle Trail pretty easily and then it took us over an hour to bushwhack our way down to Casterson Seep.",
+   "source": "haz/triplog/2025-04-25.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-04-26",
+   "category": "deadfall",
+   "text": "Took me an hour to clear the deadfall on the short spur leading from Sandy Saddle to the campsite, that was a hint for how intensive this project was going to be. We then continued to clear, cutting deadfall, trimming manzanita, and often uprooting plants that were in the tread itself. After 4 hours we had a respectable path cleared from the drainage to the camp.",
+   "source": "haz/triplog/2025-04-25.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-05-24",
+   "category": "brush",
+   "text": "Started on the west side of the first drainage, which was one of most overgrown sections, and spent 8 hrs fighting manzanita and deadfall, clearing a few hundred feet. Attempted to follow the rest of the trail (got lost twice, good grief its overgrown).",
+   "source": "haz/triplog/2025-05-24.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-05-25",
+   "category": "brush",
+   "text": "I'd estimate a total of 500' or more are cleared from the camp back south. There's probably another 1000' left of real nastiness along that drainage, then the rest of the trail will be... slightly easier. At this point I'd estimate that we've cleared a total of 800' (.15m) over 20 hrs. There's 2600' (.5m) remaining from Barnhardt -> Casterson.",
+   "source": "haz/triplog/2025-05-24.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-06-21",
+   "category": "brush",
+   "text": "Venturing down the first part of Sandy Saddle brought out a ton of complaints from the kids -- bushwhacking through manzanita is a bit harder when it's all taller than you. Saw some evidence of recent slashes along the way. Made some more progress on the northern tip, where I stopped last time, though we didn't quite make it to the edge of the ridge. With no sizeable deadfall and less brush density we did make respectable progress (cleared ~200').",
+   "source": "haz/triplog/2025-06-21.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-09-06",
+   "category": "brush",
+   "text": "Checked out the existing work (no fresh overgrowth). The manzanita gets thicker at this point and it was a pain to angle the loppers between the clusters of stems. Another 120' complete. Only 2100' to connect all the way to the camp.",
+   "source": "haz/triplog/2025-09-06.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-09-14",
+   "category": "brush",
+   "text": "The manzanita was uncomfortably thick near that black stump where I stopped last weekend, but once we finally got about 40' past it things get really easy -- it's much thinner and smaller. I could walk the tread and angle the loppers straight down and cut.",
+   "source": "haz/triplog/2025-09-14.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-10-04",
+   "category": "brush",
+   "text": "The first stretch was surprisingly thick manzanita, and I pulled somewhere between 50 and 5000 stumps. After that the tread seems to have held up better and I made faster progress. Another 230' cleared.",
+   "source": "haz/triplog/2025-10-03.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2025-10-16",
+   "category": "water",
+   "text": "Creek was roaring below, hillsides had fresh growth, several seeps were dribbling across the trail, and both Hawaiian Mist & Big Kahuna were flowing.",
+   "source": "haz/triplog/2025-10-16.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-10-16",
+   "category": "brush",
+   "text": "After Barnhardt we turned off on Sandy Saddle, pushing through the bad sections and celebrating our work so far, then dropped down into the creek to avoid the worst of it and rock hopped to camp.",
+   "source": "haz/triplog/2025-10-16.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-10-18",
+   "category": "brush",
+   "text": "The hike out was more painful to connect to Sandy Saddle. 220' more feet cleared. Another 800' and our future trips would be a lot easier.",
+   "source": "haz/triplog/2025-10-16.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-11-15",
+   "category": "brush",
+   "text": "Made good progress along easier sections, got almost 250' cleared!",
+   "source": "haz/triplog/2025-11-15.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-11-28",
+   "category": "brush",
+   "text": "Made it up to Castersen via Sandy Saddle (dropped into creek after fighting some uncleared trail) in 4 hours.",
+   "source": "haz/triplog/2025-11-28.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-11-29",
+   "category": "brush",
+   "text": "With the extra hands we made more progress on the second day, reaching a convenient bend in the creek. Still .25 miles left to clear to have an easy hike to Castersen.",
+   "source": "haz/triplog/2025-11-28.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2025-12-06",
+   "category": "brush",
+   "text": "Some bushwhacking was needed to reach the western end of our clearing, and then got to work. Made decent progress considering how thick this brush was. Manzanita was easily 6' tall, scrub oak (?) made for frustrating tangles, and there were a few thicker things that I needed a saw for.",
+   "source": "haz/triplog/2025-12-06.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2026-01-16",
+   "category": "water",
+   "text": "Good flow at the falls & creek below.",
+   "source": "haz/triplog/2026-01-16.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-01-17",
+   "category": "brush",
+   "text": "Progress was slow, there were a lot of small manzanitas, which meant more clipping, more throwing, and more roots to pull up. I was starting to accept that this last section of trail would take more than the planned three days so I began partial clearing just to make a semblance of a route, and will plan on polishing on future outings.",
+   "source": "haz/triplog/2026-01-16.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2026-05-15",
+   "category": "water",
+   "text": "Things really dried up since I was last out here -- Garden Seep area was dry, both waterfalls silent, and only a few sad pools sat under Big Kahuna.",
+   "source": "haz/triplog/2026-05-15.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2026-05-15",
+   "category": "brush",
+   "text": "The trail maintenance along Barnhardt was appreciated, the manzanita above the falls has been pushed back nicely.",
+   "source": "haz/triplog/2026-05-15.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-05-15",
+   "category": "deadfall",
+   "text": "My main focus for this trip was going to be THE log... there's a large pine that fell 10+ years ago along the trail tread, and I was tired of balancing on it while getting shoved around with manzanita. I cut down manzanita on the downhill side, then chopped/saw/hacked/cried through the trunk until I was able to break the bottom third through and roll it off trail.",
+   "source": "haz/triplog/2026-05-15.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-05-16",
+   "category": "brush",
+   "text": "I was able to finish off that log and clear most of that section of trail (still a cluster of skinny manzanita that needs to get cut back), and then I slowly walked back to camp, pulling up a few extra roots, re-stacking some cairns, and improving the creek crossings.",
+   "source": "haz/triplog/2026-05-15.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-05-16",
+   "category": "deadfall",
+   "text": "Tracked down exactly where the trail crosses Barnhardt Creek for future trips. Had to bushwhack uphill to find the tread, but once found, I was able to crawl along it (lots of deadfall) and find where it met the creek. That's going to be a beautiful section of trail once cleared.",
+   "source": "haz/triplog/2026-05-15.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2026-05-23",
+   "category": "brush",
+   "text": "Barnhardt is still in decent shape and the few plants that brushed my legs didn't cut deep.",
+   "source": "haz/triplog/2026-05-23.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-05-23",
+   "category": "brush",
+   "text": "Started clearing a few yards from Barnhardt (I still want to leave a buffer of uncleared tread to reduce random wanderers). Part of me was hoping to clear all the way to my previously-cleared tread, but the dozens of roots that needed to be pulled had other thoughts. Maybe one more weekend and I'll have it cleared to Castersen Seep. Maybe.",
+   "source": "haz/triplog/2026-05-23.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-06-30",
+   "category": "brush",
+   "text": "Two goals: clean up the 3 short sections of trail that remain to be cleared between Barnhardt Trail and Castersen Seep and haul my tools out.",
+   "source": "haz/triplog/2026-06-30.md"
+  },
+  {
+   "target": "segment:06",
+   "date": "2026-06-30",
+   "category": "water",
+   "text": "Headed to Castersen to set up camp, minutes after the sunset, to find a bone-dry seep. I've never seen it so dry. The area didn't 'feel' dry. The hillsides are still healthily green, flowers a'flowering, etc. The water table must just be a little too low for Castersen, I guess.",
+   "source": "haz/triplog/2026-06-30.md"
+  },
+  {
+   "target": "segment:00",
+   "date": "2026-06-30",
+   "category": "water",
+   "text": "I even heard some water trickling down Barnhardt Canyon on the hike up.",
+   "source": "haz/triplog/2026-06-30.md"
+  }
+ ]
 }

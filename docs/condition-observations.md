@@ -141,7 +141,12 @@ but usually a copy-paste, and one photo shows one dated condition.
 
 ### 6. Provenance is recorded when it exists
 
-**Decision: optional `source`, the archive filename of the trip the note comes from.**
+**Decision: optional `source`, the archive path the note comes from.**
+
+Widened 2026-09-21: the first real observations were drawn from the HikeArizona trip
+reports in `archive/haz/triplog/`, so `source` is that report's path
+(`haz/triplog/<date>.md`) rather than a GPX filename. The report is the actual origin of
+the words; `curation/triplogs.json` links the report to its track where one exists.
 
 Segments carry the tracks they were traced from because walked-it-myself provenance is
 the point of the project. An observation drawn from a recorded trip can carry the same
