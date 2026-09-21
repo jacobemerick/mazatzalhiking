@@ -45,6 +45,30 @@ access; only coordinates that have never been asked for cost a request.
 Why the published gain comes from here and not from the recorded altimeter channel:
 [`docs/elevation.md`](../docs/elevation.md).
 
+## `haz/` — Jacob's own writing on HikeArizona
+
+Trail guides and trip reports Jacob wrote and published on HikeArizona, pulled by
+hand and stored here as text. This is the source of the site's dated condition
+observations (#18): the trip reports are where "what I saw, on which day" was recorded
+at the time. It is **not** published as-is — #20 decided that any trail prose on the
+site is written fresh, so nothing here is copied onto a page.
+
+- `guides/<slug>.md` — one per trail, named by the trail's `slug` in `curation/graph.json`
+  (28 of 49 trails have one). HAZ's fixed sections are Markdown headings: `## Overview`,
+  `## Warning`, `## History`, `## Hike`, `## Water Sources`, `## Camping`; a guide that
+  breaks its Hike into stretches uses `###` for them. Body text is as written. The only
+  edits on import were the headings and collapsing the double spaces left behind where
+  an inline link carried an icon.
+- `triplog/<date>.md` — one per trip report, named by the date walked. Per-trail
+  sections as Jacob wrote them become `##` headings (a `### ` layer where a report had
+  a "Long Version"). Which graph legs each report covers is recorded in
+  `curation/triplogs.json`, computed from the recorded track where one exists and read
+  from the prose where not.
+
+The triplog date is the day the trip started, and where it disagreed with
+`tools/trips.csv` the triplog was right (recorded timestamps agree with it); the
+manifest was corrected to match on 2026-09-21.
+
 ---
 
 Findings and full numbers: [`docs/gpx-corpus-inventory.md`](../docs/gpx-corpus-inventory.md).

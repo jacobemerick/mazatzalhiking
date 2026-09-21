@@ -1,0 +1,545 @@
+{
+ "version": 1,
+ "about": "One entry per trip report in archive/haz/triplog/. `segments` are the graph legs the trip walked: computed from the recorded track where one exists (a leg counts when at least half of its line lies within 30 m of the track), otherwise read from the prose. This is the join from a dated report to the legs it can carry observations for (#18).",
+ "triplogs": [
+  {
+   "file": "triplog/2016-03-05.md",
+   "date": "2016-03-05",
+   "gpx": "35933_Club_Ranch.gpx",
+   "basis": "gpx",
+   "segments": [
+    "0Z",
+    "10",
+    "1M",
+    "0Y",
+    "1Q",
+    "1R"
+   ],
+   "note": "Sections are narrative (\"The Hike Out\", \"Camp\", \"The Return\"); legs come from the track."
+  },
+  {
+   "file": "triplog/2016-04-02.md",
+   "date": "2016-04-02",
+   "gpx": "35935_Mazatzal_P.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "01",
+    "07",
+    "09",
+    "0A",
+    "0B",
+    "0C",
+    "0D",
+    "08",
+    "12"
+   ]
+  },
+  {
+   "file": "triplog/2016-07-16.md",
+   "date": "2016-07-16",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "0N",
+    "0L",
+    "0O"
+   ],
+   "note": "No track. Mount Peeley via Cornucopia from the Peeley trailhead, same legs as the 2022-05-12 track."
+  },
+  {
+   "file": "triplog/2016-09-23.md",
+   "date": "2016-09-23",
+   "gpx": "33886_Rock_Creek.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "02",
+    "03",
+    "07",
+    "09",
+    "0A",
+    "0B",
+    "27",
+    "28",
+    "12"
+   ]
+  },
+  {
+   "file": "triplog/2017-03-26.md",
+   "date": "2017-03-26",
+   "gpx": "35761_City_Creek.gpx",
+   "basis": "gpx",
+   "segments": [
+    "28",
+    "2B",
+    "2C",
+    "29",
+    "2A"
+   ]
+  },
+  {
+   "file": "triplog/2017-04-14.md",
+   "date": "2017-04-14",
+   "gpx": "36135_Copper_Cam.gpx",
+   "basis": "gpx",
+   "segments": [
+    "0W",
+    "1J",
+    "1L",
+    "1Q",
+    "1R",
+    "1S",
+    "1T"
+   ],
+   "note": "Up Copper Camp Trail, a short way along Sheep Creek Trail (0U) to a campsite near water, overnight, then back the same way. 0U is only 29% covered and is not counted."
+  },
+  {
+   "file": "triplog/2017-05-06.md",
+   "date": "2017-05-06",
+   "gpx": "36587_Mazatzal_P.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "01",
+    "07",
+    "0J",
+    "0K",
+    "08",
+    "0G",
+    "0H",
+    "0F",
+    "0I"
+   ]
+  },
+  {
+   "file": "triplog/2017-05-20.md",
+   "date": "2017-05-20",
+   "gpx": "36737_Deer_Creek.gpx",
+   "basis": "gpx",
+   "segments": [
+    "0M",
+    "0N",
+    "0I",
+    "0O",
+    "13",
+    "14",
+    "15",
+    "17",
+    "18",
+    "19",
+    "1N",
+    "1O"
+   ],
+   "note": "The \"Deer Creek Connector\" section is off-trail between Davey Gowan Camp and Bear Spring; not in the graph."
+  },
+  {
+   "file": "triplog/2017-06-11.md",
+   "date": "2017-06-11",
+   "gpx": "36991_S_Mazatzal.gpx",
+   "basis": "gpx",
+   "segments": [
+    "0P",
+    "0R",
+    "0S",
+    "0Q",
+    "0T",
+    "0U",
+    "0V",
+    "1A",
+    "1B",
+    "1C",
+    "1P",
+    "1D",
+    "1E",
+    "1F",
+    "1H",
+    "1I"
+   ]
+  },
+  {
+   "file": "triplog/2017-06-24.md",
+   "date": "2017-06-24",
+   "gpx": "37074_Verde_Rive.gpx",
+   "basis": "gpx",
+   "segments": [
+    "2W",
+    "2X"
+   ]
+  },
+  {
+   "file": "triplog/2017-07-08.md",
+   "date": "2017-07-08",
+   "gpx": "37172_South_Fork.gpx",
+   "basis": "gpx",
+   "segments": [
+    "14",
+    "15",
+    "16",
+    "19",
+    "1O"
+   ]
+  },
+  {
+   "file": "triplog/2017-09-01.md",
+   "date": "2017-09-01",
+   "gpx": "37747_Club_Ranch.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "0A",
+    "0B",
+    "27",
+    "06",
+    "0Z",
+    "10",
+    "1M",
+    "0Y",
+    "12",
+    "20",
+    "22",
+    "23",
+    "25",
+    "26",
+    "1Z",
+    "21"
+   ]
+  },
+  {
+   "file": "triplog/2017-11-05.md",
+   "date": "2017-11-05",
+   "gpx": "38315_Verde_Rive.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1U",
+    "1V",
+    "2J",
+    "2K"
+   ],
+   "note": "FR 269 and the Red Creek road walk are outside the graph; only the Verde River legs are in it."
+  },
+  {
+   "file": "triplog/2017-11-18.md",
+   "date": "2017-11-18",
+   "gpx": "38408_Sheep_Cree.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "07",
+    "08",
+    "0U",
+    "0V",
+    "0W",
+    "0X",
+    "0Z",
+    "10",
+    "11",
+    "0Y",
+    "1B",
+    "1C"
+   ]
+  },
+  {
+   "file": "triplog/2017-12-29.md",
+   "date": "2017-12-29",
+   "gpx": "38742_Fuller_See.gpx",
+   "basis": "gpx",
+   "segments": [
+    "2C",
+    "2D",
+    "2E",
+    "2S",
+    "2R",
+    "2T"
+   ]
+  },
+  {
+   "file": "triplog/2018-02-11.md",
+   "date": "2018-02-11",
+   "gpx": "39258_Fig_Trail_.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1K"
+   ],
+   "note": "Forest-road approach with a Verde River crossing, Fig Trail, then down Sheep Creek (the creek, not the trail) and a paddle down the Verde. Only Fig Trail is in the graph."
+  },
+  {
+   "file": "triplog/2018-06-03.md",
+   "date": "2018-06-03",
+   "gpx": "40409_Barnhardt_.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "07",
+    "09",
+    "06"
+   ]
+  },
+  {
+   "file": "triplog/2018-06-09.md",
+   "date": "2018-06-09",
+   "gpx": "40522_Sheep_Brid.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1U",
+    "1V",
+    "1W",
+    "1Y",
+    "20",
+    "22",
+    "1X",
+    "21",
+    "2H",
+    "2I"
+   ]
+  },
+  {
+   "file": "triplog/2018-09-03.md",
+   "date": "2018-09-03",
+   "gpx": "47532_Midnight_M.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1U",
+    "1V",
+    "1W",
+    "1Y",
+    "20",
+    "22",
+    "23",
+    "25",
+    "21",
+    "24",
+    "2G",
+    "2F",
+    "2H"
+   ]
+  },
+  {
+   "file": "triplog/2018-11-11.md",
+   "date": "2018-11-11",
+   "gpx": "48135_Red_Crk___.gpx",
+   "basis": "gpx",
+   "segments": [
+    "2K",
+    "2N",
+    "2L",
+    "2O"
+   ],
+   "note": "FR 18 / Red Creek road walk is outside the graph."
+  },
+  {
+   "file": "triplog/2018-12-05.md",
+   "date": "2018-12-05",
+   "gpx": "48331_Upper_Maza.gpx",
+   "basis": "gpx",
+   "segments": [
+    "2P",
+    "2W",
+    "2M",
+    "2O",
+    "2Q",
+    "2S",
+    "2U",
+    "2V"
+   ],
+   "note": "FR 194 road walk is outside the graph."
+  },
+  {
+   "file": "triplog/2020-03-21.md",
+   "date": "2020-03-21",
+   "gpx": "RS_NorthForkFallsofDead_174147.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00",
+    "04",
+    "02",
+    "03",
+    "07",
+    "09",
+    "0B",
+    "12"
+   ]
+  },
+  {
+   "file": "triplog/2021-02-27.md",
+   "date": "2021-02-27",
+   "gpx": "RS_BlackRidgeLoop-Mazat_184205.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1E",
+    "1F",
+    "1G"
+   ]
+  },
+  {
+   "file": "triplog/2022-05-12.md",
+   "date": "2022-05-12",
+   "gpx": "RS_MountPeeleySummit_196419.gpx",
+   "basis": "gpx",
+   "segments": [
+    "0N",
+    "0L",
+    "0O"
+   ]
+  },
+  {
+   "file": "triplog/2025-04-25.md",
+   "date": "2025-04-25",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-05-24.md",
+   "date": "2025-05-24",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-06-21.md",
+   "date": "2025-06-21",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-09-06.md",
+   "date": "2025-09-06",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-09-14.md",
+   "date": "2025-09-14",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-10-03.md",
+   "date": "2025-10-03",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-10-16.md",
+   "date": "2025-10-16",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-11-15.md",
+   "date": "2025-11-15",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-11-28.md",
+   "date": "2025-11-28",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2025-12-06.md",
+   "date": "2025-12-06",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2026-01-16.md",
+   "date": "2026-01-16",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2026-05-15.md",
+   "date": "2026-05-15",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2026-05-23.md",
+   "date": "2026-05-23",
+   "gpx": "RS_SandySaddleTM12_231525.gpx",
+   "basis": "gpx+prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "Track covers Barnhardt only; the prose is the Sandy Saddle stretch by the junction, which the track does not reach 50% of. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2026-06-30.md",
+   "date": "2026-06-30",
+   "gpx": null,
+   "basis": "prose",
+   "segments": [
+    "00",
+    "06"
+   ],
+   "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  }
+ ]
+}
