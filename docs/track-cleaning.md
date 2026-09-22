@@ -145,6 +145,23 @@ legs are trimmed, most by 0–2 points; the dead-end legs now all end exactly on
 This is applied only at degree-1 nodes. At a through junction the arc endpoint is the
 snapped point, and wandering there would show in both adjoining legs; none has been seen.
 
+## Detours
+
+Some legs carry ground that was walked but is not the trail: a wander at a seep, a side
+trip to an overlook. Neither cleaning step above can touch these — consensus averages
+across passes and a detour simply stops voting; simplification keeps any excursion
+wider than 3.3 m by design. They are removed by an **authored excision**: a `skip`
+list on the leg's `derived.arc` in its geometry file, each entry a `[first, last]` pair
+of archive indices whose interior points are dropped and bridged straight. Like the
+arc, it is a human decision read back on every rebuild, and the raw track keeps the
+ground.
+
+Finding them is `tools/detours.py`: every place a leg comes back within 12 m of itself
+after 40–400 m, scored by how much of the loop retraces itself, written out as a review
+sheet with each candidate over aerial imagery. The score is a sort order, not a
+verdict — a switchback and a detour are the same shape to geometry, which is why the
+sheet exists. Tracked under #38.
+
 ## Spot check
 
 The ticket asks that the result be checked by eye on a map before the settings are
