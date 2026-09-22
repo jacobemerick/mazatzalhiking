@@ -6,7 +6,8 @@
  * pages cannot drift into showing conditions differently.
  *
  * Rules it enforces, in one place:
- *   - newest first, ties in file order
+ *   - newest first, ties in file order, and notes from one day are grouped under
+ *     that day: the date is the thing a reader scans by
  *   - the date is always visible next to the text
  *   - the empty case says there is no observation; it never implies the trail is clear
  *   - text is plain; blank lines are paragraph breaks and nothing else is markup
@@ -49,12 +50,7 @@
 
   function renderOne(o) {
     var art = el('article', 'obs obs-' + o.category);
-    var head = el('header', 'obs-head');
-    head.appendChild(el('span', 'obs-cat', LABELS[o.category] || o.category));
-    var t = el('time', 'obs-date', fmtDate(o.date));
-    t.setAttribute('datetime', o.date);
-    head.appendChild(t);
-    art.appendChild(head);
+    art.appendChild(el('span', 'obs-cat', LABELS[o.category] || o.category));
     String(o.text).split(/\n\s*\n/).forEach(function (para) {
       if (para.trim()) art.appendChild(el('p', 'obs-text', para.trim()));
     });
@@ -78,7 +74,20 @@
       wrap.appendChild(el('p', 'obs-empty', 'No recorded observation for this leg.'));
       return wrap;
     }
-    list.forEach(function (o) { wrap.appendChild(renderOne(o)); });
+    var day = null, notes = null;
+    list.forEach(function (o) {
+      if (!day || day.getAttribute('data-date') !== o.date) {
+        day = el('div', 'obs-day');
+        day.setAttribute('data-date', o.date);
+        var t = el('time', 'obs-date', fmtDate(o.date));
+        t.setAttribute('datetime', o.date);
+        day.appendChild(t);
+        notes = el('div', 'obs-notes');
+        day.appendChild(notes);
+        wrap.appendChild(day);
+      }
+      notes.appendChild(renderOne(o));
+    });
     return wrap;
   }
 

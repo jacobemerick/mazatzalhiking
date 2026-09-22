@@ -25,6 +25,7 @@ class Element {
   get textContent() { return this._text ?? this.children.map(c => c.textContent).join(''); }
   appendChild(c) { this.children.push(c); return c; }
   setAttribute(k, v) { this.attrs[k] = String(v); }
+  getAttribute(k) { return this.attrs[k] ?? null; }
   toString() {
     const a = Object.entries(this.attrs).map(([k, v]) => ` ${k}="${esc(v)}"`).join('');
     const inner = this._text != null ? esc(this._text) : this.children.map(String).join('');
@@ -51,13 +52,24 @@ for (const slug of readdirSync(trailsDir)) {
   const page = join(trailsDir, slug, 'index.html');
   if (!existsSync(page)) continue;
   const html = readFileSync(page, 'utf8');
-  // every leg: <li class="leg" id="XX"> ... <div class="obs-list">...</div>
-  const re = /<(?:li class="?leg"? id="?([0-9A-Za-z]+)"?|div class="?place"? id="?node-([0-9A-Za-z]+)"?)>[\s\S]*?(<div class="?obs-list"?>[\s\S]*?<\/div>)\s*<\/(?:li|div)>/g;
+  // every leg (<li class="leg" id="XX">) and place (<div class="place" id="node-XX">)
+  // holds one <div class="obs-list">; take it whole by counting divs.
+  const re = /<(?:li class="?leg"? id="?([0-9A-Za-z]+)"?|div class="?place"? id="?node-([0-9A-Za-z]+)"?)>/g;
   let m;
   while ((m = re.exec(html))) {
     const target = m[1] ? `segment:${m[1]}` : `node:${m[2]}`;
+    const start = html.indexOf('<div class="obs-list">', m.index);
+    if (start < 0) continue;
+    let depth = 0, i = start;
+    const tag = /<\/?div\b[^>]*>/g;
+    tag.lastIndex = start;
+    let t;
+    while ((t = tag.exec(html))) {
+      depth += t[0][1] === '/' ? -1 : 1;
+      if (depth === 0) { i = t.index + t[0].length; break; }
+    }
     const want = norm(String(window.Conditions.render(by[target])));
-    const got = norm(m[3]);
+    const got = norm(html.slice(start, i));
     checked++;
     if (want !== got) {
       failed++;

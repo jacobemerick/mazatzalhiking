@@ -87,11 +87,13 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.55rem; margin: .5
 /* ---------- observations (shared component) ---------- */
 .obs-list { margin-top: .45rem; }
 .obs-empty { margin: 0; font-size: .82rem; color: var(--muted); font-style: italic; }
-.obs { margin: .4rem 0 0; padding: .5rem .7rem; border-left: 2px solid var(--gold); background: rgba(250, 246, 239, .04); border-radius: 0 6px 6px 0; }
-.obs-head { display: flex; gap: .6rem; align-items: baseline; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; }
-.obs-cat { color: var(--gold); font-weight: 700; }
-.obs-date { color: var(--muted); }
-.obs-text { margin: .3rem 0 0; font-size: .88rem; }
+.obs-day { padding: .45rem 0 .1rem; border-top: 1px solid rgba(250, 246, 239, .1); }
+.obs-day:first-child { border-top: 0; padding-top: 0; }
+.obs-date { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .3rem; }
+.obs-notes { display: flex; flex-direction: column; gap: .35rem; }
+.obs { margin: 0; padding: .45rem .7rem .5rem; border-left: 2px solid var(--gold); background: rgba(250, 246, 239, .04); border-radius: 0 6px 6px 0; }
+.obs-cat { display: block; font-family: var(--mono); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+.obs-text { margin: .25rem 0 0; font-size: .88rem; }
 .obs-photos { margin: .3rem 0 0; padding-left: 1rem; font-size: .8rem; color: var(--muted); }
 .obs-compact .obs-text { font-size: .84rem; }
 .obs-water { border-left-color: #6fb0d8; }
