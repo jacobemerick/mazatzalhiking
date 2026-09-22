@@ -166,7 +166,7 @@
   function buildMap() {
     map = L.map('map', { zoomControl: true, preferCanvas: false });
     L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 16, attribution: 'Basemap: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map">USGS The National Map</a>'
+      maxZoom: 16, attribution: 'Basemap: <a href="https://www.usgs.gov/programs/national-geospatial-program/national-map" target="_blank" rel="noopener">USGS The National Map</a>'
     }).addTo(map);
     L.control.scale({ imperial: true, metric: false }).addTo(map);
 
@@ -361,7 +361,7 @@
           + (obs && obs.length ? '\n   ' + Conditions.plain(obs).replace(/\n/g, '\n   ') : '');
       }).join('\n');
       desc = t.miles.toFixed(1) + ' mi, +' + Math.round(t.gain) + ' / -' + Math.round(t.loss) + ' ft. Built at ' + location.href + '\n'
-        + 'Every leg is a GPS track that was walked and recorded; condition notes carry the date observed. A leg with no note has no observation, which is not the same as clear.\n\n' + desc;
+        + 'Every leg is a GPS track that Jacob walked and recorded; condition notes carry the date observed. Conditions may change rapidly, so use notes with caution.\n\n' + desc;
       return { name: routeName(), desc: desc, pts: pts, wpts: wpts, legs: route.map(function (l, i) {
         var c = geoms[i].coordinates.slice(); if (l.rev) c.reverse(); return c; }) };
     });

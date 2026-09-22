@@ -6,9 +6,9 @@
 {{- end }}
 {{- $total := 0.0 }}{{ range $rows }}{{ $total = add $total .t.miles }}{{ end }}
 <p class="eyebrow">Mazatzal Wilderness &middot; Tonto National Forest</p>
-<h1>Trails</h1>
-<p class="lede">{{ len $rows }} trails and roads, {{ printf "%.0f" $total }} miles, every one of them a GPS track that was walked and recorded. Each page lists the trail leg by leg with dated condition notes where they exist.</p>
-{{- range $kind := slice (dict "k" "trail" "h" "Trails" "n" "Listed alphabetically.") (dict "k" "road" "h" "Forest roads" "n" "Roads that were walked as part of a route. They are in the network because a hike used them, not because they exist.") }}
+<h1>Trails of the Mazatzal Wilderness</h1>
+<p class="lede">{{ len $rows }} trails and roads, {{ printf "%.0f" $total }} miles, every one of them a GPS track that was walked by Jacob and recorded. Each page lists the trail leg by leg, with dated condition notes.</p>
+{{- range $kind := slice (dict "k" "trail" "h" "Trails" "n" "Listed alphabetically.") (dict "k" "road" "h" "Forest roads" "n" "Roads that were walked as part of a route. They are in the network when they make for convenient connections between trails.") }}
 {{- $items := where $rows "t.kind" $kind.k }}
 {{- if $items }}
 <section>

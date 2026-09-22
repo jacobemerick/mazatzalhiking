@@ -2,7 +2,7 @@
        it says what the page says: length, endpoints, leg count. */ -}}
 {{- if and (eq .Section "trails") (not .IsSection) -}}
 {{- $t := index site.Data.trails .Params.trail -}}
-{{- printf "%s in the Mazatzal Wilderness: %.1f miles from %s to %s in %d leg%s, from GPS tracks that were walked and recorded, with dated trail-condition notes." .Title $t.miles $t.first $t.last (len $t.legs) (cond (eq (len $t.legs) 1) "" "s") -}}
+{{- printf "%s in the Mazatzal Wilderness: %.1f miles from %s to %s in %d leg%s, from GPS tracks Jacob walked and recorded, with dated trail-condition notes." .Title $t.miles $t.first $t.last (len $t.legs) (cond (eq (len $t.legs) 1) "" "s") -}}
 {{- else -}}
 {{- or .Description site.Params.description -}}
 {{- end -}}

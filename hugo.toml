@@ -47,5 +47,30 @@ disableKinds = ["taxonomy", "term", "rss"]
     trails = "/trails/:slug/"
 
 [params]
-  description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked."
+  description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have been walked."
   analyticsToken = "5b79bb3f6d16425f920c429acb8d4a59"
+
+# Site links, in one place. main is the top nav (pages on this site); footer is
+# everything off-site, and every footer link opens in a new tab.
+[menus]
+  [[menus.main]]
+    name = "Trails"
+    url = "/trails/"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+  [[menus.footer]]
+    name = "GitHub"
+    url = "https://github.com/jacobemerick/mazatzalhiking"
+    weight = 10
+  [[menus.footer]]
+    name = "HikeArizona"
+    url = "https://hikearizona.com/"
+    weight = 20
+  [[menus.footer]]
+    name = "Tonto National Forest"
+    url = "https://www.fs.usda.gov/tonto"
+    weight = 30

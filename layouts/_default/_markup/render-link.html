@@ -1,0 +1,4 @@
+{{- /* Links written in markdown: anything off-site opens in a new tab. */ -}}
+{{- $u := urls.Parse .Destination -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $u.IsAbs }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- /* chomp */ -}}

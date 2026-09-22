@@ -13,23 +13,13 @@
       <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26l8-13 4.5 7L18 14l12 12z" fill="#d9a441"/></svg>
       Mazatzal Hiking
     </a>
-    <nav class="site-nav"><a href="/trails/">Trails</a><a href="/about/">About</a></nav>
+    {{ partial "site-nav.html" . }}
   </div>
 </header>
 <main class="wrap{{ with .Params.prose }} prose{{ end }}">
 {{ block "main" . }}{{ end }}
 </main>
-<footer class="site-foot">
-  <div class="wrap foot-grid">
-    <span>Built by <a href="https://jacobemerick.com">Jacob Emerick</a></span>
-    <div class="foot-links">
-      <a href="/trails/">Trails</a>
-      <a href="/about/">About</a>
-      <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a>
-      <a href="https://www.fs.usda.gov/tonto">Tonto National Forest</a>
-    </div>
-  </div>
-</footer>
+{{ partial "site-foot.html" . }}
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.Params.analyticsToken }}"}'></script>
 </body>
 </html>
