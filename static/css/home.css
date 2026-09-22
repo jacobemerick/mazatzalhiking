@@ -88,11 +88,23 @@ main.home { padding: 0; }
 .net polyline { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke .12s ease; }
 .net .trail polyline { stroke: var(--gold); stroke-width: 1.6; opacity: .9; }
 .net .road polyline { stroke: rgba(250, 246, 239, .45); stroke-width: 1.2; stroke-dasharray: 3 3; }
-.net a:hover polyline, .net a:focus polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
+.net a:hover polyline, .net a:focus polyline, .net a.on polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
 .net a:focus { outline: none; }
+.net .relief { opacity: .18; pointer-events: none; }
+.net .wild { fill: rgba(250, 246, 239, .02); stroke: rgba(250, 246, 239, .38); stroke-width: 1; stroke-dasharray: 6 3 1.5 3; vector-effect: non-scaling-stroke; }
+.net-pick {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .8rem;
+  min-height: 2.6rem; margin: .6rem 0 0; padding: .55rem .9rem;
+  border: 1px solid var(--line); border-radius: 8px; font-size: .92rem;
+}
+.net-pick b { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; }
+.net-pick span { font-family: var(--mono); font-size: .76rem; color: var(--muted); }
+.net-pick a { margin-left: auto; font-weight: 600; color: var(--gold); text-decoration: none; }
+.net-pick .net-hint { font-family: var(--sans); font-size: .88rem; }
 .split-map figcaption { margin-top: .8rem; font-size: .82rem; color: var(--muted); }
 .key { display: inline-block; width: 1.2rem; height: 0; margin: 0 .35rem .22rem 0; vertical-align: middle; border-top: 2px solid var(--gold); }
 .key-road { margin-left: .6rem; border-top: 2px dashed rgba(250, 246, 239, .45); }
+.key-wild { margin-left: .6rem; border-top: 1px dashed rgba(250, 246, 239, .5); }
 .home-b .band { margin-bottom: 0; }
 
 /* ---------- C: conditions board ---------- */

@@ -7,8 +7,10 @@
   </div>
   <figure class="split-map">
     {{ partialCached "home/map.html" . }}
-    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road &middot; every line is a track Jacob walked. Tap one to open it.</figcaption>
+    <p class="net-pick" id="net-pick" aria-live="polite"><span class="net-hint">Tap or point at a line to see which trail it is.</span></p>
+    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road <span class="key key-wild"></span>Wilderness boundary &middot; every line is a track Jacob walked.</figcaption>
   </figure>
+  <script src="/js/home-map.js" defer></script>
 </section>
 <section class="band">
   <dl class="wrap figures">

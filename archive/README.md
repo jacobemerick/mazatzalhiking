@@ -73,3 +73,12 @@ manifest was corrected to match on 2026-09-21.
 
 Findings and full numbers: [`docs/gpx-corpus-inventory.md`](../docs/gpx-corpus-inventory.md).
 Regenerate with `./tools/inventory.py archive/gpx`.
+
+## `usfs-wilderness-boundary.geojson`
+
+The Mazatzal Wilderness boundary from the Forest Service's EDW Wilderness layer
+(`apps.fs.usda.gov/arcx/rest/services/EDW/EDW_Wilderness_01/MapServer/0`, where
+`WILDERNESSNAME = 'Mazatzal Wilderness'`), fetched 2026-09-22 in WGS84 with
+`maxAllowableOffset=0.0004` (about 40 m), so it is a 286-point outline, not survey
+geometry. Public domain. The landing page map draws it as context behind the tracks;
+nothing measures against it.

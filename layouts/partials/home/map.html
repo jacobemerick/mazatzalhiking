@@ -1,16 +1,33 @@
 {{- /* The recorded network as an SVG, drawn at build time from the same display
-       lines the builder uses. One link per trail; hovering a trail lights up all
-       of its legs. Roads are dashed. Nothing here is traced: it is the tracks. */ -}}
+       lines the builder uses, over the Forest Service's wilderness boundary.
+       One link per trail, so it works with no script and from the keyboard;
+       static/js/home-map.js adds nearest-line picking for touch and mouse,
+       because the lines are too thin and too close together to tap directly.
+       Roads are dashed. Nothing here is traced: it is the tracks. The terrain
+       shading underneath is USGS 3DEP, made by tools/relief.py. */ -}}
 {{- $f := partial "home/facts.html" . }}
 {{- $segs := (os.ReadFile "static/data/display.json" | transform.Unmarshal).segments }}
+{{- $wild := index (os.ReadFile "archive/usfs-wilderness-boundary.geojson" | transform.Unmarshal).features 0 }}
+{{- $rings := $wild.geometry.coordinates }}
 {{- $minLat := 90.0 }}{{ $maxLat := -90.0 }}{{ $minLon := 180.0 }}{{ $maxLon := -180.0 }}
 {{- range $segs }}{{ range . }}
   {{- $minLat = math.Min $minLat (index . 0) }}{{ $maxLat = math.Max $maxLat (index . 0) }}
   {{- $minLon = math.Min $minLon (index . 1) }}{{ $maxLon = math.Max $maxLon (index . 1) }}
 {{- end }}{{ end }}
+{{- range $rings }}{{ range . }}{{/* GeoJSON is lon,lat */}}
+  {{- $minLat = math.Min $minLat (index . 1) }}{{ $maxLat = math.Max $maxLat (index . 1) }}
+  {{- $minLon = math.Min $minLon (index . 0) }}{{ $maxLon = math.Max $maxLon (index . 0) }}
+{{- end }}{{ end }}
 {{- $k := 0.829 }}{{/* cos 34°: keeps a mile east the same length as a mile north */}}
 {{- $w := 1000.0 }}{{ $s := div $w (mul (sub $maxLon $minLon) $k) }}
 {{- $h := math.Ceil (mul (sub $maxLat $minLat) $s) }}
+{{- $r := os.ReadFile "static/img/relief.json" | transform.Unmarshal }}
+{{- $d := slice }}
+{{- range $rings }}
+  {{- $xy := slice }}
+  {{- range . }}{{ $xy = $xy | append (printf "%.1f,%.1f" (mul (mul (sub (index . 0) $minLon) $k) $s) (mul (sub $maxLat (index . 1)) $s)) }}{{ end }}
+  {{- $d = $d | append (printf "M%sZ" (delimit $xy "L")) }}
+{{- end }}
 {{- $byTrail := dict }}
 {{- range $id, $pts := $segs }}
   {{- $t := (index $f.seg $id).t }}
@@ -20,8 +37,10 @@
   {{- $byTrail = merge $byTrail (dict $t.slug (add (index $byTrail $t.slug | default "") $line)) }}
 {{- end }}
 <svg class="net" viewBox="-12 -12 {{ add $w 24 }} {{ add $h 24 }}" role="img" aria-labelledby="net-title">
-  <title id="net-title">Map of the {{ printf "%.0f" $f.miles }} miles of recorded trail in the Mazatzal Wilderness</title>
+  <title id="net-title">Map of the {{ printf "%.0f" $f.miles }} miles of recorded trail in and around the Mazatzal Wilderness</title>
+  <image class="relief" href="/img/relief.webp" preserveAspectRatio="none" x="{{ printf "%.1f" (mul (mul (sub $r.west $minLon) $k) $s) }}" y="{{ printf "%.1f" (mul (sub $maxLat $r.north) $s) }}" width="{{ printf "%.1f" (mul (mul (sub $r.east $r.west) $k) $s) }}" height="{{ printf "%.1f" (mul (sub $r.north $r.south) $s) }}"/>
+  <path class="wild" d="{{ delimit $d " " }}"/>
   {{- range $t := sort site.Data.trails "name" }}
-  <a href="/trails/{{ $t.slug }}/" class="{{ $t.kind }}"><title>{{ $t.name }} &middot; {{ printf "%.1f" $t.miles }} mi</title>{{ index $byTrail $t.slug | safeHTML }}</a>
+  <a href="/trails/{{ $t.slug }}/" class="{{ $t.kind }}" data-name="{{ $t.name }}" data-miles="{{ printf "%.1f" $t.miles }}"><title>{{ $t.name }} &middot; {{ printf "%.1f" $t.miles }} mi</title>{{ index $byTrail $t.slug | safeHTML }}</a>
   {{- end }}
 </svg>
