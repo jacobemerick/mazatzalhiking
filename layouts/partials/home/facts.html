@@ -1,0 +1,23 @@
+{{- /* Numbers and notes the landing page reads, all from the built data:
+       trail and road counts, miles, dated notes and their span, and every
+       leg note joined to its trail and leg, newest first. Node notes count
+       towards the total but are not listed; they have no single leg. */ -}}
+{{- $seg := dict }}
+{{- $trails := 0 }}{{ $roads := 0 }}{{ $miles := 0.0 }}
+{{- range $t := site.Data.trails }}
+  {{- if eq $t.kind "road" }}{{ $roads = add $roads 1 }}{{ else }}{{ $trails = add $trails 1 }}{{ end }}
+  {{- $miles = add $miles $t.miles }}
+  {{- range $t.legs }}{{ $seg = merge $seg (dict .id (dict "t" $t "l" .)) }}{{ end }}
+{{- end }}
+{{- $notes := slice }}{{ $count := 0 }}{{ $first := "9999" }}{{ $last := "0000" }}
+{{- range $k, $obs := site.Data.conditions }}
+  {{- $count = add $count (len $obs) }}
+  {{- range $obs }}{{ if lt .date $first }}{{ $first = .date }}{{ end }}{{ if gt .date $last }}{{ $last = .date }}{{ end }}{{ end }}
+  {{- if hasPrefix $k "segment:" }}
+    {{- $s := index $seg (strings.TrimPrefix "segment:" $k) }}
+    {{- range $obs }}
+      {{- $notes = $notes | append (merge . (dict "trail" $s.t.name "slug" $s.t.slug "leg" $s.l.short "anchor" $s.l.id)) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return dict "trails" $trails "roads" $roads "miles" $miles "count" $count "first" $first "last" $last "notes" (sort $notes "date" "desc") "seg" $seg }}

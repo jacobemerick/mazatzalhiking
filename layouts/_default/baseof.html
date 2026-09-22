@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{ partial "head-meta.html" . }}
 <link rel="stylesheet" href="/css/site.css">
+{{- if .IsHome }}
+<link rel="stylesheet" href="/css/home.css">
+{{- end }}
 </head>
-<body>
+<body{{ if .IsHome }} class="is-home design-{{ site.Params.homeDesign | default "a" }}"{{ end }}>
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/">
@@ -16,7 +19,7 @@
     {{ partial "site-nav.html" . }}
   </div>
 </header>
-<main class="wrap{{ with .Params.prose }} prose{{ end }}">
+<main class="{{ block "mainclass" . }}wrap{{ with .Params.prose }} prose{{ end }}{{ end }}">
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "site-foot.html" . }}

@@ -1,0 +1,20 @@
+{{- /* B — The map. The recorded network is the hero; the words sit beside it. */ -}}
+{{- $f := partial "home/facts.html" . }}
+<section class="split">
+  <div class="split-text">
+    {{ partial "home/hero.html" . }}
+    {{ partial "home/cta.html" . }}
+  </div>
+  <figure class="split-map">
+    {{ partialCached "home/map.html" . }}
+    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road &middot; every line is a track Jacob walked. Tap one to open it.</figcaption>
+  </figure>
+</section>
+<section class="band">
+  <dl class="wrap figures">
+    <div><dt>Trails</dt><dd>{{ $f.trails }}</dd></div>
+    <div><dt>Forest roads</dt><dd>{{ $f.roads }}</dd></div>
+    <div><dt>Miles recorded</dt><dd>{{ printf "%.0f" $f.miles }}</dd></div>
+    <div><dt>Latest note</dt><dd>{{ (time.AsTime $f.last).Format "Jan 2006" }}</dd></div>
+  </dl>
+</section>

@@ -1,0 +1,127 @@
+/* The landing page, on top of site.css. Shared pieces first, then one block per
+ * candidate design for #56 (.home-a, .home-b, .home-c). */
+
+.is-home .wrap { width: min(960px, 100% - 2.5rem); }
+main.home { padding: 0; }
+.home h1 {
+  font-size: clamp(2.4rem, 6.5vw, 4rem); line-height: 1.12; max-width: 15ch; margin: 0 0 1.4rem;
+}
+.home h1 em { font-style: normal; color: var(--gold); }
+.home .lede { font-size: clamp(1.05rem, 2.2vw, 1.25rem); max-width: 54ch; margin: 0 0 2.2rem; }
+.home h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin: 0; }
+
+/* ---------- hero ---------- */
+
+.hero { position: relative; overflow: hidden; padding: clamp(3.5rem, 10vw, 6.5rem) 0; }
+.hero .wrap { position: relative; z-index: 1; }
+.topo {
+  position: absolute; inset: -12% -5% auto -5%; width: 110%; height: 130%;
+  opacity: .17; pointer-events: none;
+}
+.topo path { fill: none; stroke: var(--gold); stroke-width: 1.1; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; align-items: center; }
+.home .btn { padding: .78rem 1.5rem; font-size: .95rem; transition: transform .15s ease, background-color .15s ease; }
+.home .btn:hover { transform: translateY(-1px); }
+.ghost { font-size: .95rem; color: rgba(250, 246, 239, .78); text-decoration-color: rgba(250, 246, 239, .3); }
+.status {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(250, 246, 239, .55);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(217, 164, 65, .18); }
+
+/* ---------- pronunciation guide ---------- */
+
+.term {
+  position: relative; color: var(--sand); cursor: help; border-radius: 3px;
+  text-decoration: underline dotted rgba(217, 164, 65, .7); text-underline-offset: .28em;
+}
+.term:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.pron {
+  position: absolute; bottom: calc(100% + .85rem); left: 0; z-index: 5;
+  width: max-content; max-width: min(300px, 78vw); padding: .85rem 1.05rem .95rem;
+  background: var(--sand); color: var(--ink); border-radius: 10px; box-shadow: 0 14px 34px rgba(0, 0, 0, .45);
+  font-size: 1rem; line-height: 1.5; text-align: left; text-decoration: none;
+  opacity: 0; visibility: hidden; transform: translateY(5px);
+  transition: opacity .16s ease, transform .16s ease, visibility .16s;
+}
+.pron::after { content: ""; position: absolute; top: 100%; left: 1.6rem; border: 7px solid transparent; border-top-color: var(--sand); }
+.term:hover .pron, .term:focus .pron, .term:focus-within .pron { opacity: 1; visibility: visible; transform: translateY(0); }
+.pron b { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 600; letter-spacing: .01em; }
+.pron i { display: block; font-family: var(--serif); font-style: normal; font-size: 1.02rem; color: #7a3f1c; margin-top: .1rem; }
+.pron em {
+  display: block; margin-top: .5rem; padding-top: .5rem; border-top: 1px solid rgba(23, 21, 15, .14);
+  font-style: normal; font-size: .8rem; line-height: 1.45; color: #6d6559;
+}
+
+/* ---------- figures band ---------- */
+
+.band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(250, 246, 239, .025); }
+.figures { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-block: 0; padding: 1.4rem 0; }
+.figures div { margin: 0; }
+.figures dt { font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.figures dd { margin: .15rem 0 0; font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 600; line-height: 1.2; }
+
+/* ---------- notes as they appear on the landing page ---------- */
+
+.obs-where { display: block; margin-top: .15rem; font-family: var(--serif); font-size: 1.05rem; text-decoration: none; }
+.obs-where span { color: var(--muted); font-family: var(--sans); font-size: .86rem; }
+.more { margin: 1.6rem 0 0; font-size: .95rem; }
+
+/* ---------- A: trailhead ---------- */
+
+.home-a .latest { padding: clamp(2.8rem, 7vw, 4.5rem) 0 4.5rem; }
+.home-a .latest h2 { margin-bottom: 1.4rem; }
+
+/* ---------- B: the map ---------- */
+
+.design-b .wrap { width: min(1180px, 100% - 2.5rem); }
+.split {
+  width: min(1180px, 100% - 2.5rem); margin-inline: auto;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center; padding: clamp(2.5rem, 7vw, 5rem) 0;
+}
+.home-b h1 { font-size: clamp(2.3rem, 5vw, 3.5rem); }
+.split-map { margin: 0; }
+.net { display: block; width: 100%; height: auto; max-height: 78vh; }
+.net polyline { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke .12s ease; }
+.net .trail polyline { stroke: var(--gold); stroke-width: 1.6; opacity: .9; }
+.net .road polyline { stroke: rgba(250, 246, 239, .45); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.net a:hover polyline, .net a:focus polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
+.net a:focus { outline: none; }
+.split-map figcaption { margin-top: .8rem; font-size: .82rem; color: var(--muted); }
+.key { display: inline-block; width: 1.2rem; height: 0; margin: 0 .35rem .22rem 0; vertical-align: middle; border-top: 2px solid var(--gold); }
+.key-road { margin-left: .6rem; border-top: 2px dashed rgba(250, 246, 239, .45); }
+.home-b .band { margin-bottom: 0; }
+
+/* ---------- C: conditions board ---------- */
+
+.hero-short { padding: clamp(2.8rem, 8vw, 4.5rem) 0 clamp(2.4rem, 6vw, 3.5rem); border-bottom: 1px solid var(--line); }
+.board { padding: clamp(2.4rem, 6vw, 3.5rem) 0 4.5rem; }
+.board-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: .6rem 2rem; margin-bottom: 1.4rem; }
+.board-head .note { max-width: 36ch; margin: 0; }
+.board-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem 1.2rem; }
+.board-list li { display: flex; flex-direction: column; gap: .35rem; }
+.board-list time { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.board-list .obs { flex: 1; }
+.board-list li:nth-child(-n+2) .obs { background: rgba(217, 164, 65, .08); }
+
+@media (max-width: 760px) {
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split-map { order: -1; }
+  .board-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  /* Anchor the pronunciation card to the paragraph, not the word, so it can never
+     hang past the right edge when "Mazatzal" wraps mid-line. */
+  .home .lede { position: relative; }
+  .term { position: static; }
+  .pron { max-width: 100%; }
+  .pron::after { display: none; }
+  .figures { grid-template-columns: repeat(2, 1fr); row-gap: 1.2rem; }
+  .cta-row .status { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home * { transition: none !important; }
+}

@@ -49,6 +49,8 @@ disableKinds = ["taxonomy", "term", "rss"]
 [params]
   description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have been walked."
   analyticsToken = "5b79bb3f6d16425f920c429acb8d4a59"
+  # Landing page design for #56: "a", "b" or "c" (layouts/partials/home/).
+  homeDesign = "a"
 
 # Site links, in one place. main is the top nav (pages on this site); footer is
 # everything off-site, and every footer link opens in a new tab.

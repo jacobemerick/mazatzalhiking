@@ -1,0 +1,27 @@
+{{- /* The recorded network as an SVG, drawn at build time from the same display
+       lines the builder uses. One link per trail; hovering a trail lights up all
+       of its legs. Roads are dashed. Nothing here is traced: it is the tracks. */ -}}
+{{- $f := partial "home/facts.html" . }}
+{{- $segs := (os.ReadFile "static/data/display.json" | transform.Unmarshal).segments }}
+{{- $minLat := 90.0 }}{{ $maxLat := -90.0 }}{{ $minLon := 180.0 }}{{ $maxLon := -180.0 }}
+{{- range $segs }}{{ range . }}
+  {{- $minLat = math.Min $minLat (index . 0) }}{{ $maxLat = math.Max $maxLat (index . 0) }}
+  {{- $minLon = math.Min $minLon (index . 1) }}{{ $maxLon = math.Max $maxLon (index . 1) }}
+{{- end }}{{ end }}
+{{- $k := 0.829 }}{{/* cos 34°: keeps a mile east the same length as a mile north */}}
+{{- $w := 1000.0 }}{{ $s := div $w (mul (sub $maxLon $minLon) $k) }}
+{{- $h := math.Ceil (mul (sub $maxLat $minLat) $s) }}
+{{- $byTrail := dict }}
+{{- range $id, $pts := $segs }}
+  {{- $t := (index $f.seg $id).t }}
+  {{- $xy := slice }}
+  {{- range $pts }}{{ $xy = $xy | append (printf "%.1f,%.1f" (mul (mul (sub (index . 1) $minLon) $k) $s) (mul (sub $maxLat (index . 0)) $s)) }}{{ end }}
+  {{- $line := printf `<polyline points="%s"/>` (delimit $xy " ") }}
+  {{- $byTrail = merge $byTrail (dict $t.slug (add (index $byTrail $t.slug | default "") $line)) }}
+{{- end }}
+<svg class="net" viewBox="-12 -12 {{ add $w 24 }} {{ add $h 24 }}" role="img" aria-labelledby="net-title">
+  <title id="net-title">Map of the {{ printf "%.0f" $f.miles }} miles of recorded trail in the Mazatzal Wilderness</title>
+  {{- range $t := sort site.Data.trails "name" }}
+  <a href="/trails/{{ $t.slug }}/" class="{{ $t.kind }}"><title>{{ $t.name }} &middot; {{ printf "%.1f" $t.miles }} mi</title>{{ index $byTrail $t.slug | safeHTML }}</a>
+  {{- end }}
+</svg>

@@ -1,0 +1,37 @@
+{{- /* A — Trailhead. The current hero, then what the site holds and the
+       latest notes from the field. */ -}}
+{{- $f := partial "home/facts.html" . }}
+<section class="hero">
+  {{ partial "home/topo.html" . }}
+  <div class="wrap">
+    {{ partial "home/hero.html" . }}
+    {{ partial "home/cta.html" . }}
+  </div>
+</section>
+<section class="band">
+  <dl class="wrap figures">
+    <div><dt>Trails</dt><dd>{{ $f.trails }}</dd></div>
+    <div><dt>Forest roads</dt><dd>{{ $f.roads }}</dd></div>
+    <div><dt>Miles recorded</dt><dd>{{ printf "%.0f" $f.miles }}</dd></div>
+    <div><dt>Dated notes</dt><dd>{{ $f.count }}</dd></div>
+  </dl>
+</section>
+<section class="wrap latest">
+  <p class="eyebrow">From the field</p>
+  <h2>Latest condition notes</h2>
+  <div class="obs-list">
+  {{- $prev := "" }}{{ $days := 0 }}
+  {{- range $f.notes }}
+    {{- if ne .date $prev }}
+      {{- if eq $days 3 }}{{ break }}{{ end }}
+      {{- if $prev }}</div></div>{{ end }}
+      {{- $days = add $days 1 }}
+      <div class="obs-day"><time class="obs-date" datetime="{{ .date }}">{{ (time.AsTime .date).Format "Jan 2, 2006" }}</time><div class="obs-notes">
+    {{- end }}
+    {{- $prev = .date }}
+    {{ partial "home/note.html" . }}
+  {{- end }}
+  </div></div>
+  </div>
+  <p class="more"><a href="/trails/">All {{ $f.trails }} trails and {{ $f.roads }} roads &rarr;</a></p>
+</section>
