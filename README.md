@@ -100,3 +100,10 @@ Tracked as GitHub milestones. Done: the trail graph from recorded tracks, the co
 observation schema, the route builder with GPX/KML export. Next: authoring condition
 observations, public trail pages, builder conveniences (out-and-back mirror, lasso
 close, elevation profile).
+
+## License
+
+Code (`tools/`, `layouts/`, `static/`, `schema/`, `.github/`, root config): MIT, see
+`LICENSE`. The recorded tracks, curated graph, trail notes and trip reports
+(`archive/`, `curation/`, `content/`): CC BY-NC-ND 4.0, see `LICENSE-CONTENT` — share
+with credit, no commercial use, no derivatives. Contributions: `CONTRIBUTING.md`.
