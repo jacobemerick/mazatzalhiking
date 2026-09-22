@@ -3,18 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Title }} — Mazatzal Hiking</title>
-{{- with or .Description site.Params.description }}
-<meta name="description" content="{{ . }}">
-{{- end }}
-<link rel="canonical" href="{{ .Permalink }}">
-<meta name="theme-color" content="#17150f">
-<meta property="og:title" content="{{ .Title }} — Mazatzal Hiking">
-{{- with or .Description site.Params.description }}
-<meta property="og:description" content="{{ . }}">
-{{- end }}
-<meta property="og:type" content="website">
-<link rel="icon" href="{{ partial "favicon.txt" . }}">
+{{ partial "head-meta.html" . }}
 <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>

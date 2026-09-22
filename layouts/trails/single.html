@@ -22,7 +22,7 @@
   <ol class="legs">
   {{- range $t.legs }}
     <li class="leg" id="{{ .id }}">
-      <h2>{{ .name }}</h2>
+      <h2>{{ .short }}</h2>
       <p class="leg-meta">
         <span>{{ .from }} &rarr; {{ .to }}{{ if .loop }} (loop){{ end }}</span>
         <span>{{ printf "%.2f" .miles }} mi</span>

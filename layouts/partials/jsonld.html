@@ -1,0 +1,20 @@
+{{- /* Structured data. Kept to types with a clear meaning here: the site, the
+       breadcrumb, and a trail as a Place inside the wilderness. No ratings, no
+       invented properties. */ -}}
+{{- $site := dict "@type" "WebSite" "name" "Mazatzal Hiking" "url" site.BaseURL "description" site.Params.description -}}
+{{- if .IsHome -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $site) | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- else if and (eq .Section "trails") (not .IsSection) -}}
+{{- $t := index site.Data.trails .Params.trail -}}
+{{- $crumbs := dict "@type" "BreadcrumbList" "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "Trails" "item" (absURL "trails/"))
+      (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink)) -}}
+{{- $place := dict "@type" "Place" "name" .Title "url" .Permalink
+      "description" (partial "description.txt" .)
+      "containedInPlace" (dict "@type" "Place" "name" "Mazatzal Wilderness" "address" (dict "@type" "PostalAddress" "addressRegion" "AZ" "addressCountry" "US")) -}}
+{{- with $t.code }}{{ $place = merge $place (dict "identifier" (printf "Forest Service trail %s" .)) }}{{ end -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $crumbs $place) | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- else if eq .Section "trails" -}}
+{{- $crumbs := dict "@type" "BreadcrumbList" "itemListElement" (slice (dict "@type" "ListItem" "position" 1 "name" "Trails" "item" .Permalink)) -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $crumbs) | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- end -}}

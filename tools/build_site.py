@@ -42,7 +42,7 @@ points, that its `cum_m` is monotone and starts at zero, and that the segment's
 stored `miles` is the line's own length. That closes the gap #16 recorded: a green
 validator now does mean the geometry is sound.
 """
-import json, os, sys, shutil, math
+import json, os, re, sys, shutil, math
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
@@ -137,7 +137,9 @@ def trails_data(graph, nodes):
         rows = []
         for s, rev in legs:
             a, b, gain, loss = leg_figures(s, rev)
-            rows.append(dict(id=s['id'], name=s['name'], from_=nodes[a]['name'], to=nodes[b]['name'],
+            # `short` drops the "<trail> from" prefix: the page heading already names the trail
+            short = re.sub(r'^.*? from ', '', s['name']) if ' from ' in s['name'] else s['name']
+            rows.append(dict(id=s['id'], name=s['name'], short=short, from_=nodes[a]['name'], to=nodes[b]['name'],
                              miles=s['miles'], gain_ft=gain, loss_ft=loss, loop=s['from'] == s['to']))
         # Hugo templates can't read a key called `from_`; name it plainly.
         for r in rows:
