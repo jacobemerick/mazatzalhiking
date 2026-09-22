@@ -49,6 +49,16 @@
             "reversed": {
               "description": "True when the segment's from -> to direction runs against the recorded direction of travel.",
               "type": "boolean"
+            },
+            "skip": {
+              "description": "Stretches of the recorded arc left out of the leg because they are walked ground that is not the trail -- a wander at a seep, a side trip to an overlook (#38). Each entry is [first, last] archive indices; the points strictly between are dropped and the two ends joined straight. Authored, like the arc: decided by a person looking at the track over imagery, never derived.",
+              "type": "array",
+              "items": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": { "type": "integer", "minimum": 0 }
+              }
             }
           }
         },

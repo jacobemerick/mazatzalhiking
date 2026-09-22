@@ -159,6 +159,23 @@ def main():
         near = lambda i: m.get(i) if i in m else min(range(len(idx)), key=lambda k: abs(idx[k] - i))
         a, b = sorted((near(arc['from']), near(arc['to'])))
         pts = despiked[arc['track']][a:b + 1]
+
+        # Authored excisions (#38): stretches of the recorded arc that are walked ground
+        # but not the trail -- a wander at a seep, a side trip to an overlook. Each is a
+        # [first, last] pair of archive indices, dropped and bridged with a straight
+        # join. Like the arc itself this is a human decision read back on every run,
+        # never re-guessed; the raw track keeps the ground.
+        skips = arc.get('skip') or []
+        if skips:
+            keep_idx = [i for i in range(a, b + 1)]
+            drop = set()
+            for s0, s1 in skips:
+                lo, hi = sorted((near(s0), near(s1)))
+                if lo <= a or hi >= b:
+                    print(f"  !! {seg['id']}: skip [{s0}, {s1}] touches the arc's ends; ignored")
+                    continue
+                drop.update(range(lo + 1, hi))       # keep the two ends, bridge across
+            pts = [despiked[arc['track']][i] for i in keep_idx if i not in drop]
         if arc['reversed']:
             pts = pts[::-1]
 
