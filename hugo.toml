@@ -5,6 +5,11 @@ languageCode = "en"
 title = "Mazatzal Hiking"
 timeZone = "America/Phoenix"
 
+# Page lastmod (and so the sitemap's) comes from the last commit touching the file:
+# a trail page is "updated" when a note is added to it, which is the truth.
+enableGitInfo = true
+enableRobotsTXT = true
+
 # Match the Workers Builds HUGO_VERSION variable and the local install.
 [module]
   [module.hugoVersion]

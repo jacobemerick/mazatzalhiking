@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+# The builder is deliberately unlisted until it opens (it also carries noindex),
+# and the data files are for the builder, not for indexing.
+Disallow: /build/
+Disallow: /data/
+Sitemap: {{ "sitemap.xml" | absURL }}

@@ -1,0 +1,22 @@
+{{- /* Everything a crawler or a link unfurler reads. One place, so every page type
+       says the same things the same way. */ -}}
+{{- $desc := partial "description.txt" . -}}
+{{- $title := cond .IsHome "Mazatzal Hiking" (printf "%s — Mazatzal Hiking" .Title) -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="theme-color" content="#17150f">
+<meta property="og:site_name" content="Mazatzal Hiking">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:image" content="{{ "og.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Build a route through the Mazzies — Mazatzal Hiking">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{ partial "jsonld.html" . }}
