@@ -3,6 +3,8 @@ title: "Davenport Wash Trail"
 trail: "0D"
 ---
 
+Of the trails that start on the western end of the Mazatzals and climb to the main backbone, this one is the most approachable. It is fairly easy to access, from either Horseshoe Dam or by fording the Verde River, and much of the length was spared from fire damage. This is also the shortest way to access Club Cabin and can be part of several good overnight loops, such as the Davenport / Sears Loop.
+
 ## Davenport Trailhead to Sheep Creek {#1M}
 
 ### 2017-09-04 route-finding {source="haz/triplog/2017-09-01.md"}

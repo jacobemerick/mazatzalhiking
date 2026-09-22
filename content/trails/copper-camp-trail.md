@@ -3,6 +3,8 @@ title: "Copper Camp Trail"
 trail: "0P"
 ---
 
+A remote trail in a remote area of the Mazatzal Wilderness that climbs along Copper Camp Creek, shoots up Squaw Flat, and ends at Sheep Creek Trail. It can be used with nearby trails and off-trail options to make for solid backpacking loops.
+
 ## Copper Camp Trailhead to Copper Camp Flat {#1J}
 
 ### 2017-04-14 route-finding {source="haz/triplog/2017-04-14.md"}

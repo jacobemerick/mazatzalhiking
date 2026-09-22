@@ -3,6 +3,8 @@ title: "Sears Trail"
 trail: "0R"
 ---
 
+This trail provides a fun, exposed ride over rolling hills to a scenic location nestled deep in the western Mazatzal Wilderness. It is surprisingly varied, swinging around hills, dipping into sandy washes, and even giving a bit of ridgeline fun near the end. Can be used with nearby trails to make good backpacking loops, such as the Davenport / Sears Loop.
+
 ## Sears Trail {#1L}
 
 ### 2017-04-15 route-finding {source="haz/triplog/2017-04-14.md"}

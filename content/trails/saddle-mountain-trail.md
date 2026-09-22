@@ -3,6 +3,8 @@ title: "Saddle Mountain Trail"
 trail: "0L"
 ---
 
+A curving trail that follows the contours of Saddle Mountain and nearby hills. An integral part of AZT #22 and, thanks to the relative accessibility of Mormon Grove Trailhead, the start of many long loops into the north and west. It ends with an overgrown loop that goes by some old mining areas.
+
 ## Mormon Trailhead to Little Saddle Mountain {#1B}
 
 ## Little Saddle Mountain to Sheep Creek {#1C}

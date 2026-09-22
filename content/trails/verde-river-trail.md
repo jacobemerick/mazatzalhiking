@@ -3,6 +3,8 @@ title: "Verde River Trail"
 trail: "0V"
 ---
 
+The Verde River Trail is, well, a trail that follows the Verde River, starting at Sheep Bridge and heading north to East Verde before climbing up Cedar Bench to Twin Buttes Trailhead. It can be used by adventurous waterfolk or on a few different hikes, including Midnight Mesa Loop, Highwater - Verde, or Twin Buttes to River. Due to the length and difficult shuttle, it would be challenging to do a thru-hike of this entire route at once.
+
 ## Sheep Bridge Trailhead to Willow Springs {#1U}
 
 ## Willow Springs to Dutchman Grave {#1V}

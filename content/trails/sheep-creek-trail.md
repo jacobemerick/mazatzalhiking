@@ -3,6 +3,8 @@ title: "Sheep Creek Trail"
 trail: "0C"
 ---
 
+Surprisingly diverse trail that samples a wide range of Mazatzal environments, from the manzanita and pine highlands to prickly grasslands. The first few miles were damaged during the Sunflower Fire; otherwise, much of the area is untouched and rather enjoyable. This trail is part of several great loops and destinations and is rarely done in its entirety.
+
 ## Sears to Davenport Wash {#0X}
 
 ### 2017-11-18 route-finding {source="haz/triplog/2017-11-18.md"}

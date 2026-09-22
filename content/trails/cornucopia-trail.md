@@ -3,6 +3,8 @@ title: "Cornucopia Trail"
 trail: "0A"
 ---
 
+Many hikers will only use the northern end of Cornucopia Trail to hike from Peeley Trailhead to Mazatzal Divide #23, and then either summit Peeley or continue north along a scenic ridge hike. That's great, though they miss out on a scenic descent into a tributary of Sycamore Creek. Staying on Cornucopia could unlock the classic Cornucopia - Thicket Spring Loop or start a longer adventure on AZT #22.
+
 ## Cornucopia Trailhead (FR 25A) to West Fork {#0S}
 
 ## West Fork to Thicket Spring {#0R}

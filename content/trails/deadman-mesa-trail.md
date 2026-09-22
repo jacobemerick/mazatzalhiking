@@ -3,6 +3,8 @@ title: "Deadman Mesa Trail"
 trail: "1C"
 ---
 
+A scenic adventure that drops off the tip of Deadman Mesa and follows Fossil Creek before ending at the Verde River Trail. Can be combined with a few other routes, including Ike's Backbone or the creek itself, to make a long day hike or even multi-day outings. It also happens to be the furthest northwest trail in the Mazatzal Wilderness.
+
 ## Deadman Mesa Trail {#2X}
 
 ### 2017-06-25 tread {source="haz/triplog/2017-06-24.md"}

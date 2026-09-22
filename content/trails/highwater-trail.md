@@ -3,6 +3,8 @@ title: "Highwater Trail"
 trail: "17"
 ---
 
+As the Verde River Trail heads north it crosses the river twice, once at Red Creek Rapids and then again near Pete's Cabin Mesa. These crossings are difficult during any time of the year and may become threatening during high water events, so this trail, combined with a section of Wet Bottom, can be used to avoid the crossings. Highwater Trail can also be combined with other trails to create enjoyable loops in the Mazatzal lowlands.
+
 ## Highwater Trail {#2O}
 
 ### 2018-12-06 water {source="haz/triplog/2018-12-05.md"}

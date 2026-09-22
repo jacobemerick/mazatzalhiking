@@ -3,6 +3,8 @@ title: "Lost Spring Spur"
 trail: "10"
 ---
 
+Short spur trail that drops off Willow Springs #223 to a questionable spring in the western Mazatzal Wilderness.
+
 ## Lost Spring Spur {#24}
 
 ### 2018-09-03 brush {source="haz/triplog/2018-09-03.md"}

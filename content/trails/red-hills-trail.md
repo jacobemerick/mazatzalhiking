@@ -3,6 +3,8 @@ title: "Red Hills Trail"
 trail: "13"
 ---
 
+Remote trail in the western Mazatzal Wilderness that starts from Dutchman Grave valley, climbs into the Red Hills, and then plays around Wet Bottom Creek and Fuller Seep before finally ascending to the heights of Knob Mountain. The higher, eastern end of the trail is part of the AZT and sees a fair amount of traffic, while the western end is part of the fabled Midnight Mesa Loop. As neither end of this trail connects to a trailhead, it is common to use sections of this trail to complete larger, multi-trail adventures, and hiking it end-to-end would be difficult.
+
 ## Midnight to Dutchman Grave {#2G}
 
 ### 2018-09-04 route-finding {source="haz/triplog/2018-09-03.md"}

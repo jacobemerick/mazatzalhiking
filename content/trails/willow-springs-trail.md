@@ -3,6 +3,8 @@ title: "Willow Springs Trail"
 trail: "0W"
 ---
 
+This is one of the most challenging long-distance trails of the Mazatzal Wilderness. Reaching the trailhead is an ordeal, the first few miles are a hot and dry slog, and the last half was demolished by wildfire. The solitude and expansive views of the central wilderness, especially of Midnight Mesa and Deadman Creek, are well worth the effort.
+
 ## Verde River to Willow Springs Spur Junction {#1W}
 
 ### 2018-09-03 route-finding {source="haz/triplog/2018-09-03.md"}

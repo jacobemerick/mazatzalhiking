@@ -3,6 +3,8 @@ title: "Fig Trail"
 trail: "0Q"
 ---
 
+Short and barely-used trail above the Verde River that leads to an old cabin along Sheep Creek. It is difficult to access and offers few loop options, although the final destination is well worth the venture.
+
 ## Fig Trail {#1K}
 
 ### 2018-02-11 route-finding {source="haz/triplog/2018-02-11.md"}

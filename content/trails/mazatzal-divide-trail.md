@@ -3,6 +3,8 @@ title: "Mazatzal Divide Trail"
 trail: "04"
 ---
 
+Offering expansive views throughout the heart of the Mazatzal Wilderness, this long path follows the prominent set of mountains between Mount Peeley and North Peak. It climbs up to the highest trail-accessible point (over 7100!) and passes several scenic campsites and springs. It is also part of the Arizona Trail, containing the entire Section #23.
+
 ## Red Hills to Doll Baby Trailhead {#2C}
 
 ### 2017-12-29 tread {source="haz/triplog/2017-12-29.md"}
