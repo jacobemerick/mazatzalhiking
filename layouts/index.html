@@ -3,24 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mazatzal Hiking</title>
-<meta name="description" content="Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked.">
-<meta name="theme-color" content="#17150f">
-<meta property="og:title" content="Mazatzal Hiking">
-<meta property="og:description" content="Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Mazatzal Hiking">
-<meta property="og:url" content="https://mazatzalhiking.com/">
-<meta property="og:image" content="https://mazatzalhiking.com/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Build a route through the Mazzies — Mazatzal Hiking">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://mazatzalhiking.com/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Mazatzal Hiking","url":"https://mazatzalhiking.com/","description":"Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have actually been walked."}</script>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{ partial "head-meta.html" . }}
 <style>
   :root {
     --ink: #17150f;
@@ -86,10 +69,22 @@
     letter-spacing: .16em;
     text-transform: uppercase;
     color: rgba(250, 246, 239, .72);
-    margin-bottom: clamp(2.5rem, 7vw, 4rem);
   }
 
   .brand svg { flex: none; }
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 7vw, 4rem);
+  }
+
+  .site-nav { display: flex; gap: 1.4rem; font-size: .92rem; }
+  .site-nav a { text-decoration: none; color: rgba(250, 246, 239, .6); }
+  .site-nav a:hover { color: var(--gold); }
 
   .eyebrow {
     font-family: var(--mono);
@@ -278,11 +273,14 @@
   </svg>
 
   <div class="wrap">
-    <div class="brand">
-      <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M2 26l8-13 4.5 7L18 14l12 12z" fill="#d9a441"/>
-      </svg>
-      Mazatzal Hiking
+    <div class="top">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M2 26l8-13 4.5 7L18 14l12 12z" fill="#d9a441"/>
+        </svg>
+        Mazatzal Hiking
+      </div>
+      {{ partial "site-nav.html" . }}
     </div>
 
     <p class="eyebrow">Tonto National Forest &middot; Central Arizona</p>
@@ -290,29 +288,19 @@
     <h1>Build a route<br>through the <em>Mazzies</em>.</h1>
 
     <p class="lede">
-      A route builder for the <span class="term" tabindex="0" aria-describedby="pron">Mazatzal<span class="pron" id="pron" role="tooltip"><b>Ma&middot;zat&middot;zal</b><i>\ mad-as-&#712;ell \</i><em>One of several pronunciations. Try it out. If you don&rsquo;t like it, pronounce it your way.</em></span></span>
-      Wilderness &mdash; put together a hike from GPS tracks that have actually been
-      walked, then export it as GPX or KML and carry it with you.
+      A route builder for the <span class="term" tabindex="0" aria-describedby="pron">Mazatzal<span class="pron" id="pron" role="tooltip"><b>Ma&middot;zat&middot;zal</b><i>\ mad-as-&#712;ell \</i><em>One of several pronunciations. Try it out. It rolls off the tongue easier once you&rsquo;ve been stabbed by some manzanita.</em></span></span>
+      Wilderness &mdash; put together a hike from GPS tracks verified by a foolhardy
+      explorer, then export it as a GPX or KML and carry it with you.
     </p>
 
     <div class="cta-row">
-      <a class="btn" href="https://github.com/jacobemerick/mazatzalhiking">Follow along on GitHub</a>
+      <a class="btn" href="https://github.com/jacobemerick/mazatzalhiking" target="_blank" rel="noopener">Follow along on GitHub</a>
       <span class="status"><span class="dot"></span> In development</span>
     </div>
   </div>
 </main>
 
-<footer>
-  <div class="wrap foot-grid">
-    <span>Built by <a href="https://jacobemerick.com">Jacob Emerick</a></span>
-    <div class="foot-links">
-      <a href="/trails/">Trails</a>
-      <a href="/about/">About</a>
-      <a href="https://github.com/jacobemerick/mazatzalhiking">GitHub</a>
-      <a href="https://www.fs.usda.gov/tonto">Tonto National Forest</a>
-    </div>
-  </div>
-</footer>
+{{ partial "site-foot.html" . }}
 
 
 <!-- Cloudflare Web Analytics -->

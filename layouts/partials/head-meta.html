@@ -1,7 +1,7 @@
 {{- /* Everything a crawler or a link unfurler reads. One place, so every page type
        says the same things the same way. */ -}}
 {{- $desc := partial "description.txt" . -}}
-{{- $title := cond .IsHome "Mazatzal Hiking" (printf "%s — Mazatzal Hiking" .Title) -}}
+{{- $title := cond .IsHome "Mazatzal Hiking — A route builder for the Mazatzal Wilderness" (printf "%s — Mazatzal Hiking" .Title) -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">

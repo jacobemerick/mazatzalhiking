@@ -143,8 +143,8 @@ Observation text is rendered by the same module the screen uses
 so a GPX says `[2026-05-23, Brush] …` in the same order the page shows it. The KML is
 the same content as a `LineString` and `Point` placemarks with HTML descriptions.
 
-The file's own description says what the site says: a leg with no note has no
-observation, which is not the same as clear.
+The file's own description says what the trail pages say: every leg is a track Jacob
+walked and recorded, notes carry their date, and conditions may change rapidly.
 
 ### 7. Names, not ids, everywhere a person reads
 

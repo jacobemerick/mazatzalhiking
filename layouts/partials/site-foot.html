@@ -1,0 +1,12 @@
+{{- /* The one footer, shared by the home page and baseof. Off-site links only;
+       the links themselves live in [menus.footer] in hugo.toml. */ -}}
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>Built by <a href="https://jacobemerick.com" target="_blank" rel="noopener">Jacob Emerick</a></span>
+    <div class="foot-links">
+      {{- range site.Menus.footer }}
+      <a href="{{ .URL }}" target="_blank" rel="noopener">{{ .Name }}</a>
+      {{- end }}
+    </div>
+  </div>
+</footer>
