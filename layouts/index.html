@@ -1,6 +1,36 @@
-{{- /* The landing page. Three candidate designs for #56 live in partials/home/;
-       params.homeDesign picks one. Once one is chosen the other two go. */ -}}
-{{ define "mainclass" }}home home-{{ site.Params.homeDesign | default "a" }}{{ end }}
+{{- /* The landing page (#56). The recorded network is the hero and the words sit
+       beside it; a band of figures below. Every number comes from the built data. */ -}}
+{{ define "mainclass" }}home{{ end }}
 {{ define "main" }}
-{{- partial (printf "home/%s.html" (site.Params.homeDesign | default "a")) . }}
+{{- $f := partial "home/facts.html" . }}
+<section class="split">
+  <div class="split-text">
+    <p class="eyebrow">Tonto National Forest &middot; Central Arizona</p>
+    <h1>Build a route<br>through the <em>Mazzies</em>.</h1>
+    <p class="lede">
+      A route builder for the <span class="term" tabindex="0" aria-describedby="pron">Mazatzal<span class="pron" id="pron" role="tooltip"><b>Ma&middot;zat&middot;zal</b><i>\ mad-as-&#712;ell \</i><em>One of several pronunciations. Try it out. It rolls off the tongue easier once you&rsquo;ve been stabbed by some manzanita.</em></span></span>
+      Wilderness &mdash; put together a hike from GPS tracks verified by a foolhardy
+      explorer, then export it as a GPX or KML and carry it with you.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="/trails/">Browse the trails</a>
+      <a class="ghost" href="https://github.com/jacobemerick/mazatzalhiking" target="_blank" rel="noopener">Follow along on GitHub</a>
+      <span class="status"><span class="dot"></span> In development</span>
+    </div>
+  </div>
+  <figure class="split-map">
+    {{ partialCached "home/map.html" . }}
+    <p class="net-pick" id="net-pick" aria-live="polite"><span class="net-hint">Tap or point at a line to see which trail it is.</span></p>
+    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road <span class="key key-wild"></span>Wilderness boundary &middot; every line is a track Jacob walked.</figcaption>
+  </figure>
+  <script src="/js/home-map.js" defer></script>
+</section>
+<section class="band">
+  <dl class="wrap figures">
+    <div><dt>Trails</dt><dd>{{ $f.trails }}</dd></div>
+    <div><dt>Forest roads</dt><dd>{{ $f.roads }}</dd></div>
+    <div><dt>Miles recorded</dt><dd>{{ printf "%.0f" $f.miles }}</dd></div>
+    <div><dt>Latest note</dt><dd>{{ (time.AsTime $f.last).Format "Jan 2006" }}</dd></div>
+  </dl>
+</section>
 {{ end }}

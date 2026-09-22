@@ -1,7 +1,0 @@
-{{- /* One note on the landing page: trail and leg as a link, category, text. */ -}}
-{{- $labels := dict "brush" "Brush" "deadfall" "Deadfall" "tread" "Tread" "route-finding" "Route finding" "water" "Water" "access" "Access" -}}
-<article class="obs obs-{{ .category }}">
-  <span class="obs-cat">{{ index $labels .category | default .category }}</span>
-  <a class="obs-where" href="/trails/{{ .slug }}/#{{ .anchor }}">{{ .trail }}{{ if ne .leg .trail }} <span>&middot; {{ .leg }}</span>{{ end }}</a>
-  <p class="obs-text">{{ .text | truncate 220 }}</p>
-</article>
