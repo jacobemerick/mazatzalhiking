@@ -15,8 +15,10 @@
     <div><dt>Legs</dt><dd>{{ len $t.legs }}</dd></div>
   </dl>
   <p class="actions"><a class="btn" href="/build/?r={{ $t.route }}">Open in the route builder</a></p>
+  {{- /* RenderString, not markdownify: it renders in this page's context, so a
+         broken link in the intro is reported against this trail's file. */}}
   {{- with trim $intro "\n" }}
-  <div class="trail-intro">{{ . | markdownify }}</div>
+  <div class="trail-intro">{{ $.RenderString . }}</div>
   {{- end }}
   <p class="provenance">Every leg below is a GPS track that Jacob walked and {{ $t.recorded }}. Distance is measured along the recorded line; elevation comes from USGS, sampled along it. Condition notes carry the date they were observed. Conditions may change rapidly, so use notes with caution.</p>
   <ol class="legs">

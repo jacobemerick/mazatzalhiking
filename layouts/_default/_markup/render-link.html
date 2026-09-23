@@ -1,4 +1,26 @@
-{{- /* Links written in markdown: anything off-site opens in a new tab. */ -}}
+{{- /* Links written in markdown: anything off-site opens in a new tab, and every
+       on-site link is checked at build time, so a typo fails the build instead of
+       shipping a dead link. A link must reach a page (/trails/<slug>/, /about/) or
+       a static file, and a fragment on a trail page must be one of that trail's
+       legs (#00) or a place (#node-1C). */ -}}
 {{- $u := urls.Parse .Destination -}}
+{{- if and (not $u.IsAbs) (hasPrefix $u.Path "/") -}}
+  {{- $where := "" }}{{ with .Page.File }}{{ $where = .Path }}{{ end -}}
+  {{- $target := site.GetPage (strings.TrimSuffix "/" $u.Path | default "/") -}}
+  {{- if not (or $target (fileExists (path.Join "static" $u.Path))) -}}
+    {{- errorf "%s: link %q goes to %s, which is not a page on this site" $where .Destination $u.Path -}}
+  {{- end -}}
+  {{- with $u.Fragment -}}
+    {{- $t := and $target (index site.Data.trails ($target.Params.trail | default "")) -}}
+    {{- if $t -}}
+      {{- $ok := false -}}
+      {{- range $t.legs }}{{ if eq .id $u.Fragment }}{{ $ok = true }}{{ end }}{{ end -}}
+      {{- if and (hasPrefix $u.Fragment "node-") (index site.Data.nodes (strings.TrimPrefix "node-" $u.Fragment)) }}{{ $ok = true }}{{ end -}}
+      {{- if not $ok -}}
+        {{- errorf "%s: link %q points at #%s, which is not a leg or place on %s" $where $.Destination $u.Fragment $target.Title -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 <a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $u.IsAbs }} target="_blank" rel="noopener"{{ end }}>{{ .Text }}</a>
 {{- /* chomp */ -}}
