@@ -3,10 +3,15 @@ title: "Sandy Saddle Trail"
 trail: "05"
 ---
 
+This trail provides an option to the upper two miles of Barnhardt Trail and makes a connection along the Mazatzal Divide that is perfect for hikers aiming for Horse Camp Seep or Deadman Falls.
+It can be combined with Barnhardt to do a challenging 15 mile dayhike or any number of longer loops involving Rock Creek Trail or even some of the western trails.
+
 ## Sandy Saddle Trail {#06}
 
 ### 2026-06-30 brush {source="haz/triplog/2026-06-30.md"}
 Two goals: clean up the 3 short sections of trail that remain to be cleared between Barnhardt Trail and Castersen Seep and haul my tools out.
+Bailed due to low water.
+At least I got my tools out.
 
 ### 2026-06-30 water {source="haz/triplog/2026-06-30.md"}
 Headed to Castersen to set up camp, minutes after the sunset, to find a bone-dry seep.

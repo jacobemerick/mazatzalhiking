@@ -3,7 +3,12 @@ title: "Club Ranch Spur"
 trail: "0E"
 ---
 
+Short spur that leads off of [Davenport Wash Trail](/trails/davenport-wash-trail/), past the old Club Cabin site (now burnt down), and to a reliable water source beyond.
+
 ## Club Ranch Spur {#0Y}
+
+### 2016-03-05 tread {source="haz/triplog/2016-03-05.md"}
+Well-trod grassy path leading back to the spring.
 
 ## Club Spring {#node:0T}
 

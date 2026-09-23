@@ -3,6 +3,9 @@ title: "Wet Bottom Trail"
 trail: "16"
 ---
 
+Remote trail in the Mazatzal Wilderness that ascends Wet Bottom Mesa into a rare, unburnt forest of pines before dropping into Bull Spring Canyon.
+The western few miles may be used to connect Verde River and Highwater Trail; the rest is seldom traveled.
+
 ## Verde River to Highwater {#2L}
 
 ### 2018-11-11 tread {source="haz/triplog/2018-11-11.md"}

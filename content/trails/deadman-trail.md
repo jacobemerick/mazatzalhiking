@@ -3,6 +3,9 @@ title: "Deadman Trail"
 trail: "0Y"
 ---
 
+Deadman Creek drains much of the central-western Mazatzal Wilderness, and its forks cut deep valleys that make the rough, hilly terrain even harder to traverse.
+This trail is one of the few routes to cross Deadman Creek, connecting Mountain Spring to Club Cabin, and can be combined with other trails to make some lengthy backpacking loops through a remote area.
+
 ## Deadman Trail {#1Z}
 
 ### 2017-09-03 route-finding {source="haz/triplog/2017-09-01.md"}

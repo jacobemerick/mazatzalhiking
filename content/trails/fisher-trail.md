@@ -3,6 +3,9 @@ title: "Fisher Trail"
 trail: "07"
 ---
 
+This trail provides an alternate route from Brody Seep junction to Bear Spring, swinging low into the tributaries of South Fork Deadman Creek instead of climbing up along the Mazatzal Divide Trail (Arizona Trail).
+Mileage is about the same, though the view is less grand due to the lower elevation.
+
 ## Brody Seep to Mazatzal Divide {#0F}
 
 ### 2017-05-06 route-finding {source="haz/triplog/2017-05-06.md"}

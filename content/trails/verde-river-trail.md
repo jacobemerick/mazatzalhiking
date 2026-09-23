@@ -3,15 +3,25 @@ title: "Verde River Trail"
 trail: "0V"
 ---
 
+The Verde River Trail is, well, a trail that follows the Verde River, starting at Sheep Bridge and heading north to East Verde before climbing up Cedar Bench to Twin Buttes Trailhead.
+It can be used by adventurous waterfolk or on a few different hikes, including Midnight Mesa Loop, Highwater - Verde, or Twin Buttes to River.
+Due to the length and difficult shuttle, it would be challenging to do a thru-hike of this entire route at once.
+
 ## Sheep Bridge Trailhead to Willow Springs {#1U}
 
-## Willow Springs to Dutchman Grave {#1V}
+### 2017-11-05 tread {source="haz/triplog/2017-11-05.md"}
+Trail stays high above Horse Creek and offers good views down.
+Then a quick crossing and the fun begins.
 
-## Dutchman Grave to Wet Bottom {#2J}
+## Willow Springs to Dutchman Grave {#1V}
 
 ### 2017-11-05 route-finding {source="haz/triplog/2017-11-05.md"}
 Tons of prints and wide trail to Sycamore Creek, and then nothing.
 As expected, this (and almost every other) wash meant hunting for a trail on the other bank, because the Mazzies don't believe in straightforward crossings.
+
+## Dutchman Grave to Wet Bottom {#2J}
+
+### 2017-11-05 route-finding {source="haz/triplog/2017-11-05.md"}
 Trail got faint in Dry Wash, ended up just aiming for the bluffs and picking it back up there.
 Then things just kinda rolled on until Wet Bottom Creek.
 

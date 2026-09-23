@@ -3,6 +3,10 @@ title: "Mazatzal Divide Trail"
 trail: "04"
 ---
 
+Offering expansive views throughout the heart of the Mazatzal Wilderness, this long path follows the prominent set of mountains between Mount Peeley and North Peak.
+It climbs up to the highest trail-accessible point (over 7100!) and passes several scenic campsites and springs.
+It is also part of the Arizona Trail, containing the entire Passage 23.
+
 ## Red Hills to Doll Baby Trailhead {#2C}
 
 ### 2017-12-29 tread {source="haz/triplog/2017-12-29.md"}
@@ -19,6 +23,9 @@ Every creek crossing was flowing.
 
 ## The Park to Willow Springs {#28}
 
+### 2017-03-26 route-finding {source="haz/triplog/2017-03-26.md"}
+Short and easy to stroll quickly along.
+
 ## Willow Springs to Rock Creek {#27}
 
 ### 2017-09-02 tread {source="haz/triplog/2017-09-01.md"}
@@ -34,7 +41,13 @@ Lot of sidewise walking.
 
 ## Horse Camp Seep to Rock Creek {#0B}
 
+### 2016-09-23 tread {source="haz/triplog/2016-09-23.md"}
+One of the easier sections to walk along, under big trees.
+
 ## Sandy Saddle to Horse Camp Seep {#0A}
+
+### 2016-09-23 tread {source="haz/triplog/2016-09-23.md"}
+Easy to follow, pretty rocky.
 
 ## Brody Seep (N) to Sandy Saddle {#09}
 
@@ -66,11 +79,23 @@ Watered up at some tanks before Chilson.
 
 ## Brody Seep (S) to Barnhardt {#0D}
 
+### 2016-04-02 brush {source="haz/triplog/2016-04-02.md"}
+Clear, easy trail.
+
 ## Y-Bar to Brody Seep (S) {#0C}
+
+### 2016-04-02 brush {source="haz/triplog/2016-04-02.md"}
+Thick overgrowth to push through near a tributary.
 
 ## Fisher to Y-Bar {#0K}
 
+### 2017-05-06 tread {source="haz/triplog/2017-05-06.md"}
+Very clear, easy walking, solid trail to follow.
+
 ## Fisher to Bear Spring {#0J}
+
+### 2017-05-06 tread {source="haz/triplog/2017-05-06.md"}
+Easy walking.
 
 ## Mount Peeley to Bear Spring {#0M}
 

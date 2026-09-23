@@ -3,6 +3,9 @@ title: "Half Moon Trail"
 trail: "02"
 ---
 
+Rolling, hilly trail that skirts the wilderness boundary, providing a great connection from Barnhardt Trailhead to [Rock Creek](/trails/rock-creek-trail/).
+Goes through in-use pastures and has a few gates and fences to pass through.
+
 ## Half Moon Trail {#02}
 
 ### 2020-03-21 tread {source="haz/triplog/2020-03-21.md"}
