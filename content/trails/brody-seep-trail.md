@@ -3,7 +3,17 @@ title: "Brody Seep Trail"
 trail: "06"
 ---
 
+Technically a shortcut, connecting the Mazatzal Divide Trail to Chilson Camp and bypassing a swing over to the top of Barnhardt Trail, this trail has fallen into disrepair, as the [Mazatzal Divide](/trails/mazatzal-divide-trail/) is part of the Arizona Trail and receives regular maintenance.
+It is heavily overgrown and it is unknown if the Forest Service plans to decommission it.
+Most hikers will only use the northern section to descend to Chilson Camp, assuming the trail is a spur, and will not continue on to either Brody Seep or the start of the (also heavily damaged) [Fisher Trail](/trails/fisher-trail/).
+
 ## Mazatzal Divide (N) to Chilson Camp {#08}
+
+### 2017-05-06 brush {source="haz/triplog/2017-05-06.md"}
+Minor overgrowth.
+
+### 2017-05-06 tread {source="haz/triplog/2017-05-06.md"}
+Steep, rocky, and somewhat loose.
 
 ## Chilson Camp to Fisher {#0G}
 

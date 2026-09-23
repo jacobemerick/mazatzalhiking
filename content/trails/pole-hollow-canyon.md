@@ -3,6 +3,8 @@ title: "Pole Hollow Canyon"
 trail: "12"
 ---
 
+Unofficial connection between City Creek and Mineral Creek Trailhead, providing good loop options with North Peak Trail.
+
 ## Pole Hollow Canyon {#2A}
 
 ### 2017-03-26 deadfall {source="haz/triplog/2017-03-26.md"}

@@ -3,6 +3,8 @@ title: "South Fork Deer Creek Trail"
 trail: "0I"
 ---
 
+One of several trails that climb from Deer Creek Trailhead up to the heights of the Mazatzal ridgeline, and this one balances good creekside hiking with a quicker ascent.
+
 ## South Fork Deer Creek Trail {#16}
 
 ### 2017-07-08 route-finding {source="haz/triplog/2017-07-08.md"}

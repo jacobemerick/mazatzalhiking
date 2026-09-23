@@ -3,6 +3,9 @@ title: "Mount Peeley Spur"
 trail: "09"
 ---
 
+Short summit trail that peels (heh) off the Mazatzal Divide Trail and climbs the mountain directly, with only a few twists through rock and brush obstacles.
+Not an official trail, yet a well-traveled one.
+
 ## Mount Peeley Spur {#0L}
 
 ### 2022-05-12 route-finding {source="haz/triplog/2022-05-12.md"}

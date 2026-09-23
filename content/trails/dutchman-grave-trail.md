@@ -3,7 +3,9 @@ title: "Dutchman Grave Trail"
 trail: "15"
 ---
 
-A beautiful, varied trail in the western Mazatzal Wilderness providing a challenge that continuously pays off. The route is well-chosen and should be easy to track even without regular maintenance. Can be used with nearby trails to make for great backpacking trips, such as Sheep Bridge / Mountain Spring Loop and the more extreme Midnight Mesa Loop.
+A beautiful, varied trail in the western Mazatzal Wilderness providing a challenge that continuously pays off.
+The route is well-chosen and should be easy to track even without regular maintenance.
+Can be used with nearby trails to make for great backpacking trips, such as Sheep Bridge / Mountain Spring Loop and the more extreme Midnight Mesa Loop.
 
 ## Verde River to Red Hills {#2H}
 

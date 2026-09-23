@@ -3,7 +3,9 @@ title: "Bull Springs Trail"
 trail: "18"
 ---
 
-Tough haul up from East Verde River into the remote, rolling hills of the northern Mazatzals. Half of this trail is part of the AZT and is well-maintained and easy to walk; the other half requires constant attention and long pants. For the few that travel its full length, there is a rustic cabin with large trees waiting at the end.
+Tough haul up from East Verde River into the remote, rolling hills of the northern Mazatzals.
+Half of this trail is part of the Arizona Trail and is well-maintained and easy to walk; the other half requires constant attention and long pants.
+For the few that travel its full length, there is a rustic cabin with large trees waiting at the end.
 
 ## LF Ranch to Brush {#2S}
 

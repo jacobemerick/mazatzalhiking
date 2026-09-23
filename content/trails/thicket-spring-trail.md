@@ -3,7 +3,9 @@ title: "Thicket Spring Trail"
 trail: "0B"
 ---
 
-Staggered climb out of McFarland Canyon, past West Fork Trail, along Sheep Mountain, and ending near Thicket Spring at Cornucopia Trail. This trail is a piece of the classic Cornucopia - Thicket Spring Loop and a part of AZT #22. Reaching the trail can be done from Cornucopia via Peeley Trailhead, West Fork via 25A, or Sheep Creek/Saddle Mountain via Mormon Grove.
+Staggered climb out of McFarland Canyon, past West Fork Trail, along Sheep Mountain, and ending near Thicket Spring at Cornucopia Trail.
+This trail is a piece of the classic Cornucopia - Thicket Spring Loop and a part of Arizona Trail Passage 22.
+Reaching the trail can be done from Cornucopia via Peeley Trailhead, West Fork via 25A, or Sheep Creek/Saddle Mountain via Mormon Grove.
 
 ## Sheep Creek to West Fork {#0T}
 

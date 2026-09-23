@@ -3,7 +3,9 @@ title: "Saddle Ridge Trail"
 trail: "1A"
 ---
 
-Saddle Ridge Trail climbs up from the bank of East Verde River to Hardscrabble Mesa, ascending from one mesa to the next, steadily climbing through a fantastic mix of grasslands and forests. The entire length is part of the Arizona Trail and is relatively well-defined and easy to follow for a Mazatzal trail. It is most often traveled by AZT hikers, as connecting loops would involve venturing into more remote areas.
+Saddle Ridge Trail climbs up from the bank of East Verde River to Hardscrabble Mesa, ascending from one mesa to the next, steadily climbing through a fantastic mix of grasslands and forests.
+The entire length is part of the Arizona Trail and is relatively well-defined and easy to follow for a Mazatzal trail.
+It is most often traveled by Arizona Trail hikers, as connecting loops would involve venturing into more remote areas.
 
 ## Twin Buttes Trailhead to Whiterock Mesa {#2V}
 

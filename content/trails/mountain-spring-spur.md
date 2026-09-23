@@ -3,7 +3,12 @@ title: "Mountain Spring Spur"
 trail: "0Z"
 ---
 
+Short, marked trail to the corral, trough, and source of Mountain Spring, a welcome water source deep in the central Mazatzal Wilderness.
+
 ## Mountain Spring Spur {#21}
+
+### 2018-09-03 route-finding {source="haz/triplog/2018-09-03.md"}
+Easy little walk through the trees and through the gaping open corral entrance.
 
 ## Mountain Spring {#node:1T}
 

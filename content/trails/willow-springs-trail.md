@@ -3,7 +3,9 @@ title: "Willow Springs Trail"
 trail: "0W"
 ---
 
-This is one of the most challenging long-distance trails of the Mazatzal Wilderness. Reaching the trailhead is an ordeal, the first few miles are a hot and dry slog, and the last half was demolished by wildfire. The solitude and expansive views of the central wilderness, especially of Midnight Mesa and Deadman Creek, are well worth the effort.
+This is one of the most challenging long-distance trails of the Mazatzal Wilderness.
+Reaching the trailhead is an ordeal, the first few miles are a hot and dry slog, and the last half was demolished by wildfire.
+The solitude and expansive views of the central wilderness, especially of Midnight Mesa and Deadman Creek, are well worth the effort.
 
 ## Verde River to Willow Springs Spur Junction {#1W}
 
@@ -22,9 +24,18 @@ The trail drops sharp on the other side, switchbacks and ridges.
 
 ## Deadman to Mountain Spring {#20}
 
+### 2018-06-09 route-finding {source="haz/triplog/2018-06-09.md"}
+Exercise in cairn-hunting through the thick grass.
+
 ## Mountain Spring to Dutchman Grave {#22}
 
+### 2018-09-03 route-finding {source="haz/triplog/2018-09-03.md"}
+Very short cairn-hunt.
+
 ## Dutchman Grave to Lost Spring {#23}
+
+### 2018-09-03 route-finding {source="haz/triplog/2018-09-03.md"}
+Steep haul up the slope somehow makes the tread easier to follow.
 
 ## Lost Spring to Midnight {#25}
 

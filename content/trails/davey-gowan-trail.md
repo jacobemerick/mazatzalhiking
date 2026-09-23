@@ -3,7 +3,8 @@ title: "Davey Gowan Trail"
 trail: "0G"
 ---
 
-An alternate descent (instead of Deer Creek #45) from FR 201 to Gowan Camp. Can be paired with Deer Creek Trail to make a fantastic loop.
+An alternate descent (instead of Deer Creek #45) from FR 201 to Gowan Camp.
+Can be paired with Deer Creek Trail to make a fantastic loop.
 
 ## Davey Gowan Trail {#13}
 

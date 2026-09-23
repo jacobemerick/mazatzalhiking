@@ -3,6 +3,9 @@ title: "Rock Creek Trail"
 trail: "03"
 ---
 
+Steep, incredibly rewarding haul up the rocky eastern face of the Mazatzal ridge.
+There is a set of waterfalls along the upper half that make for a worthy destination on their own, and the trail construction near them is excellent.
+
 ## Rock Creek Trail {#03}
 
 ### 2020-03-21 brush {source="haz/triplog/2020-03-21.md"}

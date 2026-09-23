@@ -3,6 +3,11 @@ title: "Barnhardt Trail"
 trail: "00"
 ---
 
+Hands down, the best introductory hike to this wilderness, and a convenient access point for thru-hikers on the [Mazatzal Divide](/trails/mazatzal-divide-trail/) leg of the Arizona Trail.
+It starts at the Barnhardt Trailhead, located at the end of Barnhardt Road, climbing from Barnhardt Mesa along the side of Barnhardt Canyon (yup).
+The trail is usually well-maintained, goes past a few seasonal waterfalls, and makes for good backpacking outings, with a few campsites along it and on connecting trips.
+The first segment is somewhat of a steep, steady climb, while the second segment, beyond the Sandy Saddle junction, is a more steady walk in and out of drainages with relatively low elevation change.
+
 ## Barnhardt Trailhead to Sandy Saddle {#00}
 
 ### 2026-06-30 water {source="haz/triplog/2026-06-30.md"}
@@ -15,7 +20,8 @@ Barnhardt is still in decent shape and the few plants that brushed my legs didn'
 Things really dried up since I was last out here -- Garden Seep area was dry, both waterfalls silent, and only a few sad pools sat under Big Kahuna.
 
 ### 2026-05-15 brush {source="haz/triplog/2026-05-15.md"}
-The trail maintenance along Barnhardt was appreciated, the manzanita above the falls has been pushed back nicely.
+The intermittent trail maintenance along Barnhardt was appreciated.
+The manzanita above the falls has been pushed back nicely.
 
 ### 2026-01-16 water {source="haz/triplog/2026-01-16.md"}
 Good flow at the falls & creek below.
