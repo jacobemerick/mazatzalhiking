@@ -82,3 +82,13 @@ The Mazatzal Wilderness boundary from the Forest Service's EDW Wilderness layer
 `maxAllowableOffset=0.0004` (about 40 m), so it is a 286-point outline, not survey
 geometry. Public domain. The landing page map draws it as context behind the tracks;
 nothing measures against it.
+
+## `usgs-nhd-rivers.geojson`
+
+The Verde River, East Verde River and Fossil Creek from the USGS National Hydrography
+Dataset (`hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6`, Flowline - Large
+Scale, where `gnis_name` is one of the three), limited to the landing page map's
+extent. Fetched 2026-09-22 in WGS84 with `maxAllowableOffset=0.0003` (about 30 m).
+Both stream channels (ftype 460) and the centerlines NHD runs through wide water
+(558) are kept, so each river draws as one continuous line. Public domain. Drawn as
+context on the landing page map; nothing measures against it.
