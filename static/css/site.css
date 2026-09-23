@@ -6,6 +6,7 @@
   --sand: #faf6ef;
   --gold: #d9a441;
   --clay: #c8703f;
+  --water: #6fb0d8;
   --muted: rgba(250, 246, 239, .6);
   --line: rgba(250, 246, 239, .16);
   --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
@@ -124,7 +125,7 @@ section + section { margin-top: 3rem; }
 .obs-cat { display: block; font-family: var(--mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
 .obs-text { margin: .3rem 0 0; font-size: .95rem; }
 .obs-photos { margin: .35rem 0 0; padding-left: 1rem; font-size: .84rem; color: var(--muted); }
-.obs-water { border-left-color: #6fb0d8; }
+.obs-water { border-left-color: var(--water); }
 .obs-access { border-left-color: var(--clay); }
 .obs-deadfall, .obs-brush { border-left-color: #8bb174; }
 
