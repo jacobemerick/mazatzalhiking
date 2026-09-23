@@ -6,6 +6,12 @@ description: "Where the lines on this site come from: one person's recorded GPS 
 lede: "Every line on this site is a GPS track that one person walked and recorded. Nothing is traced from a Forest Service map, and nothing is copied from another site."
 ---
 
+## Who I am
+
+_[TODO: A few sentences about yourself — who you are, where you live, and how you came to the Mazatzals.]_
+
+_[TODO: Why you walked and recorded all of it, and why you built this site.]_
+
 ## The tracks
 
 I have hiked every trail in the Mazatzal Wilderness that appears here, carrying a GPS recorder.
@@ -34,4 +40,9 @@ That is not the same as the trail being clear.
 ## Get in touch
 
 Corrections are welcome, especially about a trail whose condition has changed since I walked it.
-The site is developed in the open on [GitHub](https://github.com/jacobemerick/mazatzalhiking), and the best place to tell me about a problem is an issue there.
+_[TODO: What else you'd like to hear about — questions, trip reports, trail work.]_
+
+The form below sends your message straight to my inbox; it is not stored on this site.
+If you'd rather, the site is developed in the open on [GitHub](https://github.com/jacobemerick/mazatzalhiking), and a problem with the site itself can go in an issue there.
+
+{{< contact-form >}}
