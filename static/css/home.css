@@ -70,7 +70,7 @@ main.home { padding: 0; }
 .net a { outline: none; }  /* a ring round a trail's whole bounding box reads as a frame on the map */
 .net a.on polyline, .net a:focus-visible polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
 .net .relief { opacity: .18; pointer-events: none; }
-.net .river polyline { stroke: var(--water); stroke-width: 1.8; opacity: .85; pointer-events: none; }
+.net .river polyline { stroke: var(--water); stroke-width: 1.2; opacity: .5; pointer-events: none; }  /* road weight: context, not competition */
 .net .wild { fill: rgba(250, 246, 239, .02); stroke: rgba(250, 246, 239, .38); stroke-width: 1; stroke-dasharray: 6 3 1.5 3; vector-effect: non-scaling-stroke; }
 /* Fixed height and one line, so naming a trail never moves the page. */
 .net-pick {
@@ -86,7 +86,7 @@ main.home { padding: 0; }
 .split-map figcaption { margin-top: .8rem; font-size: .82rem; color: var(--muted); }
 .key { display: inline-block; width: 1.2rem; height: 0; margin: 0 .35rem .22rem 0; vertical-align: middle; border-top: 2px solid var(--gold); }
 .key-road { margin-left: .6rem; border-top: 2px dashed rgba(250, 246, 239, .45); }
-.key-river { margin-left: .6rem; border-top: 2px solid var(--water); }
+.key-river { margin-left: .6rem; border-top: 2px solid var(--water); opacity: .6; }
 .key-wild { margin-left: .6rem; border-top: 1px dashed rgba(250, 246, 239, .5); }
 
 @media (max-width: 760px) {
