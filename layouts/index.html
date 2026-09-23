@@ -20,16 +20,15 @@
   </div>
   <figure class="split-map">
     {{ partialCached "home/map.html" . }}
-    <p class="net-pick" id="net-pick" aria-live="polite"><span class="net-hint">Tap or point at a line to see which trail it is.</span></p>
-    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road <span class="key key-wild"></span>Wilderness boundary &middot; every line is a track Jacob walked.</figcaption>
+    <p class="net-pick" id="net-pick" aria-live="polite"><span class="net-hint">Point at or tap a line to see which trail it is.</span></p>
+    <figcaption><span class="key key-trail"></span>Trail <span class="key key-road"></span>Forest road <span class="key key-wild"></span>Wilderness boundary</figcaption>
   </figure>
   <script src="/js/home-map.js" defer></script>
 </section>
 <section class="band">
   <dl class="wrap figures">
     <div><dt>Trails</dt><dd>{{ $f.trails }}</dd></div>
-    <div><dt>Forest roads</dt><dd>{{ $f.roads }}</dd></div>
-    <div><dt>Miles recorded</dt><dd>{{ printf "%.0f" $f.miles }}</dd></div>
+    <div><dt>Miles</dt><dd>{{ printf "%.0f" $f.miles }}</dd></div>
     <div><dt>Latest note</dt><dd>{{ (time.AsTime $f.last).Format "Jan 2006" }}</dd></div>
   </dl>
 </section>

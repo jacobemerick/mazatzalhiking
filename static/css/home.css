@@ -49,7 +49,7 @@ main.home { padding: 0; }
 /* ---------- figures band ---------- */
 
 .band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(250, 246, 239, .025); }
-.figures { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-block: 0; padding: 1.4rem 0; }
+.figures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-block: 0; padding: 1.4rem 0; }
 .figures div { margin: 0; }
 .figures dt { font-family: var(--mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .figures dd { margin: .15rem 0 0; font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 600; line-height: 1.2; }
@@ -66,19 +66,22 @@ main.home { padding: 0; }
 .net polyline { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: stroke .12s ease; }
 .net .trail polyline { stroke: var(--gold); stroke-width: 1.6; opacity: .9; }
 .net .road polyline { stroke: rgba(250, 246, 239, .45); stroke-width: 1.2; stroke-dasharray: 3 3; }
-.net a:hover polyline, .net a:focus polyline, .net a.on polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
-.net a:focus { outline: none; }
+.net { -webkit-tap-highlight-color: transparent; }
+.net a { outline: none; }  /* a ring round a trail's whole bounding box reads as a frame on the map */
+.net a.on polyline, .net a:focus-visible polyline { stroke: var(--sand); stroke-width: 3; opacity: 1; }
 .net .relief { opacity: .18; pointer-events: none; }
 .net .wild { fill: rgba(250, 246, 239, .02); stroke: rgba(250, 246, 239, .38); stroke-width: 1; stroke-dasharray: 6 3 1.5 3; vector-effect: non-scaling-stroke; }
+/* Fixed height and one line, so naming a trail never moves the page. */
 .net-pick {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .8rem;
-  min-height: 2.6rem; margin: .6rem 0 0; padding: .55rem .9rem;
-  border: 1px solid var(--line); border-radius: 8px; font-size: .92rem;
+  display: flex; align-items: center; gap: .8rem;
+  height: 2.9rem; margin: .6rem 0 0; padding: 0 .9rem; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 8px; font-size: .92rem; line-height: 1.2; white-space: nowrap;
 }
-.net-pick b { font-family: var(--serif); font-size: 1.08rem; font-weight: 600; }
-.net-pick span { font-family: var(--mono); font-size: .76rem; color: var(--muted); }
-.net-pick a { margin-left: auto; font-weight: 600; color: var(--gold); text-decoration: none; }
-.net-pick .net-hint { font-family: var(--sans); font-size: .88rem; }
+.net-pick b { min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: var(--serif); font-size: 1.08rem; font-weight: 600; }
+.net-pick span { flex: none; font-family: var(--mono); font-size: .76rem; color: var(--muted); }
+.net-pick a { flex: none; margin-left: auto; font-weight: 600; color: var(--gold); text-decoration: none; }
+.net-pick .net-hint { overflow: hidden; text-overflow: ellipsis; }
+.net-pick .net-hint { flex: 1; font-family: var(--sans); font-size: .88rem; color: var(--muted); }
 .split-map figcaption { margin-top: .8rem; font-size: .82rem; color: var(--muted); }
 .key { display: inline-block; width: 1.2rem; height: 0; margin: 0 .35rem .22rem 0; vertical-align: middle; border-top: 2px solid var(--gold); }
 .key-road { margin-left: .6rem; border-top: 2px dashed rgba(250, 246, 239, .45); }
@@ -95,7 +98,6 @@ main.home { padding: 0; }
   .term { position: static; }
   .pron { max-width: 100%; }
   .pron::after { display: none; }
-  .figures { grid-template-columns: repeat(2, 1fr); row-gap: 1.2rem; }
   .cta-row .status { flex-basis: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {

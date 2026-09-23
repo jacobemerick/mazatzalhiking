@@ -1,8 +1,10 @@
 // Landing page map: pick the trail nearest the pointer instead of relying on hitting
 // a 1.6px line. On a phone the map is ~340px wide and three in four points on a line
-// have another trail within a thumb's width, so a tap selects and names the trail
-// and the link under the map opens it. A mouse highlights on hover and opens on
-// click. Without this script every trail is still a plain link.
+// have another trail within a thumb's width.
+//
+// Pointing at the map (mouse) previews the nearest trail; a click or tap selects it,
+// which lights it up and names it in the bar under the map. Only that bar's
+// "Open trail" link leaves the page. Without this script every trail is a plain link.
 (function () {
   var svg = document.querySelector('.net');
   var pick = document.getElementById('net-pick');
@@ -43,14 +45,16 @@
     return best;
   }
 
-  var current = null;
-  function show(a) {
-    if (a === current) return;
-    if (current) current.classList.remove('on');
-    current = a;
-    if (!a) { pick.innerHTML = hint; svg.style.cursor = ''; return; }
+  // What shows is the hovered trail if there is one, else the selected one.
+  var selected = null, hovered = null, shown = null;
+  function render() {
+    var a = hovered || selected;
+    if (a === shown) return;
+    if (shown) shown.classList.remove('on');
+    shown = a;
+    if (!a) { pick.innerHTML = hint; return; }
     a.classList.add('on');
-    a.parentNode.appendChild(a);  // draw the picked trail on top of its neighbours
+    a.parentNode.appendChild(a);  // draw it on top of its neighbours
     pick.innerHTML = '';
     var name = document.createElement('b'); name.textContent = a.dataset.name;
     var miles = document.createElement('span'); miles.textContent = a.dataset.miles + ' mi';
@@ -60,19 +64,20 @@
 
   var kind = 'mouse';
   svg.addEventListener('pointerdown', function (e) { kind = e.pointerType || 'mouse'; });
+  svg.addEventListener('mousedown', function (e) { e.preventDefault(); });  // no focus ring on click
   svg.addEventListener('pointermove', function (e) {
     if (e.pointerType !== 'mouse') return;
-    var a = nearest(e, 'mouse');
-    show(a); svg.style.cursor = a ? 'pointer' : '';
+    hovered = nearest(e, 'mouse');
+    svg.style.cursor = hovered ? 'pointer' : '';
+    render();
   });
-  svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') show(null); });
+  svg.addEventListener('pointerleave', function () { hovered = null; svg.style.cursor = ''; render(); });
   svg.addEventListener('click', function (e) {
     if (e.detail === 0) return;                       // keyboard: the focused link opens as usual
     if (e.metaKey || e.ctrlKey || e.shiftKey) return; // new tab or window: leave it to the browser
     e.preventDefault();
-    var a = nearest(e, kind);
-    if (kind === 'mouse') { if (a) location.href = a.getAttribute('href'); return; }
-    show(a);  // touch and pen: name it first; the link under the map opens it
+    selected = nearest(e, kind);                      // empty ground clears the selection
+    render();
   });
-  svg.addEventListener('focusin', function (e) { var a = e.target.closest('a'); if (a) show(a); });
+  svg.addEventListener('focusin', function (e) { var a = e.target.closest('a'); if (a) { selected = a; render(); } });
 })();
