@@ -44,3 +44,25 @@ jobs:
       - uses: actions/download-artifact@v4
         with: { name: public, path: public/ }
       - run: node tools/check_links.mjs
+
+  builder:    # the route builder, driven in the runner's Chrome
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/download-artifact@v4
+        with: { name: public, path: public/ }
+      - run: node tools/check_builder.mjs
+
+  routes:    # shared ?r= links still load (tools/fixtures/shared-routes.txt)
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/download-artifact@v4
+        with: { name: public, path: public/ }
+      - run: node tools/check_routes.mjs

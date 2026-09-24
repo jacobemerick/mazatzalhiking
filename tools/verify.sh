@@ -10,3 +10,5 @@ cd "$(dirname "$0")/.."
 
 [[ "${1:-}" == "--no-build" ]] || tools/build.sh
 node tools/check_links.mjs
+node tools/check_builder.mjs   # these two drive headless Chrome ($CHROME, or the usual path)
+node tools/check_routes.mjs
