@@ -117,9 +117,10 @@ export async function browser() {
 
   async function close() {
     ws.close();
-    proc.kill();
-    await new Promise(r => proc.once('exit', r));
-    rmSync(profile, { recursive: true, force: true });
+    if (proc.exitCode === null) { const gone = new Promise(r => proc.once('exit', r)); proc.kill(); await gone; }
+    // Chrome's helper processes can still be writing the profile for a moment after the
+    // browser exits. The profile is a temp dir, so tidying it must never fail a check.
+    try { rmSync(profile, { recursive: true, force: true, maxRetries: 10, retryDelay: 200 }); } catch {}
   }
 
   return { evaluate, waitFor, goto, close, errors };
