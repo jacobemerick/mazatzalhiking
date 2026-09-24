@@ -8,11 +8,13 @@
  *     around: the route, the panel, the totals
  *     (miles, gain and loss for the direction walked) and the ?r= URL all agree with
  *     graph.json
+ *   - each leg in the list links to its trail page, and no condition note appears in
+ *     the list or a popup (the notes live on the trail pages, not here)
  *   - click a leg that does not connect: the route is unchanged and the popup offers
  *     to start again there; undo removes the last leg
  *   - encode() -> decode() gives the same route back, and so does reloading its URL
- *   - Download GPX and Download KML: each parses as XML, holds the route's full
- *     geometry, names every place passed, and carries the legs' condition notes
+ *   - Download GPX and Download KML: each parses as XML and holds one named line per
+ *     leg, every point in walking order, and nothing else: no waypoints, no notes
  *
  * The two legs are chosen from the data, not named, so the check follows the graph
  * as it changes.
@@ -37,7 +39,9 @@ const [A, B] = pairs.find(([a, b]) => a.id !== b.id && a.from !== a.to && notes(
   touches(b, a.from) && !touches(b, a.to));
 const bRev = B.from !== A.from;
 const tailNode = bRev ? B.from : B.to;
-const C = G.segments.find(c => !touches(c, tailNode) && c.id !== A.id && c.id !== B.id);
+const C = G.segments.find(c => !touches(c, tailNode) && c.id !== A.id && c.id !== B.id && notes(c.id).length);
+const trailNames = s => s.trails.map(t => G.trails.find(x => x.id === t).name).join(' / ');
+const legName = (s, rev) => `${trailNames(s)}: ${NODE[rev ? s.to : s.from].name} to ${NODE[rev ? s.from : s.to].name}`;
 const legGain = (s, rev) => rev ? s.loss_ft : s.gain_ft;
 const want = {
   route: [{ id: A.id, rev: true }, { id: B.id, rev: bRev }],
@@ -45,9 +49,9 @@ const want = {
   miles: (A.miles + B.miles).toFixed(1),
   gain: Math.round(legGain(A, true) + legGain(B, bRev)).toLocaleString('en-US'),
   loss: Math.round(legGain(A, false) + legGain(B, !bRev)).toLocaleString('en-US'),
-  places: [A.to, A.from, tailNode].map(n => NODE[n].name),
-  trails: [...A.trails, ...B.trails].map(t => G.trails.find(x => x.id === t).name),
-  notes: [...notes(A.id), ...notes(B.id)].map(o => o.text),
+  legNames: [legName(A, true), legName(B, bRev)],
+  pages: [A, B].map(s => s.trails.map(t => `/trails/${G.trails.find(x => x.id === t).slug}/`)),
+  notes: [...notes(A.id), ...notes(B.id), ...notes(C.id)].map(o => o.text),
 };
 
 const failures = [];
@@ -76,7 +80,10 @@ try {
     legs: document.getElementById('st-legs').textContent,
     items: document.querySelectorAll('#legs > li').length,
     popup: document.querySelector('.leaflet-popup-content')?.textContent || '',
+    list: document.getElementById('legs').textContent,
+    pages: [...document.querySelectorAll('#legs > li')].map(li => [...li.querySelectorAll('.leg-trail a')].map(a => a.getAttribute('href'))),
   })`);
+  const noNotes = (text, where) => { for (const n of want.notes) check(!text.includes(n), `${where} shows the note "${n.slice(0, 60)}"`); };
 
   await click(A.id);
   await click(B.id);
@@ -87,11 +94,18 @@ try {
   check(p.miles === want.miles, `panel shows ${p.miles} mi, expected ${want.miles}`);
   check(p.gain === want.gain, `panel shows ${p.gain} ft gain, expected ${want.gain}`);
   check(p.loss === want.loss, `panel shows ${p.loss} ft loss, expected ${want.loss}`);
+  check(same(p.pages, want.pages), `legs link to ${JSON.stringify(p.pages)}, expected ${JSON.stringify(want.pages)}`);
+  for (const href of new Set(p.pages.flat())) {
+    const res = await fetch(site.origin + href);
+    check(res.ok, `the trail page link ${href} answers ${res.status}`);
+  }
+  noNotes(p.list, 'the leg list');
 
   await click(C.id);
   p = await panel();
   check(same(p.route, want.route), `clicking ${C.id}, which does not connect, changed the route to ${JSON.stringify(p.route)}`);
   check(p.popup.includes('Start a new route here'), `clicking ${C.id}, which does not connect, did not offer to start a new route there`);
+  noNotes(p.popup, `the popup for ${C.id}`);
 
   await chrome.evaluate(`document.getElementById('undo').click()`);
   p = await panel();
@@ -111,37 +125,31 @@ try {
   }).then(text => {
     const doc = new DOMParser().parseFromString(text, 'application/xml');
     const err = doc.querySelector('parsererror');
-    const all = sel => [...doc.getElementsByTagName(sel)];
-    return { file: window.__file, error: err && err.textContent,
-      trkseg: all('trkseg').length, trkpt: all('trkpt').length,
-      ends: all('trkseg').map(t => { const p = t.getElementsByTagName('trkpt'); return [p[0], p[p.length - 1]].map(q => q.getAttribute('lon') + ',' + q.getAttribute('lat')); }),
-      line: all('LineString').map(l => l.getElementsByTagName('coordinates')[0].textContent.trim().split(/\\s+/).map(c => c.split(',').slice(0, 2).join(','))),
-      // A KML description is HTML (in CDATA), so read it the way Google Earth does.
-      names: [...all('name'), ...all('desc')].map(e => e.textContent)
-        .concat(all('description').map(e => new DOMParser().parseFromString(e.textContent, 'text/html').body.textContent))
-        .join('\\n') };
+    const all = (el, tag) => [...el.getElementsByTagName(tag)];
+    const name = el => el.getElementsByTagName('name')[0]?.textContent;
+    // Each leg's line as [lon,lat] strings, from a GPX <trk> or a KML <Placemark>.
+    const legs = all(doc, 'trk').map(t => ({ name: name(t), pts: all(t, 'trkpt').map(q => q.getAttribute('lon') + ',' + q.getAttribute('lat')) }))
+      .concat(all(doc, 'Placemark').map(m => ({ name: name(m),
+        pts: (m.getElementsByTagName('coordinates')[0]?.textContent.trim().split(/\\s+/) || []).map(c => c.split(',').slice(0, 2).join(',')) })));
+    return { file: window.__file, error: err && err.textContent, legs, text: doc.documentElement.textContent,
+      extras: all(doc, 'wpt').length + all(doc, 'Point').length + all(doc, 'desc').length + all(doc, 'description').length };
   })`);
 
   const geom = await Promise.all([A, B].map(s => fetch(`${site.origin}/data/${s.geometry}`).then(r => r.json())));
-  const points = geom.reduce((n, g) => n + g.coordinates.length, 0);
-  // Each leg's first and last point in walking order, as the exports write them.
+  // Each leg's points in walking order, as the exports write them.
   const fix = c => c[0].toFixed(6) + ',' + c[1].toFixed(6);
-  const walked = [[geom[0], true], [geom[1], bRev]].map(([g, rev]) => {
-    const c = rev ? g.coordinates.slice().reverse() : g.coordinates; return [fix(c[0]), fix(c[c.length - 1])]; });
+  const walked = [[geom[0], true], [geom[1], bRev]].map(([g, rev]) => (rev ? g.coordinates.slice().reverse() : g.coordinates).map(fix));
   for (const kind of ['gpx', 'kml']) {
-    const f = await download(kind);
-    check(!f.error, `${kind.toUpperCase()} does not parse: ${f.error}`);
-    check(f.file?.endsWith(`.${kind}`), `${kind.toUpperCase()} downloads as "${f.file}"`);
-    if (kind === 'gpx') {
-      check(f.trkseg === 2 && f.trkpt === points, `GPX has ${f.trkseg} track segments and ${f.trkpt} points, expected 2 and ${points}`);
-      check(same(f.ends, walked), `GPX legs run ${JSON.stringify(f.ends)}, expected ${JSON.stringify(walked)} (walking order)`);
-    } else {
-      const line = f.line[0] || [];
-      check(f.line.length === 1 && line.length === points - 1, `KML line has ${line.length} points, expected ${points - 1} (legs joined at the shared node)`);
-      check(line[0] === walked[0][0] && line[line.length - 1] === walked[1][1], `KML line runs ${line[0]} to ${line[line.length - 1]}, expected ${walked[0][0]} to ${walked[1][1]}`);
-    }
-    for (const name of [...want.places, ...want.trails]) check(f.names.includes(name), `${kind.toUpperCase()} does not mention "${name}"`);
-    for (const text of want.notes) check(f.names.includes(text), `${kind.toUpperCase()} is missing the note "${text.slice(0, 60)}"`);
+    const f = await download(kind), K = kind.toUpperCase();
+    check(!f.error, `${K} does not parse: ${f.error}`);
+    check(f.file?.endsWith(`.${kind}`), `${K} downloads as "${f.file}"`);
+    check(same(f.legs.map(l => l.name), want.legNames), `${K} legs are named ${JSON.stringify(f.legs.map(l => l.name))}, expected ${JSON.stringify(want.legNames)}`);
+    walked.forEach((pts, i) => {
+      const got = f.legs[i]?.pts || [];
+      check(same(got, pts), `${K} leg ${i + 1} has ${got.length} points from ${got[0]} to ${got[got.length - 1]}, expected ${pts.length} from ${pts[0]} to ${pts[pts.length - 1]}`);
+    });
+    check(f.extras === 0, `${K} has ${f.extras} waypoints or descriptions; it should hold only the legs`);
+    noNotes(f.text, K);
   }
 
   await chrome.goto(`${site.origin}/build/?r=${want.r}`);

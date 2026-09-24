@@ -2,14 +2,13 @@
 
 Decision record for [#21](https://github.com/jacobemerick/mazatzalhiking/issues/21).
 Lives at [`/build/`](https://mazatzalhiking.com/build/); code in
-[`public/build/`](../public/build), shared condition renderer in
-[`public/js/conditions.js`](../public/js/conditions.js), data emitted by
+[`public/build/`](../public/build), data emitted by
 [`tools/build_site.py`](../tools/build_site.py).
 
 **Decision: a route is an ordered list of legs, each a segment walked in one direction,
 and the only rule is that a leg starts where the previous one ended. The builder does no
 pathfinding. It shows the network, lets you click the legs that connect, keeps a running
-total, and writes the route out as GPX or KML with the dated condition notes inside.**
+total, and writes the route out as GPX or KML. Condition notes stay on the trail pages.**
 
 ---
 
@@ -17,8 +16,8 @@ total, and writes the route out as GPX or KML with the dated condition notes ins
 
 - Draws every segment in the graph on a USGS topo basemap, with junctions and trailheads
 - Highlights in gold the segments that can be clicked next; clicking one appends it
-- Shows the legs in order with distance, gain and loss for the direction walked, the
-  date the ground was recorded, and the condition observations under each
+- Shows the legs in order with distance, gain and loss for the direction walked, and
+  the date the ground was recorded; each leg's trail name links to its trail page
 - Undo, clear, copy link
 - Downloads a GPX or a KML of the assembled route
 - Loads a route from the URL, and writes every change back to it
@@ -94,7 +93,6 @@ Three tiers, as the graph document planned, now real:
 | `data/graph.json` | 52 KB | on open |
 | `data/display.json` | 160 KB | on open |
 | `data/geometry/<id>.json` | 2 to 20 KB each | per leg, at export |
-| `data/observations.json` | grows with #18 | on open |
 
 `display.json` is every segment simplified to about 9 m, which is below the width of a
 drawn line at every zoom the map uses: 15,035 points become 7,346. The full line, with
@@ -130,28 +128,24 @@ framework would buy nothing here: the state is one array, the DOM is one list.
 Every segment is drawn twice: a visible line, and above it an invisible line 18 px wide
 that takes the clicks and the hover. A 2.5 px line is not a click target on a phone.
 
-### 6. The export carries the conditions three ways
+### 6. Notes live on the trail pages, and the files are just the route
 
-A GPX file has no place for per-leg text: `<trkseg>` takes points and nothing else.
-So the notes go where a device will show them:
+*Revised 2026-09-24.* v1 put every condition note in the leg list, the popups, the
+hover tip and both downloads: in the track description, on a waypoint at every
+junction, and on a "Conditions: …" waypoint at the middle of each leg. With the notes
+from [#18](https://github.com/jacobemerick/mazatzalhiking/issues/18) in place that was
+overwhelming in the popups and the leg list. Jacob's call: keep the builder simple, and
+send anyone who wants the conditions to the trail pages.
 
-- **One `<trk>` for the route, one `<trkseg>` per leg**, every point with DEM
-  elevation. The track's `<desc>` is the leg list with distance, gain and loss, and
-  every observation with its date, plus the URL the route was built at.
-- **A `<wpt>` at every junction and trailhead passed**, named, with any observation
-  on that node in its description. The Fig Trailhead kayak note travels this way.
-- **A `<wpt>` at the midpoint of every leg that has observations**, named
-  "Conditions: …", with the notes in its description. A device that shows waypoints
-  and nothing else still shows the conditions where they apply. One per segment, even
-  when the leg is walked twice.
+So the builder shows no notes. Each leg's trail name links to its trail page, where the
+notes are dated and in context. It no longer loads `observations.json` or
+`conditions.js`.
 
-Observation text is rendered by the same module the screen uses
-([`conditions.js`](../public/js/conditions.js), [#19](https://github.com/jacobemerick/mazatzalhiking/issues/19)),
-so a GPX says `[2026-05-23, Brush] …` in the same order the page shows it. The KML is
-the same content as a `LineString` and `Point` placemarks with HTML descriptions.
-
-The file's own description says what the trail pages say: every leg is a track Jacob
-walked and recorded, notes carry their date, and conditions may change rapidly.
+The files are the route and nothing else. A GPX has one `<trk>` per leg, named for the
+leg as walked ("Barnhardt Trail: Barnhardt Trailhead to Sandy Saddle / Barnhardt Trail
+Junction"), with every point and its DEM elevation. A KML has one `LineString`
+placemark per leg, with the same names. There are no waypoints and no descriptions.
+The file's name and the builder URL it came from are in the GPX metadata.
 
 ### 7. Names, not ids, everywhere a person reads
 
@@ -170,9 +164,6 @@ first.
 - **No trail names on the map.** Hover shows a segment's name; the map itself carries
   only lines and junction dots. Labels along lines are a rendering problem worth doing
   properly rather than approximately.
-- **No photos rendered.** An observation's photos are listed by caption. Where the files
-  live is #30's decision and none exist yet.
-- **No feature (spring, camp) markers.** `features` is empty in the graph. The code
-  path for node observations is the same one features will use.
+- **No feature (spring, camp) markers.** `features` is empty in the graph.
 - **The map does not re-fit when a leg is added.** It fits on load and when a shared
   route opens. Re-fitting on every click would fight the user's own panning.

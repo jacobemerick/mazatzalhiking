@@ -7,21 +7,21 @@
  * Data comes from public/data/, emitted by tools/build_site.py:
  *   graph.json        topology and per-leg stats, loaded once
  *   display.json      simplified lines for drawing, loaded once
- *   observations.json dated condition notes, loaded once
  *   geometry/<id>     full-resolution line, fetched per leg only at export
  *
  * The route lives in the URL as ?r=<leg>.<leg>.<leg>, where each leg is a
  * segment id optionally prefixed with '-' when walked to -> from. Flags are
  * optional on input (direction is inferred from connectivity, so a trail page
- * can link with bare ids) and always written on output. */
+ * can link with bare ids) and always written on output.
+ *
+ * Condition notes are not shown here or written into the files: the builder stays a
+ * map and a leg list, and each leg links to its trail page, where the notes live. */
 (function () {
   'use strict';
 
   var $ = function (id) { return document.getElementById(id); };
-  var M2FT = 3.28084;
 
   var G = null;          // { trails, nodes, segments } as id -> object, plus raw
-  var OBS = {};          // Conditions.index(observations.json)
   var LINES = {};        // segment id -> L.Polyline (visible)
   var HITS = {};         // segment id -> L.Polyline (wide, invisible, takes the click)
   var NODE_MARKS = {};   // node id -> L.CircleMarker
@@ -33,8 +33,7 @@
   function load() {
     return Promise.all([
       fetch('/data/graph.json').then(function (r) { return r.json(); }),
-      fetch('/data/display.json').then(function (r) { return r.json(); }),
-      fetch('/data/observations.json').then(function (r) { return r.json(); })
+      fetch('/data/display.json').then(function (r) { return r.json(); })
     ]).then(function (res) {
       var g = res[0];
       G = { raw: g, trails: {}, nodes: {}, segments: {}, retired: {}, display: res[1].segments, touching: {} };
@@ -46,7 +45,6 @@
         if (s.to !== s.from) (G.touching[s.to] = G.touching[s.to] || []).push(s.id);
       });
       (g.retired || []).forEach(function (r) { G.retired[r.id] = r; });
-      OBS = Conditions.index(res[2]);
     });
   }
 
@@ -220,14 +218,20 @@
              from: G.nodes[rev ? s.to : s.from].name, to: G.nodes[rev ? s.from : s.to].name };
   }
 
+  // The leg's trail names, each linked to its trail page.
+  function trailLinks(id) {
+    return G.segments[id].trails.map(function (t) {
+      var tr = G.trails[t];
+      return tr.slug ? '<a href="/trails/' + encodeURIComponent(tr.slug) + '/">' + esc(tr.name) + '</a>' : esc(tr.name);
+    }).join(' / ');
+  }
+
   function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   function tipHtml(id) {
     var s = G.segments[id], cand = candidates(), n = legName(id, false);
     var ok = cand === null || cand[id];
-    var c = Conditions.summary(OBS['segment:' + id]);
     return '<b>' + esc(n.trail) + '</b><small>' + esc(n.from) + ' to ' + esc(n.to) + ' &middot; ' + s.miles.toFixed(2) + ' mi</small>'
-      + (c ? '<span class="tip-cond">' + esc(c) + '</span>' : '')
       + (ok ? '<span class="tip-add">Click to add</span>' : '<small>Does not connect to the route</small>');
   }
 
@@ -242,10 +246,9 @@
   function showSegmentPopup(id, latlng) {
     var s = G.segments[id], n = legName(id, false);
     var div = document.createElement('div'); div.className = 'pop';
-    div.innerHTML = '<h3>' + esc(n.trail) + '</h3><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
+    div.innerHTML = '<h3>' + trailLinks(id) + '</h3><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
       + '<div class="leg-stats"><b>' + s.miles.toFixed(2) + '</b> mi &middot; +<b>' + Math.round(s.gain_ft) + '</b> / &minus;<b>' + Math.round(s.loss_ft) + '</b> ft</div>'
       + (s.sources && s.sources.length ? '<div class="leg-src">' + esc(s.sources.map(function (x) { return x.date; }).join(', ')) + '</div>' : '');
-    div.appendChild(Conditions.render(OBS['segment:' + id], { compact: true }));
     var why = document.createElement('p'); why.className = 'why';
     why.textContent = 'This leg does not connect to the end of your route.';
     div.appendChild(why);
@@ -259,7 +262,6 @@
     var div = document.createElement('div'); div.className = 'pop';
     div.innerHTML = '<h3>' + esc(n.name) + '</h3><div class="leg-ends">' + (n.kind === 'trailhead' ? 'Trailhead' : 'Junction')
       + (n.ele_ft != null ? ' &middot; ' + Math.round(n.ele_ft) + ' ft' : '') + '</div>';
-    div.appendChild(Conditions.render(OBS['node:' + n.id], { compact: true }));
     L.popup({ maxWidth: 320 }).setLatLng([n.lat, n.lon]).setContent(div).openOn(map);
   }
 
@@ -281,13 +283,12 @@
     route.forEach(function (l, i) {
       var s = G.segments[l.id], n = legName(l.id, l.rev);
       var li = document.createElement('li'); li.className = 'leg' + (i === route.length - 1 ? ' leg-tail' : ''); li.setAttribute('data-n', i + 1);
-      li.innerHTML = '<div class="leg-trail">' + esc(n.trail) + '</div><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
+      li.innerHTML = '<div class="leg-trail">' + trailLinks(l.id) + '</div><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
         + '<div class="leg-stats"><b>' + s.miles.toFixed(2) + '</b> mi &middot; +<b>' + Math.round(legGain(l)) + '</b> / &minus;<b>' + Math.round(legLoss(l)) + '</b> ft</div>'
         + (s.sources && s.sources.length ? '<div class="leg-src">' + esc(s.sources.map(function (x) { return x.date; }).join(', ')) + '</div>' : '');
-      li.appendChild(Conditions.render(OBS['segment:' + l.id], { compact: true }));
       li.addEventListener('mouseenter', function () { LINES[l.id].setStyle(STYLE.hover); });
       li.addEventListener('mouseleave', restyle);
-      li.addEventListener('click', function () { map.fitBounds(LINES[l.id].getBounds().pad(0.3)); });
+      li.addEventListener('click', function (e) { if (!e.target.closest('a')) map.fitBounds(LINES[l.id].getBounds().pad(0.3)); });
       ol.appendChild(li);
     });
 
@@ -326,76 +327,42 @@
     return a === b ? 'Loop from ' + a : a + ' to ' + b;
   }
 
-  /* Points for every leg in walking order, joined; plus the waypoints:
-   * every node passed (with its observations), and, for each leg that has
-   * observations, one waypoint at the leg's midpoint carrying them. */
+  /* Every leg's points in walking order, each named for the leg as walked. */
   function assemble() {
     return Promise.all(route.map(function (l) { return geometry(l.id); })).then(function (geoms) {
-      var pts = [], wpts = [], seen = {}, condDone = {};
-      function nodeWpt(nid) {
-        var n = G.nodes[nid];
-        wpts.push({ lat: n.lat, lon: n.lon, ele: n.ele_ft != null ? n.ele_ft / M2FT : null, name: n.name,
-                    desc: (n.kind === 'trailhead' ? 'Trailhead' : 'Junction') + (OBS['node:' + nid] ? '\n' + Conditions.plain(OBS['node:' + nid]) : '') });
-      }
-      route.forEach(function (l, i) {
-        var g = geoms[i], c = g.coordinates.slice();
+      return { name: routeName(), legs: route.map(function (l, i) {
+        var c = geoms[i].coordinates.slice(), n = legName(l.id, l.rev);
         if (l.rev) c.reverse();
-        if (pts.length) c = c.slice(1);
-        pts = pts.concat(c.map(function (p) { return { lon: p[0], lat: p[1], ele: p[2] }; }));
-        var start = legStart(l), end = legEnd(l);
-        if (!seen[start]) { seen[start] = true; nodeWpt(start); }
-        if (!seen[end]) { seen[end] = true; nodeWpt(end); }
-        var obs = OBS['segment:' + l.id];
-        if (obs && obs.length && !condDone[l.id]) {
-          condDone[l.id] = true;
-          var cum = g.cum_m, half = cum[cum.length - 1] / 2, k = 0;
-          while (k < cum.length - 1 && cum[k + 1] < half) k++;
-          var mid = g.coordinates[k], n = legName(l.id, l.rev);
-          wpts.push({ lat: mid[1], lon: mid[0], ele: mid[2], name: 'Conditions: ' + n.trail + ', ' + n.from + ' to ' + n.to, desc: Conditions.plain(obs) });
-        }
-      });
-      var t = totals();
-      var desc = route.map(function (l, i) {
-        var s = G.segments[l.id], n = legName(l.id, l.rev), obs = OBS['segment:' + l.id];
-        return (i + 1) + '. ' + n.trail + ': ' + n.from + ' to ' + n.to + ' (' + s.miles.toFixed(2) + ' mi, +' + Math.round(legGain(l)) + '/-' + Math.round(legLoss(l)) + ' ft)'
-          + (obs && obs.length ? '\n   ' + Conditions.plain(obs).replace(/\n/g, '\n   ') : '');
-      }).join('\n');
-      desc = t.miles.toFixed(1) + ' mi, +' + Math.round(t.gain) + ' / -' + Math.round(t.loss) + ' ft. Built at ' + location.href + '\n'
-        + 'Every leg is a GPS track that Jacob walked and recorded; condition notes carry the date observed. Conditions may change rapidly, so use notes with caution.\n\n' + desc;
-      return { name: routeName(), desc: desc, pts: pts, wpts: wpts, legs: route.map(function (l, i) {
-        var c = geoms[i].coordinates.slice(); if (l.rev) c.reverse(); return c; }) };
+        return { name: n.trail + ': ' + n.from + ' to ' + n.to, coords: c };
+      }) };
     });
   }
 
   function xml(t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function num(v, d) { return v == null ? null : Number(v).toFixed(d); }
 
+  // One <trk> per leg, so each carries its own name.
   function toGpx(r) {
     var out = ['<?xml version="1.0" encoding="UTF-8"?>',
       '<gpx version="1.1" creator="mazatzalhiking.com" xmlns="http://www.topografix.com/GPX/1/1">',
-      '<metadata><name>' + xml(r.name) + '</name><desc>' + xml(r.desc) + '</desc><link href="' + xml(location.href) + '"><text>Mazatzal Hiking route builder</text></link><time>' + new Date().toISOString() + '</time></metadata>'];
-    r.wpts.forEach(function (w) {
-      out.push('<wpt lat="' + num(w.lat, 6) + '" lon="' + num(w.lon, 6) + '">' + (w.ele != null ? '<ele>' + num(w.ele, 1) + '</ele>' : '') + '<name>' + xml(w.name) + '</name><desc>' + xml(w.desc) + '</desc></wpt>');
+      '<metadata><name>' + xml(r.name) + '</name><link href="' + xml(location.href) + '"><text>Mazatzal Hiking route builder</text></link><time>' + new Date().toISOString() + '</time></metadata>'];
+    r.legs.forEach(function (leg) {
+      out.push('<trk><name>' + xml(leg.name) + '</name><trkseg>');
+      leg.coords.forEach(function (p) { out.push('<trkpt lat="' + num(p[1], 6) + '" lon="' + num(p[0], 6) + '">' + (p[2] != null ? '<ele>' + num(p[2], 1) + '</ele>' : '') + '</trkpt>'); });
+      out.push('</trkseg></trk>');
     });
-    out.push('<trk><name>' + xml(r.name) + '</name><desc>' + xml(r.desc) + '</desc>');
-    r.legs.forEach(function (c) {
-      out.push('<trkseg>');
-      c.forEach(function (p) { out.push('<trkpt lat="' + num(p[1], 6) + '" lon="' + num(p[0], 6) + '">' + (p[2] != null ? '<ele>' + num(p[2], 1) + '</ele>' : '') + '</trkpt>'); });
-      out.push('</trkseg>');
-    });
-    out.push('</trk></gpx>');
+    out.push('</gpx>');
     return out.join('\n');
   }
 
   function toKml(r) {
-    var coords = r.pts.map(function (p) { return num(p.lon, 6) + ',' + num(p.lat, 6) + ',' + (p.ele != null ? num(p.ele, 1) : '0'); }).join(' ');
     var out = ['<?xml version="1.0" encoding="UTF-8"?>',
       '<kml xmlns="http://www.opengis.net/kml/2.2"><Document>',
-      '<name>' + xml(r.name) + '</name><description><![CDATA[' + xml(r.desc).replace(/\n/g, '<br>') + ']]></description>',
-      '<Style id="route"><LineStyle><color>ff3f70c8</color><width>4</width></LineStyle></Style>',
-      '<Placemark><name>' + xml(r.name) + '</name><styleUrl>#route</styleUrl><LineString><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>' + coords + '</coordinates></LineString></Placemark>'];
-    r.wpts.forEach(function (w) {
-      out.push('<Placemark><name>' + xml(w.name) + '</name><description><![CDATA[' + xml(w.desc).replace(/\n/g, '<br>') + ']]></description><Point><coordinates>' + num(w.lon, 6) + ',' + num(w.lat, 6) + ',' + (w.ele != null ? num(w.ele, 1) : '0') + '</coordinates></Point></Placemark>');
+      '<name>' + xml(r.name) + '</name>',
+      '<Style id="route"><LineStyle><color>ff3f70c8</color><width>4</width></LineStyle></Style>'];
+    r.legs.forEach(function (leg) {
+      var coords = leg.coords.map(function (p) { return num(p[0], 6) + ',' + num(p[1], 6) + ',' + (p[2] != null ? num(p[2], 1) : '0'); }).join(' ');
+      out.push('<Placemark><name>' + xml(leg.name) + '</name><styleUrl>#route</styleUrl><LineString><tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode><coordinates>' + coords + '</coordinates></LineString></Placemark>');
     });
     out.push('</Document></kml>');
     return out.join('\n');
