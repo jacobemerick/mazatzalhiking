@@ -51,7 +51,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   # disallows /build/, the sitemap leaves it out and the landing page does not link
   # to it. true: all four open at once. Flip it in a PR of its own, after Jacob has
   # gone through the pages himself.
-  builderPublic = false
+  builderPublic = true
   description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have been walked."
   analyticsToken = "5b79bb3f6d16425f920c429acb8d4a59"
   # The contact form's Turnstile widget (public; its secret is the TURNSTILE_SECRET
