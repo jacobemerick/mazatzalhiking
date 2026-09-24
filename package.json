@@ -9,6 +9,9 @@
     "deploy": "tools/build.sh && wrangler deploy"
   },
   "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "axe-core": "4.13.0",
     "wrangler": "^4.118.0"
   }
 }

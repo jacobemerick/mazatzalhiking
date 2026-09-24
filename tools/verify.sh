@@ -12,3 +12,5 @@ cd "$(dirname "$0")/.."
 node tools/check_links.mjs
 node tools/check_builder.mjs   # these two drive headless Chrome ($CHROME, or the usual path)
 node tools/check_routes.mjs
+node tools/check_a11y.mjs     # axe-core, from node_modules (npm install)
+node tools/check_schema.mjs

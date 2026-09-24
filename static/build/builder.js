@@ -246,7 +246,7 @@
   function showSegmentPopup(id, latlng) {
     var s = G.segments[id], n = legName(id, false);
     var div = document.createElement('div'); div.className = 'pop';
-    div.innerHTML = '<h3>' + trailLinks(id) + '</h3><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
+    div.innerHTML = '<h2>' + trailLinks(id) + '</h2><div class="leg-ends">' + esc(n.from) + ' to ' + esc(n.to) + '</div>'
       + '<div class="leg-stats"><b>' + s.miles.toFixed(2) + '</b> mi &middot; +<b>' + Math.round(s.gain_ft) + '</b> / &minus;<b>' + Math.round(s.loss_ft) + '</b> ft</div>'
       + (s.sources && s.sources.length ? '<div class="leg-src">' + esc(s.sources.map(function (x) { return x.date; }).join(', ')) + '</div>' : '');
     var why = document.createElement('p'); why.className = 'why';
@@ -260,7 +260,7 @@
 
   function showNodePopup(n) {
     var div = document.createElement('div'); div.className = 'pop';
-    div.innerHTML = '<h3>' + esc(n.name) + '</h3><div class="leg-ends">' + (n.kind === 'trailhead' ? 'Trailhead' : 'Junction')
+    div.innerHTML = '<h2>' + esc(n.name) + '</h2><div class="leg-ends">' + (n.kind === 'trailhead' ? 'Trailhead' : 'Junction')
       + (n.ele_ft != null ? ' &middot; ' + Math.round(n.ele_ft) + ' ft' : '') + '</div>';
     L.popup({ maxWidth: 320 }).setLatLng([n.lat, n.lon]).setContent(div).openOn(map);
   }
