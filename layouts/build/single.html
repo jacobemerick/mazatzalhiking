@@ -6,8 +6,8 @@
 <title>Route builder — Mazatzal Hiking</title>
 <meta name="description" content="Click connecting trail segments in the Mazatzal Wilderness to build a route, then download it as GPX or KML.">
 <link rel="canonical" href="https://mazatzalhiking.com/build/">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#17150f">
+{{ if not site.Params.builderPublic }}<meta name="robots" content="noindex">
+{{ end }}<meta name="theme-color" content="#17150f">
 <meta property="og:title" content="Route builder — Mazatzal Hiking">
 <meta property="og:description" content="Click connecting trail segments to build a route, then download it as GPX or KML.">
 <meta property="og:type" content="website">
@@ -65,8 +65,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="builder.js"></script>
 
-<!-- Cloudflare Web Analytics -->
+{{ "<!-- Cloudflare Web Analytics -->" | safeHTML }}
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5b79bb3f6d16425f920c429acb8d4a59"}'></script>
-<!-- End Cloudflare Web Analytics -->
+{{ "<!-- End Cloudflare Web Analytics -->" | safeHTML }}
 </body>
 </html>

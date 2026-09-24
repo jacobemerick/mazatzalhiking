@@ -47,6 +47,11 @@ disableKinds = ["taxonomy", "term", "rss"]
     trails = "/trails/:slug/"
 
 [params]
+  # THE LAUNCH SWITCH (#47). false: the route builder carries noindex, robots.txt
+  # disallows /build/, the sitemap leaves it out and the landing page does not link
+  # to it. true: all four open at once. Flip it in a PR of its own, after Jacob has
+  # gone through the pages himself.
+  builderPublic = false
   description = "Build GPX and KML routes for the Mazatzal Wilderness from GPS tracks that have been walked."
   analyticsToken = "5b79bb3f6d16425f920c429acb8d4a59"
   # The contact form's Turnstile widget (public; its secret is the TURNSTILE_SECRET

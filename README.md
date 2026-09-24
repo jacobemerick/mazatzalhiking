@@ -2,10 +2,12 @@
 
 Route builder for the [Mazatzal Wilderness](https://www.fs.usda.gov/tonto) — stitch
 trusted GPS tracks into loops, lassos, figure-eights, and out-and-backs, then export
-GPX/KML with waypoints and trail-condition notes.
+GPX/KML. The trail pages, with dated condition notes, live at `/trails/`.
 
-The route builder exists at `/build/` but is not linked or indexed yet. The trail pages
-live at `/trails/`.
+The route builder exists at `/build/` but is not linked or indexed yet: `builderPublic`
+in `hugo.toml` is the launch switch. Its noindex tag, the `robots.txt` disallow, the
+sitemap entry and the landing page's "Build a route" button all follow it, and
+`tools/check_launch.mjs` fails the build if they ever disagree.
 
 ## Stack
 
@@ -20,7 +22,9 @@ notes are markdown under `content/trails/` — that is the file to open after a 
   are the landing and not-found pages verbatim
 - `content/trails/<slug>.md` — **the condition notes**, one file per trail
   (`docs/condition-observations.md` has the format); `content/about.md`
-- `static/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
+- `layouts/build/single.html` + `static/build/` — the route builder (Leaflet, plain JS;
+  see `docs/route-builder.md`); the page is a Hugo template only so the launch switch
+  can reach its noindex tag
 - `layouts/partials/observations.html` — renders the condition notes; only the trail
   pages show them
 - `static/css/site.css` — shared styles for the content pages
