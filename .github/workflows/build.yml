@@ -1,7 +1,9 @@
 name: Build
 
 # The same build Cloudflare runs, on every pull request, so a note that does not parse
-# or a template that drifts from conditions.js is red here before it is merged.
+# or a template that drifts from conditions.js is red here before it is merged. The
+# checks after it (#53) each run as their own job over that build's public/, so each
+# is its own required status check; tools/verify.sh runs the same checks locally.
 on:
   pull_request:
   push:
@@ -26,3 +28,19 @@ jobs:
             "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
           sudo dpkg -i /tmp/hugo.deb
       - run: ./tools/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public/
+          retention-days: 3
+
+  links:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - uses: actions/download-artifact@v4
+        with: { name: public, path: public/ }
+      - run: node tools/check_links.mjs
