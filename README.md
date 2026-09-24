@@ -63,7 +63,7 @@ After editing anything under `curation/`:
 npm install
 npm run dev      # tools/build.sh, then wrangler dev serving public/ at localhost:8787
 hugo server      # or just the pages, with live reload (run build_site.py first for data/)
-tools/verify.sh  # the build, then the checks CI runs over it: links, builder, shared route links
+tools/verify.sh  # the build, then every check CI runs: links, builder, route links, a11y, schema
 ```
 
 The contact form needs a `.dev.vars` (gitignored) for `wrangler dev`. Cloudflare's

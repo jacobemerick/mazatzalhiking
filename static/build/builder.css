@@ -75,8 +75,8 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.55rem; margin: .5
   font-family: var(--mono); font-size: .7rem; font-weight: 700; line-height: 1.35rem; text-align: center;
 }
 .leg-trail { font-weight: 600; }
-.leg-trail a, .pop h3 a { color: inherit; text-decoration: none; }
-.leg-trail a:hover, .pop h3 a:hover { color: var(--gold); text-decoration: underline; }
+.leg-trail a, .pop h2 a { color: inherit; text-decoration: none; }
+.leg-trail a:hover, .pop h2 a:hover { color: var(--gold); text-decoration: underline; }
 .leg-ends { color: var(--muted); font-size: .86rem; }
 .leg-stats { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; color: var(--muted); margin-top: .15rem; }
 .leg-stats b { color: var(--sand); font-weight: 600; }
@@ -115,7 +115,7 @@ h1 { font-family: var(--serif); font-weight: 600; font-size: 1.55rem; margin: .5
 .leaflet-popup-content-wrapper { background: var(--ink); color: var(--sand); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
 .leaflet-popup-tip { background: var(--ink); }
 .leaflet-popup-content { margin: .8rem .95rem; font-size: .88rem; line-height: 1.45; min-width: 220px; }
-.pop h3 { font-family: var(--serif); font-size: 1.05rem; margin: 0 0 .1rem; }
+.pop h2 { font-family: var(--serif); font-size: 1.05rem; margin: 0 0 .1rem; }
 .pop .leg-ends, .pop .leg-stats, .pop .leg-src { margin-top: .1rem; }
 .pop .why { margin: .5rem 0 0; font-size: .8rem; color: var(--muted); }
 .pop button { margin-top: .6rem; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--gold); background: var(--gold); color: var(--ink); font-weight: 600; cursor: pointer; }

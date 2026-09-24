@@ -3,6 +3,7 @@
 
     ./tools/build_site.py           # validate, then write static/data/ and data/
     ./tools/build_site.py --check   # validate only, write nothing
+    ./tools/build_site.py --observations   # print the parsed notes as JSON, nothing else
 
 Reads the authored graph under `curation/` and the authored condition notes under
 `content/trails/`, and writes two derived sets, both gitignored and rebuilt on every
@@ -240,4 +241,12 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if '--observations' in sys.argv:
+        # The observation document the schema describes, as parsed from content/trails/,
+        # for tools/check_schema.mjs. No validation here and nothing written.
+        try:
+            json.dump(load_observations()[0], sys.stdout, indent=1, ensure_ascii=False)
+        except O.ParseError as e:
+            sys.exit(f"  ERROR {e}")
+    else:
+        main()

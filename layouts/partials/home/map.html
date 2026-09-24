@@ -43,12 +43,12 @@
   {{- $line := printf `<polyline points="%s"/>` (delimit $xy " ") }}
   {{- $byTrail = merge $byTrail (dict $t.slug (add (index $byTrail $t.slug | default "") $line)) }}
 {{- end }}
-<svg class="net" viewBox="-12 -12 {{ add $w 24 }} {{ add $h 24 }}" role="img" aria-labelledby="net-title">
+<svg class="net" viewBox="-12 -12 {{ add $w 24 }} {{ add $h 24 }}" role="group" aria-labelledby="net-title">
   <title id="net-title">Map of the {{ printf "%.0f" $f.miles }} miles of recorded trail in and around the Mazatzal Wilderness</title>
   <image class="relief" href="/img/relief.webp" preserveAspectRatio="none" x="{{ printf "%.1f" (mul (mul (sub $r.west $minLon) $k) $s) }}" y="{{ printf "%.1f" (mul (sub $maxLat $r.north) $s) }}" width="{{ printf "%.1f" (mul (mul (sub $r.east $r.west) $k) $s) }}" height="{{ printf "%.1f" (mul (sub $r.north $r.south) $s) }}"/>
   <path class="wild" d="{{ delimit $d " " }}"/>
   {{- range $name, $lines := $rivers }}
-  <g class="river" aria-label="{{ $name }}">{{ $lines | safeHTML }}</g>
+  <g class="river" role="img" aria-label="{{ $name }}">{{ $lines | safeHTML }}</g>
   {{- end }}
   {{- range $t := sort site.Data.trails "name" }}
   <a href="/trails/{{ $t.slug }}/" class="{{ $t.kind }}" data-name="{{ $t.name }}" data-miles="{{ printf "%.1f" $t.miles }}"><title>{{ $t.name }} &middot; {{ printf "%.1f" $t.miles }} mi</title>{{ index $byTrail $t.slug | safeHTML }}</a>
