@@ -138,8 +138,8 @@ overwhelming in the popups and the leg list. Jacob's call: keep the builder simp
 send anyone who wants the conditions to the trail pages.
 
 So the builder shows no notes. Each leg's trail name links to its trail page, where the
-notes are dated and in context. It no longer loads `observations.json` or
-`conditions.js`.
+notes are dated and in context. The builder's copy of the notes
+(`observations.json`) and its renderer (`conditions.js`) were removed with it.
 
 The files are the route and nothing else. A GPX has one `<trk>` per leg, named for the
 leg as walked ("Barnhardt Trail: Barnhardt Trailhead to Sandy Saddle / Barnhardt Trail

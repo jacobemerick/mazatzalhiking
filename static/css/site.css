@@ -113,7 +113,7 @@ section + section { margin-top: 3rem; }
 .leg-meta { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin: 0 0 .8rem; font-size: .88rem; color: var(--muted); }
 .leg-meta span:first-child { flex-basis: 100%; }
 
-/* ---------- observations (shared component, see public/js/conditions.js) ---------- */
+/* ---------- observations (layouts/partials/observations.html) ---------- */
 
 .obs-list { margin-top: .45rem; }
 .obs-empty { margin: 0; font-size: .88rem; color: var(--muted); font-style: italic; }

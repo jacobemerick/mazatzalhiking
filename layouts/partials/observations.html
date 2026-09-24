@@ -1,9 +1,7 @@
 {{- /*
-  The HTML twin of public/js/conditions.js render(). Same elements, same classes,
-  same wording, same date format, same rules: newest first, date always visible,
-  the empty state says nothing is recorded. tools/check_renderers.mjs fails the
-  build if the two ever disagree on the same input. Input: a list already sorted
-  newest-first by tools/build_site.py, or nil.
+  The one renderer for condition notes (#19): only the trail pages show them.
+  Newest first, date always visible, and the empty state says nothing is recorded.
+  Input: a list already sorted newest-first by tools/build_site.py, or nil.
 */ -}}
 {{- $labels := dict "brush" "Brush" "deadfall" "Deadfall" "tread" "Tread" "route-finding" "Route finding" "water" "Water" "access" "Access" -}}
 <div class="obs-list">

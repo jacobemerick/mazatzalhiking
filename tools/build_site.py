@@ -26,7 +26,9 @@ range"):
     public/data/graph.json          topology and stats, no point data   always, once
     public/data/display.json        every segment, simplified for the map   on map load
     public/data/geometry/<id>.json  one segment, full resolution            at export
-    public/data/observations.json   the condition records                   always, once
+
+The condition notes are not in the builder's data: they are shown only on the trail
+pages, which read them from data/conditions.json at build time.
 
 `graph.json` is the curated graph minus nothing: the geometry path and the source
 tracks stay, because provenance is the point and the builder shows it. `display.json`
@@ -158,8 +160,7 @@ def trails_data(graph, nodes):
 
 
 def conditions_data(obs):
-    """observations grouped by target, newest first, ties in file order -- the same
-    ordering conditions.js index() applies."""
+    """observations grouped by target, newest first, ties in file order."""
     by = {}
     for i, o in enumerate(obs['observations']):
         by.setdefault(o['target'], []).append((o['date'], -i, o))
@@ -180,7 +181,6 @@ def emit(graph, obs):
     files = {
         os.path.join(OUT, 'graph.json'): json.dumps(graph, indent=1, ensure_ascii=False) + '\n',
         os.path.join(OUT, 'display.json'): json.dumps(display, separators=(',', ':')) + '\n',
-        os.path.join(OUT, 'observations.json'): json.dumps(obs, indent=1, ensure_ascii=False) + '\n',
         os.path.join(DATA, 'trails.json'): json.dumps(trails_data(graph, nodes), indent=1, ensure_ascii=False) + '\n',
         os.path.join(DATA, 'nodes.json'): json.dumps(nodes, indent=1, ensure_ascii=False) + '\n',
         os.path.join(DATA, 'conditions.json'): json.dumps(conditions_data(obs), indent=1, ensure_ascii=False) + '\n',

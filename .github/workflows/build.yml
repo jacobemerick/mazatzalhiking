@@ -1,7 +1,7 @@
 name: Build
 
 # The same build Cloudflare runs, on every pull request, so a note that does not parse
-# or a template that drifts from conditions.js is red here before it is merged. The
+# or a template that does not render is red here before it is merged. The
 # checks after it (#53) each run as their own job over that build's public/, so each
 # is its own required status check; tools/verify.sh runs the same checks locally.
 on:
@@ -31,7 +31,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: public
-          path: public/
+          path: |
+            public/
+            data/
           retention-days: 3
 
   links:
@@ -42,7 +44,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - uses: actions/download-artifact@v4
-        with: { name: public, path: public/ }
+        with: { name: public, path: . }
       - run: node tools/check_links.mjs
 
   builder:    # the route builder, driven in the runner's Chrome
@@ -53,7 +55,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - uses: actions/download-artifact@v4
-        with: { name: public, path: public/ }
+        with: { name: public, path: . }
       - run: node tools/check_builder.mjs
 
   routes:    # shared ?r= links still load (tools/fixtures/shared-routes.txt)
@@ -64,5 +66,5 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - uses: actions/download-artifact@v4
-        with: { name: public, path: public/ }
+        with: { name: public, path: . }
       - run: node tools/check_routes.mjs

@@ -34,9 +34,8 @@ So the authoring layer moved and the build moved with it:
   introduction. The format is documented in
   [`condition-observations.md`](condition-observations.md).
 - `tools/build_site.py` parses those files into the observation document the schema
-  describes, validates it against the graph, and writes it for the builder
-  (`static/data/observations.json`) and for the templates (`data/conditions.json`,
-  grouped by target and sorted newest first). It also precomputes each trail's legs in
+  describes, validates it against the graph, and writes it for the templates
+  (`data/conditions.json`, grouped by target and sorted newest first). It also precomputes each trail's legs in
   walking order with figures for that direction (`data/trails.json`), so the templates
   never chain legs or swap gain and loss themselves.
 - `hugo` renders. `public/`, `data/` and `static/data/` are gitignored.
@@ -105,6 +104,11 @@ and compares with what Hugo wrote into every built page. A difference in structu
 wording, ordering or date format fails the build. (The first cut ran `conditions.js`
 itself at generation time and pasted the result in; that option went away with the
 Python generator.)
+
+*Superseded 2026-09-24.* The builder stopped showing notes (see
+[`route-builder.md`](route-builder.md) §6), which left the partial as the only
+renderer. `conditions.js`, `check_renderers.mjs` and the builder's copy of the notes
+(`static/data/observations.json`) were removed. #19 now holds by construction.
 
 ## The builder deep link
 
