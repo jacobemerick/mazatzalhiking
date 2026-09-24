@@ -74,6 +74,13 @@ the missing id is a retired segment the message names the halves it was split in
 the date, straight from the tombstone in the graph. That is what the tombstones were
 for.
 
+**Shared links are pinned.** [`tools/fixtures/shared-routes.txt`](../tools/fixtures/shared-routes.txt)
+lists links that must keep loading: loops, a lasso through `1P` walked backwards, an
+out-and-back, every trail page's link as of 2026-09-24, and one link through the
+retired `05`. `tools/check_routes.mjs` decodes each one with the builder in every pull
+request ([#53](https://github.com/jacobemerick/mazatzalhiking/issues/53)). A curation
+change that breaks a line should retire the segment, not edit the line.
+
 The URL is rewritten with `replaceState` on every change, so the address bar is always
 a shareable copy of the current route and the back button is not filled with every
 click.

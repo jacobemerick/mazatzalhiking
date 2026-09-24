@@ -1,0 +1,76 @@
+# Route links that must keep loading in the builder (#53, route URL stability).
+#
+# A shared ?r= link is a promise: someone bookmarked it or sent it to a friend. The
+# check decodes every line against the current graph. "ok" must load whole, with no
+# problem, and re-encode to the same string when it was written with direction
+# flags. "retired" must load up to the leg that was split and then name the split,
+# which proves the tombstones in curation/graph.json still fire.
+#
+# Add a line when a new kind of link starts circulating; never edit or remove one to
+# make the check pass. If a curation change breaks a line, retire the segment
+# (graph.json "retired") instead of deleting it.
+
+# Loops, a lasso, an out-and-back and a through route, as Copy link writes them ('-' = walked backwards)
+00.04.-0D.-0C.-01        ok        loop from Barnhardt Trailhead
+00.06.0A.0B.-03.-02      ok        loop from Barnhardt Trailhead
+-16.-15.19.-1O           ok        loop from South Fork Deer Creek Trailhead
+1M.-0X.-1L.-1T           ok        loop from Davenport Trailhead
+1C.-1P.-1C               ok        lasso from Little Saddle Mountain / Saddle Mountain Trail Junction; 1P starts and
+#                                  ends at one junction, so only the '-' says it is walked backwards
+00.-00                   ok        out and back from Barnhardt Trailhead
+-00.01                   ok        Sandy Saddle / Barnhardt Trail Junction to Y-Bar / Mazatzal Divide Trail Junction
+
+# A link through a retired segment: 05 was split into 0C and 0D on 2026-08-30, so the first
+# loop above, written with 05, must load two legs and then say so
+00.04.-05.-01            retired   the Barnhardt Trailhead loop, through 05
+
+# The "Open in the route builder" link on each trail page, as of 2026-09-24
+00.04                    ok        /trails/barnhardt-trail/
+0I                       ok        /trails/bear-spring-spur/
+1G                       ok        /trails/black-ridge-trail/
+08.0G.0H                 ok        /trails/brody-seep-trail/
+2R                       ok        /trails/brush-trail/
+2S.2Q                    ok        /trails/bull-springs-trail/
+0Y                       ok        /trails/club-ranch-spur/
+1J                       ok        /trails/copper-camp-trail/
+0S.0R.0P.-0O             ok        /trails/cornucopia-trail/
+1M.0Z.10.11              ok        /trails/davenport-wash-trail/
+13                       ok        /trails/davey-gowan-trail/
+2X                       ok        /trails/deadman-mesa-trail/
+-1Z                      ok        /trails/deadman-trail/
+14.15.17.18              ok        /trails/deer-creek-trail/
+2H.2I                    ok        /trails/dutchman-grave-trail/
+1K                       ok        /trails/fig-trail/
+0F                       ok        /trails/fisher-trail/
+-1O.-1N                  ok        /trails/fr-201/
+2T                       ok        /trails/fr-206/
+-1S.-1T.-1R              ok        /trails/fr-477/
+1Q                       ok        /trails/fr-479/
+-19                      ok        /trails/gold-ridge-trail/
+-02                      ok        /trails/half-moon-trail/
+-2O                      ok        /trails/highwater-trail/
+-12                      ok        /trails/horse-camp-seep-spur/
+1F.1E.1D                 ok        /trails/little-saddle-mountain-trail/
+-24                      ok        /trails/lost-spring-spur/
+-2C.-2B.28.27.-0B.-0A.-09.-07.-0D.-0C.-0K.0J.-0M.-0N ok        /trails/mazatzal-divide-trail/
+-2F                      ok        /trails/midnight-trail/
+0L                       ok        /trails/mount-peeley-spur/
+-21                      ok        /trails/mountain-spring-spur/
+29                       ok        /trails/north-peak-trail/
+2A                       ok        /trails/pole-hollow-canyon/
+-2G.-2E.-2D              ok        /trails/red-hills-trail/
+03                       ok        /trails/rock-creek-trail/
+1B.1C.1P                 ok        /trails/saddle-mountain-trail/
+2V.2U                    ok        /trails/saddle-ridge-trail/
+06                       ok        /trails/sandy-saddle-trail/
+1L                       ok        /trails/sears-trail/
+-0X.-0W.-0U.-0V          ok        /trails/sheep-creek-trail/
+-16                      ok        /trails/south-fork-deer-creek-trail/
+1H.1I                    ok        /trails/sunflower-trail/
+0T.0Q                    ok        /trails/thicket-spring-trail/
+1U.1V.2J.2K.2N.-2P.-2W   ok        /trails/verde-river-trail/
+-1A                      ok        /trails/west-fork-trail/
+2L.2M                    ok        /trails/wet-bottom-trail/
+-1X                      ok        /trails/willow-springs-spur/
+1W.1Y.20.22.23.25.26     ok        /trails/willow-springs-trail/
+01                       ok        /trails/y-bar-trail/
