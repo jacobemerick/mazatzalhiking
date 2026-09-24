@@ -1,0 +1,21 @@
+{{- /* The contact form, placed in a page's markdown with the contact-form shortcode.
+       It posts to /api/contact (src/worker.js); Turnstile is the spam check. */ -}}
+<form class="contact" id="contact" action="/api/contact" method="post">
+  <label>Name <span class="optional">(optional)</span>
+    <input type="text" name="name" maxlength="100" autocomplete="name">
+  </label>
+  <label>Email <span class="optional">(so I can reply)</span>
+    <input type="email" name="email" maxlength="254" autocomplete="email" required>
+  </label>
+  <label>Message
+    <textarea name="message" rows="7" maxlength="5000" required></textarea>
+  </label>
+  <label class="contact-trap" aria-hidden="true">Website
+    <input type="text" name="website" tabindex="-1" autocomplete="off">
+  </label>
+  <div class="cf-turnstile" data-sitekey="{{ site.Params.turnstileSiteKey }}" data-theme="dark"></div>
+  <button class="btn" type="submit">Send</button>
+  <p class="contact-status" role="status" aria-live="polite"></p>
+</form>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/js/contact.js" defer></script>

@@ -10,10 +10,12 @@ live at `/trails/`.
 ## Stack
 
 Hugo renders the site; Cloudflare Workers Builds runs `tools/build.sh` on every push and
-deploys `public/` as an assets-only Worker. Nothing generated is committed. The condition
+deploys `public/` as Worker static assets. Nothing generated is committed. The condition
 notes are markdown under `content/trails/` — that is the file to open after a hike.
 
-- `wrangler.jsonc` — Worker config (assets-only, no `main` script)
+- `wrangler.jsonc` — Worker config: static assets, plus `src/worker.js` for `/api/*` only
+- `src/worker.js` — the contact form endpoint (`POST /api/contact`), the site's one
+  piece of server code
 - `hugo.toml`, `layouts/` — the site's templates; `layouts/index.html` and `404.html`
   are the landing and not-found pages verbatim
 - `content/trails/<slug>.md` — **the condition notes**, one file per trail
@@ -60,6 +62,15 @@ npm run dev      # tools/build.sh, then wrangler dev serving public/ at localhos
 hugo server      # or just the pages, with live reload (run build_site.py first for data/)
 ```
 
+The contact form needs a `.dev.vars` (gitignored) for `wrangler dev`. Cloudflare's
+always-pass Turnstile test secret works locally, and local mail is written to
+`.wrangler/tmp/email/`, not sent:
+
+```
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+CONTACT_TO=you@example.com
+```
+
 ## Deploy
 
 Cloudflare Workers Builds is wired to this repo with build command `tools/build.sh`
@@ -75,6 +86,16 @@ npx wrangler versions upload --preview-alias "$(printf '%s' "$WORKERS_CI_BRANCH"
 
 which serves the branch at `<alias>-mazatzalhiking.jpemeric.workers.dev`. The
 workflow derives the alias the same way and includes it once it answers.
+
+The contact form needs, once, in the dashboard: Email Routing enabled on
+mazatzalhiking.com, the inbox that receives messages added as a verified destination
+address, and a Turnstile widget for the hostname (its site key is `turnstileSiteKey`
+in `hugo.toml`). And two Worker secrets:
+
+```bash
+npx wrangler secret put CONTACT_TO        # the verified destination address
+npx wrangler secret put TURNSTILE_SECRET  # the Turnstile widget's secret key
+```
 
 To deploy by hand:
 
