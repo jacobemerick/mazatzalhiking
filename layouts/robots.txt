@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
+{{ if not site.Params.builderPublic -}}
 # The builder is deliberately unlisted until it opens (it also carries noindex),
 # and the data files are for the builder, not for indexing.
 Disallow: /build/
+{{ else -}}
+# The data files are for the builder, not for indexing.
+{{ end -}}
 Disallow: /data/
 Sitemap: {{ "sitemap.xml" | absURL }}

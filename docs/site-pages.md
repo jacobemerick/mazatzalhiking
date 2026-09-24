@@ -120,6 +120,14 @@ The builder is still unlinked from the landing page and carries `noindex`; that 
 Jacob's and is unchanged by this. The trail pages link to it because that link is the
 point of the pages.
 
+The gate is one setting, `builderPublic` in `hugo.toml`
+([#47](https://github.com/jacobemerick/mazatzalhiking/issues/47)). Off, `/build/` carries
+`noindex`, `robots.txt` disallows it, the sitemap leaves it out and the landing page
+has no "Build a route" button. On, all four open at once. `/build/` is a content page
+(`content/build.md`, rendered whole by `layouts/build/single.html`) so the switch can
+reach it. The sitemap is Hugo's own template plus that one rule. Launch is a one-line
+PR.
+
 ## What the pages say, and what they do not
 
 - Distance and elevation come from the leg's recorded line and the DEM, never typed in.

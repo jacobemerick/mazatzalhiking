@@ -13,9 +13,14 @@
       explorer, then export it as a GPX or KML and carry it with you.
     </p>
     <div class="cta-row">
+      {{- if site.Params.builderPublic }}
+      <a class="btn" href="/build/">Build a route</a>
+      <a class="ghost" href="/trails/">Browse the trails</a>
+      {{- else }}
       <a class="btn" href="/trails/">Browse the trails</a>
       <a class="ghost" href="https://github.com/jacobemerick/mazatzalhiking" target="_blank" rel="noopener">Follow along on GitHub</a>
       <span class="status"><span class="dot"></span> In development</span>
+      {{- end }}
     </div>
   </div>
   <figure class="split-map">
