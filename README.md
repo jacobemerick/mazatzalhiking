@@ -21,9 +21,8 @@ notes are markdown under `content/trails/` — that is the file to open after a 
 - `content/trails/<slug>.md` — **the condition notes**, one file per trail
   (`docs/condition-observations.md` has the format); `content/about.md`
 - `static/build/` — the route builder (Leaflet, plain JS; see `docs/route-builder.md`)
-- `static/js/conditions.js` — the builder's observation renderer;
-  `layouts/partials/observations.html` is its twin for the pages, and
-  `tools/check_renderers.mjs` fails the build if they disagree
+- `layouts/partials/observations.html` — renders the condition notes; only the trail
+  pages show them
 - `static/css/site.css` — shared styles for the content pages
 - `static/data/`, `data/`, `public/` — built, never committed
 - `archive/` — immutable recorded GPX

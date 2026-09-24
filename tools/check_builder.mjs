@@ -19,16 +19,17 @@
  * The two legs are chosen from the data, not named, so the check follows the graph
  * as it changes.
  *
- *   node tools/check_builder.mjs        # after hugo has built public/
+ *   node tools/check_builder.mjs        # after tools/build.sh (reads public/ and data/)
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, serve, browser } from './lib/headless.mjs';
 
 const G = JSON.parse(readFileSync(join(ROOT, 'public/data/graph.json'), 'utf8'));
-const OBS = JSON.parse(readFileSync(join(ROOT, 'public/data/observations.json'), 'utf8')).observations;
+// The notes the trail pages show (the builder has none), from the build's Hugo data.
+const CONDITIONS = JSON.parse(readFileSync(join(ROOT, 'data/conditions.json'), 'utf8'));
 const NODE = Object.fromEntries(G.nodes.map(n => [n.id, n]));
-const notes = id => OBS.filter(o => o.target === `segment:${id}`);
+const notes = id => CONDITIONS[`segment:${id}`] || [];
 const touches = (s, node) => s.from === node || s.to === node;
 
 // Click leg A, then a leg B that touches A's start and not its end. The builder must
