@@ -53,14 +53,13 @@ GPX = os.path.join(ROOT, 'archive', 'gpx')
 GRAPH = os.path.join(ROOT, 'curation', 'graph.json')
 GEOM = os.path.join(ROOT, 'curation', 'geometry')
 
-DRY = '--dry-run' in sys.argv
-
-
-def corpus():
-    """Raw tracks, straight from the archive."""
+def corpus(extra=()):
+    """Raw tracks, straight from the archive, plus any `extra` trips (shaped like
+    inventory.load()'s) that are not archived yet -- how ingest_trip.py --dry-run
+    shows what a new track would do without copying it in."""
     tracks = []
     trips, _ = load(GPX)
-    for t in trips:
+    for t in list(trips) + list(extra):
         for si, seg in enumerate(t['segs']):
             tracks.append(dict(key=f"{t['file']}#{si}", file=t['file'], date=t['date'],
                                pts=[(p[0], p[1], p[2]) for p in seg]))
@@ -90,8 +89,9 @@ def recover_arc(seg, coords, tracks):
     return None
 
 
-def main():
-    tracks = corpus()
+def rebuild(dry=False, extra=(), save_dem=True):
+    """Rebuild everything; returns the totals and, per segment, how its line changed."""
+    tracks = corpus(extra)
     by_key = {t['key']: t for t in tracks}
     cfg = C.config()
 
@@ -201,11 +201,13 @@ def main():
     need = len({E.key(x, y) for x, y in allpts} - set(cache))
     if need:
         print(f'sampling {need:,} new points from 3DEP...')
-    _, cache = E.sample(allpts, cache,
+    _, cache = E.sample(allpts, cache, save=save_dem,
                         progress=lambda d, n: print(f'  {d:,}/{n:,}', flush=True))
 
     missing = 0
+    changes = {}
     for sid, (seg, arc, pts, votes, trimmed) in lines.items():
+        old_miles = seg['miles']
         # Everything below is derived from the rounded values that actually get
         # written, never from the full-precision ones. Deriving from the latter
         # produces an artifact that cannot reproduce its own numbers -- which is
@@ -249,7 +251,11 @@ def main():
                 'trimmed_points': trimmed,
             },
         }
-        if not DRY:
+        old = json.load(open(os.path.join(GEOM, f'{sid}.json')))
+        if old['coordinates'] != coords:
+            changes[sid] = dict(name=seg['name'], miles=(old_miles, seg['miles']),
+                                passes=votes['passes'], max_shift_m=votes['max_shift_m'])
+        if not dry:
             tmp = os.path.join(GEOM, f'.{sid}.tmp')
             with open(tmp, 'w') as f:
                 json.dump(out, f, separators=(',', ':'))
@@ -257,7 +263,7 @@ def main():
 
     after = dict(miles=sum(s['miles'] for s in graph['segments']),
                  gain=sum(s['gain_ft'] for s in graph['segments']))
-    if not DRY:
+    if not dry:
         tmp = GRAPH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(graph, f, indent=2)
@@ -280,7 +286,13 @@ def main():
               f'{2*len(lines)} endpoints, pre-existing, max 40 m trace tolerance):')
         for sid, nid, d in sorted(drift, key=lambda x: -x[2])[:8]:
             print(f'  segment {sid} node {nid}: {d:.1f} m')
-    if DRY:
+    return dict(before=before, after=after, changes=changes)
+
+
+def main():
+    dry = '--dry-run' in sys.argv
+    rebuild(dry=dry)
+    if dry:
         print('\n--dry-run: nothing written')
 
 

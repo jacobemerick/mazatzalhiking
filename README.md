@@ -45,6 +45,16 @@ The seep was running again after the monsoon.
 
 One sentence per line. Then `./tools/build.sh` to check it parses and see it rendered.
 
+After a new trip, the track and report go in first, and the tool says which headings to write under:
+
+```bash
+./tools/ingest_trip.py ~/Desktop/track.gpx 2026-09-27 --triplog ~/Desktop/report.md --dry-run
+./tools/ingest_trip.py ~/Desktop/track.gpx 2026-09-27 --triplog ~/Desktop/report.md --stub
+./tools/build.sh            # once every stubbed ### line has a category and text
+```
+
+The report is plain markdown: one `## ` heading per stretch of trail, text under each.
+
 ## Data changes
 
 After editing anything under `curation/`:

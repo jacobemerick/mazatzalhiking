@@ -105,9 +105,10 @@ def _fetch(points):
     raise last
 
 
-def sample(coords, cache=None, progress=None):
+def sample(coords, cache=None, progress=None, save=True):
     """Elevation in metres for [(lon, lat), ...]. Cached on disk, so only the
-    coordinates that have never been asked for cost a request."""
+    coordinates that have never been asked for cost a request. `save=False` keeps
+    new samples in memory only, for a dry run."""
     cache = load_cache() if cache is None else cache
     want, seen = [], set()
     for lon, lat in coords:
@@ -122,7 +123,8 @@ def sample(coords, cache=None, progress=None):
             except (TypeError, ValueError):
                 v = None
             cache[key(loc['x'], loc['y'])] = v
-        save_cache(cache)
+        if save:
+            save_cache(cache)
         if progress:
             progress(min(i + BATCH, len(want)), len(want))
     return [cache.get(key(lon, lat)) for lon, lat in coords], cache

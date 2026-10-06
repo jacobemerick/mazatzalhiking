@@ -545,6 +545,21 @@
     "06"
    ],
    "note": "No track: the maintenance-trip recordings were left out of the archive as duplicative and noisy (long stationary stretches). Up Barnhardt Trail, then the first stretch of Sandy Saddle Trail between Barnhardt and Castersen Seep. Segment 06 is partial."
+  },
+  {
+   "file": "triplog/2026-09-27.md",
+   "date": "2026-09-27",
+   "gpx": "RS_CopperCampLoop_233857.gpx",
+   "basis": "gpx",
+   "segments": [
+    "1B",
+    "1C",
+    "0V",
+    "0U",
+    "1J",
+    "0W"
+   ],
+   "note": "Partial: 1J (58%), 0W (89%)."
   }
  ]
 }

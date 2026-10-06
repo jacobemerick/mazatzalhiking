@@ -8,6 +8,17 @@ It can be used with nearby trails and off-trail options to make for solid backpa
 
 ## Copper Camp Trailhead to Copper Camp Flat {#1J}
 
+### 2026-09-27 route-finding {source="haz/triplog/2026-09-27.md"}
+Copper Camp Trail was slightly more difficult than Sheep Creek, yet easier than I remembered.
+Had some difficulty tracking the trail near 5400', where the cairns and tread didn't seem to be on the same route.
+On the big drop to the creek the tread was practically invisible, a pure cairn-hunt.
+
+### 2026-09-27 brush {source="haz/triplog/2026-09-27.md"}
+Along the creek I followed one or two river bank sections and fought through the thick growth, then boulder-hopped and fought with riparian growth.
+
+### 2026-09-27 water {source="haz/triplog/2026-09-27.md"}
+A few sections of Copper Camp Creek had water, but they were few and far between, and some of them looked very nasty.
+
 ### 2017-04-14 route-finding {source="haz/triplog/2017-04-14.md"}
 Trail starts humble enough - no formal trail sign, horse gate is overgrown w/ prickly pear, sporadic tread, and few cairns for the first mile.
 
