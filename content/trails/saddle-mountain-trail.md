@@ -14,6 +14,9 @@ Well-maintained, easy access to the AZT from Mormon Grove Trailhead.
 
 ## Little Saddle Mountain to Sheep Creek {#1C}
 
+### 2026-09-27 tread {source="haz/triplog/2026-09-27.md"}
+Easy going, trail is in great shape.
+
 ### 2017-11-18 tread {source="haz/triplog/2017-11-18.md"}
 Still in fantastic shape.
 Was a piece of cake to walk in the dark, even when a few overgrown branches cast scary shadows over the last mile or so.
