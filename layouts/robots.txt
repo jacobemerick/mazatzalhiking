@@ -1,11 +1,10 @@
 User-agent: *
 Allow: /
 {{ if not site.Params.builderPublic -}}
-# The builder is deliberately unlisted until it opens (it also carries noindex),
-# and the data files are for the builder, not for indexing.
+# The builder is deliberately unlisted until it opens (it also carries noindex).
 Disallow: /build/
-{{ else -}}
-# The data files are for the builder, not for indexing.
 {{ end -}}
-Disallow: /data/
+# /data/ stays crawlable: the builder draws from it, and a crawler that cannot fetch it
+# renders an empty builder and reports /build/?r=… as a soft 404. static/_headers keeps
+# the files themselves out of the index.
 Sitemap: {{ "sitemap.xml" | absURL }}

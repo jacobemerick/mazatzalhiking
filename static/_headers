@@ -1,0 +1,4 @@
+# The data files are for the builder, not for indexing. They stay crawlable (see
+# robots.txt) so a crawler can render the builder; this keeps them out of results.
+/data/*
+  X-Robots-Tag: noindex

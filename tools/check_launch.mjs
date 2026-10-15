@@ -4,7 +4,8 @@
  *
  *   off: /build/ carries noindex, robots.txt disallows /build/, the sitemap leaves it
  *        out, and the landing page does not link to it
- *   on:  none of those; /build/ is in the sitemap and the landing page links to it
+ *   on:  none of those; /build/ is in the sitemap and the landing page links to it,
+ *        and robots.txt leaves /data/ crawlable so the builder can render
  *
  *   node tools/check_launch.mjs        # after hugo has built public/
  */
@@ -27,4 +28,7 @@ const surfaces = {
 const wrong = Object.entries(surfaces).filter(([, hidden]) => hidden === on).map(([what]) => what);
 for (const what of wrong) console.error(`LAUNCH builderPublic is ${on}, but ${on ? what : what.replace(/ does not| leaves out| carries| disallows/, m => ({ ' does not': ' does', ' leaves out': ' lists', ' carries': ' lacks', ' disallows': ' allows' })[m])}`);
 console.log(`check_launch: builder is ${on ? 'public' : 'hidden'}; ${wrong.length ? `${wrong.length} of 4 surfaces disagree` : 'all 4 surfaces agree'}`);
+// Not a launch surface, but launching breaks without it: the builder fetches /data/,
+// and a crawler that obeys a Disallow there renders it empty (a soft 404).
+if (on && /^Disallow: \/data\//m.test(read('public/robots.txt'))) { console.error('LAUNCH robots.txt disallows /data/, which the public builder needs to render'); wrong.push('data'); }
 process.exit(wrong.length ? 1 : 0);
