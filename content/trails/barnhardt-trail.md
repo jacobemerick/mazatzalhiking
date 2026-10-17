@@ -10,6 +10,12 @@ The first segment is somewhat of a steep, steady climb, while the second segment
 
 ## Barnhardt Trailhead to Sandy Saddle {#00}
 
+### 2026-10-16 water
+Strong flow at Garden Seep, Hawaiian Mist, and Big Kahuna Falls.
+
+### 2026-10-16 brush
+Recent trail maintenance, especially near the Sandy Saddle junction, makes the trail very wide and easy to walk. 
+
 ### 2026-06-30 water {source="haz/triplog/2026-06-30.md"}
 I even heard some water trickling down Barnhardt Canyon on the hike up.
 
