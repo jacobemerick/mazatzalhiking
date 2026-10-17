@@ -8,6 +8,11 @@ It can be combined with Barnhardt to do a challenging 15 mile dayhike or any num
 
 ## Sandy Saddle Trail {#06}
 
+### 2026-10-16 brush
+Cleared section from "first camp" to the already-cleared section along the creek.
+It is getting even easier to walk to Castersen Seep!
+Only three easy sections left to clear.
+
 ### 2026-06-30 brush {source="haz/triplog/2026-06-30.md"}
 Two goals: clean up the 3 short sections of trail that remain to be cleared between Barnhardt Trail and Castersen Seep and haul my tools out.
 Bailed due to low water.

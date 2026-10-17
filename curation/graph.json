@@ -1123,8 +1123,8 @@
         "05"
       ],
       "miles": 2.93,
-      "gain_ft": 1009,
-      "loss_ft": 974,
+      "gain_ft": 1053,
+      "loss_ft": 1019,
       "geometry": "geometry/06.json",
       "sources": [
         {

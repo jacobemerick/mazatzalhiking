@@ -560,6 +560,16 @@
     "0W"
    ],
    "note": "Partial: 1J (58%), 0W (89%)."
+  },
+  {
+   "file": "triplog/2026-10-16.md",
+   "date": "2026-10-16",
+   "gpx": "RS_SandySaddleTM13_234300.gpx",
+   "basis": "gpx",
+   "segments": [
+    "00"
+   ],
+   "note": "Touched, not counted: 06 (12%)."
   }
  ]
 }
