@@ -10,6 +10,12 @@ The first segment is somewhat of a steep, steady climb, while the second segment
 
 ## Barnhardt Trailhead to Sandy Saddle {#00}
 
+### 2026-10-25 water
+Very strong flow at Garden Seep, Hawaiian Mist, and Big Kahuna Falls.
+
+### 2026-10-25 tread
+Minor damage in a few sections, seems due to a pack animal heading up in the muddy conditions
+
 ### 2026-10-16 water
 Strong flow at Garden Seep, Hawaiian Mist, and Big Kahuna Falls.
 
